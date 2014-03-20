@@ -1818,7 +1818,7 @@ This does NOT need to be called when using per-payload noACK commands. Per the d
 <p>This will not block until the 3 FIFO buffers are filled with data or a timeout is detected. If so the library will auto retry until a new payload is written or the TX buffers are flushed. Interrupts can be used to control the timeout period.</p>
 <p>This will never return a 0. It will not return until a packet is sent successfully</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="class_r_f24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
-<p>TX/RX/RT interrupt flags will be cleared every time write is called</p>
+<p>ONLY max retry interrupt flags will be cleared when writeBlocking is called</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the data to be sent </td></tr>
@@ -1857,7 +1857,7 @@ This does NOT need to be called when using per-payload noACK commands. Per the d
 <p>Be sure to call <a class="el" href="class_r_f24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe()</a> first to set the destination of where to write to.</p>
 <p>This will not block until the 3 FIFO buffers are filled with data. Once the FIFOs are full, writeFast will simply return 0. From a user perspective, just keep trying to send. The library will keep auto retrying the previous payload using the built in functionality.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="class_r_f24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
-<p>TX/RX/RT interrupt flags will be cleared every time write is called</p>
+<p>ONLY max retry interrupt flags will be cleared when writeFast is called</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the data to be sent </td></tr>
@@ -1876,7 +1876,7 @@ This does NOT need to be called when using per-payload noACK commands. Per the d
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 19 2014 18:25:26 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 19 2014 19:31:41 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
