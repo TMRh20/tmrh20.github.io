@@ -1519,7 +1519,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 <p>Optimization: New Command This function should be called as soon as transmission is finished to drop the radio back to STANDBY-I mode. If not issued, the radio will remain in STANDBY-II mode which, per the data sheet, is not a recommended operating mode.</p>
 <dl class="section note"><dt>Note</dt><dd>When transmitting data in rapid succession, it is still recommended by the manufacturer to drop the radio out of TX or STANDBY-II mode if there is time enough between sends for the FIFOs to empty.</dd>
 <dd>
-This does NOT need to be called when using per-payload noACK commands. Per the datasheet, the radio will automatically engage STANDBY-I mode when using the W_TX_PAYLOAD_NOACK command.</dd></dl>
+This does NOT need to be called when using per-payload noACK commands, or when using the regular write command since it is only capable of single payload transmission.. Per the datasheet, the radio will automatically engage STANDBY-I mode when using the W_TX_PAYLOAD_NOACK command.</dd></dl>
 <div class="fragment"><div class="line">Example:</div>
 <div class="line">        radio.writeFast(&amp;buf,32);</div>
 <div class="line">        radio.writeFast(&amp;buf,32);</div>
@@ -1876,7 +1876,7 @@ This does NOT need to be called when using per-payload noACK commands. Per the d
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 19 2014 19:54:21 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 19 2014 21:15:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
