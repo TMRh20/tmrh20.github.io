@@ -1,0 +1,30 @@
+﻿Merge branch 'master' of https://github.com/TMRh20/tmrh20.github.io
+
+Conflicts:
+	index.html
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 1 different commit each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# You are currently rebasing branch 'master' on '8c2749c'.
+#   (all conflicts fixed: run "git rebase --continue")
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    RF24/index.html
+#	new file:   images/bg_hr.png
+#	new file:   images/blacktocat.png
+#	new file:   images/icon_download.png
+#	new file:   images/sprite_download.png
+#	modified:   index.html
+#	new file:   javascripts/main.js
+#	new file:   params.json
+#	new file:   stylesheets/pygment_trac.css
+#	new file:   stylesheets/stylesheet.css
+#
+
