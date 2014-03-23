@@ -7,6 +7,7 @@ var searchData=
   ['setpalevel',['setPALevel',['../class_r_f24.html#ae14164610ab5af94cf44b2743daa8dc9',1,'RF24']]],
   ['setpayloadsize',['setPayloadSize',['../class_r_f24.html#a343e5d23477181011dea030fafb1954f',1,'RF24']]],
   ['setretries',['setRetries',['../class_r_f24.html#a4c6d3959c8320e64568395f4ef507aef',1,'RF24']]],
+  ['startfastwrite',['startFastWrite',['../class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8',1,'RF24']]],
   ['startlistening',['startListening',['../class_r_f24.html#a30a2733a3889bdc331fe2d2f4f0f7b39',1,'RF24']]],
   ['startwrite',['startWrite',['../class_r_f24.html#a9e011d4dfa89a2b06f47b7e0a97d9b42',1,'RF24']]],
   ['stoplistening',['stopListening',['../class_r_f24.html#a6f144d73fc447c8ac2d1a4166210fd88',1,'RF24']]]
