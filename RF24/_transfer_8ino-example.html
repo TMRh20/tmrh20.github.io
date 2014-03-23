@@ -82,10 +82,144 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <p>Updated: TMRh20 This example demonstrates half-rate transfer using the FIFO buffers</p>
 <p>It is an example of how to use the <a class="el" href="class_r_f24.html">RF24</a> class. Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and sending a 'T'. The data transfer will begin, with the receiver displaying the payload count. (32Byte Payloads)</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="fragment"><div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment">TMRh20 2014</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment"> This program is free software; you can redistribute it and/or</span></div>
+<div class="line"><span class="comment"> modify it under the terms of the GNU General Public License</span></div>
+<div class="line"><span class="comment"> version 2 as published by the Free Software Foundation.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_r_f24_8h.html">RF24.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">/*************  USER Configuration *****************************/</span></div>
+<div class="line">                                          <span class="comment">// Hardware configuration</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_r_f24.html">RF24</a> radio(48,49);                        <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10 </span></div>
+<div class="line"><span class="keywordtype">boolean</span> RADIO_NO = 0;  <span class="comment">//SET THIS TO 0 or 1 for 1st or 2nd radio</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">/***************************************************************/</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">const</span> uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
+<div class="line"></div>
+<div class="line">byte data[32];                           <span class="comment">//Data buffer for testing data transfer speeds</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> counter, rxTimer;          <span class="comment">//Counter and timer for keeping track transfer info</span></div>
+<div class="line"><span class="keywordtype">float</span> startTime, stopTime;  </div>
+<div class="line"><span class="keywordtype">bool</span> TX=1,RX=0,role=0;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setup(<span class="keywordtype">void</span>) {</div>
+<div class="line"></div>
+<div class="line">  Serial.begin(57600);</div>
+<div class="line">  printf_begin();</div>
+<div class="line"></div>
+<div class="line">  radio.begin();                           <span class="comment">// Setup and configure rf radio</span></div>
+<div class="line">  radio.setChannel(1);</div>
+<div class="line">  radio.setPALevel(RF24_PA_MAX);</div>
+<div class="line">  radio.setAutoAck(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
+<div class="line">  radio.setRetries(1,1);                   <span class="comment">// Optionally, increase the delay between retries &amp; # of retries</span></div>
+<div class="line">  radio.setCRCLength(RF24_CRC_8); </div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">if</span>(RADIO_NO){                            <span class="comment">//Lets the two radios choose the correct pipes depending on user selection</span></div>
+<div class="line">    radio.openWritingPipe(pipes[0]);</div>
+<div class="line">    radio.openReadingPipe(1,pipes[1]);</div>
+<div class="line">  }<span class="keywordflow">else</span>{</div>
+<div class="line">    radio.openWritingPipe(pipes[1]);</div>
+<div class="line">    radio.openReadingPipe(1,pipes[0]);</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  radio.startListening();                 <span class="comment">// Start listening</span></div>
+<div class="line">  radio.printDetails();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line">  </div>
+<div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/Transfer Rates/\n\r&quot;</span>);</div>
+<div class="line">  printf(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node\n\r&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  randomSeed(analogRead(0));              <span class="comment">//Seed for random number generation</span></div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;32; i++){</div>
+<div class="line">     data[i] = random(255);               <span class="comment">//Load the buffer with random data</span></div>
+<div class="line">  }</div>
+<div class="line">  radio.powerUp();                        <span class="comment">//Power up the radio</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>){</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span>(role == TX){</div>
+<div class="line">    </div>
+<div class="line">    delay(1500);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;Initiating Basic Data Transfer\n\r&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordtype">float</span> cycles = 1000; <span class="comment">//Change this to a higher or lower number. </span></div>
+<div class="line">    </div>
+<div class="line">    startTime = millis();</div>
+<div class="line">            </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;cycles; i++){        <span class="comment">//Loop through a number of cycles</span></div>
+<div class="line">      data[0] = i;                      <span class="comment">//Change the first byte of the payload for identification</span></div>
+<div class="line">      <span class="keywordflow">if</span>(!radio.writeFast(&amp;data,32)){   <span class="comment">//Write to the FIFO buffers</span></div>
+<div class="line">        counter++;                      <span class="comment">//Keep count of failed payloads</span></div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    stopTime = millis();</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">while</span>(!radio.txStandBy()){ }         <span class="comment">//This should be called to wait for completion and put the radio in standby mode after transmission</span></div>
+<div class="line">   </div>
+<div class="line">   <span class="keywordtype">float</span> numBytes = cycles * 32;</div>
+<div class="line">   <span class="keywordtype">float</span> rate = numBytes / (stopTime - startTime) / cycles;</div>
+<div class="line">    </div>
+<div class="line">   printf(<span class="stringliteral">&quot;Transfer complete at &quot;</span>); Serial.print(rate); printf(<span class="stringliteral">&quot; KB/s \n\r&quot;</span>);</div>
+<div class="line">   printf(<span class="stringliteral">&quot;%d of &quot;</span>,counter); Serial.print(cycles); printf(<span class="stringliteral">&quot; Packets Failed to Send\n\r&quot;</span>);</div>
+<div class="line">   counter = 0;   </div>
+<div class="line">    </div>
+<div class="line">   }</div>
+<div class="line">  </div>
+<div class="line">  </div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">if</span>(role == RX){</div>
+<div class="line">     <span class="keywordflow">while</span>(radio.available()){       </div>
+<div class="line">      radio.read(&amp;data,32);</div>
+<div class="line">      counter++;</div>
+<div class="line">     }</div>
+<div class="line">   <span class="keywordflow">if</span>(millis() - rxTimer &gt; 1000){</div>
+<div class="line">     rxTimer = millis();</div>
+<div class="line"><span class="comment">//     printf(&quot;Rx Rate: &quot;);</span></div>
+<div class="line"><span class="comment">//     Serial.print(counter*32/1000);</span></div>
+<div class="line"><span class="comment">//     printf(&quot; KB/s\n\r&quot;); </span></div>
+<div class="line">     printf(<span class="stringliteral">&quot;Payload Count: %d \n\r&quot;</span>, counter);</div>
+<div class="line">     counter = 0;</div>
+<div class="line">   }</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">//</span></div>
+<div class="line">  <span class="comment">// Change roles</span></div>
+<div class="line">  <span class="comment">//</span></div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> ( Serial.available() )</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordtype">char</span> c = toupper(Serial.read());</div>
+<div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;T&#39;</span> &amp;&amp; role == RX )</div>
+<div class="line">    {</div>
+<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
+<div class="line">      radio.stopListening();</div>
+<div class="line">      role = TX;                  <span class="comment">// Become the primary transmitter (ping out)</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == TX )</div>
+<div class="line">    {</div>
+<div class="line">      radio.startListening();</div>
+<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;</span>);      </div>
+<div class="line">      role = RX;                <span class="comment">// Become the primary receiver (pong back)</span></div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"><span class="comment">// vim:cin:ai:sts=2 sw=2 ft=cpp</span></div>
+</div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 22 2014 20:31:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 23 2014 15:00:15 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

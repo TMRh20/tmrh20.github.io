@@ -113,9 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab3b76fc9464d2e4103df87b6c51bbe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12cc453453c94969d4d3f0edb3778c83"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy</a> ()</td></tr>
 <tr class="separator:a12cc453453c94969d4d3f0edb3778c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa478a48fb80b8cca2c276c8aff32490"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa478a48fb80b8cca2c276c8aff32490"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>txStandBy</b> (bool block)</td></tr>
-<tr class="separator:afa478a48fb80b8cca2c276c8aff32490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52bd9f5e81ab3e6ce8d2a2516c50bdf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite</a> (const void *buf, uint8_t len)</td></tr>
+<tr class="separator:a52bd9f5e81ab3e6ce8d2a2516c50bdf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a127105eb7a3b351cfe777c1cec50627a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a127105eb7a3b351cfe777c1cec50627a">available</a> (void)</td></tr>
 <tr class="separator:a127105eb7a3b351cfe777c1cec50627a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e2eacacfba96426c192066f04054c5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a8e2eacacfba96426c192066f04054c5b">read</a> (void *buf, uint8_t len)</td></tr>
@@ -188,14 +187,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>txStandBy</b> (bool b
 <tr class="separator:a821285f3b54553f4402eb3fd0ac6d6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35e5f1533b7753806c42b76e782d917e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a35e5f1533b7753806c42b76e782d917e">isValid</a> ()</td></tr>
 <tr class="separator:a35e5f1533b7753806c42b76e782d917e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa478a48fb80b8cca2c276c8aff32490"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#afa478a48fb80b8cca2c276c8aff32490">txStandBy</a> (bool block)</td></tr>
+<tr class="separator:afa478a48fb80b8cca2c276c8aff32490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Low-level internal interface.</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Protected methods that address the chip directly. Regular users cannot ever call these. They are documented for completeness and for developers who may want to extend this class. </p>
 </div></td></tr>
-<tr class="memitem:a52bd9f5e81ab3e6ce8d2a2516c50bdf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite</a> (const void *buf, uint8_t len)</td></tr>
-<tr class="separator:a52bd9f5e81ab3e6ce8d2a2516c50bdf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a908f250f8f94505baf200e44118737d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a908f250f8f94505baf200e44118737d4">csn</a> (int mode)</td></tr>
 <tr class="separator:a908f250f8f94505baf200e44118737d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e570dd614d5a9d4a2b479ffcbfb2d16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_r_f24.html#a5e570dd614d5a9d4a2b479ffcbfb2d16">ce</a> (int level)</td></tr>
@@ -231,7 +230,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Driver for nRF24L01(+) 2.4GHz Wireless Transceiver </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="_getting_started_8ino-example.html#_a0">GettingStarted.ino</a>, <a class="el" href="led_remote_8pde-example.html#_a0">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#_a0">nordic_fob.pde</a>, <a class="el" href="pingpair_8ino-example.html#_a0">pingpair.ino</a>, <a class="el" href="pingpair_irq_8pde-example.html#_a0">pingpair_irq.pde</a>, <a class="el" href="pingpair_maple_8pde-example.html#_a0">pingpair_maple.pde</a>, <a class="el" href="pingpair_pl_8pde-example.html#_a0">pingpair_pl.pde</a>, <a class="el" href="pingpair_sleepy_8pde-example.html#_a0">pingpair_sleepy.pde</a>, <a class="el" href="scanner_8pde-example.html#_a0">scanner.pde</a>, <a class="el" href="starping_8pde-example.html#_a0">starping.pde</a>, and <a class="el" href="_transfer_8ino-example.html#_a0">Transfer.ino</a>.</dd>
+</dl></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8cd165a822c8f77e10782c6729c5b088"></a>
 <div class="memitem">
 <div class="memproto">
@@ -284,7 +284,14 @@ Protected Member Functions</h2></td></tr>
 <p>Test whether there are bytes available to be read</p>
 <dl class="section note"><dt>Note</dt><dd>Optimization: The available functino now checks the FIFO buffers directly for data instead of relying of interrupt flags.</dd>
 <dd>
-: Interrupt flags will not be cleared until a payload is actually read from the FIFO</dd></dl>
+Interrupt flags will not be cleared until a payload is actually read from the FIFO</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a9e011d4dfa89a2b06f47b7e0a97d9b42">startWrite()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 
 </div>
@@ -580,7 +587,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Get Dynamic Payload Size</p>
 <p>For dynamic payloads, this pulls the size of the payload off the chip</p>
-<p>Optimization: Corrupt packets are now detected and flushed per the manufacturer.</p>
+<dl class="section note"><dt>Note</dt><dd>Optimization: Corrupt packets are now detected and flushed per the manufacturer.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Payload length of last-received dynamic payload </dd></dl>
 
 </div>
@@ -637,7 +644,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Determine if an ack payload was received in the most recent call to <a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</p>
 <p>Call <a class="el" href="class_r_f24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to retrieve the ack payload.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: Calling this function NO LONGER clears the interrupt flag. The new functionality checks the RX FIFO buffer for an ACK payload instead of relying on interrupt flags.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Optimization: Calling this function NO LONGER clears the interrupt flag. The new functionality checks the RX FIFO buffer for an ACK payload instead of relying on interrupt flags.Reading the payload will clear the flags.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if an ack payload is available. </dd></dl>
 
 </div>
@@ -768,7 +775,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><div class="memdoc">
 <p>Enter low-power mode</p>
 <p>To return to normal power mode, either <a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> some data or startListening, or <a class="el" href="class_r_f24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp()</a>.</p>
-<p>Optimization: The radio will never enter power down unless instructed by the MCU via this command. </p>
+<dl class="section note"><dt>Note</dt><dd>Optimization: The radio will never enter power down unless instructed by the MCU via this command. </dd></dl>
 
 </div>
 </div>
@@ -1007,7 +1014,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>No return value. Use available. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>No return value. Use <a class="el" href="class_r_f24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>. </dd></dl>
 
 </div>
 </div>
@@ -1152,7 +1159,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 <p>Optimization: New Command</p>
 <p>This function is mainly used internally to take advantage of the auto payload re-use functionality of the chip, but can be beneficial to users as well.</p>
 <p>The function will instruct the radio to re-use the data in the FIFO buffers, and instructs the radio to re-send once the timeout limit has been reached. Used by writeFast and writeBlocking to initiate retries when a TX failure occurs. Retries are automatically initiated except with the standard <a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. This way, data is not flushed from the buffer until switching between modes.</p>
-<dl class="section note"><dt>Note</dt><dd>This is to be used AFTER auto-retry fails if wanting to resend using the built-in payload reuse features. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This is to be used AFTER auto-retry fails if wanting to resend using the built-in payload reuse features. After issuing <a class="el" href="class_r_f24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX()</a>, it will keep reending the same payload forever or until a payload is written to the FIFO, or a flush_tx command is given. </dd></dl>
 
 </div>
 </div>
@@ -1371,9 +1378,6 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 <a class="anchor" id="a52bd9f5e81ab3e6ce8d2a2516c50bdf8"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void RF24::startFastWrite </td>
@@ -1393,15 +1397,14 @@ Optimization: No longer boolean. Use available to determine if packets are avail
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <p>Non-blocking write to the open writing pipe used for buffered writes</p>
 <dl class="section note"><dt>Note</dt><dd>Optimization: This function now leaves the CE pin high, so the radio will remain in TX or STANDBY-II Mode until a <a class="el" href="class_r_f24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> command is issued. This allows the chip to be used to its full potential in TX mode.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a9e011d4dfa89a2b06f47b7e0a97d9b42">startWrite()</a> </dd>
 <dd>
 <a class="el" href="class_r_f24.html#ab3b76fc9464d2e4103df87b6c51bbe05">writeBlocking()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1458,8 +1461,10 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 </div><div class="memdoc">
 <p>Non-blocking write to the open writing pipe</p>
 <p>Just like <a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>, but it returns immediately. To find out what happened to the send, catch the IRQ and then call <a class="el" href="class_r_f24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89">whatHappened()</a>.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: This function again behaves as it did previously. <a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite()</a> has been moved to an internal function</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Optimization: This function again behaves as it did previously for backwards-compatibility. with user code. The library uses <a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite()</a> internally. This is mainly used for single-payload transactions.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
 <dd>
 <a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite()</a> </dd>
 <dd>
@@ -1586,6 +1591,23 @@ This does NOT need to be called when using per-payload noACK commands, or when u
 
 </div>
 </div>
+<a class="anchor" id="afa478a48fb80b8cca2c276c8aff32490"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24::txStandBy </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>block</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="afb97dc4bdf4d2d84ea44060ac5b4ed89"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1651,7 +1673,7 @@ This does NOT need to be called when using per-payload noACK commands, or when u
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: Improved performance and reliability Write to the open writing pipe</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Optimization: Improved performance slightly Write to the open writing pipe</dd></dl>
 <p>Be sure to call <a class="el" href="class_r_f24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe()</a> first to set the destination of where to write to.</p>
 <p>This blocks until the message is successfully acknowledged by the receiver or the timeout/retransmit maxima are reached. In the current configuration, the max delay here is 60ms.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="class_r_f24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
@@ -1876,6 +1898,13 @@ This does NOT need to be called when using per-payload noACK commands, or when u
 <p>This will never return a 0. It will not return until a packet is loaded successfully into the FIFO and TX is complete.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="class_r_f24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
 <p>ONLY max retry interrupt flags will be cleared when writeBlocking is called</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a52bd9f5e81ab3e6ce8d2a2516c50bdf8">startFastWrite()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#a9e011d4dfa89a2b06f47b7e0a97d9b42">startWrite()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the data to be sent </td></tr>
@@ -1915,6 +1944,9 @@ This does NOT need to be called when using per-payload noACK commands, or when u
 <p>This will not block until the 3 FIFO buffers are filled with data. Once the FIFOs are full, writeFast will simply wait for success or timeout, and return 1 or 0 respectively. From a user perspective, just keep trying to send the same data. The library will keep auto retrying the current payload using the built in functionality.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="class_r_f24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
 <p>ONLY max retry interrupt flags will be cleared when writeFast is called</p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
+<dd>
+<a class="el" href="class_r_f24.html#ab3b76fc9464d2e4103df87b6c51bbe05">writeBlocking()</a></dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to the data to be sent </td></tr>
@@ -1933,7 +1965,7 @@ This does NOT need to be called when using per-payload noACK commands, or when u
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 22 2014 20:31:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 23 2014 15:00:15 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
