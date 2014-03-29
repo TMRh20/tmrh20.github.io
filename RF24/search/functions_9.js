@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['openreadingpipe',['openReadingPipe',['../d0/d33/a00027.html#aa7e8523f86f9f8f20c274e0c89a5fd45',1,'RF24']]],
-  ['openwritingpipe',['openWritingPipe',['../d0/d33/a00027.html#a50c8e68ee840e1860a31dbdc83afbd77',1,'RF24']]]
+  ['read',['read',['../classRF24.html#a8e2eacacfba96426c192066f04054c5b',1,'RF24']]],
+  ['reusetx',['reUseTX',['../classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b',1,'RF24']]],
+  ['rf24',['RF24',['../classRF24.html#a8cd165a822c8f77e10782c6729c5b088',1,'RF24']]]
 ];
