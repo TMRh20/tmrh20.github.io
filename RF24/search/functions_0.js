@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['available',['available',['../a00027.html#a127105eb7a3b351cfe777c1cec50627a',1,'RF24::available(void)'],['../a00027.html#ace7dd139fabc16b77cb8325faa07620f',1,'RF24::available(uint8_t *pipe_num)']]]
+  ['available',['available',['../d0/d33/a00027.html#a127105eb7a3b351cfe777c1cec50627a',1,'RF24::available(void)'],['../d0/d33/a00027.html#ace7dd139fabc16b77cb8325faa07620f',1,'RF24::available(uint8_t *pipe_num)']]]
 ];
