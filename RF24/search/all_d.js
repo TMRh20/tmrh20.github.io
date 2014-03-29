@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['whathappened',['whatHappened',['../class_r_f24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89',1,'RF24']]],
-  ['write',['write',['../class_r_f24.html#a4cd4c198a47704db20b6b5cf0731cd58',1,'RF24']]],
-  ['write_5fpayload',['write_payload',['../class_r_f24.html#a8485d6059fc9b73263f33087bdb0fd66',1,'RF24']]],
-  ['write_5fregister',['write_register',['../class_r_f24.html#af6aa2abd130178de532e9873e906296c',1,'RF24::write_register(uint8_t reg, const uint8_t *buf, uint8_t len)'],['../class_r_f24.html#a326cd59fa7b61ddbb40e751341fb662d',1,'RF24::write_register(uint8_t reg, uint8_t value)']]],
-  ['writeackpayload',['writeAckPayload',['../class_r_f24.html#a65619238c25036c3de72dc2c1a1c6e52',1,'RF24']]],
-  ['writeblocking',['writeBlocking',['../class_r_f24.html#ab3b76fc9464d2e4103df87b6c51bbe05',1,'RF24']]],
-  ['writefast',['writeFast',['../class_r_f24.html#a47b2516993481b58e724d1274a7fd9cb',1,'RF24']]]
+  ['testcarrier',['testCarrier',['../a00027.html#ad0d522ccf39493510e64bf1740be790d',1,'RF24']]],
+  ['testrpd',['testRPD',['../a00027.html#a821285f3b54553f4402eb3fd0ac6d6c1',1,'RF24']]],
+  ['todo_20list',['Todo List',['../a00034.html',1,'']]],
+  ['toggle_5ffeatures',['toggle_features',['../a00027.html#a4a22253276f00b24dc8ab9309c03e8da',1,'RF24']]],
+  ['txstandby',['txStandBy',['../a00027.html#a12cc453453c94969d4d3f0edb3778c83',1,'RF24::txStandBy()'],['../a00027.html#a8bc14fa0a6e1c8ad7f11eeb707841048',1,'RF24::txStandBy(unsigned long timeout)'],['../a00027.html#afa478a48fb80b8cca2c276c8aff32490',1,'RF24::txStandBy(bool block)']]]
 ];

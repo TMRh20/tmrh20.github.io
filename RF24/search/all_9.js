@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['powerdown',['powerDown',['../class_r_f24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
-  ['powerup',['powerUp',['../class_r_f24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
-  ['print_5faddress_5fregister',['print_address_register',['../class_r_f24.html#a6528f1886d440428ad4930a35d030c43',1,'RF24']]],
-  ['print_5fbyte_5fregister',['print_byte_register',['../class_r_f24.html#a9e8b81bc997b05931ea6f9e241d106e6',1,'RF24']]],
-  ['print_5fobserve_5ftx',['print_observe_tx',['../class_r_f24.html#aa69594e3d8db3128edbf7e5bf4de03f8',1,'RF24']]],
-  ['print_5fstatus',['print_status',['../class_r_f24.html#a701efcbbe01ad137773e52aac1c44c17',1,'RF24']]],
-  ['printdetails',['printDetails',['../class_r_f24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]]
+  ['optimized_20high_20speed_20driver_20for_20nrf24l01_28_2b_29_202_2e4ghz_20wireless_20transceiver',['Optimized High Speed Driver for nRF24L01(+) 2.4GHz Wireless Transceiver',['../index.html',1,'']]],
+  ['optimized_20high_20speed_20arduino_20driver_20for_20nrf24l01_202_2e4ghz_20wireless_20transceiver',['Optimized High Speed Arduino driver for nRF24L01 2.4GHz Wireless Transceiver',['../a00026.html',1,'']]],
+  ['openreadingpipe',['openReadingPipe',['../a00027.html#aa7e8523f86f9f8f20c274e0c89a5fd45',1,'RF24']]],
+  ['openwritingpipe',['openWritingPipe',['../a00027.html#a50c8e68ee840e1860a31dbdc83afbd77',1,'RF24']]]
 ];
