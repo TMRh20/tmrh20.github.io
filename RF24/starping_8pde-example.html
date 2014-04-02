@@ -14,6 +14,7 @@
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,7 +25,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">Documenation for optimized fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -206,7 +207,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.begin();</div>
+<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Open pipes to other nodes for communication</span></div>
@@ -216,11 +217,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// and sends the pong back on the sending node&#39;s specific listening pipe.</span></div>
 <div class="line">  <span class="keywordflow">if</span> ( role == role_pong_back )</div>
 <div class="line">  {</div>
-<div class="line">    radio.openReadingPipe(1,talking_pipes[0]);</div>
-<div class="line">    radio.openReadingPipe(2,talking_pipes[1]);</div>
-<div class="line">    radio.openReadingPipe(3,talking_pipes[2]);</div>
-<div class="line">    radio.openReadingPipe(4,talking_pipes[3]);</div>
-<div class="line">    radio.openReadingPipe(5,talking_pipes[4]);</div>
+<div class="line">    radio.<a name="a2"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,talking_pipes[0]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(2,talking_pipes[1]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(3,talking_pipes[2]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(4,talking_pipes[3]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(5,talking_pipes[4]);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Each ping node has a talking pipe that it will ping into, and a listening</span></div>
@@ -228,22 +229,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( role == role_ping_out )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// Write on our talking pipe</span></div>
-<div class="line">    radio.openWritingPipe(talking_pipes[node_address-2]);</div>
+<div class="line">    radio.<a name="a3"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(talking_pipes[node_address-2]);</div>
 <div class="line">    <span class="comment">// Listen on our listening pipe</span></div>
-<div class="line">    radio.openReadingPipe(1,listening_pipes[node_address-2]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,listening_pipes[node_address-2]);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Start listening</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.startListening();</div>
+<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.printDetails();</div>
+<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Prompt the user to assign a node address if we don&#39;t have one</span></div>
@@ -264,20 +265,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> (role == role_ping_out)</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// First, stop listening so we can talk.</span></div>
-<div class="line">    radio.stopListening();</div>
+<div class="line">    radio.<a name="a6"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = millis();</div>
 <div class="line">    printf(<span class="stringliteral">&quot;Now sending %lu...&quot;</span>,time);</div>
-<div class="line">    radio.write( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
+<div class="line">    radio.<a name="a7"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Now, continue listening</span></div>
-<div class="line">    radio.startListening();</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Wait here until we get a response, or timeout (250ms)</span></div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = millis();</div>
 <div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">while</span> ( ! radio.available() &amp;&amp; ! timeout )</div>
+<div class="line">    <span class="keywordflow">while</span> ( ! radio.<a name="a8"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() &amp;&amp; ! timeout )</div>
 <div class="line">      <span class="keywordflow">if</span> (millis() - started_waiting_at &gt; 250 )</div>
 <div class="line">        timeout = <span class="keyword">true</span>;</div>
 <div class="line"></div>
@@ -290,7 +291,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Grab the response, compare, and send to debugging spew</span></div>
 <div class="line">      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> got_time;</div>
-<div class="line">      radio.read( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
+<div class="line">      radio.<a name="a9"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Spew it</span></div>
 <div class="line">      printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\n\r&quot;</span>,got_time,millis()-got_time);</div>
@@ -308,7 +309,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// if there is data ready</span></div>
 <div class="line">    uint8_t pipe_num;</div>
-<div class="line">    <span class="keywordflow">if</span> ( radio.available(&amp;pipe_num) )</div>
+<div class="line">    <span class="keywordflow">if</span> ( radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>(&amp;pipe_num) )</div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
 <div class="line">      <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> got_time;</div>
@@ -316,27 +317,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">while</span> (!done)</div>
 <div class="line">      {</div>
 <div class="line">        <span class="comment">// Fetch the payload, and see if this was the last one.</span></div>
-<div class="line">        done = radio.read( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
+<div class="line">        done = radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Spew it</span></div>
 <div class="line">        printf(<span class="stringliteral">&quot;Got payload %lu from node %i...&quot;</span>,got_time,pipe_num+1);</div>
 <div class="line">      }</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// First, stop listening so we can talk</span></div>
-<div class="line">      radio.stopListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Open the correct pipe for writing</span></div>
-<div class="line">      radio.openWritingPipe(listening_pipes[pipe_num-1]);</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(listening_pipes[pipe_num-1]);</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Retain the low 2 bytes to identify the pipe for the spew</span></div>
 <div class="line">      uint16_t pipe_id = listening_pipes[pipe_num-1] &amp; 0xffff;</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Send the final one back.</span></div>
-<div class="line">      radio.write( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line">      printf(<span class="stringliteral">&quot;Sent response to %04x.\n\r&quot;</span>,pipe_id);</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Now, resume listening so we catch the next packets.</span></div>
-<div class="line">      radio.startListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line"></div>
@@ -362,7 +363,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 29 2014 15:59:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

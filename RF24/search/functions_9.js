@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['read',['read',['../classRF24.html#a8e2eacacfba96426c192066f04054c5b',1,'RF24']]],
-  ['reusetx',['reUseTX',['../classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b',1,'RF24']]],
-  ['rf24',['RF24',['../classRF24.html#a8cd165a822c8f77e10782c6729c5b088',1,'RF24']]]
+  ['powerdown',['powerDown',['../classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
+  ['powerup',['powerUp',['../classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
+  ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]]
 ];

@@ -14,6 +14,7 @@
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,7 +25,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">Documenation for optimized fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,7 +92,17 @@ Design Goals</h1>
 </ul>
 <h1><a class="anchor" id="News"></a>
 News</h1>
-<p>March 2014: Fork currently being optimized for high speed and more responsive data transfers If issues are discovered with the documentation, please report them here: <a href="https://github.com/TMRh20/tmrh20.github.io/issues">here</a> </p>
+<p><b>March 2014: Optimization begun<br/>
+ April 2014: Optimization nearing completion </b><br/>
+</p>
+<ul>
+<li>The library has been tweaked to allow full use of the FIFO buffers for maximum transfer speeds</li>
+<li>Changes to read() functionality have increased reliability and response</li>
+<li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
+<li>Delays have been removed where possible to ensure maximum efficiency</li>
+<li>More! See the links below and class documentation for more info.</li>
+</ul>
+<p>If issues are discovered with the documentation, please report them here: <a href="https://github.com/TMRh20/tmrh20.github.io/issues">here</a> </p>
 <h1><a class="anchor" id="Useful"></a>
 Useful References</h1>
 <p>Please refer to:</p>
@@ -111,12 +122,14 @@ and Projects</h1>
 <ul>
 <li>Project blog: </li>
 <li><a href="http://TMRh20.blogspot.com">TMRh20.blogspot.com </a> </li>
+<li><a href="https://github.com/TMRh20">RF24 Wireless Audio Library (Coming Soon) </a> </li>
+<li><a href="https://github.com/TMRh20/RF24Network">Optimized RF24 Network Layer </a> </li>
 <li><a href="https://github.com/maniacbug/RF24">ManiacBug on GitHub (Original Library Author)</a> </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 29 2014 15:59:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

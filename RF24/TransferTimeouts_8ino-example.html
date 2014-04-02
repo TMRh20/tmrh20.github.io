@@ -14,6 +14,7 @@
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,7 +25,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">Documenation for optimized fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -79,8 +80,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">TransferTimeouts.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Updated: TMRh20 This example demonstrates the use of and extended timeout period and auto-retries/auto-reUse to increase reliability in noisy or low signal scenarios.</p>
-<p>Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and sending a 'T'. The data transfer will begin, with the receiver displaying the payload count and the data transfer rate.</p>
+<p><b>New: TMRh20 </b><br/>
+ This example demonstrates the use of and extended timeout period and auto-retries/auto-reUse to increase reliability in noisy or low signal scenarios. <br/>
+</p>
+<p>Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and sending a 'T'. The data <br/>
+ transfer will begin, with the receiver displaying the payload count and the data transfer rate.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment">TMRh20 2014</span></div>
 <div class="line"><span class="comment"></span></div>
@@ -116,18 +120,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.begin(57600);</div>
 <div class="line">  printf_begin();</div>
 <div class="line"></div>
-<div class="line">  radio.begin();                           <span class="comment">// Setup and configure rf radio</span></div>
-<div class="line">  radio.setChannel(1);                     <span class="comment">// Set the channel</span></div>
-<div class="line">  radio.setPALevel(RF24_PA_LOW);           <span class="comment">// Set PA LOW for this demonstration. We want the radio to be as lossy as possible for this example.</span></div>
-<div class="line">  radio.setDataRate(RF24_1MBPS);           <span class="comment">// Raise the data rate to reduce transmission distance and increase lossiness</span></div>
-<div class="line">  radio.setAutoAck(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
-<div class="line">  radio.setRetries(2,15);                  <span class="comment">// Optionally, increase the delay between retries. Want the number of auto-retries as high as possible (15)</span></div>
-<div class="line">  radio.setCRCLength(RF24_CRC_16);         <span class="comment">// Set CRC length to 16-bit to ensure quality of data</span></div>
-<div class="line">  radio.openWritingPipe(pipes[0]);         <span class="comment">// Open the default reading and writing pipe</span></div>
-<div class="line">  radio.openReadingPipe(1,pipes[1]);       </div>
+<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();                           <span class="comment">// Setup and configure rf radio</span></div>
+<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e">setChannel</a>(1);                     <span class="comment">// Set the channel</span></div>
+<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#ae14164610ab5af94cf44b2743daa8dc9">setPALevel</a>(RF24_PA_LOW);           <span class="comment">// Set PA LOW for this demonstration. We want the radio to be as lossy as possible for this example.</span></div>
+<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#aeb9920e7a95699748b003c4a839b0814">setDataRate</a>(RF24_1MBPS);           <span class="comment">// Raise the data rate to reduce transmission distance and increase lossiness</span></div>
+<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
+<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a>(2,15);                  <span class="comment">// Optionally, increase the delay between retries. Want the number of auto-retries as high as possible (15)</span></div>
+<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#a89f626fc4a58dd997153bcc0f8198b9e">setCRCLength</a>(RF24_CRC_16);         <span class="comment">// Set CRC length to 16-bit to ensure quality of data</span></div>
+<div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[0]);         <span class="comment">// Open the default reading and writing pipe</span></div>
+<div class="line">  radio.<a name="a9"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[1]);       </div>
 <div class="line">  </div>
-<div class="line">  radio.startListening();                 <span class="comment">// Start listening</span></div>
-<div class="line">  radio.printDetails();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line">  radio.<a name="a10"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                 <span class="comment">// Start listening</span></div>
+<div class="line">  radio.<a name="a11"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
 <div class="line">  </div>
 <div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/Transfer Rates/\n\r&quot;</span>);</div>
 <div class="line">  printf(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node\n\r&quot;</span>);</div>
@@ -136,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;32; i++){</div>
 <div class="line">     data[i] = random(255);               <span class="comment">//Load the buffer with random data</span></div>
 <div class="line">  }</div>
-<div class="line">  radio.powerUp();                        <span class="comment">//Power up the radio</span></div>
+<div class="line">  radio.<a name="a12"></a><a class="code" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a>();                        <span class="comment">//Power up the radio</span></div>
 <div class="line"></div>
 <div class="line">  </div>
 <div class="line">}</div>
@@ -153,8 +157,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> cycles = 1000;                              <span class="comment">// Change this to a higher or lower number. This is the number of payloads that will be sent.   </span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> transferCMD[] = {<span class="charliteral">&#39;H&#39;</span>,<span class="charliteral">&#39;S&#39;</span>,cycles };          <span class="comment">// Indicate to the other radio that we are starting, and provide the number of payloads that will be sent </span></div>
-<div class="line">    radio.writeFast(&amp;transferCMD,12);                         <span class="comment">// Send the transfer command</span></div>
-<div class="line">    <span class="keywordflow">if</span>(radio.txStandBy(timeoutPeriod)){                       <span class="comment">// If transfer initiation was successful, do the following</span></div>
+<div class="line">    radio.<a name="a13"></a><a class="code" href="classRF24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast</a>(&amp;transferCMD,12);                         <span class="comment">// Send the transfer command</span></div>
+<div class="line">    <span class="keywordflow">if</span>(radio.<a name="a14"></a><a class="code" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy</a>(timeoutPeriod)){                       <span class="comment">// If transfer initiation was successful, do the following</span></div>
 <div class="line">   </div>
 <div class="line">        startTime = millis();                                 <span class="comment">// For calculating transfer rate</span></div>
 <div class="line">        <span class="keywordtype">boolean</span> timedOut = 0;                                 <span class="comment">// Boolean for keeping track of failures</span></div>
@@ -162,7 +166,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;cycles; i++){                          <span class="comment">// Loop through a number of cycles</span></div>
 <div class="line">          data[0] = i;                                        <span class="comment">// Change the first byte of the payload for identification</span></div>
 <div class="line">       </div>
-<div class="line">          <span class="keywordflow">if</span>(!radio.writeBlocking(&amp;data,32,timeoutPeriod)){   <span class="comment">// If retries are failing and the user defined timeout is exceeded</span></div>
+<div class="line">          <span class="keywordflow">if</span>(!radio.<a name="a15"></a><a class="code" href="classRF24.html#ae6fd8d5ee490d54ae1cb2e8fefee535f">writeBlocking</a>(&amp;data,32,timeoutPeriod)){   <span class="comment">// If retries are failing and the user defined timeout is exceeded</span></div>
 <div class="line">              timedOut = 1;                                   <span class="comment">// Indicate failure</span></div>
 <div class="line">              counter = cycles;                               <span class="comment">// Set the fail count to maximum</span></div>
 <div class="line">              <span class="keywordflow">break</span>;                                          <span class="comment">// Break out of the for loop</span></div>
@@ -173,8 +177,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        stopTime = millis();                                  <span class="comment">// Capture the time of completion or failure</span></div>
 <div class="line">   </div>
 <div class="line">       <span class="comment">//This should be called to wait for completion and put the radio in standby mode after transmission, returns 0 if data still in FIFO (timed out), 1 if success</span></div>
-<div class="line">       <span class="keywordflow">if</span>(timedOut){ radio.txStandBy(); }                     <span class="comment">//Partially blocking standby, blocks until success or max retries. FIFO flushed if auto timeout reached</span></div>
-<div class="line">       <span class="keywordflow">else</span>{ radio.txStandBy(timeoutPeriod);     }            <span class="comment">//Standby, block until FIFO empty (sent) or user specified timeout reached. FIFO flushed if user timeout reached.</span></div>
+<div class="line">       <span class="keywordflow">if</span>(timedOut){ radio.<a class="code" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy</a>(); }                     <span class="comment">//Partially blocking standby, blocks until success or max retries. FIFO flushed if auto timeout reached</span></div>
+<div class="line">       <span class="keywordflow">else</span>{ radio.<a class="code" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy</a>(timeoutPeriod);     }            <span class="comment">//Standby, block until FIFO empty (sent) or user specified timeout reached. FIFO flushed if user timeout reached.</span></div>
 <div class="line">   </div>
 <div class="line">   }<span class="keywordflow">else</span>{                                             </div>
 <div class="line">       Serial.println(<span class="stringliteral">&quot;Communication not established&quot;</span>);       <span class="comment">//If unsuccessful initiating transfer, exit and retry later</span></div>
@@ -195,8 +199,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordflow">if</span>(role == RX){  </div>
 <div class="line">  </div>
 <div class="line">  <span class="keywordflow">if</span>(!transferInProgress){                       <span class="comment">// If a bulk data transfer has not been started</span></div>
-<div class="line">     <span class="keywordflow">if</span>(radio.available()){                      </div>
-<div class="line">        radio.read(&amp;data,32);                    <span class="comment">//Read any available payloads for analysis</span></div>
+<div class="line">     <span class="keywordflow">if</span>(radio.<a name="a16"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                      </div>
+<div class="line">        radio.<a name="a17"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(&amp;data,32);                    <span class="comment">//Read any available payloads for analysis</span></div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span>(data[0] == <span class="charliteral">&#39;H&#39;</span> &amp;&amp; data[4] == <span class="charliteral">&#39;S&#39;</span>){    <span class="comment">// If a bulk data transfer command has been received</span></div>
 <div class="line">          payloads = data[8];                    <span class="comment">// Read the first two bytes of the unsigned long. Need to read the 3rd and 4th if sending more than 65535 payloads</span></div>
@@ -207,8 +211,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        }</div>
 <div class="line">     }</div>
 <div class="line">  }<span class="keywordflow">else</span>{</div>
-<div class="line">     <span class="keywordflow">if</span>(radio.available()){                     <span class="comment">// If in bulk transfer mode, and a payload is available</span></div>
-<div class="line">       radio.read(&amp;data,32);                    <span class="comment">// Read the payload</span></div>
+<div class="line">     <span class="keywordflow">if</span>(radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                     <span class="comment">// If in bulk transfer mode, and a payload is available</span></div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(&amp;data,32);                    <span class="comment">// Read the payload</span></div>
 <div class="line">       rxTimer = millis();                      <span class="comment">// Reset the timeout timer</span></div>
 <div class="line">       counter++;                               <span class="comment">// Keep a count of received payloads</span></div>
 <div class="line">     }<span class="keywordflow">else</span></div>
@@ -240,16 +244,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;T&#39;</span> &amp;&amp; role == RX )</div>
 <div class="line">    {</div>
 <div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
-<div class="line">      radio.openWritingPipe(pipes[1]);</div>
-<div class="line">      radio.openReadingPipe(1,pipes[0]);</div>
-<div class="line">      radio.stopListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[1]);</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[0]);</div>
+<div class="line">      radio.<a name="a18"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line">      role = TX;                  <span class="comment">// Become the primary transmitter (ping out)</span></div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == TX )</div>
 <div class="line">    {</div>
-<div class="line">      radio.openWritingPipe(pipes[0]);</div>
-<div class="line">      radio.openReadingPipe(1,pipes[1]); </div>
-<div class="line">      radio.startListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[0]);</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[1]); </div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;</span>);      </div>
 <div class="line">      role = RX;                <span class="comment">// Become the primary receiver (pong back)</span></div>
 <div class="line">    }</div>
@@ -260,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 29 2014 15:59:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

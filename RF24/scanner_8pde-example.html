@@ -14,6 +14,7 @@
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,7 +25,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">Documenation for optimized fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,12 +128,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.begin();</div>
-<div class="line">  radio.setAutoAck(<span class="keyword">false</span>);</div>
+<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
+<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(<span class="keyword">false</span>);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Get into standby mode</span></div>
-<div class="line">  radio.startListening();</div>
-<div class="line">  radio.stopListening();</div>
+<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
+<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Print out header, high then low digit</span></div>
 <div class="line">  <span class="keywordtype">int</span> i = 0;</div>
@@ -170,15 +171,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">while</span> (i--)</div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Select this channel</span></div>
-<div class="line">      radio.setChannel(i);</div>
+<div class="line">      radio.<a name="a5"></a><a class="code" href="classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e">setChannel</a>(i);</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Listen for a little</span></div>
-<div class="line">      radio.startListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line">      delayMicroseconds(128);</div>
-<div class="line">      radio.stopListening();</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Did we get a carrier?</span></div>
-<div class="line">      <span class="keywordflow">if</span> ( radio.testCarrier() )</div>
+<div class="line">      <span class="keywordflow">if</span> ( radio.<a name="a6"></a><a class="code" href="classRF24.html#ad0d522ccf39493510e64bf1740be790d">testCarrier</a>() )</div>
 <div class="line">        ++values[i];</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
@@ -197,7 +198,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 29 2014 15:59:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

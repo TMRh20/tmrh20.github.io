@@ -14,6 +14,7 @@
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-custom.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -24,7 +25,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">Documenation for optimized fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -181,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.begin();</div>
+<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Open pipes to other nodes for communication</span></div>
@@ -192,11 +193,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> ( role == role_remote )</div>
 <div class="line">  {</div>
-<div class="line">    radio.openWritingPipe(pipe);</div>
+<div class="line">    radio.<a name="a2"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipe);</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">else</span></div>
 <div class="line">  {</div>
-<div class="line">    radio.openReadingPipe(1,pipe);</div>
+<div class="line">    radio.<a name="a3"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipe);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
@@ -204,13 +205,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> ( role == role_led )</div>
-<div class="line">    radio.startListening();</div>
+<div class="line">    radio.<a name="a4"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  radio.printDetails();</div>
+<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Set up buttons / LED&#39;s</span></div>
@@ -272,7 +273,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">if</span> ( different )</div>
 <div class="line">    {</div>
 <div class="line">      printf(<span class="stringliteral">&quot;Now sending...&quot;</span>);</div>
-<div class="line">      <span class="keywordtype">bool</span> ok = radio.write( button_states, num_button_pins );</div>
+<div class="line">      <span class="keywordtype">bool</span> ok = radio.<a name="a6"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( button_states, num_button_pins );</div>
 <div class="line">      <span class="keywordflow">if</span> (ok)</div>
 <div class="line">        printf(<span class="stringliteral">&quot;ok\n\r&quot;</span>);</div>
 <div class="line">      <span class="keywordflow">else</span></div>
@@ -290,14 +291,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( role == role_led )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// if there is data ready</span></div>
-<div class="line">    <span class="keywordflow">if</span> ( radio.available() )</div>
+<div class="line">    <span class="keywordflow">if</span> ( radio.<a name="a7"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() )</div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
 <div class="line">      <span class="keywordtype">bool</span> done = <span class="keyword">false</span>;</div>
 <div class="line">      <span class="keywordflow">while</span> (!done)</div>
 <div class="line">      {</div>
 <div class="line">        <span class="comment">// Fetch the payload, and see if this was the last one.</span></div>
-<div class="line">        done = radio.read( button_states, num_button_pins );</div>
+<div class="line">        done = radio.<a name="a8"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( button_states, num_button_pins );</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Spew it</span></div>
 <div class="line">        printf(<span class="stringliteral">&quot;Got buttons\n\r&quot;</span>);</div>
@@ -320,7 +321,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 29 2014 15:59:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
