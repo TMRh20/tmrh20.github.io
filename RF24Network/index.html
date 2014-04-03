@@ -138,7 +138,7 @@ Octal Addressing and Topology</h1>
 <tr>
 <td>111</td><td></td><td></td><td></td><td>121 </td><td></td><td></td><td>114</td><td></td><td>3rd level children of master. Children of 2nd level. </td></tr>
 <tr>
-<td></td><td></td><td></td><td>1121</td><td>2121</td><td></td><td>1114</td><td>2114</td><td>3114</td><td>4th level children of master. Children of 3rd level. </td></tr>
+<td></td><td></td><td></td><td></td><td>1114</td><td></td><td>1114</td><td>2114</td><td>3114</td><td>4th level children of master. Children of 3rd level. </td></tr>
 </table>
 <h1><a class="anchor" id="Routing"></a>
 How routing is handled</h1>
@@ -150,12 +150,11 @@ Starting up a node</h1>
 <h1><a class="anchor" id="Directionality"></a>
 Directionality</h1>
 <p>By default all nodes are always listening, so messages will quickly reach their destination.</p>
-<p>You may choose to sleep any nodes which do not have any active children on the network (i.e. leaf nodes). This is useful in a case where the leaf nodes are operating on batteries and need to sleep. This is useful for a sensor network. The leaf nodes can sleep most of the time, and wake every few minutes to send in a reading. However, messages cannot be sent to these sleeping nodes.</p>
-<p>In the future, I plan to write a system where messages can still be passed upward from the base, and get delivered when a sleeping node is ready to receive them. The radio and underlying driver support 'ack payloads', which will be a handy mechanism for this. </p>
+<p>You may choose to sleep any nodes which do not have any active children on the network (i.e. leaf nodes). This is useful in a case where the leaf nodes are operating on batteries and need to sleep. This is useful for a sensor network. The leaf nodes can sleep most of the time, and wake every few minutes to send in a reading. New: Messages can now bee sent to sleeping nodes. See sleepNode() in the class documentation. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 2 2014 00:41:31 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 2 2014 15:05:58 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

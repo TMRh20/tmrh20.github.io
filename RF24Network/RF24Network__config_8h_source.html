@@ -133,28 +133,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Progmem is Arduino-specific</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifdef ARDUINO</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#define PRIPSTR &quot;%S&quot;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">   50</a></span>&#160;<span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keywordtype">char</span> <span class="keyword">const</span> <a class="code" href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">prog_char</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">   51</a></span>&#160;<span class="keyword">typedef</span> uint16_t <a class="code" href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">   52</a></span>&#160;<span class="preprocessor">#define PSTR(x) (x)</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define printf_P printf</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a05dde754db9944c90362c1f861d358ba">   54</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define strlen_P strlen</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a75acaba9e781937468d0911423bc0c35">   55</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PROGMEM</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#aa59a94d7ea755db0d7811b543253ebc4">   56</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define pgm_read_word(p) (*(p)) </span></div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a7642e6d60f41fc769b32962c8c513668">   57</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PRIPSTR &quot;%s&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif // __RF24_CONFIG_H__</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor"></span><span class="comment">// vim:ai:cin:sts=2 sw=2 ft=cpp</span></div>
-<div class="ttc" id="RF24Network__config_8h_html_a66f96b2a50ea6c28afb3a2da6a89fc33"><div class="ttname"><a href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">prog_char</a></div><div class="ttdeci">char const prog_char</div><div class="ttdef"><b>Definition:</b> RF24Network_config.h:50</div></div>
-<div class="ttc" id="RF24Network__config_8h_html_a05ca2f20b55933ad782917161d54287d"><div class="ttname"><a href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a></div><div class="ttdeci">uint16_t prog_uint16_t</div><div class="ttdef"><b>Definition:</b> RF24Network_config.h:51</div></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define PRIPSTR &quot;%S&quot;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">   51</a></span>&#160;<span class="preprocessor"></span><span class="keyword">typedef</span> <span class="keywordtype">char</span> <span class="keyword">const</span> <a class="code" href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">prog_char</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">   52</a></span>&#160;<span class="keyword">typedef</span> uint16_t <a class="code" href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">   53</a></span>&#160;<span class="preprocessor">#define PSTR(x) (x)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">   54</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define printf_P printf</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a05dde754db9944c90362c1f861d358ba">   55</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define strlen_P strlen</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a75acaba9e781937468d0911423bc0c35">   56</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PROGMEM</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#aa59a94d7ea755db0d7811b543253ebc4">   57</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define pgm_read_word(p) (*(p))</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="RF24Network__config_8h.html#a7642e6d60f41fc769b32962c8c513668">   58</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PRIPSTR &quot;%s&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif // __RF24_CONFIG_H__</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span><span class="comment">// vim:ai:cin:sts=2 sw=2 ft=cpp</span></div>
+<div class="ttc" id="RF24Network__config_8h_html_a66f96b2a50ea6c28afb3a2da6a89fc33"><div class="ttname"><a href="RF24Network__config_8h.html#a66f96b2a50ea6c28afb3a2da6a89fc33">prog_char</a></div><div class="ttdeci">char const prog_char</div><div class="ttdef"><b>Definition:</b> RF24Network_config.h:51</div></div>
+<div class="ttc" id="RF24Network__config_8h_html_a05ca2f20b55933ad782917161d54287d"><div class="ttname"><a href="RF24Network__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a></div><div class="ttdeci">uint16_t prog_uint16_t</div><div class="ttdef"><b>Definition:</b> RF24Network_config.h:52</div></div>
 <div class="ttc" id="RF24Network__config_8h_html_a2332dcef61deaf30b01014f3bede4343"><div class="ttname"><a href="RF24Network__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a></div><div class="ttdeci">HardwareSPI SPI</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 2 2014 00:41:31 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 2 2014 15:05:58 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
