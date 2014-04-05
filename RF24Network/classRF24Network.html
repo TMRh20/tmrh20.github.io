@@ -124,6 +124,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8921392fbd695721c3d137f139a2a56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a8921392fbd695721c3d137f139a2a56e">sleepNode</a> (unsigned int cycles, int interruptPin)</td></tr>
 <tr class="memdesc:a8921392fbd695721c3d137f139a2a56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node.  <a href="#a8921392fbd695721c3d137f139a2a56e">More...</a><br/></td></tr>
 <tr class="separator:a8921392fbd695721c3d137f139a2a56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb09129760ac9b171833af3055b2b6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a> (uint8_t prescalar)</td></tr>
+<tr class="memdesc:acb09129760ac9b171833af3055b2b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br/>
+ wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s.  <a href="#acb09129760ac9b171833af3055b2b6f5">More...</a><br/></td></tr>
+<tr class="separator:acb09129760ac9b171833af3055b2b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2274c0548e35b5182a2f6ced222d0699"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a2274c0548e35b5182a2f6ced222d0699">parent</a> () const </td></tr>
 <tr class="memdesc:a2274c0548e35b5182a2f6ced222d0699"><td class="mdescLeft">&#160;</td><td class="mdescRight">This node's parent address.  <a href="#a2274c0548e35b5182a2f6ced222d0699">More...</a><br/></td></tr>
 <tr class="separator:a2274c0548e35b5182a2f6ced222d0699"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +163,7 @@ Protected Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2014 - Optimized Network Layer for RF24 Radios </p>
 <p>This class implements an OSI Network Layer using nRF24L01(+) radios driven by RF24 library. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="helloworld_rx_8ino-example.html#_a0">helloworld_rx.ino</a>, <a class="el" href="helloworld_tx_8ino-example.html#_a0">helloworld_tx.ino</a>, <a class="el" href="Network_Ping_8ino-example.html#_a0">Network_Ping.ino</a>, <a class="el" href="Network_Sleep_Timeouts_8ino-example.html#_a0">Network_Sleep_Timeouts.ino</a>, and <a class="el" href="sensornet_8pde-example.html#_a0">sensornet.pde</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="helloworld_rx_8ino-example.html#_a0">helloworld_rx.ino</a>, <a class="el" href="helloworld_tx_8ino-example.html#_a0">helloworld_tx.ino</a>, <a class="el" href="Network_Ping_8ino-example.html#_a0">Network_Ping.ino</a>, <a class="el" href="Network_Ping_Sleep_8ino-example.html#_a0">Network_Ping_Sleep.ino</a>, and <a class="el" href="sensornet_8pde-example.html#_a0">sensornet.pde</a>.</dd>
 </dl></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a814229a5a4e8e30f88a4bdce05807e50"></a>
 <div class="memitem">
@@ -530,6 +534,32 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="acb09129760ac9b171833af3055b2b6f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Network::setup_watchdog </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>prescalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br/>
+ wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s. </p>
+<div class="fragment"><div class="line"><a class="code" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a>(7);   <span class="comment">// Sets the WDT to trigger every second</span></div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prescalar</td><td>The WDT prescaler to define how often the node will wake up. When defining sleep mode cycles, this time period is 1 cycle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a8921392fbd695721c3d137f139a2a56e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -557,21 +587,20 @@ Protected Member Functions</h2></td></tr>
 <p>Sleep this node. </p>
 <dl class="section note"><dt>Note</dt><dd>NEW - Nodes can now be slept while the radio is not actively transmitting. </dd>
 <dd>
-Setting cycles to 0 will disable the timed wakeup. </dd>
-<dd>
 Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
-<p>This function will sleep the node only, while leaving the radio active in StandBy-I mode, which consumes 22uA compared to 0.9uA in full powerDown() mode.</p>
+<p>This function will sleep the node, with the radio mostly powered down in StandBy-I mode, which consumes .000022mA compared to 13.5mA in receive mode.</p>
 <p>The node can be awoken in two ways, both of which can be enabled simultaneously:</p>
 <ol type="1">
 <li>An interrupt - usually triggered by the radio receiving a payload. Must use pin 2 (interrupt 0) or 3 (interrupt 1) on Uno, Nano, etc.</li>
 <li>The watchdog timer waking the MCU after a designated period of time. <div class="fragment"><div class="line"><span class="keywordflow">if</span>(!network.available()){ network.sleepNode(1,0); }  <span class="comment">//Sleeps the node for 1 second or a payload is received</span></div>
 <div class="line"></div>
 <div class="line">Other options:</div>
-<div class="line">network.sleepNode(0,0);         <span class="comment">// Sleep this node forever or until a payload is received.</span></div>
-<div class="line">network.sleepNode(1,255);       <span class="comment">// Sleep this node for 1 second. Do not wake up until then, even if a payload is received ( no interrupt )</span></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<div class="line">network.sleepNode(0,0);         <span class="comment">// Sleep this node for the designated time period, or a payload is received.</span></div>
+<div class="line">network.sleepNode(1,255);       <span class="comment">// Sleep this node for 1 cycle. Do not wake up until then, even if a payload is received ( no interrupt )</span></div>
+</div><!-- fragment --> <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5" title="Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following tim...">setup_watchdog()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Cycles</td><td>The node will sleep in cycles of 1s. Using 2 will sleep 2 seconds, 3 sleeps 3s... </td></tr>
+    <tr><td class="paramname">cycles</td><td>The node will sleep in cycles of 1s. Using 2 will sleep 2 WDT cycles, 3 sleeps 3WDT cycles... </td></tr>
     <tr><td class="paramname">interruptPin</td><td>The interrupt number to use (0,1) for pins two and three on Uno,Nano. More available on Mega etc. </td></tr>
   </table>
   </dd>
@@ -723,7 +752,7 @@ Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 2 2014 19:47:53 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 08:35:28 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Newly Optimized RF24Network Layer: Network_Ping.ino</title>
+<title>Newly Optimized RF24Network Layer: Network_Ping_Sleep.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,16 +78,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Network_Ping.ino</div>  </div>
+<div class="title">Network_Ping_Sleep.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Example to give users an understanding of addressing and topology in the mesh network Using this sketch, each node will send a ping to the base every few seconds. The <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> library will route the message across the mesh to the correct node.</p>
+<p>Example: This is almost exactly the same as the Network_Ping example, but with use of the integrated sleep mode. This example demonstrates how nodes on the network utilize sleep mode to conserve power. For example, the radio itself will draw about 13.5mA in receive mode. In sleep mode, it will use as little as 22ua (.000022mA) of power when not actively transmitting or receiving data. In addition, the Arduino is powered down as well, dropping network power consumption dramatically compared to previous capabilities. <br/>
+ Note: Sleeping nodes generate traffic that will wake other nodes up. This may be mitigated with further modifications. Sleep payloads are currently always routed to the master node, which will wake up intermediary nodes. Routing nodes can be configured to go back to sleep immediately. The displayed millis() count will give an indication of how much a node has been sleeping compared to the others, as millis() will not increment while a node sleeps. <br/>
+</p>
+<ul>
+<li>Using this sketch, each node will send a ping to every other node in the network every few seconds.<br/>
+</li>
+<li>The <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> library will route the message across the mesh to the correct node.<br/>
+</li>
+</ul>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> Copyright (C) 2011 James Coliz, Jr. &lt;maniacbug@ymail.com&gt;</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment"> This program is free software; you can redistribute it and/or</span></div>
 <div class="line"><span class="comment"> modify it under the terms of the GNU General Public License</span></div>
 <div class="line"><span class="comment"> version 2 as published by the Free Software Foundation.</span></div>
+<div class="line"><span class="comment"> </span></div>
+<div class="line"><span class="comment"> 2014 - TMRh20: New sketch included with updated library</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
@@ -95,40 +105,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;avr/sleep.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;avr/power.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***********************************************************************</span></div>
 <div class="line"><span class="comment">************* Set the Node Address *************************************</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="keyword">const</span> uint16_t node_address_set[10] = { 00, 02, 05, 012, 015, 022, 025, 032, 035, 045 };</div>
+<div class="line"></div>
 <div class="line"><span class="comment">// 0 = Master, 1-2 = Top layer, 2-3 = Children of 1,2 respectively, 3-4 = Children of 2,3 respectively, etc...</span></div>
-<div class="line"></div>
-<div class="line">uint8_t NODE_ADDRESS = 0;</div>
+<div class="line">uint8_t NODE_ADDRESS = 1;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line">RF24 radio(7,8);                              <span class="comment">// CE &amp; CS pins to use (Using 7,8 on Uno,Nano)</span></div>
+<div class="line">RF24 radio(7,8);                                    <span class="comment">// CE &amp; CS pins to use (Using 7,8 on Uno,Nano)</span></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24Network.html">RF24Network</a> network(radio); </div>
 <div class="line"></div>
-<div class="line">uint16_t this_node;                           <span class="comment">// Our node address</span></div>
+<div class="line">uint16_t this_node;                                  <span class="comment">// Our node address</span></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> interval = 99; <span class="comment">// ms       // Delay manager to send pings regularly. Because of sleepNode(), this is largely irrelevant.</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> interval = 1000; <span class="comment">// ms           // Delay manager to send pings regularly. Because of sleepNode(), this is largely irrelevant.</span></div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_time_sent;</div>
 <div class="line"></div>
-<div class="line"></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">short</span> max_active_nodes = 10;            <span class="comment">// Array of nodes we are aware of</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">short</span> max_active_nodes = 10;                    <span class="comment">// Array of nodes we are aware of</span></div>
 <div class="line">uint16_t active_nodes[max_active_nodes];</div>
 <div class="line"><span class="keywordtype">short</span> num_active_nodes = 0;</div>
 <div class="line"><span class="keywordtype">short</span> next_ping_node_index = 0;</div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">bool</span> send_T(uint16_t to);                      <span class="comment">// Prototypes for functions to send &amp; handle messages</span></div>
+<div class="line"><span class="keywordtype">bool</span> send_T(uint16_t to);                              <span class="comment">// Prototypes for functions to send &amp; handle messages</span></div>
 <div class="line"><span class="keywordtype">bool</span> send_N(uint16_t to);</div>
 <div class="line"><span class="keywordtype">void</span> handle_T(<a name="_a1"></a><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a>&amp; header);</div>
 <div class="line"><span class="keywordtype">void</span> handle_N(<a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a>&amp; header);</div>
 <div class="line"><span class="keywordtype">void</span> add_node(uint16_t node);</div>
 <div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="comment">//This is for sleep mode. It is not really required, as users could just use the number 0 through 10</span></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> { wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s } wdt_prescalar_e;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> awakeTime = 500;                          <span class="comment">// How long in ms the radio will stay awake after leaving sleep mode</span></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> sleepTimer = 0;                           <span class="comment">// Used to keep track of how long the system has been awake</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line">  </div>
@@ -143,6 +160,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
 <div class="line">  network.begin(<span class="comment">/*channel*/</span> 100, <span class="comment">/*node address*/</span> this_node );</div>
 <div class="line"></div>
+<div class="line"><span class="comment">/******************************** This is the configuration for sleep mode ***********************/</span></div>
+<div class="line">  network.setup_watchdog(wdt_1s);                       <span class="comment">//The watchdog timer will wake the MCU and radio every second to send a sleep payload, then go back to sleep</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop(){</div>
@@ -158,12 +177,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">switch</span> (header.<a name="a5"></a><a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>){                              <span class="comment">// Dispatch the message to the correct handler.</span></div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>: handle_T(header); <span class="keywordflow">break</span>;</div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: handle_N(header); <span class="keywordflow">break</span>;</div>
+<div class="line">        </div>
+<div class="line">   <span class="comment">/************* SLEEP MODE *********/</span></div>
+<div class="line">  <span class="comment">// Note: A &#39;sleep&#39; header has been defined, and should only need to be ignored if a node is routing traffic to itself</span></div>
+<div class="line">  <span class="comment">// The header is defined as:  RF24NetworkHeader sleepHeader(/*to node*/ 00, /*type*/ &#39;S&#39; /*Sleep*/);    </span></div>
+<div class="line">         <span class="keywordflow">case</span> <span class="charliteral">&#39;S&#39;</span>: <span class="comment">/*This is a sleep payload, do nothing*/</span> <span class="keywordflow">break</span>;</div>
+<div class="line">        </div>
 <div class="line">        <span class="keywordflow">default</span>:  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;*** WARNING *** Unknown message type %c\n\r&quot;</span>),header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>);</div>
 <div class="line">                  network.read(header,0,0);</div>
 <div class="line">                  <span class="keywordflow">break</span>;</div>
 <div class="line">      };</div>
 <div class="line">    }</div>
+<div class="line">    </div>
+<div class="line"><span class="comment">/***************************** CALLING THE NEW SLEEP FUNCTION ************************/</span>    </div>
 <div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span>(millis() - sleepTimer &gt; awakeTime&amp;&amp; NODE_ADDRESS){  <span class="comment">// Want to make sure the Arduino stays awake for a little while when data comes in. Do NOT sleep if master node.</span></div>
+<div class="line">     Serial.println(<span class="stringliteral">&quot;Sleep&quot;</span>);</div>
+<div class="line">     sleepTimer = millis();                           <span class="comment">// Reset the timer value</span></div>
+<div class="line">     delay(100);                                      <span class="comment">// Give the Serial print some time to finish up</span></div>
+<div class="line">     radio.stopListening();                           <span class="comment">// Switch to PTX mode. Payloads will be seen as ACK payloads, and the radio will wake up</span></div>
+<div class="line">     network.sleepNode(8,0);                          <span class="comment">// Sleep the node for 8 cycles of 1second intervals</span></div>
+<div class="line">     Serial.println(<span class="stringliteral">&quot;Awake&quot;</span>); </div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">   <span class="comment">//Examples:</span></div>
+<div class="line">   <span class="comment">// network.sleepNode( cycles, interrupt-pin );</span></div>
+<div class="line">   <span class="comment">// network.sleepNode(0,0);         // The WDT is configured in this example to sleep in cycles of 1 second. This will sleep 1 second, or until a payload is received </span></div>
+<div class="line">   <span class="comment">// network.sleepNode(1,255);       // Sleep this node for 1 second. Do not wake up until then, even if a payload is received ( no interrupt ) Payloads will be lost.</span></div>
+<div class="line">    </div>
+<div class="line">                                <span class="comment">/****  end sleep section ***/</span>  </div>
+<div class="line">  </div>
 <div class="line">  </div>
 <div class="line">  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> now = millis();                         <span class="comment">// Send a ping to the next node every &#39;interval&#39; ms</span></div>
 <div class="line">  <span class="keywordflow">if</span> ( now - last_time_sent &gt;= interval ){</div>
@@ -197,12 +240,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        last_time_sent -= 100;                            <span class="comment">// Try sending at a different time next time</span></div>
 <div class="line">    }</div>
 <div class="line">  }</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line"><span class="comment">//  delay(50);                          // Delay to allow completion of any serial printing</span></div>
-<div class="line"><span class="comment">//  if(!network.available()){</span></div>
-<div class="line"><span class="comment">//      network.sleepNode(2,0);         // Sleep this node for 2 seconds or a payload is received (interrupt 0 triggered), whichever comes first</span></div>
-<div class="line"><span class="comment">//  }</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">bool</span> send_T(uint16_t to)</div>
@@ -261,8 +298,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Added 0%o to list of active nodes.\n\r&quot;</span>),millis(),node);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="line"></div>
-<div class="line"></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

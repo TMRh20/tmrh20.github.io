@@ -92,7 +92,7 @@ Purpose/Goal</h1>
 Features</h1>
 <p>The layer provides: </p>
 <ul>
-<li><b>New</b> (2014): Power efficient listening. Nodes can now sleep for extended periods of time with minimal power usage: StandBy-I mode uses 22uA compared to 0.9uA in full power down mode. The Arduino is allowed to sleep, and is awoken via interrupt when payloads are received, or via a user defined time period. See the docs. </li>
+<li><b>New</b> (2014): Power efficient sleep mode. Nodes can now sleep for extended periods of time with minimal power usage: StandBy-I mode uses 22uA compared to 0.9uA in full power down mode. The Arduino is allowed to sleep, and is awoken via interrupt when payloads are received, or via a user defined time period. See the docs. </li>
 <li><b>New</b> (2014): Extended timeouts. The maximum timeout period is approximately 60ms per payload with max delay between retries, and max retries set. Ths new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
 <li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://github.com/TMRh20/RF24">https://github.com/TMRh20/RF24</a> for more info. </li>
 <li>Host Addressing. Each node has a logical address on the local network. </li>
@@ -107,8 +107,8 @@ Features</h1>
 <h1><a class="anchor" id="More"></a>
 How to learn more</h1>
 <ul>
-<li><a href="http://tmrh20.github.com/RF24/">RF24: Underlying radio driver</a> </li>
 <li><a href="classRF24Network.html">RF24Network Class Documentation</a> </li>
+<li><a href="http://tmrh20.github.com/RF24/">RF24: Underlying radio driver</a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html">My Blog: RF24 Optimization Overview</a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/arduino-radiointercomwireless-audio.html">My Blog: RF24 Wireless Audio</a> </li>
 <li><a href="https://github.com/TMRh20/RF24Network/archive/master.zip">Download Current Package</a> </li>
@@ -134,11 +134,11 @@ Octal Addressing and Topology</h1>
 <tr>
 <td></td><td></td><td>01 </td><td></td><td></td><td>04 </td><td></td><td></td><td></td><td>1st level children of master (00) </td></tr>
 <tr>
-<td></td><td>011</td><td></td><td>021 </td><td></td><td></td><td>014 </td><td></td><td></td><td>2nd level children of master. Children of 1st level. </td></tr>
+<td></td><td>011</td><td></td><td>021</td><td></td><td></td><td>014 </td><td></td><td></td><td>2nd level children of master. Children of 1st level. </td></tr>
 <tr>
-<td>111</td><td></td><td></td><td></td><td>121 </td><td></td><td></td><td>114</td><td></td><td>3rd level children of master. Children of 2nd level. </td></tr>
+<td>111</td><td></td><td></td><td>121</td><td>221</td><td></td><td></td><td>114</td><td></td><td>3rd level children of master. Children of 2nd level. </td></tr>
 <tr>
-<td></td><td></td><td></td><td></td><td>1114</td><td></td><td>1114</td><td>2114</td><td>3114</td><td>4th level children of master. Children of 3rd level. </td></tr>
+<td></td><td></td><td></td><td></td><td>1221</td><td></td><td>1114</td><td>2114</td><td>3114</td><td>4th level children of master. Children of 3rd level. </td></tr>
 </table>
 <h1><a class="anchor" id="Routing"></a>
 How routing is handled</h1>
@@ -154,7 +154,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 2 2014 19:47:53 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 08:35:28 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
