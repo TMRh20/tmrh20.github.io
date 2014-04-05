@@ -100,6 +100,8 @@ News</h1>
 <li>Changes to read() functionality have increased reliability and response</li>
 <li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
 <li>Delays have been removed where possible to ensure maximum efficiency</li>
+<li>Full Due support with extended SPI functions</li>
+<li>Initial ATTiny support added (Untested)</li>
 <li>More! See the links below and class documentation for more info.</li>
 </ul>
 <p>If issues are discovered with the documentation, please report them here: <a href="https://github.com/TMRh20/tmrh20.github.io/issues">here</a> </p>
@@ -115,6 +117,15 @@ Useful References</h1>
 <li><a href="https://github.com/maniacbug/RF24">Original Library</a></li>
 </ul>
 <p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode.</p>
+<h1><a class="anchor" id="BoardSupport"></a>
+Board Support</h1>
+<p>Most standard Arduino based boards are supported:</p>
+<ul>
+<li>ATMega 328 based boards (Uno, Nano, etc)</li>
+<li>Mega Boards (1280, 2560, etc)</li>
+<li>ARM based boards (Arduino Due) Note: Do not include printf.h or use printf begin. This functionality is already present. Must use one of the hardware SS/CSN pins.</li>
+<li>ATTiny boards (Not fully tested) Note: Do not include SPI.h. The SPI functions for ATTiny are already included.</li>
+</ul>
 <h1><a class="anchor" id="More"></a>
 More Information</h1>
 <h1><a class="anchor" id="Info"></a>
@@ -129,7 +140,7 @@ and Projects</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 06:21:24 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

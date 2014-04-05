@@ -87,118 +87,118 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment">  // March 2014 - TMRh20 - Updated along with High Speed RF24 Library fork</span></div>
 <div class="line"><span class="comment">  // Parts derived from examples by J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="comment">#include &quot;nRF24L01.h&quot;</span></div>
-<div class="line"><span class="comment">#include &quot;RF24.h&quot;</span></div>
-<div class="line"><span class="comment">#include &quot;printf.h&quot;</span></div>
-<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"></div>
 <div class="line"><span class="comment">// Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10 </span></div>
-<div class="line"><span class="comment">RF24 radio(7,8);</span></div>
-<div class="line"><span class="comment"></span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);</div>
+<div class="line"></div>
 <div class="line"><span class="comment">// Topology</span></div>
-<div class="line"><span class="comment">const uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };              // Radio pipe addresses for the 2 nodes to communicate.</span></div>
-<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="keyword">const</span> uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };              <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
+<div class="line"></div>
 <div class="line"><span class="comment">// Role management: Set up role.  This sketch uses the same software for all the nodes</span></div>
 <div class="line"><span class="comment">// in this system.  Doing so greatly simplifies testing.  </span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">typedef enum { role_ping_out = 1, role_pong_back } role_e;                 // The various roles supported by this sketch</span></div>
-<div class="line"><span class="comment">const char* role_friendly_name[] = { &quot;invalid&quot;, &quot;Ping out&quot;, &quot;Pong back&quot;};  // The debug-friendly names of those roles</span></div>
-<div class="line"><span class="comment">role_e role = role_pong_back;                                              // The role of the current running sketch</span></div>
-<div class="line"><span class="comment"></span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> { role_ping_out = 1, role_pong_back } role_e;                 <span class="comment">// The various roles supported by this sketch</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* role_friendly_name[] = { <span class="stringliteral">&quot;invalid&quot;</span>, <span class="stringliteral">&quot;Ping out&quot;</span>, <span class="stringliteral">&quot;Pong back&quot;</span>};  <span class="comment">// The debug-friendly names of those roles</span></div>
+<div class="line">role_e role = role_pong_back;                                              <span class="comment">// The role of the current running sketch</span></div>
+<div class="line"></div>
 <div class="line"><span class="comment">// A single byte to keep track of the data being sent back and forth</span></div>
-<div class="line"><span class="comment">byte counter = 1;</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">void setup(){</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  Serial.begin(57600);</span></div>
-<div class="line"><span class="comment">  printf_begin();</span></div>
-<div class="line"><span class="comment">  printf(&quot;\n\rRF24/examples/GettingStarted/\n\r&quot;);</span></div>
-<div class="line"><span class="comment">  printf(&quot;ROLE: %s\n\r&quot;,role_friendly_name[role]);</span></div>
-<div class="line"><span class="comment">  printf(&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node\n\r&quot;);</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  // Setup and configure rf radio</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  radio.begin();</span></div>
-<div class="line"><span class="comment">  radio.setAutoAck(1);                    // Ensure autoACK is enabled</span></div>
-<div class="line"><span class="comment">  radio.enableAckPayload();               // Allow optional ack payloads</span></div>
-<div class="line"><span class="comment">  radio.setRetries(0,15);                 // Smallest time between retries, max no. of retries</span></div>
-<div class="line"><span class="comment">  radio.setPayloadSize(1);                // Here we are sending 1-byte payloads to test the call-response speed</span></div>
-<div class="line"><span class="comment">  radio.openWritingPipe(pipes[1]);        // Both radios listen on the same pipes by default, and switch when writing</span></div>
-<div class="line"><span class="comment">  radio.openReadingPipe(1,pipes[0]);</span></div>
-<div class="line"><span class="comment">  radio.startListening();                 // Start listening</span></div>
-<div class="line"><span class="comment">  radio.printDetails();                   // Dump the configuration of the rf unit for debugging</span></div>
-<div class="line"><span class="comment">}</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">void loop(void) {</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  if (role == role_ping_out){</span></div>
-<div class="line"><span class="comment">    </span></div>
-<div class="line"><span class="comment">    radio.stopListening();                                  // First, stop listening so we can talk.</span></div>
-<div class="line"><span class="comment">        </span></div>
-<div class="line"><span class="comment">    printf(&quot;Now sending %d as payload. &quot;,counter);</span></div>
-<div class="line"><span class="comment">    byte gotByte;  </span></div>
-<div class="line"><span class="comment">    unsigned long time = micros();                          // Take the time, and send it.  This will block until complete   </span></div>
-<div class="line"><span class="comment">                                                            //Called when STANDBY-I mode is engaged (User is finished sending)</span></div>
-<div class="line"><span class="comment">    if (!radio.write( &amp;counter, 1 )){</span></div>
-<div class="line"><span class="comment">      printf(&quot;failed.\n\r&quot;);      </span></div>
-<div class="line"><span class="comment">    }else{</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">      if(!radio.available()){ </span></div>
-<div class="line"><span class="comment">        printf(&quot;Blank Payload Received\n\r&quot;); </span></div>
-<div class="line"><span class="comment">      }else{</span></div>
-<div class="line"><span class="comment">        while(radio.available() ){</span></div>
-<div class="line"><span class="comment">          unsigned long tim = micros();</span></div>
-<div class="line"><span class="comment">          radio.read( &amp;gotByte, 1 );</span></div>
-<div class="line"><span class="comment">          printf(&quot;Got response %d, round-trip delay: %lu microseconds\n\r&quot;,gotByte,tim-time);</span></div>
-<div class="line"><span class="comment">          counter++;</span></div>
-<div class="line"><span class="comment">        }</span></div>
-<div class="line"><span class="comment">      }</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">    }</span></div>
-<div class="line"><span class="comment">    // Try again later</span></div>
-<div class="line"><span class="comment">    delay(1000);</span></div>
-<div class="line"><span class="comment">  }</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  // Pong back role.  Receive each packet, dump it out, and send it back</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  if ( role == role_pong_back ) {</span></div>
-<div class="line"><span class="comment">    byte pipeNo;</span></div>
-<div class="line"><span class="comment">    byte gotByte;                                       // Dump the payloads until we&#39;ve gotten everything</span></div>
-<div class="line"><span class="comment">    while( radio.available(&amp;pipeNo)){</span></div>
-<div class="line"><span class="comment">      radio.read( &amp;gotByte, 1 );</span></div>
-<div class="line"><span class="comment">      radio.writeAckPayload(pipeNo,&amp;gotByte, 1 );    </span></div>
-<div class="line"><span class="comment">   }</span></div>
-<div class="line"><span class="comment"> }</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  // Change roles</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  if ( Serial.available() )</span></div>
-<div class="line"><span class="comment">  {</span></div>
-<div class="line"><span class="comment">    char c = toupper(Serial.read());</span></div>
-<div class="line"><span class="comment">    if ( c == &#39;T&#39; &amp;&amp; role == role_pong_back )</span></div>
-<div class="line"><span class="comment">    {</span></div>
-<div class="line"><span class="comment">      printf(&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;);</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">      role = role_ping_out;                  // Become the primary transmitter (ping out)</span></div>
-<div class="line"><span class="comment">      radio.openWritingPipe(pipes[0]);</span></div>
-<div class="line"><span class="comment">      radio.openReadingPipe(1,pipes[1]);</span></div>
-<div class="line"><span class="comment">    }</span></div>
-<div class="line"><span class="comment">    else if ( c == &#39;R&#39; &amp;&amp; role == role_ping_out )</span></div>
-<div class="line"><span class="comment">    {</span></div>
-<div class="line"><span class="comment">      printf(&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;);</span></div>
-<div class="line"><span class="comment">      </span></div>
-<div class="line"><span class="comment">       role = role_pong_back;                // Become the primary receiver (pong back)</span></div>
-<div class="line"><span class="comment">       radio.openWritingPipe(pipes[1]);</span></div>
-<div class="line"><span class="comment">       radio.openReadingPipe(1,pipes[0]);</span></div>
-<div class="line"><span class="comment">       radio.startListening();</span></div>
-<div class="line"><span class="comment">    }</span></div>
-<div class="line"><span class="comment">  }</span></div>
-<div class="line"><span class="comment">}</span></div>
+<div class="line">byte counter = 1;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setup(){</div>
+<div class="line"></div>
+<div class="line">  Serial.begin(57600);</div>
+<div class="line">  printf_begin();</div>
+<div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/GettingStarted/\n\r&quot;</span>);</div>
+<div class="line">  printf(<span class="stringliteral">&quot;ROLE: %s\n\r&quot;</span>,role_friendly_name[role]);</div>
+<div class="line">  printf(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node\n\r&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
+<div class="line"></div>
+<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
+<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(1);                    <span class="comment">// Ensure autoACK is enabled</span></div>
+<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload</a>();               <span class="comment">// Allow optional ack payloads</span></div>
+<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a>(0,15);                 <span class="comment">// Smallest time between retries, max no. of retries</span></div>
+<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#a343e5d23477181011dea030fafb1954f">setPayloadSize</a>(1);                <span class="comment">// Here we are sending 1-byte payloads to test the call-response speed</span></div>
+<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[1]);        <span class="comment">// Both radios listen on the same pipes by default, and switch when writing</span></div>
+<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[0]);</div>
+<div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                 <span class="comment">// Start listening</span></div>
+<div class="line">  radio.<a name="a9"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>) {</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> (role == role_ping_out){</div>
+<div class="line">    </div>
+<div class="line">    radio.<a name="a10"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();                                  <span class="comment">// First, stop listening so we can talk.</span></div>
+<div class="line">        </div>
+<div class="line">    printf(<span class="stringliteral">&quot;Now sending %d as payload. &quot;</span>,counter);</div>
+<div class="line">    byte gotByte;  </div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = micros();                          <span class="comment">// Take the time, and send it.  This will block until complete   </span></div>
+<div class="line">                                                            <span class="comment">//Called when STANDBY-I mode is engaged (User is finished sending)</span></div>
+<div class="line">    <span class="keywordflow">if</span> (!radio.<a name="a11"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;counter, 1 )){</div>
+<div class="line">      printf(<span class="stringliteral">&quot;failed.\n\r&quot;</span>);      </div>
+<div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line"></div>
+<div class="line">      <span class="keywordflow">if</span>(!radio.<a name="a12"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){ </div>
+<div class="line">        printf(<span class="stringliteral">&quot;Blank Payload Received\n\r&quot;</span>); </div>
+<div class="line">      }<span class="keywordflow">else</span>{</div>
+<div class="line">        <span class="keywordflow">while</span>(radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() ){</div>
+<div class="line">          <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> tim = micros();</div>
+<div class="line">          radio.<a name="a13"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;gotByte, 1 );</div>
+<div class="line">          printf(<span class="stringliteral">&quot;Got response %d, round-trip delay: %lu microseconds\n\r&quot;</span>,gotByte,tim-time);</div>
+<div class="line">          counter++;</div>
+<div class="line">        }</div>
+<div class="line">      }</div>
+<div class="line"></div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Try again later</span></div>
+<div class="line">    delay(1000);</div>
+<div class="line">  }</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Pong back role.  Receive each packet, dump it out, and send it back</span></div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> ( role == role_pong_back ) {</div>
+<div class="line">    byte pipeNo;</div>
+<div class="line">    byte gotByte;                                       <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
+<div class="line">    <span class="keywordflow">while</span>( radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>(&amp;pipeNo)){</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;gotByte, 1 );</div>
+<div class="line">      radio.<a name="a14"></a><a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>(pipeNo,&amp;gotByte, 1 );    </div>
+<div class="line">   }</div>
+<div class="line"> }</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Change roles</span></div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> ( Serial.available() )</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordtype">char</span> c = toupper(Serial.read());</div>
+<div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;T&#39;</span> &amp;&amp; role == role_pong_back )</div>
+<div class="line">    {</div>
+<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">      role = role_ping_out;                  <span class="comment">// Become the primary transmitter (ping out)</span></div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[0]);</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[1]);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == role_ping_out )</div>
+<div class="line">    {</div>
+<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
+<div class="line">      </div>
+<div class="line">       role = role_pong_back;                <span class="comment">// Become the primary receiver (pong back)</span></div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(pipes[1]);</div>
+<div class="line">       radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,pipes[0]);</div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 1 2014 23:32:45 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 06:21:24 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

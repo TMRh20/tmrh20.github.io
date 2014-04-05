@@ -82,25 +82,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><p>Design Goals: This library is designed to be...</p>
 <ul>
-<li>Enhance compliancy with the manufacturer specified operation of the chip</li>
+<li>More compliant with the manufacturer specified operation of the chip</li>
 <li>More reliable and feature rich</li>
 <li>Easy for beginners to use</li>
 <li>Consumed with a public interface that's similiar to other Arduino standard libraries</li>
 <li>Built against the standard SPI library.</li>
 </ul>
+<p>March 2014: Optimization begun April 2014: Optimization nearing completion</p>
+<ul>
+<li>The library has been tweaked to allow full use of the FIFO buffers for maximum transfer speeds</li>
+<li>Changes to read() functionality have increased reliability and response</li>
+<li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
+<li>Delays have been removed where possible to ensure maximum efficiency</li>
+<li>Arduino Due fully supported with extended SPI functions</li>
+<li>More! See the links below and class documentation for more info.</li>
+</ul>
 <p>Please refer to:</p>
 <ul>
 <li><a href="http://tmrh20.github.io/">Documentation Main Page</a></li>
-<li><a href="http://tmrh20.github.io/RF24/class_r_f24.html">Class Reference</a></li>
+<li><a href="http://tmrh20.github.io/RF24/classRF24.html">Class Reference</a></li>
 <li><a href="https://github.com/tmrh20/RF24">Source Code</a></li>
-<li><a href="https://github.com/tmrh20/RF24/archives/master">Downloads</a></li>
+<li><a href="https://github.com/TMRh20/RF24/archive/master.zip">Downloads</a></li>
 <li><a href="http://www.nordicsemi.com/files/Product/data_sheet/nRF24L01_Product_Specification_v2_0.pdf">Chip Datasheet</a></li>
 </ul>
 <p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 1 2014 22:47:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Apr 5 2014 06:15:54 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
