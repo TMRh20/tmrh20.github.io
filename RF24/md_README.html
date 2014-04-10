@@ -82,19 +82,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><p>Design Goals: This library is designed to be...</p>
 <ul>
-<li>More compliant with the manufacturer specified operation of the chip</li>
+<li>More compliant with the manufacturer specified operation of the chip, while allowing advanced users</li>
+<li>to work outside the reccommended operation.</li>
+<li>Utilize the capabilities of the radio to their full potential via Arduino</li>
 <li>More reliable and feature rich</li>
-<li>Easy for beginners to use</li>
+<li>Easy for beginners to use, with well documented examples and features</li>
 <li>Consumed with a public interface that's similiar to other Arduino standard libraries</li>
 <li>Built against the standard SPI library.</li>
 </ul>
-<p>March 2014: Optimization begun April 2014: Optimization nearing completion</p>
+<p>April 2014: Official Release: Still some work to do, but most benefits have been realized</p>
 <ul>
 <li>The library has been tweaked to allow full use of the FIFO buffers for maximum transfer speeds</li>
-<li>Changes to read() functionality have increased reliability and response</li>
+<li>Changes to read() and available () functionality have increased reliability and response</li>
 <li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
 <li>Delays have been removed where possible to ensure maximum efficiency</li>
-<li>Arduino Due fully supported with extended SPI functions</li>
+<li>Full Due support with extended SPI functions</li>
+<li>ATTiny 24/44/84 25/45/85 now supported.</li>
 <li>More! See the links below and class documentation for more info.</li>
 </ul>
 <p>Please refer to:</p>
@@ -105,11 +108,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li><a href="https://github.com/TMRh20/RF24/archive/master.zip">Downloads</a></li>
 <li><a href="http://www.nordicsemi.com/files/Product/data_sheet/nRF24L01_Product_Specification_v2_0.pdf">Chip Datasheet</a></li>
 </ul>
-<p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode. </p>
+<p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode.</p>
+<p>Supported Boards:</p>
+<ul>
+<li>Uno, Nano, etc (328 based boards)</li>
+<li>Mega Types (2560, 1280, etc)</li>
+<li>ARM (Arduino Due) via extended SPI methods</li>
+<li>ATTiny 24/44/84 25/45/85</li>
+<li>See the <a href="http://tmrh20.github.io/">documentation</a> for more info </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 9 2014 11:00:33 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 10 2014 09:57:16 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
