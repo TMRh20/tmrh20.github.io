@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RF24Audio: Minimal.ino</title>
+<title>RF24Audio: PrivateGroups.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,36 +78,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Minimal.ino</div>  </div>
+<div class="title">PrivateGroups.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This sketch is intended to demonstrate the most basic functionality of the audio library.</p>
+<p>This sketch is demonstrates the use of private groups (node-to-custom_groups) in a multi-radio group.</p>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="comment">/* RF24 Audio Library TMRh20 2014</span></div>
 <div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">This sketch is intended to demonstrate the most basic functionality of the audio library.</span></div>
+<div class="line"><span class="comment">This sketch is intended to demonstrate the extended multicast functionality of the audio library with</span></div>
+<div class="line"><span class="comment">customized radio groups.</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">Requirements:</span></div>
-<div class="line"><span class="comment">2 Arduinos (Uno,Nano,Mega, etc supported)</span></div>
-<div class="line"><span class="comment">2 NRF24LO1 Radio Modules</span></div>
+<div class="line"><span class="comment">2+ Arduinos (Uno,Nano,Mega, etc supported)</span></div>
+<div class="line"><span class="comment">2+ NRF24LO1 Radio Modules</span></div>
 <div class="line"><span class="comment">1 or more input devices (microphone, ipod, etc)</span></div>
-<div class="line"><span class="comment">1 or more output devices (speaker, amplifier, etc)</span></div>
+<div class="line"><span class="comment">2 or more output devices (speaker, amplifier, etc)</span></div>
 <div class="line"><span class="comment">1 or more external buttons or switches to control recording/volume/etc.</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">Setup:</span></div>
-<div class="line"><span class="comment">1. Change the CE,CS pins below to match your chosen pins (I use 7,8 on 328 boards, and 48,49 on Mega boards)</span></div>
-<div class="line"><span class="comment">2. Connect buttons as desired to the button pins listed below.</span></div>
-<div class="line"><span class="comment">2. Upload this sketch to two or more devices</span></div>
-<div class="line"><span class="comment">3. Use external buttons to control all devices</span></div>
+<div class="line"><span class="comment">This sketch was initially used with a controller using the TMRpcm audio library to read</span></div>
+<div class="line"><span class="comment">a WAV file from SD card, and broadcast it to the radio group(s). Any radio device can</span></div>
+<div class="line"><span class="comment">become the transmitter with only a microphone or other input.</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">Default Pin Selections:</span></div>
 <div class="line"><span class="comment">Speaker: pins 9,10 on UNO, Nano,  pins 11,12 on Mega 2560</span></div>
 <div class="line"><span class="comment">Input/Microphone: Analog pin A0 on all boards</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">Transmit button: Pin A1</span></div>
-<div class="line"><span class="comment">VolumeUp button: Pin A2</span></div>
-<div class="line"><span class="comment">VolumeDn button: Pin A3</span></div>
-<div class="line"><span class="comment">Remote Transmission: Pin A4</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">Note: See http://arduino.cc/en/Tutorial/InputPullupSerial for info on how to wire the buttons to the pins</span></div>
 <div class="line"><span class="comment">Note: Pin selections can be overridden by modifying the userConfig.h file included with the library</span></div>
@@ -117,16 +112,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24Audio_8h.html">RF24Audio.h</a>&gt;</span></div>
+<div class="line"><span class="comment">//#include &quot;printf.h&quot;</span></div>
 <div class="line"></div>
 <div class="line">RF24 radio(7,8);                <span class="comment">// Set radio up using pins 7 (CE) 8 (CS)</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24Audio.html">RF24Audio</a> rfAudio(radio,1);     <span class="comment">// Set up the audio using the radio, and set to radio number 0.</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24Audio.html">RF24Audio</a> rfAudio(radio,0);     <span class="comment">// Set up the audio using the radio, and set to radio number 0.</span></div>
 <div class="line">                                <span class="comment">// Setting the radio number is only important if one-to-one communication is desired</span></div>
 <div class="line">                                <span class="comment">// in a multi-node radio group. See the privateBroadcast() function.</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> setup() {                  </div>
 <div class="line"></div>
+<div class="line"><span class="comment">// This is a sketch used for demonstrating the multicast capabilities of the radios</span></div>
+<div class="line"><span class="comment">// It is designed for 5 radios, each listening on the following pipes/addresses</span></div>
+<div class="line"><span class="comment">// With the controller broadcasting audio from SD card, it has no need to listen, so</span></div>
+<div class="line"><span class="comment">// the 5 radios can each use all 6 pipes to listen.</span></div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment">RadioNo:    0  1  2  3  4  Pipe:</span></div>
+<div class="line"><span class="comment">Read Addy:  1  1  1  1  1    1    // Default config. All radios listen to the same address on pipe 1</span></div>
+<div class="line"><span class="comment">Read Addy:  2  3  4  5  6    2    // Default config. All radios open a private pipe/addy</span></div>
+<div class="line"><span class="comment">Read Addy:  7  7  7  8  8    0    // The rest will be configured in setup on a per radio basis</span></div>
+<div class="line"><span class="comment">Read Addy:  9  10 8  9  9    3    // In this configuration, pipe numbers do not matter</span></div>
+<div class="line"><span class="comment">Read Addy:  11 11 10 10 11   4    // Any radio listening on an address that is sent data will receive it</span></div>
+<div class="line"><span class="comment">Read Addy:  13 12 12 12 13   5</span></div>
+<div class="line"><span class="comment">*/</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setup() {  </div>
+<div class="line">        </div>
+<div class="line">  <span class="comment">//Serial.begin(115200);</span></div>
 <div class="line">  rfAudio.begin();              <span class="comment">// The only thing to do is initialize the library.</span></div>
+<div class="line">  <span class="comment">//printf_begin();</span></div>
+<div class="line">  <span class="comment">//radio.printDetails();</span></div>
 <div class="line"></div>
+<div class="line">  radio.stopListening();  </div>
+<div class="line">  radio.openReadingPipe(0,rfAudio.getAddress(7));  <span class="comment">// Listen on pipe 0, using address #7</span></div>
+<div class="line">  radio.openReadingPipe(3,rfAudio.getAddress(9));  <span class="comment">// Listen on pipe 3, using address #9</span></div>
+<div class="line">  radio.openReadingPipe(4,rfAudio.getAddress(11)); <span class="comment">// Listen on pipe 4, using address #11</span></div>
+<div class="line">  radio.openReadingPipe(5,rfAudio.getAddress(13)); <span class="comment">// Listen on pipe 5, using address #13</span></div>
+<div class="line">  radio.startListening();</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -135,9 +155,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// In this example, the radio is controlled by external buttons, so there is nothing to do here</span></div>
 <div class="line">  </div>
 <div class="line">}</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line"></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/* Documentation and References:</span></div>

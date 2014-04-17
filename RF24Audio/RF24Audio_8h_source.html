@@ -112,20 +112,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classRF24Audio.html#a3280bd96e21084c0fb3f5d1921e73c2e">broadcast</a>(byte radioID);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        RF24&amp; radio;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">void</span> timerStart();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;};</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">void</span> TX();</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keywordtype">void</span> RX();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    uint64_t <a class="code" href="classRF24Audio.html#ad363ce01b8ff0a3e8c7e60f9caa9c43e">getAddress</a>(byte addressNo);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        RF24&amp; radio;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keywordtype">void</span> timerStart();</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;};</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> TX();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">void</span> RX();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
 <div class="ttc" id="classRF24Audio_html_a3280bd96e21084c0fb3f5d1921e73c2e"><div class="ttname"><a href="classRF24Audio.html#a3280bd96e21084c0fb3f5d1921e73c2e">RF24Audio::broadcast</a></div><div class="ttdeci">void broadcast(byte radioID)</div><div class="ttdoc">Control of Private or Public Communication. </div></div>
 <div class="ttc" id="classRF24Audio_html_af379c3a3d32de245746ecb6c27ec8e2c"><div class="ttname"><a href="classRF24Audio.html#af379c3a3d32de245746ecb6c27ec8e2c">RF24Audio::setVolume</a></div><div class="ttdeci">void setVolume(char vol)</div><div class="ttdoc">Volume Control. </div></div>
 <div class="ttc" id="classRF24Audio_html_a1050247d3d758ca93fad8cb49c766b15"><div class="ttname"><a href="classRF24Audio.html#a1050247d3d758ca93fad8cb49c766b15">RF24Audio::RF24Audio</a></div><div class="ttdeci">RF24Audio(RF24 &amp;_radio, byte radioNum)</div><div class="ttdoc">Setup the radio and radio identifier. </div></div>
@@ -134,10 +135,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24Audio_html"><div class="ttname"><a href="classRF24Audio.html">RF24Audio</a></div><div class="ttdoc">TMRh20 2014 - RF24Audio: Arduino Realtime Audio Streaming library. </div><div class="ttdef"><b>Definition:</b> RF24Audio.h:22</div></div>
 <div class="ttc" id="classRF24Audio_html_a6eced1510005adc75209037bbb5f2a88"><div class="ttname"><a href="classRF24Audio.html#a6eced1510005adc75209037bbb5f2a88">RF24Audio::volume</a></div><div class="ttdeci">void volume(bool upDn)</div><div class="ttdoc">Volume Control. </div></div>
 <div class="ttc" id="classRF24Audio_html_a305a3df1a324d2f275c6c0cf1f114d4d"><div class="ttname"><a href="classRF24Audio.html#a305a3df1a324d2f275c6c0cf1f114d4d">RF24Audio::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdoc">Initialize the radio and audio library. </div></div>
+<div class="ttc" id="classRF24Audio_html_ad363ce01b8ff0a3e8c7e60f9caa9c43e"><div class="ttname"><a href="classRF24Audio.html#ad363ce01b8ff0a3e8c7e60f9caa9c43e">RF24Audio::getAddress</a></div><div class="ttdeci">uint64_t getAddress(byte addressNo)</div><div class="ttdoc">Get any of the preset radio addresses. </div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 11:33:17 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 16 2014 23:41:19 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

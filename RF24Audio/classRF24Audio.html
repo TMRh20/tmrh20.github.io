@@ -119,11 +119,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3280bd96e21084c0fb3f5d1921e73c2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Audio.html#a3280bd96e21084c0fb3f5d1921e73c2e">broadcast</a> (byte radioID)</td></tr>
 <tr class="memdesc:a3280bd96e21084c0fb3f5d1921e73c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control of Private or Public Communication.  <a href="#a3280bd96e21084c0fb3f5d1921e73c2e">More...</a><br/></td></tr>
 <tr class="separator:a3280bd96e21084c0fb3f5d1921e73c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad363ce01b8ff0a3e8c7e60f9caa9c43e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Audio.html#ad363ce01b8ff0a3e8c7e60f9caa9c43e">getAddress</a> (byte addressNo)</td></tr>
+<tr class="memdesc:ad363ce01b8ff0a3e8c7e60f9caa9c43e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get any of the preset radio addresses.  <a href="#ad363ce01b8ff0a3e8c7e60f9caa9c43e">More...</a><br/></td></tr>
+<tr class="separator:ad363ce01b8ff0a3e8c7e60f9caa9c43e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>TMRh20 2014 - <a class="el" href="classRF24Audio.html" title="TMRh20 2014 - RF24Audio: Arduino Realtime Audio Streaming library. ">RF24Audio</a>: Arduino Realtime Audio Streaming library. </p>
 <p>This class implements an Audio Streaming library using nRF24L01(+) radios driven by the Optimized RF24 library. <a href="https://github.com/TMRh20/RF24">https://github.com/TMRh20/RF24</a> </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#_a0">GettingStarted.ino</a>, <a class="el" href="Minimal_8ino-example.html#_a0">Minimal.ino</a>, and <a class="el" href="PrivateChannels_8ino-example.html#_a0">PrivateChannels.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#_a0">GettingStarted.ino</a>, <a class="el" href="Minimal_8ino-example.html#_a0">Minimal.ino</a>, <a class="el" href="PrivateChannels_8ino-example.html#_a0">PrivateChannels.ino</a>, and <a class="el" href="PrivateGroups_8ino-example.html#_a0">PrivateGroups.ino</a>.</dd>
 </dl></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1050247d3d758ca93fad8cb49c766b15"></a>
 <div class="memitem">
@@ -208,6 +211,35 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="ad363ce01b8ff0a3e8c7e60f9caa9c43e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t RF24Audio::getAddress </td>
+          <td>(</td>
+          <td class="paramtype">byte&#160;</td>
+          <td class="paramname"><em>addressNo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get any of the preset radio addresses. </p>
+<p>Useful for listening nodes who wish to create private or additional radio groups The library has 14 predefined radio addreses. All radios listen/write on the first two addresses (0,1), and engage a private channel based on the radio number. Radio 0 listens on address 2, Radio 1 on address 3, etc.</p>
+<div class="fragment"><div class="line">uint64_t newAddress = rfAudio.getAddress(3); <span class="comment">// Gets the 3rd defined radio address</span></div>
+<div class="line">OR</div>
+<div class="line">radio.openReadingPipe(0,rfAudio.getAddress(7)); <span class="comment">// Listens on the 7th defined radio address</span></div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addressNo</td><td>Numbers 0 through 14 to access any part of the defined address array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RadioAddress: Returns the requested predefined radio address </dd></dl>
 
 </div>
 </div>
@@ -305,7 +337,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 11:33:17 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 16 2014 23:41:19 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

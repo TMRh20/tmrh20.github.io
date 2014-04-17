@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['transmit',['transmit',['../classRF24Audio.html#a6d7548cdadb427f01976b83a788b17b1',1,'RF24Audio']]]
+  ['setvolume',['setVolume',['../classRF24Audio.html#af379c3a3d32de245746ecb6c27ec8e2c',1,'RF24Audio']]]
 ];

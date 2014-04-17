@@ -125,13 +125,20 @@ Configuration and Setup</h1>
 <p>See <a href="http://arduino.cc/en/Tutorial/InputPullupSerial">http://arduino.cc/en/Tutorial/InputPullupSerial</a> for info on how to wire the buttons to the pins See <a class="el" href="userConfig_8h_source.html">userConfig.h</a> to change default pin assignments and options.</p>
 <h1><a class="anchor" id="Advanced"></a>
 Advanced Usage</h1>
-<p>The radio pipes are defined as follows. For more complex multicast scenarios, radios can listen on any combination of pipes. const uint64_t pipes[12] = { 0xABCDABCD71LL, 0x544d52687CLL, 0x544d526832LL, 0x544d52683CLL,0x544d526846LL, 0x544d526850LL,0x544d52685ALL, 0x544d526820LL, 0x544d52686ELL, 0x544d526878LL, 0x544d526828LL, 0x544d526864LL};</p>
-<p>By default, all radios listen will open the same reading pipes on the first two addresses. Any radio that wishes to transmit, will reverse the addresses, on the first two pipes, and begin to transmit to all the other nodes Every radio will automatically be assigned the first two addresses, then one of the remaining addresses as a private channel, based on its radio number (0 = pipes[2], 1 = pipes[3])</p>
+<p>The radio pipes are defined as follows. For more complex multicast scenarios, radios can listen on any combination of pipes. <br/>
+ Use the getAddress(); function to access the address array.<br/>
+ </p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> uint64_t pipes[14] = { 0xABCDABCD71LL, 0x544d52687CLL, 0x544d526832LL, 0x544d52683CLL,0x544d526846LL, 0x544d526850LL,0x544d52685ALL, 0x544d526820LL, 0x544d52686ELL, 0x544d52684BLL, 0x544d526841LL, 0x544d526855LL,0x544d52685FLL,0x544d526869LL};</div>
+</div><!-- fragment --><p> By default, all radios will open the same reading &amp; writing pipes on the first two addresses.<br/>
+ Any radio that wishes to transmit, will reverse the addresses on the first two pipes, and begin to transmit to all the other nodes. <br/>
+ Every radio will automatically be assigned the first two addresses, then one of the remaining addresses as a private channel, based on its radio number: <br/>
+ (0 = pipes[2], 1 = pipes[3]) <br/>
+</p>
 <p>Additional addresses can be added by modifying the address array listed in <a class="el" href="userConfig_8h_source.html">userConfig.h</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 11:33:17 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 16 2014 23:41:19 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
