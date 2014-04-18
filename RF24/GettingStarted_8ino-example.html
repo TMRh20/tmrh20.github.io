@@ -139,12 +139,11 @@ When switching between sketches, the radio may need to be powered down to clear 
 <div class="line">    </div>
 <div class="line">    radio.<a name="a8"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();                                    <span class="comment">// First, stop listening so we can talk.</span></div>
 <div class="line">    </div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time;</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Now sending &quot;</span>,time);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;Now sending \n\r&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">    time = micros();                                          <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
-<div class="line">    <span class="keywordtype">boolean</span> ok = radio.<a name="a9"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) ); <span class="comment">// Send the current time</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!ok){  printf(<span class="stringliteral">&quot;failed.\n\r&quot;</span>);  }</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = micros();                             <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
+<div class="line">     <span class="keywordflow">if</span> (!radio.<a name="a9"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) )){  printf(<span class="stringliteral">&quot;failed.\n\r&quot;</span>);  }</div>
 <div class="line">        </div>
 <div class="line">    radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                                    <span class="comment">// Now, continue listening</span></div>
 <div class="line">    </div>
@@ -216,7 +215,7 @@ When switching between sketches, the radio may need to be powered down to clear 
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 09:57:16 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 18 2014 10:20:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

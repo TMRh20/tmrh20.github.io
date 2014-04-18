@@ -40,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
@@ -66,7 +67,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Groups</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,123 +83,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <p>Example to detect interference on the various channels available. This is a good diagnostic tool to check whether you're picking a good channel for your application.</p>
 <p>Inspired by cpixip. See <a href="http://arduino.cc/forum/index.php/topic,54795.0.html">http://arduino.cc/forum/index.php/topic,54795.0.html</a></p>
-<div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> Copyright (C) 2011 J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment"> This program is free software; you can redistribute it and/or</span></div>
-<div class="line"><span class="comment"> modify it under the terms of the GNU General Public License</span></div>
-<div class="line"><span class="comment"> version 2 as published by the Free Software Foundation.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"><span class="comment">// Hardware configuration</span></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10</span></div>
-<div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(9,10);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"><span class="comment">// Channel info</span></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line"><span class="keyword">const</span> uint8_t num_channels = 128;</div>
-<div class="line">uint8_t values[num_channels];</div>
-<div class="line"></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"><span class="comment">// Setup</span></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> setup(<span class="keywordtype">void</span>)</div>
-<div class="line">{</div>
-<div class="line">  <span class="comment">//</span></div>
-<div class="line">  <span class="comment">// Print preamble</span></div>
-<div class="line">  <span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line">  Serial.begin(57600);</div>
-<div class="line">  printf_begin();</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/scanner/\n\r&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">//</span></div>
-<div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
-<div class="line">  <span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
-<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(<span class="keyword">false</span>);</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Get into standby mode</span></div>
-<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
-<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Print out header, high then low digit</span></div>
-<div class="line">  <span class="keywordtype">int</span> i = 0;</div>
-<div class="line">  <span class="keywordflow">while</span> ( i &lt; num_channels )</div>
-<div class="line">  {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;%x&quot;</span>,i&gt;&gt;4);</div>
-<div class="line">    ++i;</div>
-<div class="line">  }</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\r&quot;</span>);</div>
-<div class="line">  i = 0;</div>
-<div class="line">  <span class="keywordflow">while</span> ( i &lt; num_channels )</div>
-<div class="line">  {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;%x&quot;</span>,i&amp;0xf);</div>
-<div class="line">    ++i;</div>
-<div class="line">  }</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\r&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"><span class="comment">// Loop</span></div>
-<div class="line"><span class="comment">//</span></div>
-<div class="line"></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">int</span> num_reps = 100;</div>
-<div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>)</div>
-<div class="line">{</div>
-<div class="line">  <span class="comment">// Clear measurement values</span></div>
-<div class="line">  memset(values,0,<span class="keyword">sizeof</span>(values));</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Scan all channels num_reps times</span></div>
-<div class="line">  <span class="keywordtype">int</span> rep_counter = num_reps;</div>
-<div class="line">  <span class="keywordflow">while</span> (rep_counter--)</div>
-<div class="line">  {</div>
-<div class="line">    <span class="keywordtype">int</span> i = num_channels;</div>
-<div class="line">    <span class="keywordflow">while</span> (i--)</div>
-<div class="line">    {</div>
-<div class="line">      <span class="comment">// Select this channel</span></div>
-<div class="line">      radio.<a name="a5"></a><a class="code" href="classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e">setChannel</a>(i);</div>
-<div class="line"></div>
-<div class="line">      <span class="comment">// Listen for a little</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
-<div class="line">      delayMicroseconds(128);</div>
-<div class="line">      radio.<a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
-<div class="line"></div>
-<div class="line">      <span class="comment">// Did we get a carrier?</span></div>
-<div class="line">      <span class="keywordflow">if</span> ( radio.<a name="a6"></a><a class="code" href="classRF24.html#ad0d522ccf39493510e64bf1740be790d">testCarrier</a>() )</div>
-<div class="line">        ++values[i];</div>
-<div class="line">    }</div>
-<div class="line">  }</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Print out channel measurements, clamped to a single hex digit</span></div>
-<div class="line">  <span class="keywordtype">int</span> i = 0;</div>
-<div class="line">  <span class="keywordflow">while</span> ( i &lt; num_channels )</div>
-<div class="line">  {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;%x&quot;</span>,min(0xf,values[i]&amp;0xf));</div>
-<div class="line">    ++i;</div>
-<div class="line">  }</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\r&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"></div>
-<div class="line"><span class="comment">// vim:ai:cin:sts=2 sw=2 ft=cpp</span></div>
-</div><!-- fragment --> </div><!-- contents -->
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 09:57:16 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 18 2014 10:18:20 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

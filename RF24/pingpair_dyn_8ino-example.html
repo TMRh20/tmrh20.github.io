@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
-<div class="line"><span class="comment">//#include &quot;printf.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">// Hardware configuration</span></div>
@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(9,10);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// sets the role of this unit in hardware.  Connect to GND to be the &#39;pong&#39; receiver</span></div>
 <div class="line"><span class="comment">// Leave open to be the &#39;ping&#39; transmitter</span></div>
@@ -151,7 +151,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="comment">// set up the role pin</span></div>
 <div class="line">  pinMode(role_pin, INPUT);</div>
-<div class="line">  digitalWrite(role_pin,LOW);</div>
+<div class="line">  digitalWrite(role_pin,HIGH);</div>
 <div class="line">  delay(20); <span class="comment">// Just to get a solid reading on the role pin</span></div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// read the address pin, establish our role</span></div>
@@ -165,7 +165,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
 <div class="line">  Serial.begin(57600);</div>
-<div class="line">  <span class="comment">//printf_begin();</span></div>
+<div class="line">  printf_begin();</div>
 <div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/pingpair_dyn/\n\r&quot;</span>);</div>
 <div class="line">  printf(<span class="stringliteral">&quot;ROLE: %s\n\r&quot;</span>,role_friendly_name[role]);</div>
 <div class="line"></div>
@@ -310,7 +310,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 10 2014 09:57:16 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 18 2014 10:20:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
