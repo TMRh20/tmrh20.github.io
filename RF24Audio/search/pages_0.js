@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rf24audio_20_2d_20realtime_20audio_20streaming_20library_20for_20arduino',['RF24Audio - Realtime Audio Streaming Library for Arduino',['../index.html',1,'']]]
+  ['boards_20_26_20wiring',['Boards &amp; Wiring',['../Setup.html',1,'']]]
 ];
