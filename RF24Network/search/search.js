@@ -7,14 +7,14 @@
 
 var indexSectionsWithContent =
 {
-  0: "_abcdefinoprstuw",
+  0: "_abcfinprstuw",
   1: "rs",
   2: "rs",
-  3: "abdefioprstuw",
+  3: "abprstuw",
   4: "finrst",
   5: "p",
   6: "_ips",
-  7: "cn"
+  7: "cnp"
 };
 
 var indexSectionNames =

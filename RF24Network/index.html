@@ -92,9 +92,10 @@ Purpose/Goal</h1>
 Features</h1>
 <p>The layer provides: </p>
 <ul>
-<li><b>New</b> (2014): NOT WORKING Power efficient sleep mode. Nodes can now sleep for extended periods of time with minimal power usage: StandBy-I mode uses 22uA compared to 0.9uA in full power down mode. The Arduino is allowed to sleep, and is awoken via interrupt when payloads are received, or via a user defined time period. See the docs. </li>
-<li><b>New</b> (2014): Extended timeouts. The maximum timeout period is approximately 60ms per payload with max delay between retries, and max retries set. Ths new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
-<li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://github.com/TMRh20/RF24">https://github.com/TMRh20/RF24</a> for more info. </li>
+<li><b>New</b> (2014): Dual headed operation: The use of dual radios for busy routing nodes or the master node enhances throughput and decreases errors. See the <a href="Tuning.html">Tuning</a> section. </li>
+<li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
+<li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
+<li><b>New</b> (2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h.html">RF24Network_config.h</a>)) </li>
 <li>Host Addressing. Each node has a logical address on the local network. </li>
 <li>Message Forwarding. Messages can be sent from one node to any other, and this layer will get them there no matter how many hops it takes. </li>
 <li>Ad-hoc Joining. A node can join a network without any changes to any existing nodes.</li>
@@ -108,9 +109,10 @@ Features</h1>
 How to learn more</h1>
 <ul>
 <li><a href="classRF24Network.html">RF24Network Class Documentation</a> </li>
-<li><a href="http://tmrh20.github.com/RF24/">RF24: Underlying radio driver</a> </li>
+<li><a href="Tuning.html">Performance and Data Loss: Tuning the Network</a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html">My Blog: RF24 Optimization Overview</a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/arduino-radiointercomwireless-audio.html">My Blog: RF24 Wireless Audio</a> </li>
+<li><a href="http://tmrh20.github.com/RF24/">RF24: Underlying radio driver</a> </li>
 <li><a href="https://github.com/TMRh20/RF24Network/archive/master.zip">Download Current Package</a> </li>
 <li><a href="examples.html">Examples Page</a>. Start with <a href="helloworld_rx_8ino-example.html">helloworld_rx</a> and <a href="helloworld_tx_8ino-example.html">helloworld_tx</a>. </li>
 <li><a href="http://maniacbug.github.com/RF24/">RF24: Original Author</a> </li>
@@ -150,11 +152,11 @@ Starting up a node</h1>
 <h1><a class="anchor" id="Directionality"></a>
 Directionality</h1>
 <p>By default all nodes are always listening, so messages will quickly reach their destination.</p>
-<p>You may choose to sleep any nodes on the network if using interrupts. This is useful in a case where the nodes are operating on batteries and need to sleep. This greatly decreases the power requirements for a sensor network. The leaf nodes can sleep most of the time, and wake every few minutes to send in a reading. Routing nodes can be triggered to wake up whenever a payload is received See sleepNode() in the class documentation. </p>
+<p>You may choose to sleep any nodes on the network if using interrupts. This is useful in a case where the nodes are operating on batteries and need to sleep. This greatly decreases the power requirements for a sensor network. The leaf nodes can sleep most of the time, and wake every few minutes to send in a reading. Routing nodes can be triggered to wake up whenever a payload is received See sleepNode() in the class documentation, and RFNetwork_config.h to enable sleep mode. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 10:58:09 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 20 2014 23:11:37 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['direct_5fchild_5froute_5fto',['direct_child_route_to',['../classRF24Network.html#a43a65052bb6492d8436f64b5f6d258b3',1,'RF24Network']]]
+  ['parent',['parent',['../classRF24Network.html#a2274c0548e35b5182a2f6ced222d0699',1,'RF24Network']]],
+  ['peek',['peek',['../classRF24Network.html#a260de0bab4e167f85d002bb11e97d91e',1,'RF24Network']]]
 ];

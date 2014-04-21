@@ -100,9 +100,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">************* Set the Node Address *************************************</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="keyword">const</span> uint16_t node_address_set[10] = { 00, 02, 05, 012, 015, 022, 025, 032, 035, 045 };</div>
-<div class="line"><span class="comment">// 0 = Master, 1-2 = Top layer, 2-3 = Children of 1,2 respectively, 3-4 = Children of 2,3 respectively, etc...</span></div>
 <div class="line"></div>
-<div class="line">uint8_t NODE_ADDRESS = 0;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// 0 = Master, 1-2 = Top layer, 3-4 = Children of 1,2 respectively, 4-5 = Children of 1,2 respectively, etc...</span></div>
+<div class="line">uint8_t NODE_ADDRESS = 0;  <span class="comment">// Use numbers 0 through 9</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
@@ -113,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">uint16_t this_node;                           <span class="comment">// Our node address</span></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> interval = 99; <span class="comment">// ms       // Delay manager to send pings regularly. Because of sleepNode(), this is largely irrelevant.</span></div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> interval = 1000; <span class="comment">// ms       // Delay manager to send pings regularly.</span></div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> last_time_sent;</div>
 <div class="line"></div>
 <div class="line"></div>
@@ -266,7 +267,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 10:58:09 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 20 2014 23:11:37 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

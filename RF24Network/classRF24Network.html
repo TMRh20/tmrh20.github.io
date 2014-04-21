@@ -85,8 +85,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classRF24Network-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RF24Network Class Reference</div>  </div>
@@ -122,7 +120,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a6b90e07f0f89d64af07b5da0b31e3c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message.  <a href="#a6b90e07f0f89d64af07b5da0b31e3c87">More...</a><br/></td></tr>
 <tr class="separator:a6b90e07f0f89d64af07b5da0b31e3c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8921392fbd695721c3d137f139a2a56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a8921392fbd695721c3d137f139a2a56e">sleepNode</a> (unsigned int cycles, int interruptPin)</td></tr>
-<tr class="memdesc:a8921392fbd695721c3d137f139a2a56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node.  <a href="#a8921392fbd695721c3d137f139a2a56e">More...</a><br/></td></tr>
+<tr class="memdesc:a8921392fbd695721c3d137f139a2a56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node - Still Under Development.  <a href="#a8921392fbd695721c3d137f139a2a56e">More...</a><br/></td></tr>
 <tr class="separator:a8921392fbd695721c3d137f139a2a56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb09129760ac9b171833af3055b2b6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a> (uint8_t prescalar)</td></tr>
 <tr class="memdesc:acb09129760ac9b171833af3055b2b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br/>
@@ -132,33 +130,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2274c0548e35b5182a2f6ced222d0699"><td class="mdescLeft">&#160;</td><td class="mdescRight">This node's parent address.  <a href="#a2274c0548e35b5182a2f6ced222d0699">More...</a><br/></td></tr>
 <tr class="separator:a2274c0548e35b5182a2f6ced222d0699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Advanced Operation</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpaf32cf1216e734b82e2b52429dae0bf6"></a>For advanced configuration of the network </p>
+</td></tr>
 <tr class="memitem:ae6e8410fa817f1e13cb1cd90a96a2684"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ae6e8410fa817f1e13cb1cd90a96a2684">txTimeout</a></td></tr>
 <tr class="separator:ae6e8410fa817f1e13cb1cd90a96a2684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ad9fa17dad648bf9953efdbf4e38071c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ad9fa17dad648bf9953efdbf4e38071c5">open_pipes</a> (void)</td></tr>
-<tr class="separator:ad9fa17dad648bf9953efdbf4e38071c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab868870cb876d0c599678a69ff399a87"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ab868870cb876d0c599678a69ff399a87">find_node</a> (uint16_t current_node, uint16_t target_node)</td></tr>
-<tr class="separator:ab868870cb876d0c599678a69ff399a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3b9545daed274e6f375badaf77a7597"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ac3b9545daed274e6f375badaf77a7597">write</a> (uint16_t)</td></tr>
-<tr class="separator:ac3b9545daed274e6f375badaf77a7597"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab058fcd9b5a90fa1b8fec3ec3e9de602"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ab058fcd9b5a90fa1b8fec3ec3e9de602">write_to_pipe</a> (uint16_t node, uint8_t pipe)</td></tr>
-<tr class="separator:ab058fcd9b5a90fa1b8fec3ec3e9de602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0f47bc85ec6ff25bc7bbe80edcb9529"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa0f47bc85ec6ff25bc7bbe80edcb9529">enqueue</a> (void)</td></tr>
-<tr class="separator:aa0f47bc85ec6ff25bc7bbe80edcb9529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a051a9961ef8041dfdead352b6e54aeed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a051a9961ef8041dfdead352b6e54aeed">is_direct_child</a> (uint16_t node)</td></tr>
-<tr class="separator:a051a9961ef8041dfdead352b6e54aeed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa59705cdce1f4a0f458e77ad038464a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#afa59705cdce1f4a0f458e77ad038464a">is_descendant</a> (uint16_t node)</td></tr>
-<tr class="separator:afa59705cdce1f4a0f458e77ad038464a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43a65052bb6492d8436f64b5f6d258b3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a43a65052bb6492d8436f64b5f6d258b3">direct_child_route_to</a> (uint16_t node)</td></tr>
-<tr class="separator:a43a65052bb6492d8436f64b5f6d258b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61b45acfeec514ca3fddd0802fef564c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a61b45acfeec514ca3fddd0802fef564c">pipe_to_descendant</a> (uint16_t node)</td></tr>
-<tr class="separator:a61b45acfeec514ca3fddd0802fef564c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a258cd056a41c66c201d8ee87e3f0bfc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a258cd056a41c66c201d8ee87e3f0bfc9">setup_address</a> (void)</td></tr>
-<tr class="separator:a258cd056a41c66c201d8ee87e3f0bfc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85150019642eb1fb4afe5f01c3b0c804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a85150019642eb1fb4afe5f01c3b0c804">RF24Network</a> (RF24 &amp;_radio, RF24 &amp;_radio1)</td></tr>
+<tr class="memdesc:a85150019642eb1fb4afe5f01c3b0c804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network in dual head mode using two radio modules.  <a href="#a85150019642eb1fb4afe5f01c3b0c804">More...</a><br/></td></tr>
+<tr class="separator:a85150019642eb1fb4afe5f01c3b0c804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2014 - Optimized Network Layer for RF24 Radios </p>
@@ -183,6 +163,45 @@ Protected Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_radio</td><td>The underlying radio driver instance </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a85150019642eb1fb4afe5f01c3b0c804"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RF24Network::RF24Network </td>
+          <td>(</td>
+          <td class="paramtype">RF24 &amp;&#160;</td>
+          <td class="paramname"><em>_radio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RF24 &amp;&#160;</td>
+          <td class="paramname"><em>_radio1</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct the network in dual head mode using two radio modules. </p>
+<dl class="section note"><dt>Note</dt><dd>Radios will share MISO, MOSI and SCK pins, but require separate CE,CS pins. <div class="fragment"><div class="line">RF24 radio(7,8);</div>
+<div class="line">RF24 radio1(4,5);</div>
+<div class="line"><a class="code" href="classRF24Network.html#a814229a5a4e8e30f88a4bdce05807e50">RF24Network</a>(radio.radio1);</div>
+</div><!-- fragment --> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_radio</td><td>The underlying radio driver instance </td></tr>
+    <tr><td class="paramname">_radio1</td><td>The second underlying radio driver instance </td></tr>
   </table>
   </dd>
 </dl>
@@ -245,160 +264,6 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a43a65052bb6492d8436f64b5f6d258b3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t RF24Network::direct_child_route_to </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa0f47bc85ec6ff25bc7bbe80edcb9529"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::enqueue </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab868870cb876d0c599678a69ff399a87"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t RF24Network::find_node </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>current_node</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>target_node</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afa59705cdce1f4a0f458e77ad038464a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::is_descendant </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a051a9961ef8041dfdead352b6e54aeed"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::is_direct_child </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad9fa17dad648bf9953efdbf4e38071c5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24Network::open_pipes </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a2274c0548e35b5182a2f6ced222d0699"></a>
 <div class="memitem">
 <div class="memproto">
@@ -443,30 +308,6 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a61b45acfeec514ca3fddd0802fef564c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t RF24Network::pipe_to_descendant </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>node</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="aa19f775fcddd334f222ae1b3072dbbe8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -507,30 +348,6 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The total number of bytes copied into <code>message</code> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a258cd056a41c66c201d8ee87e3f0bfc9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24Network::setup_address </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -584,15 +401,16 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sleep this node. </p>
-<dl class="section note"><dt>Note</dt><dd>NEW - Nodes can now be slept while the radio is not actively transmitting. </dd>
+<p>Sleep this node - Still Under Development. </p>
+<dl class="section note"><dt>Note</dt><dd>NEW - Nodes can now be slept while the radio is not actively transmitting. This must be manually enabled by uncommenting the #define ENABLE_SLEEP_MODE in <a class="el" href="RF24Network__config_8h.html">RF24Network_config.h</a> </dd>
 <dd>
-Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
-<p>This function will sleep the node, with the radio mostly powered down in StandBy-I mode, which consumes .000022mA compared to 13.5mA in receive mode.</p>
+Setting the interruptPin to 255 will disable interrupt wake-ups </dd>
+<dd>
+The watchdog timer should be configured in setup() if using sleep mode. This function will sleep the node, with the radio still active in receive mode.</dd></dl>
 <p>The node can be awoken in two ways, both of which can be enabled simultaneously:</p>
 <ol type="1">
 <li>An interrupt - usually triggered by the radio receiving a payload. Must use pin 2 (interrupt 0) or 3 (interrupt 1) on Uno, Nano, etc.</li>
-<li>The watchdog timer waking the MCU after a designated period of time. <div class="fragment"><div class="line"><span class="keywordflow">if</span>(!network.available()){ network.sleepNode(1,0); }  <span class="comment">//Sleeps the node for 1 second or a payload is received</span></div>
+<li>The watchdog timer waking the MCU after a designated period of time, can also be used instead of delays to control transmission intervals. <div class="fragment"><div class="line"><span class="keywordflow">if</span>(!network.available()){ network.sleepNode(1,0); }  <span class="comment">//Sleeps the node for 1 second or a payload is received</span></div>
 <div class="line"></div>
 <div class="line">Other options:</div>
 <div class="line">network.sleepNode(0,0);         <span class="comment">// Sleep this node for the designated time period, or a payload is received.</span></div>
@@ -673,64 +491,6 @@ Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac3b9545daed274e6f375badaf77a7597"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::write </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab058fcd9b5a90fa1b8fec3ec3e9de602"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::write_to_pipe </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>node</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pipe</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="ae6e8410fa817f1e13cb1cd90a96a2684"></a>
 <div class="memitem">
@@ -741,8 +501,8 @@ Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>: Optimization: Users can optionally define an extended timeout period for use in noisy or low-signal scenarios.</dd></dl>
-<p>Set the timeout period for individual payloads in milliseconds Payloads will be retried automatically until success or timeout Set to 0 to use the normal auto retry period defined by radio.setRetries() </p>
+<dl class="section note"><dt>Note</dt><dd>: Optimization:This value is automatically assigned based on the node address to reduce errors and increase throughput of the network.</dd></dl>
+<p>Sets the timeout period for individual payloads in milliseconds at staggered intervals. Payloads will be retried automatically until success or timeout Set to 0 to use the normal auto retry period defined by radio.setRetries() </p>
 
 </div>
 </div>
@@ -752,7 +512,7 @@ Setting the interruptPin to 255 will disable interrupt wake-ups</dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Apr 5 2014 10:58:09 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 20 2014 23:11:37 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

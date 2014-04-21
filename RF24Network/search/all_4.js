@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['direct_5fchild_5froute_5fto',['direct_child_route_to',['../classRF24Network.html#a43a65052bb6492d8436f64b5f6d258b3',1,'RF24Network']]]
+  ['from_5fnode',['from_node',['../structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56',1,'RF24NetworkHeader']]]
 ];
