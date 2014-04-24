@@ -4,7 +4,7 @@ var searchData=
   ['setchannel',['setChannel',['../classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e',1,'RF24']]],
   ['setcrclength',['setCRCLength',['../classRF24.html#a89f626fc4a58dd997153bcc0f8198b9e',1,'RF24']]],
   ['setdatarate',['setDataRate',['../classRF24.html#aeb9920e7a95699748b003c4a839b0814',1,'RF24']]],
-  ['setpalevel',['setPALevel',['../classRF24.html#ae14164610ab5af94cf44b2743daa8dc9',1,'RF24']]],
+  ['setpalevel',['setPALevel',['../classRF24.html#adedac579590a668ae97baccab284de8a',1,'RF24']]],
   ['setpayloadsize',['setPayloadSize',['../classRF24.html#a343e5d23477181011dea030fafb1954f',1,'RF24']]],
   ['setretries',['setRetries',['../classRF24.html#a4c6d3959c8320e64568395f4ef507aef',1,'RF24']]],
   ['startfastwrite',['startFastWrite',['../classRF24.html#a7f27a53cda5f707c817c9a89a8425489',1,'RF24']]],

@@ -185,10 +185,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aec71746d59da978bcbb975167886a2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60dba9e558f3620ab489af68ea3dea9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a60dba9e558f3620ab489af68ea3dea9c">setAutoAck</a> (uint8_t pipe, bool enable)</td></tr>
 <tr class="separator:a60dba9e558f3620ab489af68ea3dea9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14164610ab5af94cf44b2743daa8dc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ae14164610ab5af94cf44b2743daa8dc9">setPALevel</a> (rf24_pa_dbm_e level)</td></tr>
-<tr class="separator:ae14164610ab5af94cf44b2743daa8dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac53facef9c62aa82589cf9cc48913267"><td class="memItemLeft" align="right" valign="top">rf24_pa_dbm_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ac53facef9c62aa82589cf9cc48913267">getPALevel</a> (void)</td></tr>
-<tr class="separator:ac53facef9c62aa82589cf9cc48913267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adedac579590a668ae97baccab284de8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#adedac579590a668ae97baccab284de8a">setPALevel</a> (uint8_t level)</td></tr>
+<tr class="separator:adedac579590a668ae97baccab284de8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c4dcd84466168c5816382ceb366067"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#af7c4dcd84466168c5816382ceb366067">getPALevel</a> (void)</td></tr>
+<tr class="separator:af7c4dcd84466168c5816382ceb366067"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb9920e7a95699748b003c4a839b0814"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aeb9920e7a95699748b003c4a839b0814">setDataRate</a> (rf24_datarate_e speed)</td></tr>
 <tr class="separator:aeb9920e7a95699748b003c4a839b0814"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72a7b11dafe8ffab6135f243decce0d7"><td class="memItemLeft" align="right" valign="top">rf24_datarate_e&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a72a7b11dafe8ffab6135f243decce0d7">getDataRate</a> (void)</td></tr>
@@ -1447,20 +1447,22 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 
 </div>
 </div>
-<a class="anchor" id="ae14164610ab5af94cf44b2743daa8dc9"></a>
+<a class="anchor" id="adedac579590a668ae97baccab284de8a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void RF24::setPALevel </td>
           <td>(</td>
-          <td class="paramtype">rf24_pa_dbm_e&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>level</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set Power Amplifier (PA) level to one of four levels. Relative mnemonics have been used to allow for future PA level changes. According to 6.5 of the nRF24L01+ specification sheet, they translate to: RF24_PA_MIN=-18dBm, RF24_PA_LOW=-12dBm, RF24_PA_MED=-6dBM, and RF24_PA_HIGH=0dBm.</p>
+<p>Set Power Amplifier (PA) level to one of four levels: RF24_PA_MIN, RF24_PA_LOW, RF24_PA_HIGH and RF24_PA_MAX</p>
+<p>The power levels correspond to the following output levels respectively: NRF24L01: -18dBm, -12dBm,-6dBM, and 0dBm</p>
+<p>SI24R1: -6dBm, 0dBm, 3dBM, and 7dBm.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">level</td><td>Desired PA level. </td></tr>
@@ -1471,12 +1473,12 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </dl>
 </div>
 </div>
-<a class="anchor" id="ac53facef9c62aa82589cf9cc48913267"></a>
+<a class="anchor" id="af7c4dcd84466168c5816382ceb366067"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">rf24_pa_dbm_e RF24::getPALevel </td>
+          <td class="memname">uint8_t RF24::getPALevel </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1485,7 +1487,8 @@ When transmitting data in rapid succession, it is still recommended by the manuf
       </table>
 </div><div class="memdoc">
 <p>Fetches the current PA level.</p>
-<dl class="section return"><dt>Returns</dt><dd>Returns a value from the rf24_pa_dbm_e enum describing the current PA setting. Please remember, all values represented by the enum mnemonics are negative dBm. See setPALevel for return value descriptions. </dd></dl>
+<p>NRF24L01: -18dBm, -12dBm, -6dBm and 0dBm SI24R1: -6dBm, 0dBm, 3dBm, 7dBm</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns values 0 to 3 representing the PA Level. </dd></dl>
 
 </div>
 </div>
@@ -1595,7 +1598,7 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 18 2014 10:20:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 24 2014 15:10:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
