@@ -154,7 +154,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Setup the radio and radio identifier. </p>
-<dl class="section note"><dt>Note</dt><dd>The radio identifier is only required if utilizing private node-to-node communication as opposed to broadcasting to the entire radio group</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Changing radioNum is only required if utilizing private node-to-node communication as opposed to broadcasting to the entire radio group</dd></dl>
 <div class="fragment"><div class="line">RF24 radio(48,49);                           <span class="comment">// Initialize the radio driver</span></div>
 <div class="line"><a class="code" href="classRF24Audio.html">RF24Audio</a> rfAudio(radio,0);          <span class="comment">// Initialize the audio driver</span></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
@@ -278,7 +278,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Volume Control. </p>
-<div class="fragment"><div class="line">rfAudio.volume(4); <span class="comment">// Set the volume to mid-level</span></div>
+<div class="fragment"><div class="line">rfAudio.setVolume(4); <span class="comment">// Set the volume to mid-level</span></div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vol</td><td>Set at 0 to 7 for range of volume control </td></tr>
@@ -338,7 +338,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 18 2014 14:26:14 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 27 2014 11:54:15 for RF24Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
