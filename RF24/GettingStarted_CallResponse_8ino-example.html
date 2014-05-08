@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10 </span></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);</div>
 <div class="line">                                                                           <span class="comment">// Topology</span></div>
-<div class="line"><span class="keyword">const</span> uint64_t addresses[2] = { 0xABCDABCD71LL, 0x544d52687CLL };              <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
+<div class="line">byte addresses[][6] = {<span class="stringliteral">&quot;1Node&quot;</span>,<span class="stringliteral">&quot;2Node&quot;</span>};              <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Role management: Set up role.  This sketch uses the same software for all the nodes</span></div>
 <div class="line"><span class="comment">// in this system.  Doing so greatly simplifies testing.  </span></div>
@@ -123,8 +123,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload</a>();               <span class="comment">// Allow optional ack payloads</span></div>
 <div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a>(0,15);                 <span class="comment">// Smallest time between retries, max no. of retries</span></div>
 <div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#a343e5d23477181011dea030fafb1954f">setPayloadSize</a>(1);                <span class="comment">// Here we are sending 1-byte payloads to test the call-response speed</span></div>
-<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(addresses[1]);        <span class="comment">// Both radios listen on the same pipes by default, and switch when writing</span></div>
-<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,addresses[0]);      <span class="comment">// Open a reading pipe on address 0, pipe 1</span></div>
+<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]);        <span class="comment">// Both radios listen on the same pipes by default, and switch when writing</span></div>
+<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);      <span class="comment">// Open a reading pipe on address 0, pipe 1</span></div>
 <div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                 <span class="comment">// Start listening</span></div>
 <div class="line">  radio.<a name="a9"></a><a class="code" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a>();</div>
 <div class="line">  radio.<a name="a10"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
@@ -185,16 +185,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">      role = role_ping_out;                      <span class="comment">// Change roles (ping out)</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(addresses[0]);       <span class="comment">// Open different pipes when writing. Write on pipe 0, address 0</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,addresses[1]);     <span class="comment">// Read on pipe 1, as address 1</span></div>
+<div class="line">      radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[0]);       <span class="comment">// Open different pipes when writing. Write on pipe 0, address 0</span></div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[1]);     <span class="comment">// Read on pipe 1, as address 1</span></div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == role_ping_out )</div>
 <div class="line">    {</div>
 <div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
 <div class="line">      </div>
 <div class="line">       role = role_pong_back;                    <span class="comment">// Become the primary receiver (pong back)</span></div>
-<div class="line">       radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(addresses[1]);      <span class="comment">// Since only two radios involved, both listen on the same addresses and pipe numbers in RX mode</span></div>
-<div class="line">       radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,addresses[0]);    <span class="comment">// then switch pipes &amp; addresses to transmit. </span></div>
+<div class="line">       radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]);      <span class="comment">// Since only two radios involved, both listen on the same addresses and pipe numbers in RX mode</span></div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);    <span class="comment">// then switch pipes &amp; addresses to transmit. </span></div>
 <div class="line">       radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                   <span class="comment">// Need to start listening after opening new reading pipes</span></div>
 <div class="line">    }</div>
 <div class="line">  }</div>
@@ -202,7 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 24 2014 15:10:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 8 2014 02:19:15 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

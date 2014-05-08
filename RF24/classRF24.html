@@ -111,10 +111,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e2eacacfba96426c192066f04054c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd4c198a47704db20b6b5cf0731cd58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a> (const void *buf, uint8_t len)</td></tr>
 <tr class="separator:a4cd4c198a47704db20b6b5cf0731cd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a> (uint64_t address)</td></tr>
-<tr class="separator:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a> (uint8_t number, uint64_t address)</td></tr>
-<tr class="separator:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e409e62d49a23e372a70b904ae30e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a> (const uint8_t *address)</td></tr>
+<tr class="separator:af2e409e62d49a23e372a70b904ae30e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9edc910ccc1ffcff56814b08faca5535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a> (uint8_t number, const uint8_t *address)</td></tr>
+<tr class="separator:a9edc910ccc1ffcff56814b08faca5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9944d93994a80037e3586f340f5e0107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9944d93994a80037e3586f340f5e0107">closeReadingPipe</a> (uint8_t pipe)</td></tr>
+<tr class="separator:a9944d93994a80037e3586f340f5e0107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Advanced Operation</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Methods you can use to drive the chip in more advanced ways </p>
 </div></td></tr>
@@ -162,6 +164,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a35e5f1533b7753806c42b76e782d917e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf68b9b0c9cd17179e9e144c3e7f9c45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#abf68b9b0c9cd17179e9e144c3e7f9c45">maskIRQ</a> (bool tx_ok, bool tx_fail, bool rx_ready)</td></tr>
 <tr class="separator:abf68b9b0c9cd17179e9e144c3e7f9c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a> (uint8_t a_width)</td></tr>
+<tr class="separator:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Optional Configurators</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Methods you can use to get or set the configuration of the chip. None are required. Calling <a class="el" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin()</a> sets up a reasonable set of defaults. </p>
 </div></td></tr>
@@ -199,6 +203,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba4ca91b829afcd94a4c11e0343e3796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eacd9ecfbc19864801d714c292cf8be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a5eacd9ecfbc19864801d714c292cf8be">disableCRC</a> (void)</td></tr>
 <tr class="separator:a5eacd9ecfbc19864801d714c292cf8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Methods provided for backwards compabibility. </p>
+</div></td></tr>
+<tr class="memitem:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a> (uint8_t number, uint64_t address)</td></tr>
+<tr class="separator:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a> (uint64_t address)</td></tr>
+<tr class="separator:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Driver for nRF24L01(+) 2.4GHz Wireless Transceiver </p>
@@ -274,7 +285,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Start listening on the pipes opened for reading.</p>
-<p>Be sure to call <a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe()</a> first. Do not call <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> while in this mode, without first calling <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a>. Call isAvailable() to check for incoming traffic, and <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to get it. </p>
+<p>Be sure to call <a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe()</a> first. Do not call <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> while in this mode, without first calling <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a>. Call isAvailable() to check for incoming traffic, and <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to get it. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a6">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a8">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a4">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a7">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a8">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a6">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a5">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a6">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a4">pingpair_sleepy.ino</a>, <a class="el" href="scanner_8ino-example.html#a3">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a4">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a10">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a10">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
@@ -392,7 +403,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
       </table>
 </div><div class="memdoc">
 <dl class="section note"><dt>Note</dt><dd>Optimization: Improved performance slightly Write to the open writing pipe</dd></dl>
-<p>Be sure to call <a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe()</a> first to set the destination of where to write to.</p>
+<p>Be sure to call <a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe()</a> first to set the destination of where to write to.</p>
 <p>This blocks until the message is successfully acknowledged by the receiver or the timeout/retransmit maxima are reached. In the current configuration, the max delay here is 60ms.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="classRF24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
 <p>TX/RX/RT interrupt flags will be cleared every time write is called</p>
@@ -408,26 +419,29 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 </dl>
 </div>
 </div>
-<a class="anchor" id="a50c8e68ee840e1860a31dbdc83afbd77"></a>
+<a class="anchor" id="af2e409e62d49a23e372a70b904ae30e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void RF24::openWritingPipe </td>
           <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
           <td class="paramname"><em>address</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Open a pipe for writing</p>
-<p>Only one pipe can be open at once, but you can change the pipe you'll listen to. Do not call this while actively listening. Remember to <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> first.</p>
-<p>Addresses are 40-bit hex values, e.g.:</p>
-<div class="fragment"><div class="line"><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(0xF0F0F0F0F0);</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<p>New: Open a pipe for writing</p>
+<p>Only one pipe can be open at once, but you can change the pipe you'll write to. Call <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> first.</p>
+<p>Addresses are assigned via a byte array, default is 5 byte address length</p>
+<p>Usage is exactly the same as before, except for declaring the array</p>
+<div class="fragment"><div class="line">uint8_t addresses[][6] = {<span class="stringliteral">&quot;1Node&quot;</span>,<span class="stringliteral">&quot;2Node&quot;</span>};</div>
+<div class="line"><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[0]);</div>
+</div><!-- fragment --> <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a></dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The 40-bit address of the pipe to open. This can be any value whatsoever, as long as you are the only one writing to it and only one other radio is listening to it. Coordinate these pipe addresses amongst nodes on the network. </td></tr>
+    <tr><td class="paramname">address</td><td>The address of the pipe to open. Coordinate these pipe addresses amongst nodes on the network. </td></tr>
   </table>
   </dd>
 </dl>
@@ -435,7 +449,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 </dl>
 </div>
 </div>
-<a class="anchor" id="aa7e8523f86f9f8f20c274e0c89a5fd45"></a>
+<a class="anchor" id="a9edc910ccc1ffcff56814b08faca5535"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -448,7 +462,7 @@ Optimization: No longer boolean. Use available to determine if packets are avail
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramtype">const uint8_t *&#160;</td>
           <td class="paramname"><em>address</em>&#160;</td>
         </tr>
         <tr>
@@ -460,21 +474,47 @@ Optimization: No longer boolean. Use available to determine if packets are avail
 </div><div class="memdoc">
 <p>Open a pipe for reading</p>
 <p>Up to 6 pipes can be open for reading at once. Open all the reading pipes, and then call <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a>.</p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a></dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Pipes 1-5 should share the first 32 bits. Only the least significant byte should be unique, e.g. <div class="fragment"><div class="line"><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,0xF0F0F0F0AA);</div>
-<div class="line"><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(2,0xF0F0F0F066);</div>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a> </dd>
+<dd>
+<a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a></dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Pipes 1-5 should share the same address, except the first byte. Only the first byte in the array should be unique, e.g. <div class="fragment"><div class="line">uint8_t addresses[][6] = {<span class="stringliteral">&quot;1Node&quot;</span>,<span class="stringliteral">&quot;2Node&quot;</span>};</div>
+<div class="line"><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);</div>
+<div class="line"><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(2,addresses[1]);</div>
 </div><!-- fragment --></dd>
 <dd>
-Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and then <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a>, it will overwrite the writing pipe. Ergo, do an <a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe()</a> again before <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</dd></dl>
+Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and then <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a>, it will overwrite the writing pipe. Ergo, do an <a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe()</a> again before <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">number</td><td>Which pipe# to open, 0-5. </td></tr>
-    <tr><td class="paramname">address</td><td>The 40-bit address of the pipe to open. </td></tr>
+    <tr><td class="paramname">address</td><td>The 24, 32 or 40 bit address of the pipe to open. </td></tr>
   </table>
   </dd>
 </dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a5">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a7">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a3">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a6">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a7">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a5">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a4">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a5">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a3">pingpair_sleepy.ino</a>, <a class="el" href="starping_8pde-example.html#a2">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a9">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a9">TransferTimeouts.ino</a>.</dd>
 </dl>
+</div>
+</div>
+<a class="anchor" id="a9944d93994a80037e3586f340f5e0107"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::closeReadingPipe </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close a pipe after it has been previously opened. Can be safely called without having previously opened a pipe. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td>Which pipe # to close, 0-5. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="adc95213ed4c8569a90eb33122e16cea6"></a>
@@ -1205,6 +1245,29 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 
 </div>
 </div>
+<a class="anchor" id="ad5aea7f9a3bd9c7d357fb296ce751f21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::setAddressWidth </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>a_width</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the address width from 3 to 5 bytes (24, 32 or 40 bit)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a_width</td><td>The address width to use: 3,4 or 5 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a4c6d3959c8320e64568395f4ef507aef"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1595,10 +1658,75 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 
 </div>
 </div>
+<a class="anchor" id="aa7e8523f86f9f8f20c274e0c89a5fd45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::openReadingPipe </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open a pipe for reading </p>
+<dl class="section note"><dt>Note</dt><dd>For compatibility with old code only, see new function</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Pipes 1-5 should share the first 32 bits. Only the least significant byte should be unique, e.g. <div class="fragment"><div class="line"><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,0xF0F0F0F0AA);</div>
+<div class="line"><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(2,0xF0F0F0F066);</div>
+</div><!-- fragment --></dd>
+<dd>
+Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and then <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a>, it will overwrite the writing pipe. Ergo, do an <a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe()</a> again before <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>Which pipe# to open, 0-5. </td></tr>
+    <tr><td class="paramname">address</td><td>The 40-bit address of the pipe to open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a50c8e68ee840e1860a31dbdc83afbd77"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::openWritingPipe </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>address</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Open a pipe for writing </p>
+<dl class="section note"><dt>Note</dt><dd>For compatibility with old code only, see new function Addresses are 40-bit hex values, e.g.:</dd></dl>
+<div class="fragment"><div class="line"><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(0xF0F0F0F0F0);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>The 40-bit address of the pipe to open. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 24 2014 15:10:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 8 2014 02:19:15 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -217,11 +217,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// and sends the pong back on the sending node&#39;s specific listening pipe.</span></div>
 <div class="line">  <span class="keywordflow">if</span> ( role == role_pong_back )</div>
 <div class="line">  {</div>
-<div class="line">    radio.<a name="a2"></a><a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,talking_pipes[0]);</div>
-<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(2,talking_pipes[1]);</div>
-<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(3,talking_pipes[2]);</div>
-<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(4,talking_pipes[3]);</div>
-<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(5,talking_pipes[4]);</div>
+<div class="line">    radio.<a name="a2"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,talking_pipes[0]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(2,talking_pipes[1]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(3,talking_pipes[2]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(4,talking_pipes[3]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(5,talking_pipes[4]);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Each ping node has a talking pipe that it will ping into, and a listening</span></div>
@@ -229,9 +229,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( role == role_ping_out )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// Write on our talking pipe</span></div>
-<div class="line">    radio.<a name="a3"></a><a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(talking_pipes[node_address-2]);</div>
+<div class="line">    radio.<a name="a3"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(talking_pipes[node_address-2]);</div>
 <div class="line">    <span class="comment">// Listen on our listening pipe</span></div>
-<div class="line">    radio.<a class="code" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(1,listening_pipes[node_address-2]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,listening_pipes[node_address-2]);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
@@ -327,7 +327,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      radio.<a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Open the correct pipe for writing</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(listening_pipes[pipe_num-1]);</div>
+<div class="line">      radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(listening_pipes[pipe_num-1]);</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Retain the low 2 bytes to identify the pipe for the spew</span></div>
 <div class="line">      uint16_t pipe_id = listening_pipes[pipe_num-1] &amp; 0xffff;</div>
@@ -363,7 +363,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 24 2014 15:10:04 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu May 8 2014 02:19:15 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['disablecrc',['disableCRC',['../classRF24.html#a5eacd9ecfbc19864801d714c292cf8be',1,'RF24']]]
+  ['closereadingpipe',['closeReadingPipe',['../classRF24.html#a9944d93994a80037e3586f340f5e0107',1,'RF24']]]
 ];
