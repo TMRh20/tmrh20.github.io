@@ -98,10 +98,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*************  USER Configuration *****************************/</span></div>
 <div class="line">                                          <span class="comment">// Hardware configuration</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(48,49);                        <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(48,52);                        <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
 <div class="line"><span class="keywordtype">boolean</span> RADIO_NO = 0;  <span class="comment">//SET THIS TO 0 or 1 for 1st or 2nd radio</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***************************************************************/</span></div>
@@ -122,8 +123,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();                           <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e">setChannel</a>(1);</div>
 <div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#adedac579590a668ae97baccab284de8a">setPALevel</a>(RF24_PA_MAX);</div>
-<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#aeb9920e7a95699748b003c4a839b0814">setDataRate</a>(RF24_1MBPS);</div>
-<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
+<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#aeb9920e7a95699748b003c4a839b0814">setDataRate</a>(RF24_2MBPS);</div>
+<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(0);                     <span class="comment">// Ensure autoACK is enabled</span></div>
 <div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a>(2,15);                   <span class="comment">// Optionally, increase the delay between retries &amp; # of retries</span></div>
 <div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#a89f626fc4a58dd997153bcc0f8198b9e">setCRCLength</a>(RF24_CRC_8); </div>
 <div class="line">  <span class="comment">//radio.disableCRC();</span></div>
@@ -173,8 +174,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">   <span class="keywordtype">float</span> numBytes = cycles*32;</div>
 <div class="line">   <span class="keywordtype">float</span> rate = numBytes / (stopTime - startTime);</div>
 <div class="line">    </div>
-<div class="line">   printf(<span class="stringliteral">&quot;Transfer complete at &quot;</span>); Serial.print(rate); printf(<span class="stringliteral">&quot; KB/s \n\r&quot;</span>);</div>
-<div class="line">   printf(<span class="stringliteral">&quot;%d of &quot;</span>,counter); Serial.print(cycles); printf(<span class="stringliteral">&quot; Packets Failed to Send\n\r&quot;</span>);</div>
+<div class="line">   Serial.print(<span class="stringliteral">&quot;Transfer complete at &quot;</span>); Serial.print(rate); printf(<span class="stringliteral">&quot; KB/s \n\r&quot;</span>);</div>
+<div class="line">   printf(<span class="stringliteral">&quot;%d of&quot;</span>,counter); Serial.print(cycles); printf(<span class="stringliteral">&quot; Packets Failed to Send\n\r&quot;</span>);</div>
 <div class="line">   counter = 0;   </div>
 <div class="line">    </div>
 <div class="line">   }</div>
@@ -187,12 +188,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      counter++;</div>
 <div class="line">     }</div>
 <div class="line">   <span class="keywordflow">if</span>(millis() - rxTimer &gt; 1000){</div>
-<div class="line">     rxTimer = millis();</div>
-<div class="line">     printf(<span class="stringliteral">&quot;Rate: &quot;</span>);</div>
-<div class="line">     <span class="keywordtype">float</span> numBytes = counter*32;</div>
-<div class="line">     Serial.print(numBytes/1000);</div>
-<div class="line">     printf(<span class="stringliteral">&quot; KB/s\n\r&quot;</span>); </div>
-<div class="line">     printf(<span class="stringliteral">&quot;Payload Count: %d \n\r&quot;</span>, counter);</div>
+<div class="line">     rxTimer = millis();     </div>
+<div class="line">     <span class="keywordtype">float</span> numBytes = (counter*32)/1000.0;</div>
+<div class="line">     Serial.print(<span class="stringliteral">&quot;Rate: &quot;</span>);</div>
+<div class="line">     Serial.print(numBytes);</div>
+<div class="line">     printf(<span class="stringliteral">&quot;KB/s \n Payload Count: %d \n\r&quot;</span>, counter);</div>
 <div class="line">     counter = 0;</div>
 <div class="line">   }</div>
 <div class="line">  }</div>
@@ -225,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 07:03:24 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 14 2014 12:01:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
