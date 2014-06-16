@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   2: "rs",
   3: "abprstuw",
   4: "finrst",
-  5: "p",
+  5: "cp",
   6: "_ips",
   7: "cnp"
 };

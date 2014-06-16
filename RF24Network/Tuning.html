@@ -82,6 +82,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Tips and examples for tuning the network and Dual-head operation.</p>
+<div class="image">
+<img src="tmrh20/topologyImage.jpg"  alt="Topology" height="75%" width="75%"/>
+</div>
 <h1><a class="anchor" id="TuningOverview"></a>
 Tuning Overview</h1>
 <p>The RF24 radio modules are generally only capable of either sending or receiving data at any given time, but have built-in auto-retry mechanisms to prevent the loss of data. These values are adjusted automatically by the library on startup, but can be further adjusted to reduce data loss, and thus increase throughput of the network. This page is intended to provide a general overview of its operation within the context of the network library, and provide guidance for adjusting these values.</p>
@@ -91,8 +94,8 @@ Auto-Retry Timing</h1>
 <p>The library should provide fairly good working values, as it simply staggers the assigned values within groups of radios in direct communication. This value can be set manually by calling radio.setRetries(X,15); and adjusting the value of X from 1 to 15 (steps of 250us).</p>
 <h1><a class="anchor" id="AutoRetry"></a>
 Auto-Retry Count and Extended Timeouts</h1>
-<p>The core radio library also provides the ability to adjust the internal auto-retry count of the radio modules. The default setting is 15 automatic retries per payload, and can be extended by configuring the network.txTimeout variable. This default retry count should generally be left at 15, as per the example in the above section. The txTimeout variable is used to extend the retry count to a defined duration in milliseconds. An interval/retry setting of (15,15) will provide 15 retrys at intervals of 4ms, taking up to 60ms per payload.</p>
-<p>The library now provides staggered timout periods by default, but they can also be adjusted on a per-node basis. See the network.txTimeout variable. Timeout periods of extended duration (500+) will generally not help when payloads are failing due to data collisions, it will only extend the duration of the errors. Extended duration timeouts should generally only be configured on leaf nodes that do not receive data, or on a dual-headed node.</p>
+<p>The core radio library also provides the ability to adjust the internal auto-retry count of the radio modules. The default setting is 15 automatic retries per payload, and can be extended by configuring the network.txTimeout variable. This default retry count should generally be left at 15, as per the example in the above section. An interval/retry setting of (15,15) will provide 15 retrys at intervals of 4ms, taking up to 60ms per payload. The library now provides staggered timeout periods by default, but they can also be adjusted on a per-node basis.</p>
+<p>The txTimeout variable is used to extend the retry count to a defined duration in milliseconds. See the network.txTimeout variable. Timeout periods of extended duration (500+) will generally not help when payloads are failing due to data collisions, it will only extend the duration of the errors. Extended duration timeouts should generally only be configured on leaf nodes that do not receive data, or on a dual-headed node.</p>
 <h1><a class="anchor" id="Examples"></a>
 Examples</h1>
 <p><b>Example 1:</b> Network with master node and three leaf nodes that send data to the master node. None of the leaf nodes need to receive data.</p>
@@ -132,7 +135,7 @@ Dual Headed Operation</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 18 2014 07:03:43 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 16 2014 11:29:53 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
