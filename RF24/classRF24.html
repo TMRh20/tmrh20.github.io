@@ -166,9 +166,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abf68b9b0c9cd17179e9e144c3e7f9c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a> (uint8_t a_width)</td></tr>
 <tr class="separator:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Optional Configurators</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Methods you can use to get or set the configuration of the chip. None are required. Calling <a class="el" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin()</a> sets up a reasonable set of defaults. </p>
+<tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Methods provided for backwards compabibility. </p>
 </div></td></tr>
+<tr class="memitem:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a> (uint8_t number, uint64_t address)</td></tr>
+<tr class="separator:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a> (uint64_t address)</td></tr>
+<tr class="separator:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Optional Configurators</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpe1a83b99ec8153e5baf680edeeed1586"></a> Methods you can use to get or set the configuration of the chip. None are required. Calling <a class="el" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin()</a> sets up a reasonable set of defaults. </p>
+</td></tr>
+<tr class="memitem:a2e40fe66d1231a333aa2534e8491f828"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a2e40fe66d1231a333aa2534e8491f828">failureDetected</a></td></tr>
+<tr class="separator:a2e40fe66d1231a333aa2534e8491f828"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c6d3959c8320e64568395f4ef507aef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a> (uint8_t delay, uint8_t count)</td></tr>
 <tr class="separator:a4c6d3959c8320e64568395f4ef507aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e6e5a5f6c85d2638381cab2c0f3702e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a5e6e5a5f6c85d2638381cab2c0f3702e">setChannel</a> (uint8_t channel)</td></tr>
@@ -203,13 +214,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba4ca91b829afcd94a4c11e0343e3796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eacd9ecfbc19864801d714c292cf8be"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a5eacd9ecfbc19864801d714c292cf8be">disableCRC</a> (void)</td></tr>
 <tr class="separator:a5eacd9ecfbc19864801d714c292cf8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Methods provided for backwards compabibility. </p>
-</div></td></tr>
-<tr class="memitem:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a> (uint8_t number, uint64_t address)</td></tr>
-<tr class="separator:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a> (uint64_t address)</td></tr>
-<tr class="separator:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Driver for nRF24L01(+) 2.4GHz Wireless Transceiver </p>
@@ -1724,10 +1728,33 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="a2e40fe66d1231a333aa2534e8491f828"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24::failureDetected</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable error detection by un-commenting #define FAILURE_HANDLING in <a class="el" href="RF24__config_8h_source.html">RF24_config.h</a> If a failure has been detected, it usually indicates a hardware issue. By default the library will cease operation when a failure is detected. This should allow advanced users to detect and resolve intermittent hardware issues.</p>
+<p>In most cases, the radio must be re-enabled via radio.begin(); and the appropriate settings applied after a failure occurs, if wanting to re-enable the device immediately.</p>
+<p>Usage: (Failure handling must be enabled per above) </p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span>(radio.<a class="code" href="classRF24.html#a2e40fe66d1231a333aa2534e8491f828">failureDetected</a>){ </div>
+<div class="line">  radio.<a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();                        <span class="comment">// Attempt to re-configure the radio with defaults</span></div>
+<div class="line">  radio.<a class="code" href="classRF24.html#a2e40fe66d1231a333aa2534e8491f828">failureDetected</a> = 0;            <span class="comment">// Reset the detection value</span></div>
+<div class="line">  radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]); <span class="comment">// Re-configure pipe addresses</span></div>
+<div class="line">  radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);</div>
+<div class="line">  report_failure();                 <span class="comment">// Blink leds, send a message, etc. to indicate failure</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> 
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Jun 14 2014 12:01:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 31 2014 01:26:42 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['line',['line',['../namespaceruntest.html#a9882d3e09b5f5a19fc3d77bbbae74dcd',1,'runtest']]]
+  ['failuredetected',['failureDetected',['../classRF24.html#a2e40fe66d1231a333aa2534e8491f828',1,'RF24']]]
 ];
