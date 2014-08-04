@@ -115,8 +115,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af2e409e62d49a23e372a70b904ae30e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9edc910ccc1ffcff56814b08faca5535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a> (uint8_t number, const uint8_t *address)</td></tr>
 <tr class="separator:a9edc910ccc1ffcff56814b08faca5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9944d93994a80037e3586f340f5e0107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9944d93994a80037e3586f340f5e0107">closeReadingPipe</a> (uint8_t pipe)</td></tr>
-<tr class="separator:a9944d93994a80037e3586f340f5e0107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Advanced Operation</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Methods you can use to drive the chip in more advanced ways </p>
 </div></td></tr>
@@ -166,6 +164,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abf68b9b0c9cd17179e9e144c3e7f9c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a> (uint8_t a_width)</td></tr>
 <tr class="separator:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9944d93994a80037e3586f340f5e0107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9944d93994a80037e3586f340f5e0107">closeReadingPipe</a> (uint8_t pipe)</td></tr>
+<tr class="separator:a9944d93994a80037e3586f340f5e0107"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Methods provided for backwards compabibility. </p>
 </div></td></tr>
@@ -269,8 +269,7 @@ Optional Configurators</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Begin operation of the chip</p>
-<p>Call this in setup(), before calling any other methods.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: The radio is partially configured in PTX mode when begin is called to make the transition to PTX mode simpler. </dd></dl>
+<p>Call this in setup(), before calling any other methods. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a1">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a1">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a1">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a1">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a1">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a1">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a1">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a1">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a1">pingpair_sleepy.ino</a>, <a class="el" href="scanner_8ino-example.html#a1">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a1">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a1">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a1">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
@@ -289,7 +288,7 @@ Optional Configurators</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Start listening on the pipes opened for reading.</p>
-<p>Be sure to call <a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe()</a> first. Do not call <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> while in this mode, without first calling <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a>. Call isAvailable() to check for incoming traffic, and <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to get it. </p>
+<p>Be sure to call <a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe()</a> first. Do not call <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> while in this mode, without first calling <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a>. Call Available() to check for incoming traffic, and <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to get it. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a6">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a9">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a4">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a7">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a8">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a6">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a5">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a6">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a4">pingpair_sleepy.ino</a>, <a class="el" href="scanner_8ino-example.html#a3">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a4">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a10">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a10">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
@@ -308,8 +307,7 @@ Optional Configurators</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Stop listening for incoming messages</p>
-<p>Do this before calling <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: The radio will be taken out of PRX mode as soon as listening is stopped. Enables quicker and simpler engaging of primary transmitter (PTX) mode. </dd></dl>
+<p>Do this before calling <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a8">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a12">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a10">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a8">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a8">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a6">pingpair_sleepy.ino</a>, <a class="el" href="scanner_8ino-example.html#a4">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a6">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a17">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a18">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
@@ -328,16 +326,6 @@ Optional Configurators</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Test whether there are bytes available to be read</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: The available functino now checks the FIFO buffers directly for data instead of relying of interrupt flags.</dd>
-<dd>
-Interrupt flags will not be cleared until a payload is actually read from the FIFO</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> </dd>
-<dd>
-<a class="el" href="classRF24.html#aa27519fc289920094422033e0bbf8cf9">startWrite()</a> </dd>
-<dd>
-<a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
-<dd>
-<a class="el" href="classRF24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a10">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a14">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a7">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a9">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a12">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a10">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a9">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a10">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a8">pingpair_sleepy.ino</a>, <a class="el" href="starping_8pde-example.html#a8">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a15">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a16">TransferTimeouts.ino</a>.</dd>
 </dl>
@@ -370,7 +358,7 @@ Interrupt flags will not be cleared until a payload is actually read from the FI
 <p>The size of data read is the fixed payload size, see <a class="el" href="classRF24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a></p>
 <dl class="section note"><dt>Note</dt><dd>I specifically chose 'void*' as a data type to make it easier for beginners to use. No casting needed.</dd>
 <dd>
-Optimization: No longer boolean. Use available to determine if packets are available. Interrupt flags are now cleared during reads instead of when calling <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>.</dd></dl>
+No longer boolean. Use available to determine if packets are available. Interrupt flags are now cleared during reads instead of when calling <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">buf</td><td>Pointer to a buffer where the data should be written </td></tr>
@@ -406,9 +394,8 @@ Optimization: No longer boolean. Use available to determine if packets are avail
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: Improved performance slightly Write to the open writing pipe</dd></dl>
 <p>Be sure to call <a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe()</a> first to set the destination of where to write to.</p>
-<p>This blocks until the message is successfully acknowledged by the receiver or the timeout/retransmit maxima are reached. In the current configuration, the max delay here is 60ms.</p>
+<p>This blocks until the message is successfully acknowledged by the receiver or the timeout/retransmit maxima are reached. In the current configuration, the max delay here is 60-70ms.</p>
 <p>The maximum size of data written is the fixed payload size, see <a class="el" href="classRF24.html#a0aa0c7cbe3d38fef4722f3f1d2d6c5f1">getPayloadSize()</a>. However, you can write less, and the remainder will just be filled with zeroes.</p>
 <p>TX/RX/RT interrupt flags will be cleared every time write is called</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -436,8 +423,8 @@ Optimization: No longer boolean. Use available to determine if packets are avail
         </tr>
       </table>
 </div><div class="memdoc">
-<p>New: Open a pipe for writing</p>
-<p>Only one pipe can be open at once, but you can change the pipe you'll write to. Call <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> first.</p>
+<p>New: Open a pipe for writing via byte array. Old addressing format retained for compatibility.</p>
+<p>Only one writing pipe can be open at once, but you can change the address you'll write to. Call <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> first.</p>
 <p>Addresses are assigned via a byte array, default is 5 byte address length</p>
 <p>Usage is exactly the same as before, except for declaring the array</p>
 <div class="fragment"><div class="line">uint8_t addresses[][6] = {<span class="stringliteral">&quot;1Node&quot;</span>,<span class="stringliteral">&quot;2Node&quot;</span>};</div>
@@ -498,29 +485,6 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 </div>
 </div>
-<a class="anchor" id="a9944d93994a80037e3586f340f5e0107"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24::closeReadingPipe </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>pipe</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Close a pipe after it has been previously opened. Can be safely called without having previously opened a pipe. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pipe</td><td>Which pipe # to close, 0-5. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="adc95213ed4c8569a90eb33122e16cea6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -554,7 +518,6 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
       </table>
 </div><div class="memdoc">
 <p>Test whether there are bytes available to be read in the FIFO buffers. This optimized version does not rely on interrupt flags, but checks the actual FIFO buffers.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: Interrupt flags are no longer cleared when available is called, but will be reset only when the data is read from the FIFO buffers.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">pipe_num</td><td>Which pipe has the payload available </td></tr>
@@ -580,7 +543,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><div class="memdoc">
 <p>Enter low-power mode</p>
 <p>To return to normal power mode, either <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> some data or startListening, or <a class="el" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp()</a>.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: The radio will never enter power down unless instructed by the MCU via this command. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>After calling <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a>, a basic radio will consume about 13.5mA at max PA level. During active transmission, the radio will consume about 11.5mA, but this will be reduced to 26uA (.026mA) between sending. In full powerDown mode, the radio will consume approximately 900nA (.0009mA) </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="pingpair_sleepy_8ino-example.html#a10">pingpair_sleepy.ino</a>.</dd>
 </dl>
 </div>
@@ -598,8 +561,9 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Leave low-power mode - making radio more responsive</p>
+<p>Leave low-power mode - required for normal radio operation after calling <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a></p>
 <p>To return to low power mode, call <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a>. </p>
+<dl class="section note"><dt>Note</dt><dd>This will take up to 5ms for maximum compatibility </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a10">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a5">pingpair_sleepy.ino</a>, <a class="el" href="Transfer_8ino-example.html#a12">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a12">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
@@ -633,7 +597,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Write for single NOACK writes. Disables acknowledgements/autoretries for a single write.</p>
+<p>Write for single NOACK writes. Optionally disables acknowledgements/autoretries for a single write.</p>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="classRF24.html#a6253607ac2a1995af91a35cea6899c31">enableDynamicAck()</a> must be called to enable this feature</dd></dl>
 <p>Can be used with <a class="el" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload()</a> to request a response </p>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#a6253607ac2a1995af91a35cea6899c31">enableDynamicAck()</a> </dd>
@@ -675,8 +639,8 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: New Command * This will not block until the 3 FIFO buffers are filled with data. Once the FIFOs are full, writeFast will simply wait for success or timeout, and return 1 or 0 respectively. From a user perspective, just keep trying to send the same data. The library will keep auto retrying the current payload using the built in functionality. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
+<p>This will not block until the 3 FIFO buffers are filled with data. Once the FIFOs are full, writeFast will simply wait for success or timeout, and return 1 or 0 respectively. From a user perspective, just keep trying to send the same data. The library will keep auto retrying the current payload using the built in functionality. </p>
+<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode and FIFO full for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
 <p>ONLY max retry interrupt flags will be cleared when writeFast is called</p>
 <div class="fragment"><div class="line">Example (Partial blocking):</div>
 <div class="line"></div>
@@ -776,8 +740,8 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: New Command This function extends the auto-retry mechanism to any specified duration. It will not block until the 3 FIFO buffers are filled with data. If so the library will auto retry until a new payload is written or the user specified timeout period is reached. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
+<p>This function extends the auto-retry mechanism to any specified duration. It will not block until the 3 FIFO buffers are filled with data. If so the library will auto retry until a new payload is written or the user specified timeout period is reached. </p>
+<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode and FIFO full for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
 <p>ONLY max retry interrupt flags will be cleared when writeBlocking is called </p>
 <div class="fragment"><div class="line">Example (Full blocking):</div>
 <div class="line"></div>
@@ -815,9 +779,8 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: New Command This function should be called as soon as transmission is finished to drop the radio back to STANDBY-I mode. If not issued, the radio will remain in STANDBY-II mode which, per the data sheet, is not a recommended operating mode.</dd>
-<dd>
-When transmitting data in rapid succession, it is still recommended by the manufacturer to drop the radio out of TX or STANDBY-II mode if there is time enough between sends for the FIFOs to empty.</dd></dl>
+<p>This function should be called as soon as transmission is finished to drop the radio back to STANDBY-I mode. If not issued, the radio will remain in STANDBY-II mode which, per the data sheet, is not a recommended operating mode.</p>
+<dl class="section note"><dt>Note</dt><dd>When transmitting data in rapid succession, it is still recommended by the manufacturer to drop the radio out of TX or STANDBY-II mode if there is time enough between sends for the FIFOs to empty.</dd></dl>
 <p>Relies on built-in auto retry functionality.</p>
 <div class="fragment"><div class="line">Example (Partial blocking):</div>
 <div class="line"></div>
@@ -845,7 +808,6 @@ When transmitting data in rapid succession, it is still recommended by the manuf
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>Optimization: New Command</dd></dl>
 <p>This function allows extended blocking and auto-retries per a user defined timeout </p>
 <div class="fragment"><div class="line">Fully Blocking Example:</div>
 <div class="line"></div>
@@ -896,7 +858,7 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><div class="memdoc">
 <p>Write an ack payload for the specified pipe</p>
 <p>The next time a message is received on <code>pipe</code>, the data in <code>buf</code> will be sent back in the acknowledgement.</p>
-<dl class="section warning"><dt>Warning</dt><dd>According to the data sheet, only three of these can be pending at any time as there are only 3 FIFO buffers.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Only three of these can be pending at any time as there are only 3 FIFO buffers.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pipe</td><td>Which pipe# (typically 1-5) will get this response. </td></tr>
@@ -945,9 +907,8 @@ When transmitting data in rapid succession, it is still recommended by the manuf
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determine if an ack payload was received in the most recent call to <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>.</p>
+<p>Determine if an ack payload was received in the most recent call to <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. The regular <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a> can also be used.</p>
 <p>Call <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to retrieve the ack payload.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: Calling this function NO LONGER clears the interrupt flag. The new functionality checks the RX FIFO buffer for an ACK payload instead of relying on interrupt flags.Reading the payload will clear the flags.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if an ack payload is available. </dd></dl>
 
 </div>
@@ -1026,7 +987,7 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><div class="memdoc">
 <p>Non-blocking write to the open writing pipe used for buffered writes</p>
 <dl class="section note"><dt>Note</dt><dd>Optimization: This function now leaves the CE pin high, so the radio will remain in TX or STANDBY-II Mode until a <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> command is issued. This allows the chip to be used to its full potential in TX mode. </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It is important to never keep the nRF24L01 in TX mode with FIFO full for more than 4ms at a time. If the auto retransmit is enabled, the nRF24L01 is never in TX mode long enough to disobey this rule. Allow the FIFO to clear by issuing <a class="el" href="classRF24.html#a12cc453453c94969d4d3f0edb3778c83">txStandBy()</a> or ensure appropriate time between transmissions.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
 <dd>
 <a class="el" href="classRF24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
@@ -1081,7 +1042,6 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><div class="memdoc">
 <p>Non-blocking write to the open writing pipe</p>
 <p>Just like <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>, but it returns immediately. To find out what happened to the send, catch the IRQ and then call <a class="el" href="classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89">whatHappened()</a>.</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: This function again behaves as it did previously for backwards-compatibility. with user code. The library uses <a class="el" href="classRF24.html#a7f27a53cda5f707c817c9a89a8425489">startFastWrite()</a> internally. This is mainly used for single-payload transactions.</dd></dl>
 <dl class="section see"><dt>See Also</dt><dd><a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> </dd>
 <dd>
 <a class="el" href="classRF24.html#a47b2516993481b58e724d1274a7fd9cb">writeFast()</a> </dd>
@@ -1117,7 +1077,6 @@ When transmitting data in rapid succession, it is still recommended by the manuf
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Optimization: New Command</p>
 <p>This function is mainly used internally to take advantage of the auto payload re-use functionality of the chip, but can be beneficial to users as well.</p>
 <p>The function will instruct the radio to re-use the data in the FIFO buffers, and instructs the radio to re-send once the timeout limit has been reached. Used by writeFast and writeBlocking to initiate retries when a TX failure occurs. Retries are automatically initiated except with the standard <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. This way, data is not flushed from the buffer until switching between modes.</p>
 <dl class="section note"><dt>Note</dt><dd>This is to be used AFTER auto-retry fails if wanting to resend using the built-in payload reuse features. After issuing <a class="el" href="classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX()</a>, it will keep reending the same payload forever or until a payload is written to the FIFO, or a flush_tx command is given. </dd></dl>
@@ -1273,6 +1232,29 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 
 </div>
 </div>
+<a class="anchor" id="a9944d93994a80037e3586f340f5e0107"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::closeReadingPipe </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Close a pipe after it has been previously opened. Can be safely called without having previously opened a pipe. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td>Which pipe # to close, 0-5. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a4c6d3959c8320e64568395f4ef507aef"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1391,7 +1373,7 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><div class="memdoc">
 <p>Get Dynamic Payload Size</p>
 <p>For dynamic payloads, this pulls the size of the payload off the chip</p>
-<dl class="section note"><dt>Note</dt><dd>Optimization: Corrupt packets are now detected and flushed per the manufacturer.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Corrupt packets are now detected and flushed per the manufacturer.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Payload length of last-received dynamic payload </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="pingpair_dyn_8ino-example.html#a11">pingpair_dyn.ino</a>.</dd>
 </dl>
@@ -1412,7 +1394,7 @@ When transmitting data in rapid succession, it is still recommended by the manuf
 </div><div class="memdoc">
 <p>Enable custom payloads on the acknowledge packets</p>
 <p>Ack payloads are a handy way to return data back to senders without manually changing the radio modes on both units.</p>
-<dl class="section see"><dt>See Also</dt><dd>examples/pingpair_pl/pingpair_pl.pde </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd>examples/GettingStarted_CallResponse/GettingStarted_CallResponse.ino </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a3">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a3">pingpair_ack.ino</a>, and <a class="el" href="pingpair_irq_8ino-example.html#a2">pingpair_irq.ino</a>.</dd>
 </dl>
 </div>
@@ -1754,7 +1736,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 31 2014 01:26:42 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 4 2014 16:08:46 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
