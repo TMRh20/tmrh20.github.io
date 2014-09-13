@@ -11,9 +11,9 @@ var indexSectionsWithContent =
   1: "rs",
   2: "rs",
   3: "abfmprstuw",
-  4: "fimnrst",
+  4: "finrst",
   5: "cp",
-  6: "_inprs",
+  6: "_inps",
   7: "cnp"
 };
 

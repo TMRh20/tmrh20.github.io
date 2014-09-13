@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li>Using this sketch, each node will send a ping to every other node in the network every few seconds.<br/>
 </li>
-<li>The <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> library will route the message across the mesh to the correct node.<br/>
+<li>The <a class="el" href="classRF24Network.html" title="Frame structure for each message. ">RF24Network</a> library will route the message across the mesh to the correct node.<br/>
 </li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -111,10 +111,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">/***********************************************************************</span></div>
 <div class="line"><span class="comment">************* Set the Node Address *************************************</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// These are the Octal addresses that will be assigned</span></div>
 <div class="line"><span class="keyword">const</span> uint16_t node_address_set[10] = { 00, 02, 05, 012, 015, 022, 025, 032, 035, 045 };</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// 0 = Master, 1-2 = Top layer, 2-3 = Children of 1,2 respectively, 3-4 = Children of 2,3 respectively, etc...</span></div>
-<div class="line">uint8_t NODE_ADDRESS = 1;</div>
+<div class="line"><span class="comment">// 0 = Master</span></div>
+<div class="line"><span class="comment">// 1-2 (02,05)   = Children of Master(00)</span></div>
+<div class="line"><span class="comment">// 3,5 (012,022) = Children of (02)</span></div>
+<div class="line"><span class="comment">// 4,6 (015,025) = Children of (05)</span></div>
+<div class="line"><span class="comment">// 7   (032)     = Child of (02)</span></div>
+<div class="line"><span class="comment">// 8,9 (035,045) = Children of (05)</span></div>
+<div class="line"></div>
+<div class="line">uint8_t NODE_ADDRESS = 1; <span class="comment">// Use numbers 0 through 9 to select an address from the array</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
@@ -301,7 +309,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 29 2014 22:57:09 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 13 2014 08:35:15 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

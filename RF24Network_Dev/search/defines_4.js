@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rf24networkmulticast',['RF24NetworkMulticast',['../RF24Network__config_8h.html#afa838938e02d347e06289d76ed8f2bf0',1,'RF24Network_config.h']]]
+  ['strlen_5fp',['strlen_P',['../RF24Network__config_8h.html#a05dde754db9944c90362c1f861d358ba',1,'RF24Network_config.h']]]
 ];
