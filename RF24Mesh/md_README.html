@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RF24Mesh: Mesh Networking Layer for RF24 Radios</title>
+<title>RF24Mesh: RF24Mesh</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -62,7 +62,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,43 +76,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Mesh Networking Layer for RF24 Radios </div>  </div>
+<div class="title"><a class="el" href="classRF24Mesh.html">RF24Mesh</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This class intends to provide a simple and seamless 'mesh' layer for sensor networks, allowing automatic and dynamic configuration that can be customized to suit many scenarios. It is currently designed to interface directly with with the <a href="http://tmrh20.github.com/RF24Network/">RF24Network Development library</a>, an <a href="http://en.wikipedia.org/wiki/Network_layer">OSI Network Layer</a> using nRF24L01(+) radios driven by the newly optimized <a href="http://tmrh20.github.com/RF24/">RF24</a> library fork.</p>
-<h1><a class="anchor" id="Purpose"></a>
-Purpose/Goal</h1>
-<p>Provide a simple user interface for creating dynamic sensor networks with the RF24 and RF24Network libraries.</p>
-<p>What works currently? </p>
-<ul>
-<li>Basic 'mesh' functionality using an RPi or Arduino Due as the master node which will receive the sensor data </li>
-<li>Simple, dynamic addressing based on a pre-assigned unique identifier </li>
-<li>Dynamic/On-the fly configuration of addresses and network topology</li>
-</ul>
-<p>What are the functional limitations? </p>
-<ul>
-<li>Address assignments are not saved. If the 'master' node goes down, all nodes need to reconnect to the mesh or restart to prevent addressing conflicts.</li>
-</ul>
-<p>The layer does not (yet) provide: </p>
-<ul>
-<li>A lot! This code is in the initial stages of development only, and may not function exactly as desired.</li>
-</ul>
-<h1><a class="anchor" id="Overview"></a>
-RF24Mesh Overview</h1>
-<p>The RF24Network library provides a system of addressing and routing for RF24 radio modules, that allows large wireless sensor networks to be constructed. <a class="el" href="classRF24Mesh.html">RF24Mesh</a> provides extended features, including automatic addressing and dynamic configuration of wireless sensors.</p>
-<p>How does it work? The 'master' node keeps track of the unique nodeIDs and the assigned RF24Network addresses. When a node is moved physically, or just loses its connection to the network, it can be set to automatically re-join the mesh, and reconfigure itself within the network.</p>
-<p>Nodes are assigned a unique number ranging from 1 to 255, and just about everything else, addressing, routing, etc. is managed by the library.</p>
-<p>In the 'mesh' configuration sensors/nodes can move around physically, far from the 'master node' using other nodes to route traffic over extended distances. Addressing and topology can be reconfigured as connections are broken and re-established within different areas of the network.</p>
-<h1><a class="anchor" id="More"></a>
-How to learn more</h1>
-<ul>
-<li>Try it out! </li>
-<li><a href="classRF24Mesh.html">RF24Mesh Class Documentation</a> </li>
-<li><a href="https://tmrh20.github.io">Documentation and Downloads</a> </li>
-<li><a href="https://github.com/TMRh20/RF24Mesh">Source Code</a> </li>
-</ul>
+<div class="textblock"><p>Initial concept and design stage: Mesh Networking for RF24Network</p>
+<p><a href="https://tmrh20.github.io/RF24Mesh">https://tmrh20.github.io/RF24Mesh</a> </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
