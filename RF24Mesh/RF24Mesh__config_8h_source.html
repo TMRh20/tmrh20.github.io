@@ -102,23 +102,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="RF24Mesh__config_8h.html#a9aa307506ecde1e60194a4eed4e073c9">   14</a></span>&#160;<span class="preprocessor">#define MESH_DEFAULT_ADDRESS 04444</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="RF24Mesh__config_8h.html#a8a8ab350f590431aad2791ed1cf36177">   15</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MESH_DEFAULT_CHANNEL 90</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">  #if defined (MESH_DEBUG)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="RF24Mesh__config_8h.html#a8d4bf8ac17495dc172a94729a11e62ad">   19</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define IF_MESH_DEBUG(x) ({x;})</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #else</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #define IF_MESH_DEBUG(x)</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">  #if defined (MESH_DEBUG)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #if !defined (__linux) &amp;&amp; !defined ARDUINO_SAM_DUE</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="RF24Mesh__config_8h.html#a6e706a68ed6a224ff593cca98152fc09">   19</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define MESH_DEBUG_SERIAL              </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #else</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span><span class="preprocessor">        #define MESH_DEBUG_PRINTF</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 27 2014 15:22:03 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 28 2014 07:15:19 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
