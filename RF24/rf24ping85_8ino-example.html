@@ -95,22 +95,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">    The ATtiny85 will transmit a counting number every second starting from 1.</span></div>
 <div class="line"><span class="comment">    The ATtiny85 uses the tiny-core by CodingBadly (https://code.google.com/p/arduino-tiny/)</span></div>
 <div class="line"><span class="comment">    When direct use of 3v3 does not work (UNO boards have bad 3v3 line) use 5v with LED (1.8V ~ 2.2V drop)</span></div>
-<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">    For low power consumption solutions floating pins (SCK and MOSI) should be pulled high or low with eg. 10K</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">    ** Hardware configuration **</span></div>
-<div class="line"><span class="comment">    ATtiny25/45/85 Pin map</span></div>
-<div class="line"><span class="comment">                                         +-\/-+</span></div>
-<div class="line"><span class="comment">                   Reset/Ain0 (D 5) PB5 1|o   |8 Vcc (3v3 or -- LED -- 5v)</span></div>
-<div class="line"><span class="comment">    nRF24L01 CE,  Pin3 - Ain3 (D 3) PB3 2|    |7 PB2 (D 2) Ain1 - nRF24L01 SCK, pin5</span></div>
-<div class="line"><span class="comment">    nRF24L01 CSN, Pin4 - Ain2 (D 4) PB4 3|    |6 PB1 (D 1) pwm1 - nRF24L01 MOSI, pin7</span></div>
-<div class="line"><span class="comment">                                    GND 4|    |5 PB0 (D 0) pwm0 - nRF24L01 MISO, pin6</span></div>
-<div class="line"><span class="comment">    CE and CSN are configurable</span></div>
-<div class="line"><span class="comment">*/</span>  </div>
+<div class="line"><span class="comment">    ATtiny25/45/85 Pin map with CE_PIN 3 and CSN_PIN 4</span></div>
+<div class="line"><span class="comment">                                 +-\/-+</span></div>
+<div class="line"><span class="comment">                   NC      PB5  1|o   |8  Vcc --- nRF24L01  VCC, pin2 --- LED --- 5V</span></div>
+<div class="line"><span class="comment">    nRF24L01  CE, pin3 --- PB3  2|    |7  PB2 --- nRF24L01  SCK, pin5</span></div>
+<div class="line"><span class="comment">    nRF24L01 CSN, pin4 --- PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin7</span></div>
+<div class="line"><span class="comment">    nRF24L01 GND, pin1 --- GND  4|    |5  PB0 --- nRF24L01 MISO, pin6</span></div>
+<div class="line"><span class="comment">                                 +----+</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">    ATtiny25/45/85 Pin map with CE_PIN 3 and CSN_PIN 3 =&gt; PB3 and PB4 are free to use for application</span></div>
+<div class="line"><span class="comment">    Circuit idea from http://nerdralph.blogspot.ca/2014/01/nrf24l01-control-with-3-attiny85-pins.html</span></div>
+<div class="line"><span class="comment">    Original RC combination was 1K/100nF. 22K/10nF combination worked better.</span></div>
+<div class="line"><span class="comment">    For best settletime delay value in RF24::csn() the timingSearch3pin.ino scatch can be used.</span></div>
+<div class="line"><span class="comment">    This configuration is enabled when CE_PIN and CSN_PIN are equal, e.g. both 3</span></div>
+<div class="line"><span class="comment">    Because CE is always high the power consumption is higher than for 5 pins solution</span></div>
+<div class="line"><span class="comment">                                                                                            ^^</span></div>
+<div class="line"><span class="comment">                                 +-\/-+           nRF24L01   CE, pin3 ------|              //</span></div>
+<div class="line"><span class="comment">                           PB5  1|o   |8  Vcc --- nRF24L01  VCC, pin2 ------x----------x--|&lt;|-- 5V</span></div>
+<div class="line"><span class="comment">                   NC      PB3  2|    |7  PB2 --- nRF24L01  SCK, pin5 --|&lt;|---x-[22k]--|  LED</span></div>
+<div class="line"><span class="comment">                   NC      PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin7  1n4148 |</span></div>
+<div class="line"><span class="comment">    nRF24L01 GND, pin1 -x- GND  4|    |5  PB0 --- nRF24L01 MISO, pin6         |</span></div>
+<div class="line"><span class="comment">                        |        +----+                                       |</span></div>
+<div class="line"><span class="comment">                        |-----------------------------------------------||----x-- nRF24L01 CSN, pin4 </span></div>
+<div class="line"><span class="comment">                                                                       10nF</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">    ATtiny24/44/84 Pin map with CE_PIN 8 and CSN_PIN 7</span></div>
+<div class="line"><span class="comment">    Schematic provided and successfully tested by Carmine Pastore (https://github.com/Carminepz)</span></div>
+<div class="line"><span class="comment">                                  +-\/-+</span></div>
+<div class="line"><span class="comment">    nRF24L01  VCC, pin2 --- VCC  1|o   |14 GND --- nRF24L01  GND, pin1</span></div>
+<div class="line"><span class="comment">                            PB0  2|    |13 AREF</span></div>
+<div class="line"><span class="comment">                            PB1  3|    |12 PA1</span></div>
+<div class="line"><span class="comment">                            PB3  4|    |11 PA2 --- nRF24L01   CE, pin3</span></div>
+<div class="line"><span class="comment">                            PB2  5|    |10 PA3 --- nRF24L01  CSN, pin4</span></div>
+<div class="line"><span class="comment">                            PA7  6|    |9  PA4 --- nRF24L01  SCK, pin5</span></div>
+<div class="line"><span class="comment">    nRF24L01 MOSI, pin7 --- PA6  7|    |8  PA5 --- nRF24L01 MISO, pin6</span></div>
+<div class="line"><span class="comment">                                  +----+</span></div>
+<div class="line"><span class="comment">*/</span></div>
 <div class="line"></div>
-<div class="line"></div>
+<div class="line"><span class="comment">// CE and CSN are configurable, specified values for ATtiny85 as connected above</span></div>
 <div class="line"><span class="preprocessor">#define CE_PIN 3</span></div>
 <div class="line"><span class="preprocessor"></span><span class="preprocessor">#define CSN_PIN 4</span></div>
-<div class="line"><span class="preprocessor"></span></div>
+<div class="line"><span class="preprocessor"></span><span class="comment">//#define CSN_PIN 3 // uncomment for ATtiny85 3 pins solution</span></div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
 <div class="line"></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(CE_PIN, CSN_PIN);</div>
@@ -158,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 8 2014 23:58:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

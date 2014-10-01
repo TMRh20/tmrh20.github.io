@@ -108,17 +108,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="entry"><a class="el" href="classRF24.html#a30c2736fd0df9c8128cef408c8b88e92">isAckPayloadAvailable</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a62846750b82682beb7593719eb60ed60">isPVariant</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classRF24.html#a35e5f1533b7753806c42b76e782d917e">isValid</a>()</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#abf68b9b0c9cd17179e9e144c3e7f9c45">maskIRQ</a>(bool tx_ok, bool tx_fail, bool rx_ready)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(uint8_t number, const uint8_t *address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(uint8_t number, uint64_t address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(const uint8_t *address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(uint64_t address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(void *buf, uint8_t len)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX</a>()</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a8cd165a822c8f77e10782c6729c5b088">RF24</a>(uint8_t _cepin, uint8_t _cspin)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#ac777b2fbb822839b495718b1439c5f33">loadTxFifo</a>(const void *buf, uint8_t len, const bool multicast)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#abf68b9b0c9cd17179e9e144c3e7f9c45">maskIRQ</a>(bool tx_ok, bool tx_fail, bool rx_ready)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(uint8_t number, const uint8_t *address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45">openReadingPipe</a>(uint8_t number, uint64_t address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(const uint8_t *address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a>(uint64_t address)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>(void)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(void *buf, uint8_t len)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX</a>()</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24.html#a8cd165a822c8f77e10782c6729c5b088">RF24</a>(uint8_t _cepin, uint8_t _cspin)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24.html#ad22e44fe1a68747872fcb304a407fd30">rxFifoFull</a>()</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a>(uint8_t a_width)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(bool enable)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classRF24.html#a60dba9e558f3620ab489af68ea3dea9c">setAutoAck</a>(uint8_t pipe, bool enable)</td><td class="entry"><a class="el" href="classRF24.html">RF24</a></td><td class="entry"></td></tr>
@@ -146,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 8 2014 23:58:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

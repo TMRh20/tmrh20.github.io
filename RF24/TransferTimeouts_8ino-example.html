@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">/*************  USER Configuration *****************************/</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(48,49);                      <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);                        <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timeoutPeriod = 3000;     <span class="comment">// Set a user-defined timeout period. With auto-retransmit set to (15,15) retransmission will take up to 60ms and as little as 7.5ms with it set to (1,15).</span></div>
 <div class="line">                                        <span class="comment">// With a timeout period of 1000, the radio will retry each payload for up to 1 second before giving up on the transmission and starting over</span></div>
 <div class="line"></div>
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 8 2014 23:58:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

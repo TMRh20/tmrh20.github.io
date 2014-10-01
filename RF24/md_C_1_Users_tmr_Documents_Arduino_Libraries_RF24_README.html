@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Optimized High Speed NRF24L01+ Driver Class Documenation: Related Pages</title>
+<title>Optimized High Speed NRF24L01+ Driver Class Documenation: Optimized High Speed Arduino driver for nRF24L01 2.4GHz Wireless Transceiver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,7 +60,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,20 +74,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Related Pages</div>  </div>
+<div class="title">Optimized High Speed Arduino driver for nRF24L01 2.4GHz Wireless Transceiver </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><img src="ftv2lastnode.png" alt="\" width="16" height="22" /><a class="el" href="md_README.html" target="_self">Optimized High Speed Arduino driver for nRF24L01 2.4GHz Wireless Transceiver</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p>Design Goals: This library is designed to be...</p>
+<ul>
+<li>More compliant with the manufacturer specified operation of the chip, while allowing advanced users</li>
+<li>to work outside the reccommended operation.</li>
+<li>Utilize the capabilities of the radio to their full potential via Arduino</li>
+<li>More reliable and feature rich</li>
+<li>Easy for beginners to use, with well documented examples and features</li>
+<li>Consumed with a public interface that's similiar to other Arduino standard libraries</li>
+<li>Built against the standard SPI library.</li>
+</ul>
+<p>April 2014: Official Release: Still some work to do, but most benefits have been realized</p>
+<ul>
+<li>The library has been tweaked to allow full use of the FIFO buffers for maximum transfer speeds</li>
+<li>Changes to read() and available () functionality have increased reliability and response</li>
+<li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
+<li>Delays have been removed where possible to ensure maximum efficiency</li>
+<li>Full Due support with extended SPI functions</li>
+<li>ATTiny 24/44/84 25/45/85 now supported.</li>
+<li>More! See the links below and class documentation for more info.</li>
+</ul>
+<p>Please refer to:</p>
+<ul>
+<li><a href="http://tmrh20.github.io/">Documentation Main Page</a></li>
+<li><a href="http://tmrh20.github.io/RF24/classRF24.html">Class Reference</a></li>
+<li><a href="https://github.com/tmrh20/RF24">Source Code</a></li>
+<li><a href="https://github.com/TMRh20/RF24/archive/master.zip">Downloads</a></li>
+<li><a href="http://www.nordicsemi.com/files/Product/data_sheet/nRF24L01_Product_Specification_v2_0.pdf">Chip Datasheet</a></li>
+</ul>
+<p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode.</p>
+<p>Supported Boards:</p>
+<ul>
+<li>Uno, Nano, etc (328 based boards)</li>
+<li>Mega Types (2560, 1280, etc)</li>
+<li>ARM (Arduino Due) via extended SPI methods</li>
+<li>ATTiny 24/44/84 25/45/85</li>
+<li>See the <a href="http://tmrh20.github.io/">documentation</a> for more info </li>
+</ul>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 1 2014 11:21:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

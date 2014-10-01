@@ -122,6 +122,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adc95213ed4c8569a90eb33122e16cea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace7dd139fabc16b77cb8325faa07620f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ace7dd139fabc16b77cb8325faa07620f">available</a> (uint8_t *pipe_num)</td></tr>
 <tr class="separator:ace7dd139fabc16b77cb8325faa07620f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad22e44fe1a68747872fcb304a407fd30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ad22e44fe1a68747872fcb304a407fd30">rxFifoFull</a> ()</td></tr>
+<tr class="separator:ad22e44fe1a68747872fcb304a407fd30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac777b2fbb822839b495718b1439c5f33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ac777b2fbb822839b495718b1439c5f33">loadTxFifo</a> (const void *buf, uint8_t len, const bool multicast)</td></tr>
+<tr class="separator:ac777b2fbb822839b495718b1439c5f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0a51923a09ba4f3478aba9be0f8a6a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown</a> (void)</td></tr>
 <tr class="separator:aa0a51923a09ba4f3478aba9be0f8a6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cdaf47aa0edd6dca1b9a8bb7972a1a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a> (void)</td></tr>
@@ -289,7 +293,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Start listening on the pipes opened for reading.</p>
 <p>Be sure to call <a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe()</a> first. Do not call <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a> while in this mode, without first calling <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a>. Call Available() to check for incoming traffic, and <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to get it. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a6">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a9">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a4">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a7">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a8">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a6">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a5">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a6">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a4">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a6">rf24ping85.ino</a>, <a class="el" href="scanner_8ino-example.html#a3">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a4">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a10">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a10">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a6">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a8">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a4">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a7">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a8">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a6">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a5">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a6">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a4">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a6">rf24ping85.ino</a>, <a class="el" href="scanner_8ino-example.html#a3">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a4">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a10">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a10">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -308,7 +312,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Stop listening for incoming messages</p>
 <p>Do this before calling <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a8">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a12">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a10">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a8">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a8">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a6">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a7">rf24ping85.ino</a>, <a class="el" href="scanner_8ino-example.html#a4">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a6">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a17">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a18">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a8">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a11">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a10">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a8">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a8">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a6">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a7">rf24ping85.ino</a>, <a class="el" href="scanner_8ino-example.html#a4">scanner.ino</a>, <a class="el" href="starping_8pde-example.html#a6">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a17">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a18">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -327,7 +331,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Test whether there are bytes available to be read</p>
 <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a10">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a14">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a7">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a9">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a12">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a10">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a9">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a10">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a8">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a9">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a8">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a15">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a16">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a10">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a13">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a7">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a9">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a12">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a10">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a9">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a10">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a8">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a9">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a8">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a15">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a16">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -367,7 +371,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>No return value. Use <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>. </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a11">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a15">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a8">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a10">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a13">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a12">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a10">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a11">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a9">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a10">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a9">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a16">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a17">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a11">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a14">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a8">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a10">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a13">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a12">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a10">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a11">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a9">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a10">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a9">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a16">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a17">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -406,7 +410,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a9">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a13">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a6">led_remote.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a11">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a9">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a9">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a7">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a8">rf24ping85.ino</a>, and <a class="el" href="starping_8pde-example.html#a7">starping.pde</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a9">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a12">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a6">led_remote.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a11">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a9">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a9">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a7">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a8">rf24ping85.ino</a>, and <a class="el" href="starping_8pde-example.html#a7">starping.pde</a>.</dd>
 </dl>
 </div>
 </div>
@@ -436,7 +440,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a4">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a7">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a2">led_remote.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a6">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a4">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a3">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a4">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a2">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a4">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a3">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a8">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a8">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a4">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a6">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a2">led_remote.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a6">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a4">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a3">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a4">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a2">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a4">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a3">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a8">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a8">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -481,7 +485,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a5">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a8">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a3">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a6">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a7">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a5">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a4">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a5">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a3">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a5">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a2">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a9">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a9">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a5">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a7">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a3">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a6">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a7">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a5">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a4">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a5">pingpair_maple.pde</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a3">pingpair_sleepy.ino</a>, <a class="el" href="rf24ping85_8ino-example.html#a5">rf24ping85.ino</a>, <a class="el" href="starping_8pde-example.html#a2">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a9">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a9">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -500,7 +504,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><div class="memdoc">
 <p>Print a giant block of debugging information to stdout</p>
 <dl class="section warning"><dt>Warning</dt><dd>Does nothing if stdout is not defined. See fdevopen in stdio.h </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a7">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a11">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a5">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a8">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a9">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a7">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a6">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a7">pingpair_maple.pde</a>, <a class="el" href="starping_8pde-example.html#a5">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a11">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a11">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a7">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a10">GettingStarted_CallResponse.ino</a>, <a class="el" href="led_remote_8pde-example.html#a5">led_remote.pde</a>, <a class="el" href="nordic_fob_8pde-example.html#a8">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a9">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a7">pingpair_dyn.ino</a>, <a class="el" href="pingpair_irq_8ino-example.html#a6">pingpair_irq.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a7">pingpair_maple.pde</a>, <a class="el" href="starping_8pde-example.html#a5">starping.pde</a>, <a class="el" href="Transfer_8ino-example.html#a11">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a11">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -525,6 +529,54 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad22e44fe1a68747872fcb304a407fd30"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24::rxFifoFull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Check if the radio needs to be read. Can be used to prevent data loss @return True if all three 32-byte radio buffers are full </p>
+
+</div>
+</div>
+<a class="anchor" id="ac777b2fbb822839b495718b1439c5f33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24::loadTxFifo </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>multicast</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -564,7 +616,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Leave low-power mode - required for normal radio operation after calling <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a></p>
 <p>To return to low power mode, call <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a>. </p>
 <dl class="section note"><dt>Note</dt><dd>This will take up to 5ms for maximum compatibility </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a10">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a5">pingpair_sleepy.ino</a>, <a class="el" href="Transfer_8ino-example.html#a12">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a12">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a9">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_sleepy_8ino-example.html#a5">pingpair_sleepy.ino</a>, <a class="el" href="Transfer_8ino-example.html#a12">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a12">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -867,7 +919,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a16">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a14">pingpair_ack.ino</a>, and <a class="el" href="pingpair_irq_8ino-example.html#a11">pingpair_irq.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a15">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a14">pingpair_ack.ino</a>, and <a class="el" href="pingpair_irq_8ino-example.html#a11">pingpair_irq.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -890,8 +942,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">radio.<a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>(&amp;data,32,1);  <span class="comment">// Sends a payload with no acknowledgement requested</span></div>
 <div class="line">radio.<a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>(&amp;data,32,0);  <span class="comment">// Sends a payload using auto-retry/autoACK</span></div>
 </div><!-- fragment --> </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a4">GettingStarted_CallResponse.ino</a>.</dd>
-</dl>
+
 </div>
 </div>
 <a class="anchor" id="a30c2736fd0df9c8128cef408c8b88e92"></a>
@@ -1286,7 +1337,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a3">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a5">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a4">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a3">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a2">pingpair_maple.pde</a>, <a class="el" href="rf24ping85_8ino-example.html#a3">rf24ping85.ino</a>, <a class="el" href="Transfer_8ino-example.html#a6">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a6">TransferTimeouts.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_8ino-example.html#a3">GettingStarted.ino</a>, <a class="el" href="GettingStarted_CallResponse_8ino-example.html#a4">GettingStarted_CallResponse.ino</a>, <a class="el" href="pingpair_ack_8ino-example.html#a4">pingpair_ack.ino</a>, <a class="el" href="pingpair_dyn_8ino-example.html#a3">pingpair_dyn.ino</a>, <a class="el" href="pingpair_maple_8pde-example.html#a2">pingpair_maple.pde</a>, <a class="el" href="rf24ping85_8ino-example.html#a3">rf24ping85.ino</a>, <a class="el" href="Transfer_8ino-example.html#a6">Transfer.ino</a>, and <a class="el" href="TransferTimeouts_8ino-example.html#a6">TransferTimeouts.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -1335,7 +1386,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a6">GettingStarted_CallResponse.ino</a>, <a class="el" href="nordic_fob_8pde-example.html#a3">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a5">pingpair_ack.ino</a>, and <a class="el" href="pingpair_maple_8pde-example.html#a3">pingpair_maple.pde</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="GettingStarted_CallResponse_8ino-example.html#a5">GettingStarted_CallResponse.ino</a>, <a class="el" href="nordic_fob_8pde-example.html#a3">nordic_fob.pde</a>, <a class="el" href="pingpair_ack_8ino-example.html#a5">pingpair_ack.ino</a>, and <a class="el" href="pingpair_maple_8pde-example.html#a3">pingpair_maple.pde</a>.</dd>
 </dl>
 </div>
 </div>
@@ -1736,7 +1787,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 8 2014 23:58:57 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
