@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dhcp',['DHCP',['../classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb',1,'RF24Mesh']]]
+  ['checkconnection',['checkConnection',['../classRF24Mesh.html#a6330a2502e680f13e6ded3ff07d71087',1,'RF24Mesh']]]
 ];
