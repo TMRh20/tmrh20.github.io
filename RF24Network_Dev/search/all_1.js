@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['available',['available',['../classRF24Network.html#a0e111e70bb7b95d885983ce92c89159e',1,'RF24Network']]]
+  ['begin',['begin',['../classRF24Network.html#abf0da46b2e78b2010171c9f20cba8bae',1,'RF24Network::begin()'],['../classSync.html#acae494c0b068716c27e18d590f7a56fa',1,'Sync::begin()']]]
 ];

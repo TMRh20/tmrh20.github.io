@@ -41,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -81,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">sensornet.pde</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Example of a sensor network.This sketch demonstrates how to use the <a class="el" href="classRF24Network.html" title="Frame structure for each message. ">RF24Network</a> library to manage a set of low-power sensor nodes which mostly sleep but awake regularly to send readings to the base.</p>
+<p>Example of a sensor network.This sketch demonstrates how to use the <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> library to manage a set of low-power sensor nodes which mostly sleep but awake regularly to send readings to the base.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> Copyright (C) 2011 James Coliz, Jr. &lt;maniacbug@ymail.com&gt;</span></div>
 <div class="line"><span class="comment"></span></div>
@@ -91,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24Network_8h.html">RF24Network.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;Tictocs.h&gt;</span></div>
@@ -349,9 +348,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  Serial.begin(57600);</div>
 <div class="line">  printf_begin();</div>
-<div class="line">  <a name="a1"></a><a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a name="a2"></a><a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;\n\rRF24Network/examples/sensornet/\n\r&quot;</span>));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;PLATFORM: &quot;</span> __PLATFORM__ <span class="stringliteral">&quot;\n\r&quot;</span>));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;VERSION: &quot;</span> __TAG__ <span class="stringliteral">&quot;\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;\n\rRF24Network/examples/sensornet/\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;PLATFORM: &quot;</span> __PLATFORM__ <span class="stringliteral">&quot;\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;VERSION: &quot;</span> __TAG__ <span class="stringliteral">&quot;\n\r&quot;</span>));</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Pull node address out of eeprom </span></div>
@@ -390,7 +389,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Bring up the RF network</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  <a name="a3"></a><a class="code" href="RF24Network__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a>.begin();</div>
+<div class="line">  SPI.begin();</div>
 <div class="line">  radio.begin();</div>
 <div class="line">  network.begin(<span class="comment">/*channel*/</span> 92, <span class="comment">/*node address*/</span> this_node.address);</div>
 <div class="line"></div>
@@ -398,10 +397,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Request configuration from parent</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  <a name="_a4"></a><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(network.parent(),<span class="charliteral">&#39;k&#39;</span>);</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending type-%c to 0%o...\n\r&quot;</span>),millis(),header.type,header.to_node);</div>
+<div class="line">  <a name="_a1"></a><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(network.parent(),<span class="charliteral">&#39;k&#39;</span>);</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending type-%c to 0%o...\n\r&quot;</span>),millis(),header.type,header.to_node);</div>
 <div class="line">  <span class="keywordflow">if</span> ( ! network.write(header,NULL,0) )</div>
-<div class="line">    <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;Failed.\r\n&quot;</span>));</div>
+<div class="line">    printf_P(PSTR(<span class="stringliteral">&quot;Failed.\r\n&quot;</span>));</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>)</div>
@@ -418,7 +417,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="comment">// If so, grab it and print it out</span></div>
 <div class="line">    <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header;</div>
 <div class="line">    network.peek(header);</div>
-<div class="line">    <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Received #%u type %c from 0%o\n\r&quot;</span>),millis(),header.<a name="a5"></a><a class="code" href="structRF24NetworkHeader.html#ad05daaac28b7d1e7a7ef749f7f0ce317">id</a>,header.<a name="a6"></a><a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>,header.<a name="a7"></a><a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
+<div class="line">    printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Received #%u type %c from 0%o\n\r&quot;</span>),millis(),header.<a name="a2"></a><a class="code" href="structRF24NetworkHeader.html#ad05daaac28b7d1e7a7ef749f7f0ce317">id</a>,header.<a name="a3"></a><a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>,header.<a name="a4"></a><a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Child node is just testing</span></div>
 <div class="line">    <span class="keywordflow">if</span> ( header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a> == <span class="charliteral">&#39;t&#39;</span> )</div>
@@ -433,7 +432,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      network.read(header,NULL,0);</div>
 <div class="line">      <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> response_header(<span class="comment">/*to node*/</span> header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>, <span class="comment">/*type*/</span> <span class="charliteral">&#39;K&#39;</span>);</div>
 <div class="line">      network.write(response_header,&amp;system_config,<span class="keyword">sizeof</span>(system_config));</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending new config #%i: %i to 0%o\n\r&quot;</span>),millis(),system_config.revision,system_config.sleep_cycles,header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending new config #%i: %i to 0%o\n\r&quot;</span>),millis(),system_config.revision,system_config.sleep_cycles,header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a> == <span class="charliteral">&#39;K&#39;</span> )</div>
 <div class="line">    {</div>
@@ -444,7 +443,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">if</span> ( message.revision &gt; system_config.revision )</div>
 <div class="line">      {</div>
 <div class="line">        memcpy(&amp;system_config,&amp;message,<span class="keyword">sizeof</span>(system_config));</div>
-<div class="line">        <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Accepted new config #%i: %i\n\r&quot;</span>),millis(),system_config.revision,system_config.sleep_cycles);</div>
+<div class="line">        printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Accepted new config #%i: %i\n\r&quot;</span>),millis(),system_config.revision,system_config.sleep_cycles);</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Act on the new configuration!!</span></div>
 <div class="line">        sleep_cycles_per_transmission = system_config.sleep_cycles; </div>
@@ -471,7 +470,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="comment">// Send it back as a calibration message</span></div>
 <div class="line">        <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> response_header(<span class="comment">/*to node*/</span> header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>, <span class="comment">/*type*/</span> <span class="charliteral">&#39;C&#39;</span>);</div>
 <div class="line">        network.write(response_header,&amp;response,<span class="keyword">sizeof</span>(response));</div>
-<div class="line">        <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending calibration to 0%o\n\r&quot;</span>),millis(),header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
+<div class="line">        printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending calibration to 0%o\n\r&quot;</span>),millis(),header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
 <div class="line">      }</div>
 <div class="line">      <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a> == <span class="charliteral">&#39;C&#39;</span> )</div>
 <div class="line">      {</div>
@@ -483,14 +482,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        {</div>
 <div class="line">          <span class="comment">// Calculate the diff</span></div>
 <div class="line">          uint16_t diff = message.temp_reading - measure_temp();</div>
-<div class="line">          <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Calibration received %04x diff %04x\n\r&quot;</span>),millis(),message.temp_reading,diff);</div>
+<div class="line">          printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Calibration received %04x diff %04x\n\r&quot;</span>),millis(),message.temp_reading,diff);</div>
 <div class="line">          calibration_data.add(diff);</div>
 <div class="line"></div>
 <div class="line">          <span class="keywordflow">if</span> ( calibration_data.done() )</div>
 <div class="line">          {</div>
 <div class="line">            calibration_mode = <span class="keyword">false</span>;</div>
 <div class="line">            calibration_leds.disable();</div>
-<div class="line">            <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Stop calibration mode. Calibrate by %04x\n\r&quot;</span>),millis(),calibration_data.result());</div>
+<div class="line">            printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Stop calibration mode. Calibrate by %04x\n\r&quot;</span>),millis(),calibration_data.result());</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// Now apply the calibration</span></div>
 <div class="line">            this_node.temp_calibration += calibration_data.result();</div>
@@ -508,14 +507,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( !has_recent_system_config &amp;&amp; millis() &lt; 10000 )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="keywordflow">if</span> ( ! system_test_mode )</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Start system config mode\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Start system config mode\n\r&quot;</span>),millis());</div>
 <div class="line"></div>
 <div class="line">    system_test_mode = <span class="keyword">true</span>;</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">else</span></div>
 <div class="line">  {</div>
 <div class="line">    <span class="keywordflow">if</span> ( system_test_mode )</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Stop system config mode\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Stop system config mode\n\r&quot;</span>),millis());</div>
 <div class="line">    </div>
 <div class="line">    system_test_mode = <span class="keyword">false</span>;</div>
 <div class="line">  }</div>
@@ -570,8 +569,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="comment">// In test mode, sent to our parent.</span></div>
 <div class="line">      to_node = network.parent();</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
-<div class="line">    <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending type-%c %s to 0%o...\n\r&quot;</span>),millis(),message_type,message.toString(),to_node);</div>
+<div class="line">    printf_P(PSTR(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
+<div class="line">    printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending type-%c %s to 0%o...\n\r&quot;</span>),millis(),message_type,message.toString(),to_node);</div>
 <div class="line">   </div>
 <div class="line">    <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(to_node,message_type);</div>
 <div class="line">    <span class="keywordtype">bool</span> ok = network.write(header,&amp;message,<span class="keyword">sizeof</span>(message));</div>
@@ -580,14 +579,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">if</span> ( test_mode &amp;&amp; ! calibration_mode )</div>
 <div class="line">        Green = <span class="keyword">true</span>;</div>
 <div class="line">      lost_packets = 0;</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Send ok\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Send ok\n\r&quot;</span>),millis());</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
 <div class="line">      <span class="keywordflow">if</span> ( test_mode &amp;&amp; ! calibration_mode )</div>
 <div class="line">        Red = <span class="keyword">true</span>;</div>
 <div class="line">      ++lost_packets;</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Send failed\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Send failed\n\r&quot;</span>),millis());</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Transmission complete, TX LED OFF</span></div>
@@ -618,18 +617,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">if</span> ( startup_leds )</div>
 <div class="line">    {</div>
 <div class="line">      user_test_mode = <span class="keyword">true</span>;</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Start test mode\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Start test mode\n\r&quot;</span>),millis());</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( calibration_mode )</div>
 <div class="line">    {</div>
 <div class="line">      calibration_mode = <span class="keyword">false</span>;</div>
 <div class="line">      calibration_leds.disable();</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Stop calibration mode\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Stop calibration mode\n\r&quot;</span>),millis());</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( user_test_mode )</div>
 <div class="line">    {</div>
 <div class="line">      user_test_mode = <span class="keyword">false</span>;</div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Stop test mode\n\r&quot;</span>),millis());</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Stop test mode\n\r&quot;</span>),millis());</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line"></div>
@@ -639,7 +638,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    calibration_mode = <span class="keyword">true</span>;</div>
 <div class="line">    calibration_leds.reset();</div>
 <div class="line">    calibration_data = CalibrationData();</div>
-<div class="line">    <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Start calibration mode\n\r&quot;</span>),millis());</div>
+<div class="line">    printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Start calibration mode\n\r&quot;</span>),millis());</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Listen for a new node address</span></div>
@@ -649,7 +648,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 13 2014 08:35:15 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 6 2014 13:36:24 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

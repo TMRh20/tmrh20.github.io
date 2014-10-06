@@ -41,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <ul>
 <li>Using this sketch, each node will send a ping to every other node in the network every few seconds.<br/>
 </li>
-<li>The <a class="el" href="classRF24Network.html" title="Frame structure for each message. ">RF24Network</a> library will route the message across the mesh to the correct node.<br/>
+<li>The <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> library will route the message across the mesh to the correct node.<br/>
 </li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -101,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24Network_8h.html">RF24Network.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
@@ -111,18 +110,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">/***********************************************************************</span></div>
 <div class="line"><span class="comment">************* Set the Node Address *************************************</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// These are the Octal addresses that will be assigned</span></div>
 <div class="line"><span class="keyword">const</span> uint16_t node_address_set[10] = { 00, 02, 05, 012, 015, 022, 025, 032, 035, 045 };</div>
 <div class="line"></div>
-<div class="line"><span class="comment">// 0 = Master</span></div>
-<div class="line"><span class="comment">// 1-2 (02,05)   = Children of Master(00)</span></div>
-<div class="line"><span class="comment">// 3,5 (012,022) = Children of (02)</span></div>
-<div class="line"><span class="comment">// 4,6 (015,025) = Children of (05)</span></div>
-<div class="line"><span class="comment">// 7   (032)     = Child of (02)</span></div>
-<div class="line"><span class="comment">// 8,9 (035,045) = Children of (05)</span></div>
-<div class="line"></div>
-<div class="line">uint8_t NODE_ADDRESS = 1; <span class="comment">// Use numbers 0 through 9 to select an address from the array</span></div>
+<div class="line"><span class="comment">// 0 = Master, 1-2 = Top layer, 2-3 = Children of 1,2 respectively, 3-4 = Children of 2,3 respectively, etc...</span></div>
+<div class="line">uint8_t NODE_ADDRESS = 1;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
 <div class="line"><span class="comment">/***********************************************************************/</span></div>
@@ -159,11 +150,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  printf_begin();</div>
-<div class="line">  <a name="a2"></a><a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a name="a3"></a><a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;\n\rRF24Network/examples/meshping/\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;\n\rRF24Network/examples/meshping/\n\r&quot;</span>));</div>
 <div class="line"></div>
 <div class="line">  this_node = node_address_set[NODE_ADDRESS];            <span class="comment">// Which node are we?</span></div>
 <div class="line">  </div>
-<div class="line">  <a name="a4"></a><a class="code" href="RF24Network__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a>.begin();                                           <span class="comment">// Bring up the RF network</span></div>
+<div class="line">  SPI.begin();                                           <span class="comment">// Bring up the RF network</span></div>
 <div class="line">  radio.begin();</div>
 <div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
 <div class="line">  network.begin(<span class="comment">/*channel*/</span> 100, <span class="comment">/*node address*/</span> this_node );</div>
@@ -182,7 +173,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    network.peek(header);</div>
 <div class="line"></div>
 <div class="line">    </div>
-<div class="line">      <span class="keywordflow">switch</span> (header.<a name="a5"></a><a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>){                              <span class="comment">// Dispatch the message to the correct handler.</span></div>
+<div class="line">      <span class="keywordflow">switch</span> (header.<a name="a2"></a><a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>){                              <span class="comment">// Dispatch the message to the correct handler.</span></div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>: handle_T(header); <span class="keywordflow">break</span>;</div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;N&#39;</span>: handle_N(header); <span class="keywordflow">break</span>;</div>
 <div class="line">        </div>
@@ -191,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// The header is defined as:  RF24NetworkHeader sleepHeader(/*to node*/ 00, /*type*/ &#39;S&#39; /*Sleep*/);    </span></div>
 <div class="line">         <span class="keywordflow">case</span> <span class="charliteral">&#39;S&#39;</span>: <span class="comment">/*This is a sleep payload, do nothing*/</span> <span class="keywordflow">break</span>;</div>
 <div class="line">        </div>
-<div class="line">        <span class="keywordflow">default</span>:  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;*** WARNING *** Unknown message type %c\n\r&quot;</span>),header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>);</div>
+<div class="line">        <span class="keywordflow">default</span>:  printf_P(PSTR(<span class="stringliteral">&quot;*** WARNING *** Unknown message type %c\n\r&quot;</span>),header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a>);</div>
 <div class="line">                  network.read(header,0,0);</div>
 <div class="line">                  <span class="keywordflow">break</span>;</div>
 <div class="line">      };</div>
@@ -242,9 +233,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">if</span> (ok){                                              <span class="comment">// Notify us of the result</span></div>
-<div class="line">        <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Send ok\n\r&quot;</span>),millis());</div>
+<div class="line">        printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Send ok\n\r&quot;</span>),millis());</div>
 <div class="line">    }<span class="keywordflow">else</span>{</div>
-<div class="line">        <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Send failed\n\r&quot;</span>),millis());</div>
+<div class="line">        printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Send failed\n\r&quot;</span>),millis());</div>
 <div class="line">        last_time_sent -= 100;                            <span class="comment">// Try sending at a different time next time</span></div>
 <div class="line">    }</div>
 <div class="line">  }</div>
@@ -256,8 +247,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  <span class="comment">// The &#39;T&#39; message that we send is just a ulong, containing the time</span></div>
 <div class="line">  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> message = millis();</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending %lu to 0%o...\n\r&quot;</span>),millis(),message,to);</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending %lu to 0%o...\n\r&quot;</span>),millis(),message,to);</div>
 <div class="line">  <span class="keywordflow">return</span> network.write(header,&amp;message,<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>));</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -265,8 +256,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">{</div>
 <div class="line">  <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(<span class="comment">/*to node*/</span> to, <span class="comment">/*type*/</span> <span class="charliteral">&#39;N&#39;</span> <span class="comment">/*Time*/</span>);</div>
 <div class="line">  </div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Sending active nodes to 0%o...\n\r&quot;</span>),millis(),to);</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;---------------------------------\n\r&quot;</span>));</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Sending active nodes to 0%o...\n\r&quot;</span>),millis(),to);</div>
 <div class="line">  <span class="keywordflow">return</span> network.write(header,active_nodes,<span class="keyword">sizeof</span>(active_nodes));</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -274,7 +265,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> message;                                                                      <span class="comment">// The &#39;T&#39; message is just a ulong, containing the time</span></div>
 <div class="line">  network.read(header,&amp;message,<span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Received %lu from 0%o\n\r&quot;</span>),millis(),message,header.<a name="a6"></a><a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Received %lu from 0%o\n\r&quot;</span>),millis(),message,header.<a name="a3"></a><a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> ( header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a> != this_node || header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a> &gt; 00 )                                <span class="comment">// If this message is from ourselves or the base, don&#39;t bother adding it to the active nodes.</span></div>
@@ -286,7 +277,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keyword">static</span> uint16_t incoming_nodes[max_active_nodes];</div>
 <div class="line"></div>
 <div class="line">  network.read(header,&amp;incoming_nodes,<span class="keyword">sizeof</span>(incoming_nodes));</div>
-<div class="line">  <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Received nodes from 0%o\n\r&quot;</span>),millis(),header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
+<div class="line">  printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Received nodes from 0%o\n\r&quot;</span>),millis(),header.<a class="code" href="structRF24NetworkHeader.html#aff9461f6546b5b7c87465809eb4f9f56">from_node</a>);</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordtype">int</span> i = 0;</div>
 <div class="line">  <span class="keywordflow">while</span> ( i &lt; max_active_nodes &amp;&amp; incoming_nodes[i] &gt; 00 )</div>
@@ -303,13 +294,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  <span class="keywordflow">if</span> ( i == -1 &amp;&amp; num_active_nodes &lt; max_active_nodes ){         <span class="comment">// If not, add it to the table</span></div>
 <div class="line">      active_nodes[num_active_nodes++] = node; </div>
-<div class="line">      <a class="code" href="RF24Network__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360">printf_P</a>(<a class="code" href="RF24Network__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb">PSTR</a>(<span class="stringliteral">&quot;%lu: APP Added 0%o to list of active nodes.\n\r&quot;</span>),millis(),node);</div>
+<div class="line">      printf_P(PSTR(<span class="stringliteral">&quot;%lu: APP Added 0%o to list of active nodes.\n\r&quot;</span>),millis(),node);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 13 2014 08:35:15 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 6 2014 13:36:24 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

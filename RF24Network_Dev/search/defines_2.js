@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['network_5fack',['NETWORK_ACK',['../RF24Network_8h.html#ac60baa80629bef34c13bd6a171f278c7',1,'RF24Network.h']]],
-  ['network_5fack_5frequest',['NETWORK_ACK_REQUEST',['../RF24Network_8h.html#a53ac89d14edebd460b09fa0b5e957ca0',1,'RF24Network.h']]],
-  ['network_5ffirst_5ffragment',['NETWORK_FIRST_FRAGMENT',['../RF24Network_8h.html#af9101b6aa5fd99550576e17cb10dbc4f',1,'RF24Network.h']]],
-  ['network_5flast_5ffragment',['NETWORK_LAST_FRAGMENT',['../RF24Network_8h.html#a4df95ef2c4f33361e28e47219c5f07fa',1,'RF24Network.h']]],
-  ['network_5fmore_5ffragments',['NETWORK_MORE_FRAGMENTS',['../RF24Network_8h.html#a93ad5d5d56e908110f0769eb96679633',1,'RF24Network.h']]],
-  ['network_5freq_5fstream',['NETWORK_REQ_STREAM',['../RF24Network_8h.html#aef0bca98312e70f5032067f217d304b3',1,'RF24Network.h']]]
+  ['if_5fserial_5fdebug',['IF_SERIAL_DEBUG',['../RF24Network__config_8h.html#ab2cf239a98bc5d0beee4ceb41a5dd549',1,'IF_SERIAL_DEBUG():&#160;RF24Network_config.h'],['../RPi_2RF24Network_2RF24Network__config_8h.html#ab2cf239a98bc5d0beee4ceb41a5dd549',1,'IF_SERIAL_DEBUG():&#160;RF24Network_config.h']]],
+  ['if_5fserial_5fdebug_5ffragmentation',['IF_SERIAL_DEBUG_FRAGMENTATION',['../RF24Network__config_8h.html#a4fee67c982211323d9cfadadfc2c6c02',1,'IF_SERIAL_DEBUG_FRAGMENTATION():&#160;RF24Network_config.h'],['../RPi_2RF24Network_2RF24Network__config_8h.html#a4fee67c982211323d9cfadadfc2c6c02',1,'IF_SERIAL_DEBUG_FRAGMENTATION():&#160;RF24Network_config.h']]],
+  ['if_5fserial_5fdebug_5fminimal',['IF_SERIAL_DEBUG_MINIMAL',['../RF24Network__config_8h.html#a77593b5d246cf2fefeff68ecc926df96',1,'IF_SERIAL_DEBUG_MINIMAL():&#160;RF24Network_config.h'],['../RPi_2RF24Network_2RF24Network__config_8h.html#a77593b5d246cf2fefeff68ecc926df96',1,'IF_SERIAL_DEBUG_MINIMAL():&#160;RF24Network_config.h']]],
+  ['if_5fserial_5fdebug_5frouting',['IF_SERIAL_DEBUG_ROUTING',['../RF24Network__config_8h.html#a96eb3fbe5545a6cb787aabdf17b44302',1,'IF_SERIAL_DEBUG_ROUTING():&#160;RF24Network_config.h'],['../RPi_2RF24Network_2RF24Network__config_8h.html#a96eb3fbe5545a6cb787aabdf17b44302',1,'IF_SERIAL_DEBUG_ROUTING():&#160;RF24Network_config.h']]]
 ];

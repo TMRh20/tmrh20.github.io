@@ -41,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -61,19 +60,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
-    </ul>
-  </div>
 </div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Sync.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Sync_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> Copyright (C) 2011 J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> This program is free software; you can redistribute it and/or</span></div>
@@ -104,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// Framework headers</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Library headers</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="RF24Network__config_8h.html">RF24Network_config.h</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;RF24Network_config.h&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Project headers</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="classRF24Network.html">RF24Network</a>;</div>
@@ -148,16 +141,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span><span class="comment">// vim:cin:ai:sts=2 sw=2 ft=cpp</span></div>
 <div class="ttc" id="classSync_html_acae494c0b068716c27e18d590f7a56fa"><div class="ttname"><a href="classSync.html#acae494c0b068716c27e18d590f7a56fa">Sync::begin</a></div><div class="ttdeci">void begin(uint16_t _to_node)</div><div class="ttdoc">Begin the object. </div><div class="ttdef"><b>Definition:</b> Sync.h:52</div></div>
 <div class="ttc" id="classSync_html_afda273968c32f23f02631501101ddf03"><div class="ttname"><a href="classSync.html#afda273968c32f23f02631501101ddf03">Sync::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdoc">Reset the internal copy of the shared data set. </div><div class="ttdef"><b>Definition:</b> Sync.h:73</div></div>
-<div class="ttc" id="RF24Network__config_8h_html"><div class="ttname"><a href="RF24Network__config_8h.html">RF24Network_config.h</a></div></div>
 <div class="ttc" id="classSync_html"><div class="ttname"><a href="classSync.html">Sync</a></div><div class="ttdoc">Synchronizes a shared set of variables between multiple nodes. </div><div class="ttdef"><b>Definition:</b> Sync.h:27</div></div>
 <div class="ttc" id="classSync_html_a97b1bbb0e0116096ad2fbf25500c7d60"><div class="ttname"><a href="classSync.html#a97b1bbb0e0116096ad2fbf25500c7d60">Sync::update</a></div><div class="ttdeci">void update(void)</div><div class="ttdoc">Update the network and the shared data set. </div></div>
-<div class="ttc" id="classRF24Network_html"><div class="ttname"><a href="classRF24Network.html">RF24Network</a></div><div class="ttdoc">Frame structure for each message. </div><div class="ttdef"><b>Definition:</b> RF24Network.h:166</div></div>
+<div class="ttc" id="classRF24Network_html"><div class="ttname"><a href="classRF24Network.html">RF24Network</a></div><div class="ttdoc">2014 - Optimized Network Layer for RF24 Radios </div><div class="ttdef"><b>Definition:</b> RF24Network.h:191</div></div>
 <div class="ttc" id="classSync_html_ae3af1c419dd07d4d75a7681bb922ea40"><div class="ttname"><a href="classSync.html#ae3af1c419dd07d4d75a7681bb922ea40">Sync::register_me</a></div><div class="ttdeci">void register_me(T &amp;_data)</div><div class="ttdoc">Declare the shared data set. </div><div class="ttdef"><b>Definition:</b> Sync.h:62</div></div>
 <div class="ttc" id="classSync_html_a25ef5713f388ddc4dc294e1ce8776872"><div class="ttname"><a href="classSync.html#a25ef5713f388ddc4dc294e1ce8776872">Sync::Sync</a></div><div class="ttdeci">Sync(RF24Network &amp;_network)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> Sync.h:43</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 13 2014 08:35:15 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 6 2014 13:36:24 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

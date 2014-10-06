@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['parent',['parent',['../classRF24Network.html#a2274c0548e35b5182a2f6ced222d0699',1,'RF24Network']]],
-  ['peek',['peek',['../classRF24Network.html#a260de0bab4e167f85d002bb11e97d91e',1,'RF24Network']]]
+  ['multicast',['multicast',['../classRF24Network.html#ad777906b31c19c765ffe6f97a3f7feb0',1,'RF24Network']]],
+  ['multicastlevel',['multicastLevel',['../classRF24Network.html#a4fb7c61eee75d708a4ba20bb1caec54f',1,'RF24Network']]]
 ];

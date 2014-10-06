@@ -41,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -67,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,20 +86,20 @@ Purpose/Goal</h1>
 <p>Original: Create an alternative to ZigBee radios for Arduino communication.</p>
 <p>New: Enhance the current functionality for maximum efficiency, reliability, and speed</p>
 <p>Xbees are excellent little radios, backed up by a mature and robust standard protocol stack. They are also expensive.</p>
-<p>For many Arduino uses, they seem like overkill. So I am working to improve the current standard for nRF24L01 radios. The best RF24 modules are available for less than $6 from many sources. With the <a class="el" href="classRF24Network.html" title="Frame structure for each message. ">RF24Network</a> layer, I hope to cover many common communication scenarios.</p>
+<p>For many Arduino uses, they seem like overkill. So I am working to improve the current standard for nRF24L01 radios. The best RF24 modules are available for less than $6 from many sources. With the <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> layer, I hope to cover many common communication scenarios.</p>
 <p>Please see the <a class="el" href="Zigbee.html">Comparison to ZigBee</a> page for a comparison against the ZigBee protocols</p>
 <h1><a class="anchor" id="Features"></a>
 Features</h1>
 <p>Whats new? </p>
 <dl class="section note"><dt>Note</dt><dd>Fragmentation Support: (Sept 2014) - Raspberry Pi now supports fragmentation for very long messages, send as normal. Arduino, ATTiny will handle routing of fragmented messages, but cannot receive them properly </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The latest updates to add fragmentation will require updating <a class="el" href="classRF24Network.html" title="Frame structure for each message. ">RF24Network</a> and RF24 libraries on ALL devices</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The latest updates to add fragmentation will require updating <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> and RF24 libraries on ALL devices</dd></dl>
 <p>The layer provides: </p>
 <ul>
 <li><b>New</b> (2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
 <li><b>New</b> (2014): Updated addressing standard for optimal radio transmission. </li>
 <li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
 <li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
-<li><b>New</b> (2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h.html">RF24Network_config.h</a>)) </li>
+<li><b>New</b> (2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a>)) </li>
 <li><b>New</b> (2014): Dual headed operation: The use of dual radios for busy routing nodes or the master node enhances throughput and decreases errors. See the <a href="Tuning.html">Tuning</a> section. </li>
 <li>Host Addressing. Each node has a logical address on the local network. </li>
 <li>Message Forwarding. Messages can be sent from one node to any other, and this layer will get them there no matter how many hops it takes. </li>
@@ -162,7 +161,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 13 2014 08:35:15 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 6 2014 13:36:24 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

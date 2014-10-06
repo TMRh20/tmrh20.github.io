@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['multicast',['multicast',['../classRF24Network.html#ad777906b31c19c765ffe6f97a3f7feb0',1,'RF24Network']]]
+  ['is_5fvalid_5faddress',['is_valid_address',['../classRF24Network.html#ab41da035bd7f469ea4364a06ab4efd1b',1,'RF24Network']]]
 ];
