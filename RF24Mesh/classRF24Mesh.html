@@ -136,7 +136,7 @@ Advanced Operation</h2></td></tr>
 <tr class="separator:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#_a2">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#_a2">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#_a2">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#_a2">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#_a2">RF24Mesh_SerialConfig.ino</a>.</dd>
+<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#_a2">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#_a2">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#_a2">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#_a2">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#_a2">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#_a2">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a8b2bde3730c955d28a269f35b610a562"></a>
 <div class="memitem">
@@ -165,7 +165,7 @@ Advanced Operation</h2></td></tr>
 <p>Construct the mesh: </p>
 <div class="fragment"><div class="line">RF24 radio(7,8);</div>
 <div class="line">RF24Network network(radio);</div>
-<div class="line"><a class="code" href="classRF24Mesh.html">RF24Mesh</a> <a class="code" href="RF24Mesh__Example_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>(radio,network);</div>
+<div class="line"><a class="code" href="classRF24Mesh.html">RF24Mesh</a> <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>(radio,network);</div>
 </div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_radio</td><td>The underlying radio driver instance </td></tr>
@@ -193,9 +193,9 @@ Advanced Operation</h2></td></tr>
 <p>Call this in setup() to configure the mesh and request an address. </p>
 <p><br/>
 </p>
-<div class="fragment"><div class="line"><a class="code" href="RF24Mesh__Example_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>(); </div>
+<div class="fragment"><div class="line"><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>(); </div>
 </div><!-- fragment --><p> This may take a few moments to complete. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a8">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a6">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a5">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a5">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a6">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a8">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a6">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a5">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a5">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a9">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a6">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -213,7 +213,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Very similar to network.update(), it needs to be called regularly to keep the network and the mesh going. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8ino-example.html#a7">RF24Mesh_Example.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8ino-example.html#a7">RF24Mesh_Example.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a10">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -283,7 +283,7 @@ Advanced Operation</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a6">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a5">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a4">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a5">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a6">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a5">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a4">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a8">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a5">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -361,7 +361,7 @@ Advanced Operation</h2></td></tr>
 
 <p>Only to be used on the master node. </p>
 <p>Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, and <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a11">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -387,7 +387,7 @@ Advanced Operation</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 5 2014 22:31:52 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 6 2014 15:45:34 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
