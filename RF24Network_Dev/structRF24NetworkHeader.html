@@ -122,7 +122,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ad05daaac28b7d1e7a7ef749f7f0ce317"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sequential message ID, incremented every message.  <a href="#ad05daaac28b7d1e7a7ef749f7f0ce317">More...</a><br/></td></tr>
 <tr class="separator:ad05daaac28b7d1e7a7ef749f7f0ce317"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac99ab14e561670f4445d1fea7775e2db"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a></td></tr>
-<tr class="memdesc:ac99ab14e561670f4445d1fea7775e2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of the packet.  <a href="#ac99ab14e561670f4445d1fea7775e2db">More...</a><br/></td></tr>
+<tr class="memdesc:ac99ab14e561670f4445d1fea7775e2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message Types: User message types 1 through 64 will NOT be acknowledged by the network, while message types 65 through 127 will receive a network ACK.  <a href="#ac99ab14e561670f4445d1fea7775e2db">More...</a><br/></td></tr>
 <tr class="separator:ac99ab14e561670f4445d1fea7775e2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80672a22cedcf24db8abbcef2eea9cfd"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRF24NetworkHeader.html#a80672a22cedcf24db8abbcef2eea9cfd">reserved</a></td></tr>
 <tr class="memdesc:a80672a22cedcf24db8abbcef2eea9cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved for future use.  <a href="#a80672a22cedcf24db8abbcef2eea9cfd">More...</a><br/></td></tr>
@@ -289,8 +289,11 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Type of the packet. </p>
-<p>0-127 are user-defined types, 128-255 are reserved for system </p>
+<p>Message Types: User message types 1 through 64 will NOT be acknowledged by the network, while message types 65 through 127 will receive a network ACK. </p>
+<p>System message types 192 through 255 will NOT be acknowledged by the network. Message types 128 through 192 will receive a network ACK. <br/>
+ When requesting a response from another node, for example, a network ACK is not required, and will add extra traffic to the network. <br/>
+<br/>
+<b>Type of the packet. </b> 0-127 are user-defined types, 128-255 are reserved for system </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="Network_Ping_8ino-example.html#a2">Network_Ping.ino</a>, <a class="el" href="Network_Ping_Sleep_8ino-example.html#a2">Network_Ping_Sleep.ino</a>, and <a class="el" href="sensornet_8pde-example.html#a3">sensornet.pde</a>.</dd>
 </dl>
 </div>
@@ -334,7 +337,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 6 2014 13:36:24 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 8 2014 18:16:05 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
