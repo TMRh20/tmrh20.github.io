@@ -114,6 +114,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d3e662216ffd890e019537a95297ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a> (uint8_t nodeID)</td></tr>
 <tr class="memdesc:a9d3e662216ffd890e019537a95297ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a unique nodeID for this node.  <a href="#a9d3e662216ffd890e019537a95297ed4">More...</a><br/></td></tr>
 <tr class="separator:a9d3e662216ffd890e019537a95297ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a> ()</td></tr>
+<tr class="memdesc:af2be39ae1e725063df72ca1f4c73a4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only to be used on the master node.  <a href="#af2be39ae1e725063df72ca1f4c73a4eb">More...</a><br/></td></tr>
+<tr class="separator:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Advanced Operation</h2></td></tr>
@@ -131,9 +134,12 @@ Advanced Operation</h2></td></tr>
 <tr class="memitem:a92fb3307f861976f7a6a34af930c8a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a92fb3307f861976f7a6a34af930c8a00">renewAddress</a> ()</td></tr>
 <tr class="memdesc:a92fb3307f861976f7a6a34af930c8a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnect to the mesh and renew the current RF24Network address.  <a href="#a92fb3307f861976f7a6a34af930c8a00">More...</a><br/></td></tr>
 <tr class="separator:a92fb3307f861976f7a6a34af930c8a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a> ()</td></tr>
-<tr class="memdesc:af2be39ae1e725063df72ca1f4c73a4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only to be used on the master node.  <a href="#af2be39ae1e725063df72ca1f4c73a4eb">More...</a><br/></td></tr>
-<tr class="separator:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17287798f73105b8c10cbbcdf79979a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a17287798f73105b8c10cbbcdf79979a1">releaseAddress</a> ()</td></tr>
+<tr class="memdesc:a17287798f73105b8c10cbbcdf79979a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the currently assigned address lease.  <a href="#a17287798f73105b8c10cbbcdf79979a1">More...</a><br/></td></tr>
+<tr class="separator:a17287798f73105b8c10cbbcdf79979a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba97211b257a8cc57ea0fc242f9135e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#aeba97211b257a8cc57ea0fc242f9135e">getAddress</a> (uint8_t nodeID)</td></tr>
+<tr class="memdesc:aeba97211b257a8cc57ea0fc242f9135e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a nodeID into an RF24Network address.  <a href="#aeba97211b257a8cc57ea0fc242f9135e">More...</a><br/></td></tr>
+<tr class="separator:aeba97211b257a8cc57ea0fc242f9135e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#_a2">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#_a2">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#_a2">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#_a2">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#_a2">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#_a2">RF24Mesh_SerialConfig.ino</a>.</dd>
@@ -287,6 +293,25 @@ Advanced Operation</h2></td></tr>
 </dl>
 </div>
 </div>
+<a class="anchor" id="af2be39ae1e725063df72ca1f4c73a4eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Mesh::DHCP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Only to be used on the master node. </p>
+<p>Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a11">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+</dl>
+</div>
+</div>
 <a class="anchor" id="ab567773e39c2baacb373e5bc104bc6e4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -346,12 +371,12 @@ Advanced Operation</h2></td></tr>
 </dl>
 </div>
 </div>
-<a class="anchor" id="af2be39ae1e725063df72ca1f4c73a4eb"></a>
+<a class="anchor" id="a17287798f73105b8c10cbbcdf79979a1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void RF24Mesh::DHCP </td>
+          <td class="memname">void RF24Mesh::releaseAddress </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -359,10 +384,36 @@ Advanced Operation</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Only to be used on the master node. </p>
-<p>Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a11">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+<p>Releases the currently assigned address lease. </p>
+<p>Useful for nodes that will be sleeping etc. </p>
+
+</div>
+</div>
+<a class="anchor" id="aeba97211b257a8cc57ea0fc242f9135e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t RF24Mesh::getAddress </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>nodeID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a nodeID into an RF24Network address. </p>
+<dl class="section note"><dt>Note</dt><dd>If printing or displaying the address, it needs to be converted to octal format.</dd></dl>
+<p>When called on any node but the master node, this will result in a name lookup request being sent to the master node, and a response returned containing the address corresponding to the included nodeID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeID</td><td>- The unique identifier (1-255) of the node </td></tr>
+  </table>
+  </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the RF24Network address of the node or 0 if not found or lookup failed. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -387,7 +438,7 @@ Advanced Operation</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 6 2014 15:45:34 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
