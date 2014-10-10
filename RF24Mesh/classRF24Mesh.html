@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="classRF24Mesh-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RF24Mesh Class Reference</div>  </div>
@@ -94,6 +95,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><code>#include &lt;<a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">RF24Mesh</div></td></tr>
@@ -140,6 +146,17 @@ Advanced Operation</h2></td></tr>
 <tr class="memitem:aeba97211b257a8cc57ea0fc242f9135e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#aeba97211b257a8cc57ea0fc242f9135e">getAddress</a> (uint8_t nodeID)</td></tr>
 <tr class="memdesc:aeba97211b257a8cc57ea0fc242f9135e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a nodeID into an RF24Network address.  <a href="#aeba97211b257a8cc57ea0fc242f9135e">More...</a><br/></td></tr>
 <tr class="separator:aeba97211b257a8cc57ea0fc242f9135e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Address list struct</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpc10a7cd1e66b881c793e814f05be9029"></a>See the list struct class reference </p>
+</td></tr>
+<tr class="memitem:a9a318c0e327fb099a20dbd10761f5e92"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a></td></tr>
+<tr class="memdesc:a9a318c0e327fb099a20dbd10761f5e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">See the <a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a> class reference.  <a href="#a9a318c0e327fb099a20dbd10761f5e92">More...</a><br/></td></tr>
+<tr class="separator:a9a318c0e327fb099a20dbd10761f5e92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a191486253c7123d6be0ac7822c44a30a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a191486253c7123d6be0ac7822c44a30a">addrListTop</a></td></tr>
+<tr class="memdesc:a191486253c7123d6be0ac7822c44a30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of entries in the assigned address list.  <a href="#a191486253c7123d6be0ac7822c44a30a">More...</a><br/></td></tr>
+<tr class="separator:a191486253c7123d6be0ac7822c44a30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#_a2">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#_a2">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#_a2">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#_a2">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#_a2">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#_a2">RF24Mesh_SerialConfig.ino</a>.</dd>
@@ -201,7 +218,7 @@ Advanced Operation</h2></td></tr>
 </p>
 <div class="fragment"><div class="line"><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>(); </div>
 </div><!-- fragment --><p> This may take a few moments to complete. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a8">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a6">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a5">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a5">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a9">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a6">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a8">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a6">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a10">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a6">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -219,7 +236,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Very similar to network.update(), it needs to be called regularly to keep the network and the mesh going. </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8ino-example.html#a7">RF24Mesh_Example.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a10">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a9">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a7">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a7">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a7">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a11">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a8">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -263,7 +280,7 @@ Advanced Operation</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if success, False if failed </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a9">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a8">RF24Mesh_Example.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a8">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a10">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a8">RF24Mesh_Example.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a9">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -289,7 +306,7 @@ Advanced Operation</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a6">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a5">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a4">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a8">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a5">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a6">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_8ino-example.html#a5">RF24Mesh_Example.ino</a>, <a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a5">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a4">RF24Mesh_Example_Master.ino</a>, <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a9">RF24Mesh_Ncurses_Master.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a5">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -308,7 +325,7 @@ Advanced Operation</h2></td></tr>
 
 <p>Only to be used on the master node. </p>
 <p>Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a6">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a6">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a11">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_Master_8cpp-example.html#a8">RF24Mesh_Example_Master.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a8">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a12">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -328,7 +345,7 @@ Advanced Operation</h2></td></tr>
 <p>Get the nodeID of this node. </p>
 <p>The nodeID is linked to the assigned RF24Network address but is unique. </p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the nodeID saved in memory OR 0 if not found. </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a7">RF24Mesh_Example.cpp</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a4">RF24Mesh_SerialConfig.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a7">RF24Mesh_Example.cpp</a>, <a class="el" href="RF24Mesh_Example_Master_8ino-example.html#a5">RF24Mesh_Example_Master.ino</a>, and <a class="el" href="RF24Mesh_SerialConfig_8ino-example.html#a4">RF24Mesh_SerialConfig.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -347,7 +364,7 @@ Advanced Operation</h2></td></tr>
 
 <p>Tests connectivity of this node to the mesh. </p>
 <dl class="section return"><dt>Returns</dt><dd>Return 1 if connected, 0 if mesh not responding after up to 1 second </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8ino-example.html#a9">RF24Mesh_Example.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a11">RF24Mesh_Example.cpp</a>, and <a class="el" href="RF24Mesh_Example_8ino-example.html#a9">RF24Mesh_Example.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -367,7 +384,7 @@ Advanced Operation</h2></td></tr>
 <p>Reconnect to the mesh and renew the current RF24Network address. </p>
 <p>Used to re-establish a connection to the mesh if physical location etc. has changed, or a routing node goes down. </p>
 <dl class="section note"><dt>Note</dt><dd>Currently blocks until a connection is established and an address is received. </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a10">RF24Mesh_Example.cpp</a>, and <a class="el" href="RF24Mesh_Example_8ino-example.html#a10">RF24Mesh_Example.ino</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a12">RF24Mesh_Example.cpp</a>, and <a class="el" href="RF24Mesh_Example_8ino-example.html#a10">RF24Mesh_Example.ino</a>.</dd>
 </dl>
 </div>
 </div>
@@ -431,6 +448,36 @@ Advanced Operation</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9a318c0e327fb099a20dbd10761f5e92"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a>* RF24Mesh::addrList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>See the <a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a> class reference. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a13">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+</dl>
+</div>
+</div>
+<a class="anchor" id="a191486253c7123d6be0ac7822c44a30a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t RF24Mesh::addrListTop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The number of entries in the assigned address list. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a14">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+</dl>
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a></li>
 <li><a class="el" href="RF24Mesh_8cpp.html">RF24Mesh.cpp</a></li>
@@ -438,7 +485,7 @@ Advanced Operation</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

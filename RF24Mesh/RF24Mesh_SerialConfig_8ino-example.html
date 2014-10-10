@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -120,13 +120,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">  </div>
-<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.update();</div>
+<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a8"></a><a class="code" href="classRF24Mesh.html#a5b47fc72dae301b1886573f70e32d305">update</a>();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Send an update in every second</span></div>
 <div class="line">  <span class="keywordflow">if</span>(millis() - displayTimer &gt;= 1000){</div>
 <div class="line">    displayTimer = millis();    </div>
 <div class="line">    <span class="comment">// Send the current millis() value to the master node as an &#39;M&#39; type message</span></div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a8"></a><a class="code" href="classRF24Mesh.html#a17e366fc27c033e68c4edfec5eed7704">write</a>(&amp;displayTimer,<span class="charliteral">&#39;M&#39;</span>,<span class="keyword">sizeof</span>(displayTimer));</div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a9"></a><a class="code" href="classRF24Mesh.html#a17e366fc27c033e68c4edfec5eed7704">write</a>(&amp;displayTimer,<span class="charliteral">&#39;M&#39;</span>,<span class="keyword">sizeof</span>(displayTimer));</div>
 <div class="line">  }</div>
 <div class="line">  </div>
 <div class="line">}</div>
@@ -135,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

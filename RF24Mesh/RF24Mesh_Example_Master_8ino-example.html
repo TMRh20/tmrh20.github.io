@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -93,9 +93,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24Mesh_8h.html">RF24Mesh.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="comment">//Include eeprom.h for AVR (Uno, Nano) etc. except ATTiny</span></div>
+<div class="line"><span class="preprocessor">#include &lt;EEPROM.h&gt;</span></div>
 <div class="line"></div>
-<div class="line"></div>
-<div class="line">RF24 <a name="a0"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>(48,52);</div>
+<div class="line"><span class="comment">/***** Configure the chosen CE,CS pins *****/</span></div>
+<div class="line">RF24 <a name="a0"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>(7,8);</div>
 <div class="line">RF24Network <a name="a1"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>);</div>
 <div class="line"><a name="_a2"></a><a class="code" href="classRF24Mesh.html">RF24Mesh</a> <a name="a3"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>);</div>
 <div class="line"></div>
@@ -106,20 +108,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="comment">// Set the nodeID to 0 for the master node</span></div>
 <div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a4"></a><a class="code" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a>(0);</div>
+<div class="line">  Serial.println(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a5"></a><a class="code" href="classRF24Mesh.html#ab567773e39c2baacb373e5bc104bc6e4">getNodeID</a>());</div>
 <div class="line">  <span class="comment">// Connect to the mesh</span></div>
-<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a5"></a><a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
+<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a6"></a><a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
 <div class="line"></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {    </div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// Call network.update as usual to keep the network updated</span></div>
-<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.update();</div>
+<div class="line">  <span class="comment">// Call mesh.update to keep the network updated</span></div>
+<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a7"></a><a class="code" href="classRF24Mesh.html#a5b47fc72dae301b1886573f70e32d305">update</a>();</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// In addition, keep the &#39;DHCP service&#39; running on the master node so addresses will</span></div>
 <div class="line">  <span class="comment">// be assigned to the sensor nodes</span></div>
-<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a6"></a><a class="code" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a>();</div>
+<div class="line">  <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a8"></a><a class="code" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a>();</div>
 <div class="line">  </div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Check for incoming data from the sensors</span></div>
@@ -142,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

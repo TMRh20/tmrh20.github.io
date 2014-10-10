@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -108,8 +108,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa7924d94ea32c8d33a81ff41f8678320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0e19167abf84fa7e771f0f963129358"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358">printNodes</a> (uint8_t boldID)</td></tr>
 <tr class="separator:aa0e19167abf84fa7e771f0f963129358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9062daae7bfc281296b6986c402a6575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#a9062daae7bfc281296b6986c402a6575">pingNode</a> (std::map&lt; char, uint16_t &gt;::iterator it)</td></tr>
-<tr class="separator:a9062daae7bfc281296b6986c402a6575"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13fcca18a18e245a698c10adddb9bb07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07">pingNode</a> (uint8_t listNo)</td></tr>
+<tr class="separator:a13fcca18a18e245a698c10adddb9bb07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -117,6 +117,8 @@ Functions</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a97c1eaa120a7add40ebbfb9b3d9268a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRF24Mesh.html">RF24Mesh</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a> (<a class="el" href="RF24Mesh__Example__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>, <a class="el" href="RF24Mesh__Example__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>)</td></tr>
 <tr class="separator:a97c1eaa120a7add40ebbfb9b3d9268a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a37b74f2e95266c2f6596b1933a40de"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a></td></tr>
+<tr class="separator:a3a37b74f2e95266c2f6596b1933a40de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfbdc65090756c275799ccea93b8c95"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = 0</td></tr>
 <tr class="separator:a7cfbdc65090756c275799ccea93b8c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -188,15 +190,15 @@ Variables</h2></td></tr>
 </dl>
 </div>
 </div>
-<a class="anchor" id="a9062daae7bfc281296b6986c402a6575"></a>
+<a class="anchor" id="a13fcca18a18e245a698c10adddb9bb07"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void pingNode </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; char, uint16_t &gt;::iterator&#160;</td>
-          <td class="paramname"><em>it</em></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>listNo</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -217,7 +219,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a7">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a8">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
 </dl>
 </div>
 </div>
@@ -235,6 +237,19 @@ Variables</h2></td></tr>
 </dl>
 </div>
 </div>
+<a class="anchor" id="a3a37b74f2e95266c2f6596b1933a40de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t nodeCounter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a6">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+</dl>
+</div>
+</div>
 <a class="anchor" id="a7cfbdc65090756c275799ccea93b8c95"></a>
 <div class="memitem">
 <div class="memproto">
@@ -244,14 +259,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a6">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Ncurses_Master_8cpp-example.html#a7">RF24Mesh_Ncurses_Master.cpp</a>.</dd>
 </dl>
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

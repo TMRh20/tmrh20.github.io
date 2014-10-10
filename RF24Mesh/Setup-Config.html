@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -89,7 +89,7 @@ Requirements</h1>
 <p><b>Hardware Requirements:</b> <br/>
  </p>
 <ul>
-<li>1 Raspberry Pi or Arduino Due to act as the Master Node <br/>
+<li>1 Raspberry Pi or Arduino to act as the Master Node <br/>
  </li>
 <li>1 or more Arduino,RPi,etc. (Sensor Nodes) <br/>
  </li>
@@ -111,12 +111,12 @@ Installation</h1>
  <br/>
 </li>
 <li>Configure and test the hardware using examples from RF24 and RF24Network prior to attempting to use <a class="el" href="classRF24Mesh.html">RF24Mesh</a> <br/>
- a: <b>In Arduino IDE:</b> File &gt; RF24 &gt; GettingStarted <br/>
+ a: <b>In Arduino IDE:</b> File &gt; Examples &gt; RF24 &gt; GettingStarted <br/>
  b: <b>RPi:</b> Follow the Quick-Start instructions on <a href="https://github.com/TMRh20/RF24Network/tree/Development/RPi">GitHub</a> <br/>
  <br/>
 </li>
 <li>Once testing is complete: <br/>
- a: <b>Arduino IDE:</b> File &gt; <a class="el" href="classRF24Mesh.html">RF24Mesh</a> &gt; RF24Mesh_Example <br/>
+ a: <b>Arduino IDE:</b> File &gt; Examples &gt; <a class="el" href="classRF24Mesh.html">RF24Mesh</a> &gt; RF24Mesh_Example <br/>
  b: <b>RPi:</b> Run 'make' from the examples directory. Then 'sudo ./RF24Mesh_Example_Master' to begin as the master node <br/>
  <br/>
 </li>
@@ -126,14 +126,19 @@ Installation</h1>
 Configuration</h1>
 <p>As per the examples, nodes are configured with a unique value between 1 and 255. This allows them to change positions on the network, while still being identified. <br/>
 </p>
-<p>For pre-configuration of the mesh, only one main option is available by editing <a class="el" href="RF24Mesh__config_8h.html">RF24Mesh_config.h</a> prior to compiling: <br/>
+<p>For pre-configuration of the mesh, only a few options are available by editing <a class="el" href="RF24Mesh__config_8h.html">RF24Mesh_config.h</a> prior to compiling: <br/>
 </p>
-<div class="fragment"><div class="line"><span class="preprocessor">#define MESH_MAX_CHILDREN 4 </span></div>
-</div><!-- fragment --><p> This option restricts the maximum number of child nodes/node and limits the number of available addresses on the network. Max: 4 </p>
+<div class="fragment"><div class="line"><span class="preprocessor">#define MESH_MAX_CHILDREN 4  </span></div>
+<div class="line"><span class="preprocessor">#define MESH_DEFAULT_CHANNEL 90</span></div>
+</div><!-- fragment --><p> The max_children option restricts the maximum number of child nodes/node and limits the number of available addresses on the network. Max: 4 <br/>
+ The default_channel option defines the radio channel number (1-127 allowed)</p>
+<ul>
+<li>See <a href="General-Usage.html">General Usage</a> for information on how to work with the mesh once connected. </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

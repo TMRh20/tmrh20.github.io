@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -95,15 +95,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a34a829ec67e8c11ed0416fe1ee5e3bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a34a829ec67e8c11ed0416fe1ee5e3bae">MESH_MAX_CHILDREN</a>&#160;&#160;&#160;3 /** Set 1 to 4 (Default: 4) Restricts the maximum children per node. **/</td></tr>
+<tr class="memitem:a34a829ec67e8c11ed0416fe1ee5e3bae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a34a829ec67e8c11ed0416fe1ee5e3bae">MESH_MAX_CHILDREN</a>&#160;&#160;&#160;4 /** Set 1 to 4 (Default: 4) Restricts the maximum children per node. **/</td></tr>
 <tr class="separator:a34a829ec67e8c11ed0416fe1ee5e3bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a8ab350f590431aad2791ed1cf36177"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a8a8ab350f590431aad2791ed1cf36177">MESH_DEFAULT_CHANNEL</a>&#160;&#160;&#160;90  /** Radio channel to operate on 1-127 */</td></tr>
+<tr class="separator:a8a8ab350f590431aad2791ed1cf36177"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc9609391ebbc451c866fc20c42570b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#adc9609391ebbc451c866fc20c42570b3">MESH_MIN_SAVE_TIME</a>&#160;&#160;&#160;30000 /** Minimum time required before changing nodeID. Prevents excessive writing to EEPROM */</td></tr>
 <tr class="memdesc:adc9609391ebbc451c866fc20c42570b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Other Configuration.  <a href="#adc9609391ebbc451c866fc20c42570b3">More...</a><br/></td></tr>
 <tr class="separator:adc9609391ebbc451c866fc20c42570b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa307506ecde1e60194a4eed4e073c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a9aa307506ecde1e60194a4eed4e073c9">MESH_DEFAULT_ADDRESS</a>&#160;&#160;&#160;04444</td></tr>
 <tr class="separator:a9aa307506ecde1e60194a4eed4e073c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a8ab350f590431aad2791ed1cf36177"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a8a8ab350f590431aad2791ed1cf36177">MESH_DEFAULT_CHANNEL</a>&#160;&#160;&#160;90</td></tr>
-<tr class="separator:a8a8ab350f590431aad2791ed1cf36177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d0870e4b14cc018a97e1c52cd23d77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24Mesh__config_8h.html#a27d0870e4b14cc018a97e1c52cd23d77">MESH_MAX_ADDRESSES</a>&#160;&#160;&#160;255 /** Determines the max size of the array used for storing addresses on the Master Node */</td></tr>
+<tr class="separator:a27d0870e4b14cc018a97e1c52cd23d77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a34a829ec67e8c11ed0416fe1ee5e3bae"></a>
@@ -111,7 +113,19 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MESH_MAX_CHILDREN&#160;&#160;&#160;3 /** Set 1 to 4 (Default: 4) Restricts the maximum children per node. **/</td>
+          <td class="memname">#define MESH_MAX_CHILDREN&#160;&#160;&#160;4 /** Set 1 to 4 (Default: 4) Restricts the maximum children per node. **/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8a8ab350f590431aad2791ed1cf36177"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MESH_DEFAULT_CHANNEL&#160;&#160;&#160;90  /** Radio channel to operate on 1-127 */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -144,12 +158,12 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8a8ab350f590431aad2791ed1cf36177"></a>
+<a class="anchor" id="a27d0870e4b14cc018a97e1c52cd23d77"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MESH_DEFAULT_CHANNEL&#160;&#160;&#160;90</td>
+          <td class="memname">#define MESH_MAX_ADDRESSES&#160;&#160;&#160;255 /** Determines the max size of the array used for storing addresses on the Master Node */</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -159,7 +173,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

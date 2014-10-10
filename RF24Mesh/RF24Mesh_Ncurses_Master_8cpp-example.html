@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V0.1</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -118,92 +118,112 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="_a2"></a><a class="code" href="classRF24Mesh.html">RF24Mesh</a> <a name="a3"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> <a name="a4"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358">printNodes</a>(uint8_t boldID);</div>
-<div class="line"><span class="keywordtype">void</span> <a name="a5"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a9062daae7bfc281296b6986c402a6575">pingNode</a>(std::map&lt;char,uint16_t&gt;::iterator it);</div>
+<div class="line"><span class="keywordtype">void</span> <a name="a5"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07">pingNode</a>(uint8_t listNo);</div>
 <div class="line"></div>
-<div class="line">uint16_t <a name="a6"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = 0;</div>
+<div class="line">uint8_t <a name="a6"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a>;</div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">int</span> <a name="a7"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line">uint16_t <a name="a7"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = 0;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a name="a8"></a><a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line">{   </div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;Establishing mesh...\n&quot;</span>);</div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a9"></a><a class="code" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a>(0);</div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a10"></a><a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c">radio</a>.printDetails();</div>
+<div class="line"></div>
 <div class="line">    initscr();          <span class="comment">/* Start curses mode          */</span></div>
 <div class="line">    start_color();</div>
+<div class="line">    curs_set(0);</div>
 <div class="line">    <span class="comment">//keypad(stdscr, TRUE); //Enable user interaction</span></div>
 <div class="line">    init_pair(1, COLOR_GREEN, COLOR_BLACK);</div>
 <div class="line">    init_pair(2, COLOR_RED, COLOR_BLACK);</div>
 <div class="line">    attron(COLOR_PAIR(1));</div>
 <div class="line">    printw(<span class="stringliteral">&quot;RF24Mesh Master Node Monitoring Interface by TMRh20 - 2014\n&quot;</span>);</div>
 <div class="line">    attroff(COLOR_PAIR(1));</div>
-<div class="line">    <span class="comment">// Set the nodeID to 0 for the master node</span></div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a8"></a><a class="code" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a>(0);</div>
-<div class="line">    <span class="comment">// Connect to the mesh</span></div>
-<div class="line">    printw(<span class="stringliteral">&quot;Establishing mesh...&quot;</span>);</div>
 <div class="line">    refresh();          <span class="comment">/* Print it on to the real screen */</span></div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a9"></a><a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
-<div class="line">    mvprintw(1,0,<span class="stringliteral">&quot;                     &quot;</span>);</div>
 <div class="line">    </div>
-<div class="line">    uint32_t kbTimer = 0,kbCount = 0, pingTimer=millis();</div>
-<div class="line">    </div>
-<div class="line">    std::map&lt;char,uint16_t&gt;::iterator it = <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
-<div class="line">    </div>
+<div class="line">    uint32_t kbTimer = 0,kbCount = 0, pingTimer=millis();   </div>
+<div class="line">    <span class="comment">//std::map&lt;char,uint16_t&gt;::iterator it = mesh.addrMap.begin();</span></div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> totalPayloads = 0;</div>
+<div class="line"></div>
 <div class="line"><span class="keywordflow">while</span>(1)</div>
 <div class="line">{</div>
 <div class="line"></div>
-<div class="line">      <span class="comment">// Call network.update as usual to keep the network updated</span></div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a10"></a><a class="code" href="classRF24Mesh.html#a5b47fc72dae301b1886573f70e32d305">update</a>();</div>
+<div class="line">    <span class="comment">// Call mesh.update to keep the network updated</span></div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a11"></a><a class="code" href="classRF24Mesh.html#a5b47fc72dae301b1886573f70e32d305">update</a>();</div>
 <div class="line">    <span class="comment">// In addition, keep the &#39;DHCP service&#39; running on the master node so addresses will</span></div>
 <div class="line">    <span class="comment">// be assigned to the sensor nodes</span></div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a11"></a><a class="code" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a>();</div>
-<div class="line">  </div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a12"></a><a class="code" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a>();</div>
+<div class="line">    <span class="comment">// Wait until a sensor node is connected</span></div>
+<div class="line">    <span class="keywordflow">if</span>(<span class="keyword">sizeof</span>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a13"></a><a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>) &lt; 1){<span class="keywordflow">continue</span>; }</div>
+<div class="line">    </div>
 <div class="line">    <span class="comment">// Check for incoming data from the sensors</span></div>
-<div class="line">    <span class="keywordflow">while</span>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.available()){</div>
-<div class="line"> </div>
-<div class="line">    RF24NetworkHeader header;</div>
-<div class="line">    <span class="comment">//network.peek(header);</span></div>
+<div class="line">    <span class="keywordflow">while</span>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.available()){    </div>
+<div class="line">        RF24NetworkHeader header;</div>
+<div class="line">        <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.peek(header);</div>
 <div class="line">    </div>
-<div class="line">    uint32_t dat=0; uint8_t boldID = 0;</div>
+<div class="line">        uint8_t boldID = 0;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Print the total number of received payloads</span></div>
+<div class="line">        mvprintw(9,0,<span class="stringliteral">&quot; Total: %lu\n&quot;</span>,totalPayloads++);</div>
+<div class="line"></div>
+<div class="line">        kbCount++;</div>
 <div class="line">    </div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.read(header,&amp;dat,<span class="keyword">sizeof</span>(dat));</div>
-<div class="line">    kbCount++;</div>
-<div class="line">    </div>
-<div class="line">    attron(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">    mvprintw(2,0,<span class="stringliteral">&quot;[Last Payload Info]\n&quot;</span>);</div>
-<div class="line">    attroff(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">    </div>
-<div class="line">    mvprintw(3,0,<span class="stringliteral">&quot; HeaderID: %u \n Type: %c\n From: 0%o\n&quot;</span>,header.id,header.type,header.from_node);</div>
-<div class="line">    <span class="keywordflow">for</span> (std::map&lt;char,uint16_t&gt;::iterator it=<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>(); it!=<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.end(); ++it){                  </div>
-<div class="line">        <span class="comment">//mvprintw(xCoord++,34,&quot;ID: %d  Network: 0%o\n&quot;,it-&gt;first,it-&gt;second);</span></div>
-<div class="line">        <span class="keywordflow">if</span>(header.from_node == it-&gt;second){</div>
-<div class="line">            boldID = it-&gt;first;</div>
+<div class="line">        attron(A_BOLD | COLOR_PAIR(1));</div>
+<div class="line">        mvprintw(2,0,<span class="stringliteral">&quot;[Last Payload Info]\n&quot;</span>);</div>
+<div class="line">        attroff(A_BOLD | COLOR_PAIR(1));    </div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Read the network payload</span></div>
+<div class="line">        <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.read(header,0,0);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Display the header info</span></div>
+<div class="line">        mvprintw(3,0,<span class="stringliteral">&quot; HeaderID: %u  \n Type: %d  \n From: 0%o  \n &quot;</span>,header.id,header.type,header.from_node);</div>
+<div class="line"></div>
+<div class="line">        <span class="comment">//refresh();</span></div>
+<div class="line">        <span class="comment">//for (std::map&lt;char,uint16_t&gt;::iterator _it=mesh.addrMap.begin(); _it!=mesh.addrMap.end(); _it++){</span></div>
+<div class="line">        <span class="keywordflow">for</span>(uint8_t i=0; i&lt;<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a name="a14"></a><a class="code" href="classRF24Mesh.html#a191486253c7123d6be0ac7822c44a30a">addrListTop</a>; i++){</div>
+<div class="line">            <span class="keywordflow">if</span>(header.from_node == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a name="a15"></a><a class="code" href="structRF24Mesh_1_1addrListStruct.html#a8b5f7be9c75ade4aa94f750bd812c5b4">address</a>){</div>
+<div class="line">                boldID = <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a name="a16"></a><a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>;</div>
+<div class="line">            }</div>
 <div class="line">        }</div>
+<div class="line">        <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358">printNodes</a>(boldID);     </div>
+<div class="line"></div>
 <div class="line">    }</div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358">printNodes</a>(boldID);     </div>
-<div class="line">    refresh();</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line">  }</div>
-<div class="line">  delay(2);</div>
+<div class="line">    <span class="comment">//refresh();</span></div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordflow">if</span>(millis()-kbTimer &gt; 1000){</div>
+<div class="line">    <span class="keywordflow">if</span>(millis()-kbTimer &gt; 1000 &amp;&amp; kbCount &gt; 0){</div>
 <div class="line">    kbTimer = millis();</div>
 <div class="line">    attron(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">    mvprintw(8,0,<span class="stringliteral">&quot;[Data Rate (In)]\n&quot;</span>);</div>
+<div class="line">    mvprintw(7,0,<span class="stringliteral">&quot;[Data Rate (In)]&quot;</span>);</div>
 <div class="line">    attroff(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">    printw(<span class="stringliteral">&quot; Kbps: %.2f&quot;</span>,(kbCount * 32 * 8)/1000.00);</div>
-<div class="line">    kbCount = 0;    </div>
+<div class="line">    mvprintw(8,0,<span class="stringliteral">&quot; Kbps: %.2f&quot;</span>,(kbCount * 32 * 8)/1000.00);</div>
+<div class="line">    kbCount = 0;</div>
+<div class="line">    </div>
 <div class="line">  }</div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordflow">if</span>(millis()-pingTimer&gt;1000){</div>
+<div class="line">  <span class="comment">// Ping each connected node, one per second</span></div>
+<div class="line">  <span class="keywordflow">if</span>(millis()-pingTimer&gt;1003 &amp;&amp; <span class="keyword">sizeof</span>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>) &gt; 0){</div>
 <div class="line">    pingTimer=millis();</div>
-<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a9062daae7bfc281296b6986c402a6575">pingNode</a>(it);</div>
-<div class="line">      it++;</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordflow">if</span>( it == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.end()){ <span class="comment">// if(mesh.addrMap.size() &gt; 1){ it=mesh.addrMap.begin(); } continue;}</span></div>
-<div class="line">        it=<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>();</div>
+<div class="line">    <span class="keywordflow">if</span>( <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a> == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a191486253c7123d6be0ac7822c44a30a">addrListTop</a>){ <span class="comment">// if(mesh.addrMap.size() &gt; 1){ it=mesh.addrMap.begin(); } continue;}</span></div>
+<div class="line">        <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a> = 0;</div>
 <div class="line">    }</div>
-<div class="line">    </div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07">pingNode</a>(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a>);</div>
+<div class="line">    <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a3a37b74f2e95266c2f6596b1933a40de">nodeCounter</a>++;  </div>
 <div class="line">  }</div>
 <div class="line">  </div>
+<div class="line">    <span class="comment">/*uint32_t nOK,nFails;</span></div>
+<div class="line"><span class="comment">    network.failures(&amp;nFails,&amp;nOK);</span></div>
+<div class="line"><span class="comment">    attron(A_BOLD | COLOR_PAIR(1));</span></div>
+<div class="line"><span class="comment">    mvprintw(2,24,&quot;[Transmit Results] &quot;);</span></div>
+<div class="line"><span class="comment">    attroff(A_BOLD | COLOR_PAIR(1));</span></div>
+<div class="line"><span class="comment">    mvprintw(3,25,&quot; #OK: %u   &quot;,nOK);</span></div>
+<div class="line"><span class="comment">    mvprintw(4,25,&quot; #Fail: %u   &quot;,nFails);*/</span></div>
 <div class="line">  </div>
-<div class="line">}</div>
+<div class="line">  </div>
+<div class="line">  refresh();</div>
+<div class="line">  delay(2);</div>
+<div class="line">}<span class="comment">//while 1</span></div>
 <div class="line">    </div>
 <div class="line">    endwin();           <span class="comment">/* End curses mode        */</span></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
@@ -214,44 +234,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">   uint8_t xCoord = 2;</div>
 <div class="line">   attron(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">   mvprintw(xCoord++,33,<span class="stringliteral">&quot;[Address Assignments]\n&quot;</span>);</div>
+<div class="line">   mvprintw(xCoord++,27,<span class="stringliteral">&quot;[Address Assignments]\n&quot;</span>);</div>
 <div class="line">   attroff(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">  <span class="keywordflow">for</span> (std::map&lt;char,uint16_t&gt;::iterator it=<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.<a class="code" href="classRF24Mesh.html#ae568b5b49436c10e4261c9ff8369406b">begin</a>(); it!=<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.addrMap.end(); ++it){</div>
-<div class="line">    <span class="keywordflow">if</span>( <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> == it-&gt;first){</div>
+<div class="line">  <span class="comment">//for (std::map&lt;char,uint16_t&gt;::iterator it=mesh.addrMap.begin(); it!=mesh.addrMap.end(); ++it){</span></div>
+<div class="line">  <span class="keywordflow">for</span>( uint8_t i=0; i&lt;<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a191486253c7123d6be0ac7822c44a30a">addrListTop</a>; i++){</div>
+<div class="line">    <span class="comment">//if( failID == it-&gt;first){</span></div>
+<div class="line">    <span class="keywordflow">if</span>( <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>){</div>
 <div class="line">        attron(COLOR_PAIR(2));</div>
 <div class="line">    }<span class="keywordflow">else</span></div>
-<div class="line">    <span class="keywordflow">if</span>( boldID == it-&gt;first ){</div>
+<div class="line">    <span class="keywordflow">if</span>( boldID == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a> ){</div>
 <div class="line">        attron(A_BOLD | COLOR_PAIR(1));</div>
 <div class="line">    }</div>
-<div class="line">    mvprintw(xCoord++,34,<span class="stringliteral">&quot;ID: %d  Network: 0%o\n&quot;</span>,it-&gt;first,it-&gt;second);</div>
+<div class="line">    mvprintw(xCoord++,28,<span class="stringliteral">&quot;ID: %d  Network: 0%o   &quot;</span>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[i].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#a8b5f7be9c75ade4aa94f750bd812c5b4">address</a>);</div>
 <div class="line">    attroff(A_BOLD | COLOR_PAIR(1));</div>
 <div class="line">    attroff(COLOR_PAIR(2));</div>
 <div class="line">  }</div>
-<div class="line"></div>
+<div class="line">  mvprintw(xCoord++,28,<span class="stringliteral">&quot;                   &quot;</span>);</div>
+<div class="line">  mvprintw(xCoord++,28,<span class="stringliteral">&quot;                   &quot;</span>);</div>
+<div class="line">  mvprintw(xCoord++,28,<span class="stringliteral">&quot;                   &quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a9062daae7bfc281296b6986c402a6575">pingNode</a>(std::map&lt;char,uint16_t&gt;::iterator IT){</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07">pingNode</a>(uint8_t listNo){</div>
 <div class="line"></div>
 <div class="line">   attron(A_BOLD | COLOR_PAIR(1));</div>
 <div class="line">   mvprintw(11,0,<span class="stringliteral">&quot;[Ping Test]\n&quot;</span>);</div>
 <div class="line">   attroff(A_BOLD | COLOR_PAIR(1));</div>
-<div class="line">  <span class="comment">//for (std::map&lt;char,uint16_t&gt;::iterator it=mesh.addrMap.begin(); it!=mesh.addrMap.end(); ++it){</span></div>
-<div class="line">    RF24NetworkHeader header(IT-&gt;second,NETWORK_ADDR_CONFIRM);</div>
-<div class="line">    uint32_t pingtime=millis();</div>
-<div class="line">    <span class="keywordtype">bool</span> ok = <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.write(header,0,0);</div>
-<div class="line">    <span class="keywordflow">if</span>(ok &amp;&amp; <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> == IT-&gt;first){ <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = 0; }</div>
-<div class="line">    <span class="keywordflow">if</span>(!ok){ <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = IT-&gt;first; }</div>
-<div class="line">    pingtime = millis()-pingtime;</div>
-<div class="line">    mvprintw(12,0,<span class="stringliteral">&quot; ID:%d\n Net:0%o\n Time:%ums\n&quot;</span>,IT-&gt;first,IT-&gt;second,pingtime);</div>
-<div class="line">    <span class="keywordflow">if</span>(ok){ printw(<span class="stringliteral">&quot; OK\n&quot;</span>);</div>
-<div class="line">    } <span class="keywordflow">else</span>{ attron(A_BOLD); printw(<span class="stringliteral">&quot; FAIL\n&quot;</span>); attron(A_BOLD); } delay(200);</div>
-<div class="line">  <span class="comment">//}</span></div>
 <div class="line"></div>
+<div class="line">    RF24NetworkHeader headers(<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[listNo].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#a8b5f7be9c75ade4aa94f750bd812c5b4">address</a>,NETWORK_PING);</div>
+<div class="line">    uint32_t pingtime=millis();</div>
+<div class="line">    <span class="keywordtype">bool</span> ok;</div>
+<div class="line">    <span class="keywordflow">if</span>(headers.to_node){</div>
+<div class="line">        ok = <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320">network</a>.write(headers,0,0);</div>
+<div class="line">        <span class="keywordflow">if</span>(ok &amp;&amp; <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> == <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[listNo].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>){ <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = 0; }</div>
+<div class="line">        <span class="keywordflow">if</span>(!ok){ <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a7cfbdc65090756c275799ccea93b8c95">failID</a> = <a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[listNo].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>; }</div>
+<div class="line">    }</div>
+<div class="line">    pingtime = millis()-pingtime;</div>
+<div class="line">    mvprintw(12,0,<span class="stringliteral">&quot; ID:%d    &quot;</span>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[listNo].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#ad4a9d4e6f75a70b37a8461cbcce8e724">nodeID</a>);</div>
+<div class="line">    mvprintw(13,0,<span class="stringliteral">&quot; Net:0%o    &quot;</span>,<a class="code" href="RF24Mesh__Ncurses__Master_8cpp.html#a97c1eaa120a7add40ebbfb9b3d9268a4">mesh</a>.<a class="code" href="classRF24Mesh.html#a9a318c0e327fb099a20dbd10761f5e92">addrList</a>[listNo].<a class="code" href="structRF24Mesh_1_1addrListStruct.html#a8b5f7be9c75ade4aa94f750bd812c5b4">address</a>);</div>
+<div class="line">    mvprintw(14,0,<span class="stringliteral">&quot; Time:%ums       &quot;</span>,pingtime);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span>(ok || !headers.to_node){ mvprintw(15,0,<span class="stringliteral">&quot; OK  &quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span>{ attron(A_BOLD); mvprintw(15,0,<span class="stringliteral">&quot; FAIL&quot;</span>); attron(A_BOLD); }</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 9 2014 15:07:42 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 10 2014 09:34:00 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
