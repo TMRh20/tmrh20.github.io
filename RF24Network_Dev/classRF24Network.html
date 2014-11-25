@@ -111,9 +111,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e111e70bb7b95d885983ce92c89159e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a0e111e70bb7b95d885983ce92c89159e">available</a> (void)</td></tr>
 <tr class="memdesc:a0e111e70bb7b95d885983ce92c89159e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test whether there is a message available for this node.  <a href="#a0e111e70bb7b95d885983ce92c89159e">More...</a><br/></td></tr>
 <tr class="separator:a0e111e70bb7b95d885983ce92c89159e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a260de0bab4e167f85d002bb11e97d91e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a260de0bab4e167f85d002bb11e97d91e">peek</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header)</td></tr>
-<tr class="memdesc:a260de0bab4e167f85d002bb11e97d91e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next available header.  <a href="#a260de0bab4e167f85d002bb11e97d91e">More...</a><br/></td></tr>
-<tr class="separator:a260de0bab4e167f85d002bb11e97d91e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04fff614f10fcc1d8984b5ee5cc87a4b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a04fff614f10fcc1d8984b5ee5cc87a4b">peek</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header)</td></tr>
+<tr class="memdesc:a04fff614f10fcc1d8984b5ee5cc87a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next available header.  <a href="#a04fff614f10fcc1d8984b5ee5cc87a4b">More...</a><br/></td></tr>
+<tr class="separator:a04fff614f10fcc1d8984b5ee5cc87a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821a40cd3c7afdff86742de2816b67fc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a821a40cd3c7afdff86742de2816b67fc">peekData</a> ()</td></tr>
+<tr class="separator:a821a40cd3c7afdff86742de2816b67fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa19f775fcddd334f222ae1b3072dbbe8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa19f775fcddd334f222ae1b3072dbbe8">read</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, void *message, size_t maxlen)</td></tr>
 <tr class="memdesc:aa19f775fcddd334f222ae1b3072dbbe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a message.  <a href="#aa19f775fcddd334f222ae1b3072dbbe8">More...</a><br/></td></tr>
 <tr class="separator:aa19f775fcddd334f222ae1b3072dbbe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,9 +136,8 @@ Advanced Operation</h2></td></tr>
 <tr class="memitem:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb">multicastRelay</a></td></tr>
 <tr class="memdesc:add7408ca2b2f9ab15331ba77a747f7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level.  <a href="#add7408ca2b2f9ab15331ba77a747f7bb">More...</a><br/></td></tr>
 <tr class="separator:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a444b2ce72fd9e12e4d0e542ae4248503"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a444b2ce72fd9e12e4d0e542ae4248503">frame_buffer</a> [frame_size]</td></tr>
-<tr class="memdesc:a444b2ce72fd9e12e4d0e542ae4248503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Space to put the frame that will be sent/received over the air.  <a href="#a444b2ce72fd9e12e4d0e542ae4248503">More...</a><br/></td></tr>
-<tr class="separator:a444b2ce72fd9e12e4d0e542ae4248503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRF24NetworkFrame.html">RF24NetworkFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a1c994c5fdcb2173b187c52b641aaeae0">frag_ptr</a></td></tr>
+<tr class="separator:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85150019642eb1fb4afe5f01c3b0c804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a85150019642eb1fb4afe5f01c3b0c804">RF24Network</a> (RF24 &amp;_radio, RF24 &amp;_radio1)</td></tr>
 <tr class="memdesc:a85150019642eb1fb4afe5f01c3b0c804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network in dual head mode using two radio modules.  <a href="#a85150019642eb1fb4afe5f01c3b0c804">More...</a><br/></td></tr>
 <tr class="separator:a85150019642eb1fb4afe5f01c3b0c804"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -311,12 +312,12 @@ Advanced Operation</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a260de0bab4e167f85d002bb11e97d91e"></a>
+<a class="anchor" id="a04fff614f10fcc1d8984b5ee5cc87a4b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void RF24Network::peek </td>
+          <td class="memname">size_t RF24Network::peek </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;&#160;</td>
           <td class="paramname"><em>header</em></td><td>)</td>
@@ -334,6 +335,21 @@ Advanced Operation</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="a821a40cd3c7afdff86742de2816b67fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t RF24Network::peekData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -759,24 +775,22 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 
 </div>
 </div>
-<a class="anchor" id="a444b2ce72fd9e12e4d0e542ae4248503"></a>
+<a class="anchor" id="a1c994c5fdcb2173b187c52b641aaeae0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t RF24Network::frame_buffer[frame_size]</td>
+          <td class="memname"><a class="el" href="structRF24NetworkFrame.html">RF24NetworkFrame</a>* RF24Network::frag_ptr</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Space to put the frame that will be sent/received over the air. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 8 2014 18:16:04 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 24 2014 22:59:19 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

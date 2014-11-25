@@ -90,10 +90,15 @@ Purpose/Goal</h1>
 <p>Please see the <a class="el" href="Zigbee.html">Comparison to ZigBee</a> page for a comparison against the ZigBee protocols</p>
 <h1><a class="anchor" id="Features"></a>
 Features</h1>
-<p>Whats new? </p>
-<dl class="section note"><dt>Note</dt><dd>Network Message Types Change: (Oct 8, 2014) Requires re-installation on all nodes New functionality: User message types 1 through 64 will not receive a network ack</dd></dl>
+<p><b>Whats new? </b><br/>
+ New functionality: (Nov 24) Fragmentation &amp; reassembly supported on both RPi and Arduino <br/>
+ New functionality: (Nov 24) Partial support for fragmented multicast payloads. (Only working with sending from RPi to Arduino) <br/>
+ Note: structure of network frames is changed, these are only used by external applications like RF24Ethernet and RF24toTUN, and for fragmentation <br/>
+ Network Message Types Change: (Oct 8, 2014) Requires re-installation on all nodes <br/>
+ New functionality: User message types 1 through 64 will not receive a network ack</p>
 <p>The layer provides: </p>
 <ul>
+<li><b>New</b> (2014): Fragmentation/Re-assembly (RPi &amp; Due only - Send only with Arduino) </li>
 <li><b>New</b> (2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
 <li><b>New</b> (2014): Updated addressing standard for optimal radio transmission. </li>
 <li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
@@ -104,10 +109,9 @@ Features</h1>
 <li>Message Forwarding. Messages can be sent from one node to any other, and this layer will get them there no matter how many hops it takes. </li>
 <li>Ad-hoc Joining. A node can join a network without any changes to any existing nodes.</li>
 </ul>
-<p>The layer does not (yet) provide: </p>
+<p>The layer does not provide: </p>
 <ul>
-<li>Fragmentation/reassembly. Ability to send longer messages and put them all back together before exposing them up to the app. </li>
-<li>Dynamic address assignment.</li>
+<li>Dynamic address assignment. (See RF24Mesh)</li>
 </ul>
 <h1><a class="anchor" id="More"></a>
 How to learn more</h1>
@@ -160,7 +164,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 8 2014 18:16:05 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 24 2014 22:59:19 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
