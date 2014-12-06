@@ -92,7 +92,7 @@ How does it work?</h1>
 <p>RF24Ethernet utilizes the UIP TCP/IP stack to provide communication, allowing Arduino devices to use a Raspberry Pi running RF24toTUN as a gateway to your network or the internet, or simply as a repository for sensor information. RF24Network addresses need to be assigned in the usual manner, and IP addresses can be configured as desired by the user. The master node (00) uses the Address Resolution Protocol (ARP) to find the appropriate nodes when IP traffic is forwarded though, and routes traffic to the correct RF24Network address. This provides a fairly seamless interaction, since users only need to configure standard IP forwarding and firewall rules as desired.</p>
 <h1><a class="anchor" id="Config"></a>
 Configuration and Setup</h1>
-<p>RF24Ethernet requires the RF24 and RF24Network libraries found on my github repository at <a href="https://github.com/TMRh20">https://github.com/TMRh20</a> <br/>
+<p>RF24Ethernet requires the RF24 and RF24Network_DEV libraries found on my github repository at <a href="https://github.com/TMRh20">https://github.com/TMRh20</a> <br/>
  <br/>
  <b> RPi </b></p>
 <ol type="1">
@@ -107,9 +107,9 @@ Configuration and Setup</h1>
 <ol type="1">
 <li>For Arduino devices, the RF24, RF24Network and RF24Ethernet libraries need to be installed.</li>
 <li>Open the included Getting_Started_SimpleServer or Getting_Started_SimpleClient example</li>
-<li>Configure the RF24Network address (see <a href="http://tmrh20.github.io/RF24Network/">http://tmrh20.github.io/RF24Network/</a> for more info)</li>
+<li>Configure the RF24Network address (see <a href="http://tmrh20.github.io/RF24Network_Dev/">http://tmrh20.github.io/RF24Network_Dev/</a> for more info)</li>
 <li>Configure the IP address according to your preferences, with the gateway set to the chosen IP of the RPi.</li>
-<li>Connect into your nodes web-server at <a href="http://ip-of-your-node:1000">http://ip-of-your-node:1000</a> from the RPi or configure the client sketch to connect to a server running on the Raspberry Pi.</li>
+<li>Connect into your nodes web-server at <a href="http://ip-of-your-node:1000">http://ip-of-your-node:1000</a> from the RPi or configure the client sketch to connect to a server running on the Raspberry Pi. Note: To minimize memory usage on Arduino, edit RF24Network_config.h with a text editor, and uncomment #define DISABLE_USER_PAYLOADS. This will disable standard RF24Network messages, and only allow external data, such as TCP/IP information.</li>
 </ol>
 <p><b>Accessing External Systems: Forwarding and Routing</b></p>
 <p>In order to give your network or nodes access to your network or the internet beyond the RPi, it needs to be configured to route traffic between the networks.</p>
@@ -117,8 +117,15 @@ Configuration and Setup</h1>
 <li>Run<div class="fragment"><div class="line">sudo sysctl -w net.ipv4.ip_forward=1 </div>
 </div><!-- fragment --> to allow the RPi to forward requests between the network interfaces</li>
 <li><div class="fragment"><div class="line">sudo iptables -t nat -A POSTROUTING -j MASQUERADE </div>
-</div><!-- fragment --> to allow the RPi to perform NAT between the network interfaces  Users are responsible to manage further routing rules along with their IP traffic in order to prevent unauthorized access.</li>
+</div><!-- fragment --> to allow the RPi to perform NAT between the network interfaces <br/>
+ <b>Note:</b> Users are responsible to manage further routing rules along with their IP traffic in order to prevent unauthorized access. Users may also need to add a static route to their PC or router to connect in to or ping the sensor nodes. </li>
 </ol>
+<h1><a class="anchor" id="Advanced"></a>
+Advanced Configuration and Info</h1>
+<p>Additional settings are available by editing the <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a> file included with the library. The main option available is the #define UIP_CONF_BUFFER_SIZE setting, which will define the maximum available size of TCP payloads. The default is 120 bytes, but large values can speed up data transfers, since more data can be included in every payload. Very large values are untested. When modifying the UIP_CONF_BUFFER_SIZE setting, the #define MAX_PAYLOAD_SIZE must also be adjusted in the RF24Network_config.h file, to allow the network to pass the same size of payloads as RF24Ethernet accepts. RF24Ethernet provides an interface for TCP/IP, but does not really understand the concept of sockets, ports, etc. so all data received goes into the same incoming buffer currently. This behaviour may be modified in the future.</p>
+<h1><a class="anchor" id="Limitations"></a>
+Limitations</h1>
+<p>The library is currently limited to TCP communications only, with statically assigned IP addresses. UDP frames can be up to 512 bytes in length, so additional functionality (DHCP/DNS) is limited by available memory. At this time, there are no immediate plans to develop UDP functionality.</p>
 <h1><a class="anchor" id="MAC_Addys"></a>
 MAC address formatting:</h1>
 <p>RF24Ethernet uses a simple method of formatting the MAC addresses, using the first two bytes to store the RF24Network address, and the remaining four bytes to store the characters 'RF24', which makes identification of nodes via MAC address very simple using standard monitoring tools.</p>
@@ -137,7 +144,7 @@ MAC address formatting:</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Dec 4 2014 18:31:36 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 6 2014 09:03:53 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
