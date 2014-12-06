@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['testcarrier',['testCarrier',['../classRF24.html#ad0d522ccf39493510e64bf1740be790d',1,'RF24']]],
-  ['testrpd',['testRPD',['../classRF24.html#a821285f3b54553f4402eb3fd0ac6d6c1',1,'RF24']]],
-  ['txstandby',['txStandBy',['../classRF24.html#a12cc453453c94969d4d3f0edb3778c83',1,'RF24::txStandBy()'],['../classRF24.html#aa6f36353c1bdfbaf3c530d118cb84baa',1,'RF24::txStandBy(uint32_t timeout)']]]
+  ['whathappened',['whatHappened',['../classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89',1,'RF24']]],
+  ['write',['write',['../classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58',1,'RF24::write(const void *buf, uint8_t len)'],['../classRF24.html#a23bfe6502d74bb5bbccb3a7f2ba2b5ea',1,'RF24::write(const void *buf, uint8_t len, const bool multicast)']]],
+  ['writeackpayload',['writeAckPayload',['../classRF24.html#a65619238c25036c3de72dc2c1a1c6e52',1,'RF24']]],
+  ['writeblocking',['writeBlocking',['../classRF24.html#ae6fd8d5ee490d54ae1cb2e8fefee535f',1,'RF24']]],
+  ['writefast',['writeFast',['../classRF24.html#a47b2516993481b58e724d1274a7fd9cb',1,'RF24::writeFast(const void *buf, uint8_t len)'],['../classRF24.html#ad16d53de0327c0b41d170cbda4bf41af',1,'RF24::writeFast(const void *buf, uint8_t len, const bool multicast)']]]
 ];

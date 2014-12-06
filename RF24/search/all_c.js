@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['read',['read',['../classRF24.html#a8e2eacacfba96426c192066f04054c5b',1,'RF24']]],
-  ['read_5funtil',['read_until',['../namespaceruntest.html#a91083d319078ee68f51e3763bad0ab6a',1,'runtest']]],
-  ['reusetx',['reUseTX',['../classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b',1,'RF24']]],
-  ['rf24',['RF24',['../classRF24.html',1,'RF24'],['../classRF24.html#a8cd165a822c8f77e10782c6729c5b088',1,'RF24::RF24()']]],
-  ['runtest',['runtest',['../namespaceruntest.html',1,'']]],
-  ['rxfifofull',['rxFifoFull',['../classRF24.html#ad22e44fe1a68747872fcb304a407fd30',1,'RF24']]]
+  ['payload_5fsize_5fincrements_5fby',['payload_size_increments_by',['../namespacepingpair__dyn.html#a73856a795445ad34ead6f5e2cf7e0323',1,'pingpair_dyn']]],
+  ['pingpair_5fdyn',['pingpair_dyn',['../namespacepingpair__dyn.html',1,'']]],
+  ['pipes',['pipes',['../namespacepingpair__dyn.html#a53eb7d145f28a44911455621b29f45b2',1,'pingpair_dyn']]],
+  ['powerdown',['powerDown',['../classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
+  ['powerup',['powerUp',['../classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
+  ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]]
 ];

@@ -238,7 +238,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.<a name="a8"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = millis();</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>();</div>
 <div class="line">    printf(<span class="stringliteral">&quot;Now sending %lu...&quot;</span>,time);</div>
 <div class="line">    <span class="keywordtype">bool</span> ok = radio.<a name="a9"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line"></div>
@@ -251,10 +251,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Wait here until we get a response, or timeout (250ms)</span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = millis();</div>
-<div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacepingpair__dyn.html#ad96de31e44e44172961703fd03090edb">started_waiting_at</a> = <a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>();</div>
+<div class="line">    <span class="keywordtype">bool</span> <a class="code" href="namespacepingpair__dyn.html#aa9982371e38561a3427b77be4be9a7cf">timeout</a> = <span class="keyword">false</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> ( ! radio.<a name="a10"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() &amp;&amp; ! timeout )</div>
-<div class="line">      <span class="keywordflow">if</span> (millis() - started_waiting_at &gt; 200 )</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>() - started_waiting_at &gt; 200 )</div>
 <div class="line">        timeout = <span class="keyword">true</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Describe the results</span></div>
@@ -269,7 +269,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      radio.<a name="a11"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Spew it</span></div>
-<div class="line">      printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\r\n&quot;</span>,got_time,millis()-got_time);</div>
+<div class="line">      printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\r\n&quot;</span>,got_time,<a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>()-got_time);</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    toggleLED();</div>
@@ -319,7 +319,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

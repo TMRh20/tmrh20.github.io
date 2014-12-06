@@ -99,7 +99,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// Hardware configuration</span></div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10</span></div>
+<div class="line"><span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 9 &amp; 10 (CE &amp; CS)</span></div>
 <div class="line"></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(9,10);</div>
 <div class="line"></div>
@@ -294,11 +294,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">if</span> ( radio.<a name="a7"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() )</div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
-<div class="line">      <span class="keywordtype">bool</span> done = <span class="keyword">false</span>;</div>
-<div class="line">      <span class="keywordflow">while</span> (!done)</div>
+<div class="line">      <span class="keywordflow">while</span> (radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>())</div>
 <div class="line">      {</div>
 <div class="line">        <span class="comment">// Fetch the payload, and see if this was the last one.</span></div>
-<div class="line">        done = radio.<a name="a8"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( button_states, num_button_pins );</div>
+<div class="line">        radio.<a name="a8"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( button_states, num_button_pins );</div>
 <div class="line"></div>
 <div class="line">        <span class="comment">// Spew it</span></div>
 <div class="line">        printf(<span class="stringliteral">&quot;Got buttons\n\r&quot;</span>);</div>
@@ -321,7 +320,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 1 2014 11:30:11 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
