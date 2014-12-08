@@ -91,14 +91,16 @@ Purpose/Goal</h1>
 <h1><a class="anchor" id="Features"></a>
 Features</h1>
 <p><b>Whats new? </b><br/>
- New functionality: (Nov 24) Fragmentation &amp; reassembly supported on both RPi and Arduino <br/>
- New functionality: (Nov 24) Partial support for fragmented multicast payloads. (Only working with sending from RPi to Arduino) <br/>
- Note: structure of network frames is changed, these are only used by external applications like RF24Ethernet and RF24toTUN, and for fragmentation <br/>
- Network Message Types Change: (Oct 8, 2014) Requires re-installation on all nodes <br/>
- New functionality: User message types 1 through 64 will not receive a network ack</p>
+ </p>
+<ul>
+<li>New: (Dec 8) Merge of RPi and Arduino code. Finally moving closer to a stable release. Report issues at <a href="https://github.com/TMRh20/RF24Network/issues">https://github.com/TMRh20/RF24Network/issues</a> </li>
+<li>New functionality: (Dec 8) Support for fragmented multicast payloads on both RPi and Arduino </li>
+<li>New functionality: (Nov 24) Fragmentation &amp; reassembly supported on both RPi and Arduino </li>
+<li>Note: structure of network frames is changed, these are only used by external applications like RF24Ethernet and RF24toTUN, and for fragmentation </li>
+<li>New functionality: User message types 1 through 64 will not receive a network ack</li>
+</ul>
 <p>The layer provides: </p>
 <ul>
-<li><b>New</b> (2014): Fragmentation/Re-assembly (RPi &amp; Due only - Send only with Arduino) </li>
 <li><b>New</b> (2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
 <li><b>New</b> (2014): Updated addressing standard for optimal radio transmission. </li>
 <li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
@@ -111,22 +113,24 @@ Features</h1>
 </ul>
 <p>The layer does not provide: </p>
 <ul>
-<li>Dynamic address assignment. (See RF24Mesh)</li>
+<li>Dynamic address assignment. (See RF24Mesh) </li>
+<li>Layer 4 protocols (TCP/IP - See RF24Ethernet and RF24toTUN)</li>
 </ul>
 <h1><a class="anchor" id="More"></a>
 How to learn more</h1>
 <ul>
 <li><a href="classRF24Network.html">RF24Network Class Documentation</a> </li>
-<li><a href="Tuning.html">Performance and Data Loss: Tuning the Network</a> </li>
+<li><a href="Tuning.html">Topology, Performance and Data Loss: Tuning the Network</a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html">My Blog: RF24 Optimization Overview</a> </li>
-<li><a href="http://tmrh20.blogspot.com/2014/03/arduino-radiointercomwireless-audio.html">My Blog: RF24 Wireless Audio</a> </li>
-<li><a href="http://tmrh20.github.com/RF24/">RF24: Underlying radio driver</a> </li>
-<li><a href="https://github.com/TMRh20/RF24Network/archive/master.zip">Download Current Package</a> </li>
+<li><a href="https://github.com/TMRh20/RF24Network/archive/Development.zip">Download Current Development Package</a> </li>
 <li><a href="examples.html">Examples Page</a>. Start with <a href="helloworld_rx_8ino-example.html">helloworld_rx</a> and <a href="helloworld_tx_8ino-example.html">helloworld_tx</a>. </li>
+<li><a href="https://github.com/TMRh20/RF24Mesh">RF24Mesh: Dynamic Mesh Layer for RF24Network Dev</a> </li>
+<li><a href="https://github.com/TMRh20/RF24Ethernet">RF24Ethernet: TCP/IP over RF24Network</a> </li>
+<li><a href="http://tmrh20.blogspot.com/2014/03/arduino-radiointercomwireless-audio.html">My Blog: RF24 Wireless Audio</a> </li>
 <li><a href="http://maniacbug.github.com/RF24/">RF24: Original Author</a> </li>
 </ul>
 <h1><a class="anchor" id="Topology"></a>
-Topology for Mesh Networks using nRF24L01(+)</h1>
+Topology of RF24Network</h1>
 <p>This network layer takes advantage of the fundamental capability of the nRF24L01(+) radio to listen actively to up to 6 other radios at once. The network is arranged in a <a href="http://en.wikipedia.org/wiki/Network_Topology#Tree">Tree Topology</a>, where one node is the base, and all other nodes are children either of that node, or of another. Unlike a true mesh network, multiple nodes are not connected together, so there is only one path to any given node.</p>
 <h1><a class="anchor" id="Octal"></a>
 Octal Addressing and Topology</h1>
@@ -164,7 +168,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 24 2014 22:59:19 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 8 2014 06:26:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

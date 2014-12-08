@@ -89,6 +89,9 @@ Understanding Radio Communication and Topology</h1>
 <p>When a transmission takes place from one radio module to another, the receiving radio will communicate back to the sender with an acknowledgement (ACK) packet, to indicate success. If the sender does not receive an ACK, the radio automatically engages in a series of timed retries, at set intervals. The radios use techniques like addressing and numbering of payloads to manage this, but it is all done automatically, out of sight from the user.</p>
 <p>When working over a radio network, some of these automated techniques can actually hinder data transmission. Retrying failed payloads over and over on a radio network can hinder communication for nearby nodes, or reduce throughput and errors on routing nodes.</p>
 <p>Radios in this network are linked by <b>addresses</b> assigned to <b>pipes</b>. Each radio can listen to 6 addresses on 6 pipes, therefore each radio has a parent pipe and 5 child pipes, which are used to form a tree structure. Nodes communicate directly with their parent and children nodes. Any other traffic to or from a node must be routed through the network.</p>
+<h1><a class="anchor" id="Topology"></a>
+Topology of RF24Network</h1>
+<p>Anybody who is familiar at all with IP networking should be able to easily understand <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> topology. The master node can be seen as the gateway, with up to 4 directly connected nodes. Each of those nodes creates a subnet below it, with up to 4 additional child nodes. The numbering scheme can also be related to IP addresses, for purposes of understanding the topology via subnetting. Nodes can have 5 children if multicast is disabled.</p>
 <h1><a class="anchor" id="Network"></a>
 Routing</h1>
 <p>Routing of traffic is handled invisibly to the user. If the network is constructed appropriately, nodes will route traffic automatically as required. Data transmission generally has one of two requirements, either data that fails to transmit can be discarded as new data arrives, or sending can be retried as required until complete success or failure.</p>
@@ -96,6 +99,7 @@ Routing</h1>
 <p>Example: Node 00 sends to node 01. The nodes will use the built in auto-retry and auto-ack functions.<br/>
  Exmaple: Node 00 sends to node 011. Node 00 will send to node 01, and request -no radio ACK-. Node 01 will forward the message to 011 and request an auto radio ACK. If delivery was successful, node 01 will also forward a message back to node 00, (noACK) indicating success.</p>
 <p>Old Functionality: Node 00 sends to node 011 using auto-ack. Node 00 first sends to 01, 01 acknowledges. Node 01 forwards the payload to 011 using auto-ack. If the payload fails between 01 and 011, node 00 has no way of knowing. The new method uses the same amount of traffic to accomplish more.</p>
+<p>Acknowledgements can and should be managed by the application or user. If requesting a response from another node, an acknowledgement is not required, so a user defined type of 0-64 should be used, to prevent the network from responding with an acknowledgement. If not requesting a response, and wanting to know if the payload was successful or not, users can utilize header types 65-127.</p>
 <h1><a class="anchor" id="TuningOverview"></a>
 Tuning Overview</h1>
 <p>The RF24 radio modules are generally only capable of either sending or receiving data at any given time, but have built-in auto-retry mechanisms to prevent the loss of data. These values are adjusted automatically by the library on startup, but can be further adjusted to reduce data loss, and thus increase throughput of the network. This page is intended to provide a general overview of its operation within the context of the network library, and provide guidance for adjusting these values.</p>
@@ -146,7 +150,7 @@ Dual Headed Operation</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 24 2014 22:59:19 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 8 2014 06:26:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

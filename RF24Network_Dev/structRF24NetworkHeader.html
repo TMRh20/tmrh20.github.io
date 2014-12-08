@@ -125,7 +125,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ac99ab14e561670f4445d1fea7775e2db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message Types: User message types 1 through 64 will NOT be acknowledged by the network, while message types 65 through 127 will receive a network ACK.  <a href="#ac99ab14e561670f4445d1fea7775e2db">More...</a><br/></td></tr>
 <tr class="separator:ac99ab14e561670f4445d1fea7775e2db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80672a22cedcf24db8abbcef2eea9cfd"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRF24NetworkHeader.html#a80672a22cedcf24db8abbcef2eea9cfd">reserved</a></td></tr>
-<tr class="memdesc:a80672a22cedcf24db8abbcef2eea9cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserved for future use.  <a href="#a80672a22cedcf24db8abbcef2eea9cfd">More...</a><br/></td></tr>
+<tr class="memdesc:a80672a22cedcf24db8abbcef2eea9cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reserved byte is used for system purposes.  <a href="#a80672a22cedcf24db8abbcef2eea9cfd">More...</a><br/></td></tr>
 <tr class="separator:a80672a22cedcf24db8abbcef2eea9cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
@@ -198,15 +198,14 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Send constructor. </p>
-<dl class="section note"><dt>Note</dt><dd>Raspberry Pi now supports fragmentation for very long messages, send as normal. Arduino, ATTiny will handle routing of fragmented messages, but cannot receive them properly </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The latest updates to add fragmentation requires updating ALL devices</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Now supports fragmentation for very long messages, send as normal. Configure fragmentation and max payload size in <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a></dd></dl>
 <p>Use this constructor to create a header and then send a message</p>
 <div class="fragment"><div class="line"><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(recipient_address,<span class="charliteral">&#39;t&#39;</span>);</div>
 <div class="line">network.write(header,&amp;message,<span class="keyword">sizeof</span>(message));</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_to</td><td>The logical node address where the message is going </td></tr>
-    <tr><td class="paramname">_type</td><td>The type of message which follows. Only 0-127 are allowed for user messages. </td></tr>
+    <tr><td class="paramname">_type</td><td>The type of message which follows. Only 0-127 are allowed for user messages. Types 1-64 will not receive a network acknowledgement. </td></tr>
   </table>
   </dd>
 </dl>
@@ -308,7 +307,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reserved for future use. </p>
+<p>The reserved byte is used for system purposes. </p>
+<p>During fragmentation, it carries the fragment_id, and on the last fragment it carries the header_type.Reserved for system use </p>
 
 </div>
 </div>
@@ -337,7 +337,7 @@ Static Public Attributes</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 24 2014 22:59:19 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 8 2014 06:26:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
