@@ -142,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">   59</a></span>&#160;<span class="preprocessor"></span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">timer</a>;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">   61</a></span>&#160;<span class="preprocessor"></span> uint32_t <a class="code" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">restartTime</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a76257a3cfcd4251d9a6962747b922e4f">   62</a></span>&#160; uint8_t myDataOut[45];</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a82332308d3217b4d0c1fc6e75ed0b072">   62</a></span>&#160; uint8_t myDataOut[OUTPUT_BUFFER_SIZE];</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;} <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>;</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
@@ -216,7 +216,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24Client_html_a0735631a999c8a2f8d5d027096efcd5c"><div class="ttname"><a href="classRF24Client.html#a0735631a999c8a2f8d5d027096efcd5c">RF24Client::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:160</div></div>
 <div class="ttc" id="classRF24Server_html"><div class="ttname"><a href="classRF24Server.html">RF24Server</a></div><div class="ttdef"><b>Definition:</b> RF24Server.h:9</div></div>
 <div class="ttc" id="structuip__userdata__closed__t_html_a670e21faf24e9b4bbdb540ff2a92ab1d"><div class="ttname"><a href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">uip_userdata_closed_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> RF24Client.h:32</div></div>
-<div class="ttc" id="classRF24Client_html_a926ec9a2c23a5e629028d34e671b7f94"><div class="ttname"><a href="classRF24Client.html#a926ec9a2c23a5e629028d34e671b7f94">RF24Client::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:540</div></div>
+<div class="ttc" id="classRF24Client_html_a926ec9a2c23a5e629028d34e671b7f94"><div class="ttname"><a href="classRF24Client.html#a926ec9a2c23a5e629028d34e671b7f94">RF24Client::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:541</div></div>
 <div class="ttc" id="structuip__userdata__t_html_aecc4b5170c9fa47ffcb2a6f9daa32af8"><div class="ttname"><a href="structuip__userdata__t.html#aecc4b5170c9fa47ffcb2a6f9daa32af8">uip_userdata_t::out_pos</a></div><div class="ttdeci">uint8_t out_pos</div><div class="ttdef"><b>Definition:</b> RF24Client.h:57</div></div>
 <div class="ttc" id="classRF24Client_html_a760707b590efa9f07d01a8fe56d2aa07"><div class="ttname"><a href="classRF24Client.html#a760707b590efa9f07d01a8fe56d2aa07">RF24Client::RF24Client</a></div><div class="ttdeci">RF24Client()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:22</div></div>
 <div class="ttc" id="structuip__userdata__t_html_acac3adec7a16e63c9a0a7465cb182c30"><div class="ttname"><a href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">uip_userdata_t::timer</a></div><div class="ttdeci">unsigned long timer</div><div class="ttdef"><b>Definition:</b> RF24Client.h:59</div></div>
@@ -224,14 +224,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24Client_html"><div class="ttname"><a href="classRF24Client.html">RF24Client</a></div><div class="ttdef"><b>Definition:</b> RF24Client.h:68</div></div>
 <div class="ttc" id="classRF24EthernetClass_html"><div class="ttname"><a href="classRF24EthernetClass.html">RF24EthernetClass</a></div><div class="ttdef"><b>Definition:</b> RF24Ethernet.h:107</div></div>
 <div class="ttc" id="classRF24Client_html_ac00eec5d1a8dadb6ed58d56821529e67"><div class="ttname"><a href="classRF24Client.html#ac00eec5d1a8dadb6ed58d56821529e67">RF24Client::connected</a></div><div class="ttdeci">uint8_t connected()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:35</div></div>
-<div class="ttc" id="classRF24Client_html_adac638b4d71ed2d56c40591d37e52a46"><div class="ttname"><a href="classRF24Client.html#adac638b4d71ed2d56c40591d37e52a46">RF24Client::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:566</div></div>
-<div class="ttc" id="classRF24Client_html_af4ef0367085f8e14b81b59d7517416f6"><div class="ttname"><a href="classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6">RF24Client::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:550</div></div>
+<div class="ttc" id="classRF24Client_html_adac638b4d71ed2d56c40591d37e52a46"><div class="ttname"><a href="classRF24Client.html#adac638b4d71ed2d56c40591d37e52a46">RF24Client::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:567</div></div>
+<div class="ttc" id="classRF24Client_html_af4ef0367085f8e14b81b59d7517416f6"><div class="ttname"><a href="classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6">RF24Client::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdef"><b>Definition:</b> RF24Client.cpp:551</div></div>
 <div class="ttc" id="structuip__userdata__t_html"><div class="ttname"><a href="structuip__userdata__t.html">uip_userdata_t</a></div><div class="ttdef"><b>Definition:</b> RF24Client.h:53</div></div>
 <div class="ttc" id="structuip__userdata__t_html_a13868519e8f2e77a082c4eefa0e6af9b"><div class="ttname"><a href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">uip_userdata_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> RF24Client.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2014 09:03:53 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 8 2014 00:09:53 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
