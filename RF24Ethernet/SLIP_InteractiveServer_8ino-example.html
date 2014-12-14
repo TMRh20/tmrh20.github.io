@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: InteractiveServer.ino</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: SLIP_InteractiveServer.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,13 +78,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InteractiveServer.ino</div>  </div>
+<div class="title">SLIP_InteractiveServer.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to create a more advanced interactive web server.</p>
+<p>This example demonstrates how to use RF24Mesh with RF24Ethernet when working with a SLIP or TUN interface.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet Webserver controlling an LED example *</span></div>
 <div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * **NOTE: This example demonstrates usage the SLIP_Gateway</span></div>
+<div class="line"><span class="comment"> *   When using SLIP, there are 3 main differences:</span></div>
+<div class="line"><span class="comment"> *    1. The RF24Mesh layer must be used to provide MAC/IP translation</span></div>
+<div class="line"><span class="comment"> *    2. The specified RF24Mesh nodeID must be the same as the last octet of the IP</span></div>
+<div class="line"><span class="comment"> *        ie: IP: 192.168.1.2  NodeId must be 2</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> *    3. The RF24Ethernet library must be configured for TUN</span></div>
+<div class="line"><span class="comment"> *       a: Open the uip_conf.h file, make sure to #define UIP_CONF_LLH_LEN 0</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The following commands must be run on the Linux device to enable slip</span></div>
+<div class="line"><span class="comment"> * 1. Connect your Arduino</span></div>
+<div class="line"><span class="comment"> * 2. On RPi, cd /dev</span></div>
+<div class="line"><span class="comment"> * 3. Type &#39;ls&#39; and look for a new device ttyUSB&lt;X&gt; where &lt;X&gt; is a number</span></div>
+<div class="line"><span class="comment"> * 4. Run   sudo modprobe slip</span></div>
+<div class="line"><span class="comment"> * 5. Run   sudo slattach -L -s 115200 -p slip /dev/ttyUSB&lt;X&gt; &amp;</span></div>
+<div class="line"><span class="comment"> * 6. Run   sudo ifconfig s&lt;X&gt; 10.10.3.1 dstaddr 10.10.3.2</span></div>
+<div class="line"><span class="comment"> * 7. Run   sudo route add -net 10.10.3.0/24 gw 10.10.3.1</span></div>
+<div class="line"><span class="comment"> </span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * This example demonstrates how to configure a sensor node to act as a webserver and</span></div>
@@ -96,9 +114,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="comment">//#include &lt;printf.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;printf.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;HTML.h&quot;</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Include RF24Mesh and the EEPROM libs</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24Mesh.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;EEPROM.h&quot;</span></div>
 <div class="line"></div>
@@ -106,6 +126,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">RF24 radio(7,8);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio, network);</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Create an instance of RF24Mesh</span></div>
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#define LED_PIN A3 //Analog pin A3</span></div>
@@ -118,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">  <span class="comment">// Set up the speed of our serial link.</span></div>
 <div class="line">  Serial.begin(115200);</div>
-<div class="line">  <span class="comment">//printf_begin();</span></div>
+<div class="line">  printf_begin();</div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;start&quot;</span>);</div>
 <div class="line">  pinMode(LED_PIN, OUTPUT);</div>
 <div class="line">  <span class="comment">// This initializes the radio with basic settings.</span></div>
@@ -128,33 +150,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it</span></div>
 <div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
 <div class="line">  Ethernet.setChannel(97);</div>
-<div class="line">  mesh.setChannel(97);</div>
+<div class="line"> <span class="comment">// mesh.setChannel(97);</span></div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
-<div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
-<div class="line">  <span class="comment">// This is the RF24Network address and needs to be configured accordingly if</span></div>
-<div class="line">  <span class="comment">// using more than 4 nodes with the master node. Otherwise, 01-04 can be used.</span></div>
-<div class="line"><span class="comment">//  uint16_t myRF24NetworkAddress = 033;</span></div>
-<div class="line"><span class="comment">//  Ethernet.setMac(myRF24NetworkAddress);</span></div>
+<div class="line">  <span class="comment">// This step is very important. When using TUN or SLIP, the IP of the device</span></div>
+<div class="line">  <span class="comment">// must be configured as the NodeID in the RF24Mesh layer</span></div>
 <div class="line">  </div>
-<div class="line">  mesh.setNodeID(30);</div>
+<div class="line">  mesh.setNodeID(2);</div>
 <div class="line">  mesh.begin();</div>
 <div class="line">  Serial.println(mesh.mesh_address,HEX);</div>
 <div class="line">  Ethernet.setMac(mesh.mesh_address);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Optional</span></div>
 <div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
-<div class="line">  <span class="comment">//radio.printDetails();</span></div>
+<div class="line">  radio.printDetails();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Set the IP address we&#39;ll be using.  Make sure this doesn&#39;t conflict with</span></div>
 <div class="line">  <span class="comment">// any IP addresses or subnets on your LAN or you won&#39;t be able to connect to</span></div>
 <div class="line">  <span class="comment">// either the Arduino or your LAN...</span></div>
-<div class="line">  IPAddress myIP(10, 10, 2, 4);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// NOTE: The last octet/last digit of the IP must match the RF24Mesh nodeID above</span></div>
+<div class="line">  IPAddress myIP(10, 10, 3, 2);</div>
 <div class="line">  Ethernet.begin(myIP);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// If you&#39;ll be making outgoing connections from the Arduino to the rest of</span></div>
 <div class="line">  <span class="comment">// the world, you&#39;ll need a gateway set up.</span></div>
-<div class="line">  IPAddress gwIP(10, 10, 2, 2);</div>
+<div class="line">  IPAddress gwIP(10, 10, 3, 1);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Listen for incoming connections on TCP port 1000.</span></div>
@@ -168,6 +188,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
+<div class="line">  <span class="comment">// This is the last of the differences between this and the regular Interactive Server example</span></div>
+<div class="line">  <span class="comment">// If the master node is completely down, and unresponsive for 30 seconds, renew the address</span></div>
 <div class="line">  <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
 <div class="line">    mesh_timer = millis();</div>
 <div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>

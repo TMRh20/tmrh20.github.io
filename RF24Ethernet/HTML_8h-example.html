@@ -24,7 +24,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">Beta 0.0</span>
+   &#160;<span id="projectnumber">Beta 1.0</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -166,14 +166,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span> *i;</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Increment the iterator (i) in increments of 45-3 (OUTPUT_BUFFER_SIZE-3) and send the data to the client</span></div>
-<div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;=_pointer+(size-(OUTPUT_BUFFER_SIZE+1));i+=OUTPUT_BUFFER_SIZE-3){</div>
+<div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;=_pointer+(size-(OUTPUT_BUFFER_SIZE-1));i+=OUTPUT_BUFFER_SIZE-3){</div>
 <div class="line">    snprintf_P(buffer,OUTPUT_BUFFER_SIZE-2,i);</div>
 <div class="line">    _client.write( buffer );</div>
 <div class="line">  }</div>
 <div class="line">  <span class="comment">// For the last bit, send only the data that remains</span></div>
-<div class="line">  snprintf_P(buffer,((_pointer+size)-i),i);</div>
-<div class="line">  Serial.print(<span class="stringliteral">&quot;Psiz &quot;</span>);</div>
-<div class="line">  Serial.println((_pointer+size)-i);</div>
+<div class="line">  snprintf_P(buffer,((_pointer+size)-i)+1,i);</div>
+<div class="line">  <span class="comment">//Serial.print(&quot;Psiz &quot;);</span></div>
+<div class="line">  <span class="comment">//Serial.println((_pointer+size)-i);</span></div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -283,7 +283,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 8 2014 00:09:53 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 14 2014 11:54:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
