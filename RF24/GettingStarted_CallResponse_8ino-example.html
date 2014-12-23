@@ -86,16 +86,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  This allows very fast call-response communication, with the responding radio never having to switch out of Primary Receiver mode to send back a payload, but having the option to switch to <br/>
  primary transmitter if wanting to initiate communication instead of respond to a commmunication.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment">   March 2014 - TMRh20 - Updated along with High Speed RF24 Library fork</span></div>
-<div class="line"><span class="comment">   Parts derived from examples by J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
+<div class="line"><span class="comment">   Dec 2014 - TMRh20 - Updated</span></div>
+<div class="line"><span class="comment">   Derived from examples by J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"><span class="comment">//#include &quot;printf.h&quot;</span></div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8 </span></div>
+<div class="line"><span class="comment">/****************** User Config ***************************/</span></div>
+<div class="line"><span class="comment">/***      Set this radio as radio number 0 or 1         ***/</span></div>
+<div class="line"><span class="keywordtype">bool</span> radioNumber = 0;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">/* Hardware configuration: Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8 */</span></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);</div>
+<div class="line"><span class="comment">/**********************************************************/</span></div>
 <div class="line">                                                                           <span class="comment">// Topology</span></div>
 <div class="line">byte addresses[][6] = {<span class="stringliteral">&quot;1Node&quot;</span>,<span class="stringliteral">&quot;2Node&quot;</span>};              <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
 <div class="line"></div>
@@ -110,24 +114,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line"></div>
-<div class="line">  Serial.begin(57600);</div>
-<div class="line">  printf_begin();</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/GettingStarted/\n\r&quot;</span>);</div>
-<div class="line">  printf(<span class="stringliteral">&quot;ROLE: %s\n\r&quot;</span>,role_friendly_name[role]);</div>
-<div class="line">  printf(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node\n\r&quot;</span>);</div>
-<div class="line"></div>
+<div class="line">  Serial.begin(115200);</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;RF24/examples/GettingStarted_CallResponse&quot;</span>));</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node&quot;</span>));</div>
+<div class="line">  <span class="comment">//printf_begin();</span></div>
 <div class="line">  <span class="comment">// Setup and configure radio</span></div>
 <div class="line"></div>
 <div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();</div>
-<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#aec71746d59da978bcbb975167886a2cc">setAutoAck</a>(1);                    <span class="comment">// Ensure autoACK is enabled</span></div>
-<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload</a>();               <span class="comment">// Allow optional ack payloads</span></div>
-<div class="line">  radio.<a name="a4"></a><a class="code" href="classRF24.html#a4c6d3959c8320e64568395f4ef507aef">setRetries</a>(0,15);                 <span class="comment">// Smallest time between retries, max no. of retries</span></div>
-<div class="line">  radio.<a name="a5"></a><a class="code" href="classRF24.html#a343e5d23477181011dea030fafb1954f">setPayloadSize</a>(1);                <span class="comment">// Here we are sending 1-byte payloads to test the call-response speed</span></div>
-<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]);        <span class="comment">// Both radios listen on the same pipes by default, and switch when writing</span></div>
-<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);      <span class="comment">// Open a reading pipe on address 0, pipe 1</span></div>
-<div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                 <span class="comment">// Start listening</span></div>
-<div class="line">  radio.<a name="a9"></a><a class="code" href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">powerUp</a>();</div>
-<div class="line">  radio.<a name="a10"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line"></div>
+<div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload</a>();                     <span class="comment">// Allow optional ack payloads</span></div>
+<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#a6253607ac2a1995af91a35cea6899c31">enableDynamicAck</a>();</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">if</span>(radioNumber){</div>
+<div class="line">    radio.<a name="a4"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]);        <span class="comment">// Both radios listen on the same pipes by default, but opposite addresses</span></div>
+<div class="line">    radio.<a name="a5"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);      <span class="comment">// Open a reading pipe on address 0, pipe 1</span></div>
+<div class="line">  }<span class="keywordflow">else</span>{</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[0]);</div>
+<div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[1]);</div>
+<div class="line">  }</div>
+<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                       <span class="comment">// Start listening  </span></div>
+<div class="line">  </div>
+<div class="line">  radio.<a name="a7"></a><a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>(1,&amp;counter,1);          <span class="comment">// Pre-load an ack-paylod into the FIFO buffer for pipe 1</span></div>
+<div class="line">  <span class="comment">//radio.printDetails();</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>) {</div>
@@ -139,22 +147,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">    byte gotByte;                                           <span class="comment">// Initialize a variable for the incoming response</span></div>
 <div class="line">    </div>
-<div class="line">    radio.<a name="a11"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();                                  <span class="comment">// First, stop listening so we can talk.      </span></div>
-<div class="line">    printf(<span class="stringliteral">&quot;Now sending %d as payload. &quot;</span>,counter);          <span class="comment">// Use a simple byte counter as payload</span></div>
+<div class="line">    radio.<a name="a8"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();                                  <span class="comment">// First, stop listening so we can talk.      </span></div>
+<div class="line">    Serial.print(F(<span class="stringliteral">&quot;Now sending &quot;</span>));                         <span class="comment">// Use a simple byte counter as payload</span></div>
+<div class="line">    Serial.println(counter);</div>
+<div class="line">    </div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = micros();                          <span class="comment">// Record the current microsecond count   </span></div>
 <div class="line">                                                            </div>
-<div class="line">    <span class="keywordflow">if</span> ( radio.<a name="a12"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>(&amp;counter,1) ){                         <span class="comment">// Send the counter variable to the other radio </span></div>
-<div class="line">        <span class="keywordflow">if</span>(!radio.<a name="a13"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                             <span class="comment">// If nothing in the buffer, we got an ack but it is blank</span></div>
-<div class="line">            printf(<span class="stringliteral">&quot;Got blank response. round-trip delay: %lu microseconds\n\r&quot;</span>,micros()-time);     </div>
+<div class="line">    <span class="keywordflow">if</span> ( radio.<a name="a9"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>(&amp;counter,1) ){                         <span class="comment">// Send the counter variable to the other radio </span></div>
+<div class="line">        <span class="keywordflow">if</span>(!radio.<a name="a10"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                             <span class="comment">// If nothing in the buffer, we got an ack but it is blank</span></div>
+<div class="line">            Serial.print(F(<span class="stringliteral">&quot;Got blank response. round-trip delay: &quot;</span>));</div>
+<div class="line">            Serial.print(micros()-time);</div>
+<div class="line">            Serial.println(F(<span class="stringliteral">&quot; microseconds&quot;</span>));     </div>
 <div class="line">        }<span class="keywordflow">else</span>{      </div>
 <div class="line">            <span class="keywordflow">while</span>(radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() ){                      <span class="comment">// If an ack with payload was received</span></div>
-<div class="line">                radio.<a name="a14"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;gotByte, 1 );                  <span class="comment">// Read it, and display the response time</span></div>
-<div class="line">                printf(<span class="stringliteral">&quot;Got response %d, round-trip delay: %lu microseconds\n\r&quot;</span>,gotByte,micros()-time);</div>
+<div class="line">                radio.<a name="a11"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;gotByte, 1 );                  <span class="comment">// Read it, and display the response time</span></div>
+<div class="line">                <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> timer = micros();</div>
+<div class="line">                </div>
+<div class="line">                Serial.print(F(<span class="stringliteral">&quot;Got response &quot;</span>));</div>
+<div class="line">                Serial.print(gotByte);</div>
+<div class="line">                Serial.print(F(<span class="stringliteral">&quot; round-trip delay: &quot;</span>));</div>
+<div class="line">                Serial.print(timer-time);</div>
+<div class="line">                Serial.println(F(<span class="stringliteral">&quot; microseconds&quot;</span>));</div>
 <div class="line">                counter++;                                  <span class="comment">// Increment the counter variable</span></div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">    </div>
-<div class="line">    }<span class="keywordflow">else</span>{        printf(<span class="stringliteral">&quot;Sending failed.\n\r&quot;</span>); }          <span class="comment">// If no ack response, sending failed</span></div>
+<div class="line">    }<span class="keywordflow">else</span>{        Serial.println(F(<span class="stringliteral">&quot;Sending failed.&quot;</span>)); }          <span class="comment">// If no ack response, sending failed</span></div>
 <div class="line">    </div>
 <div class="line">    delay(1000);  <span class="comment">// Try again later</span></div>
 <div class="line">  }</div>
@@ -167,9 +185,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">while</span>( radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>(&amp;pipeNo)){              <span class="comment">// Read all available payloads</span></div>
 <div class="line">      radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;gotByte, 1 );                   </div>
 <div class="line">                                                   <span class="comment">// Since this is a call-response. Respond directly with an ack payload.</span></div>
-<div class="line">                                                   <span class="comment">// Ack payloads are much more efficient than switching to transmit mode to respond to a call</span></div>
-<div class="line">      radio.<a name="a15"></a><a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>(pipeNo,&amp;gotByte, 1 );  <span class="comment">// This can be commented out to send empty payloads.</span></div>
-<div class="line">      printf(<span class="stringliteral">&quot;Sent response %d \n\r&quot;</span>, gotByte);  </div>
+<div class="line">      gotByte += 1;                                <span class="comment">// Ack payloads are much more efficient than switching to transmit mode to respond to a call</span></div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>(pipeNo,&amp;gotByte, 1 );  <span class="comment">// This can be commented out to send empty payloads.</span></div>
+<div class="line">      Serial.print(F(<span class="stringliteral">&quot;Loaded next response &quot;</span>));</div>
+<div class="line">      Serial.println(gotByte);  </div>
 <div class="line">   }</div>
 <div class="line"> }</div>
 <div class="line"></div>
@@ -180,29 +199,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( Serial.available() )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="keywordtype">char</span> c = toupper(Serial.read());</div>
-<div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;T&#39;</span> &amp;&amp; role == role_pong_back )</div>
-<div class="line">    {</div>
-<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">      role = role_ping_out;                      <span class="comment">// Change roles (ping out)</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[0]);       <span class="comment">// Open different pipes when writing. Write on pipe 0, address 0</span></div>
-<div class="line">      radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[1]);     <span class="comment">// Read on pipe 1, as address 1</span></div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == role_ping_out )</div>
-<div class="line">    {</div>
-<div class="line">      printf(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK\n\r&quot;</span>);</div>
-<div class="line">      </div>
-<div class="line">       role = role_pong_back;                    <span class="comment">// Become the primary receiver (pong back)</span></div>
-<div class="line">       radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(addresses[1]);      <span class="comment">// Since only two radios involved, both listen on the same addresses and pipe numbers in RX mode</span></div>
-<div class="line">       radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,addresses[0]);    <span class="comment">// then switch pipes &amp; addresses to transmit. </span></div>
-<div class="line">       radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                   <span class="comment">// Need to start listening after opening new reading pipes</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;T&#39;</span> &amp;&amp; role == role_pong_back ){      </div>
+<div class="line">      Serial.println(F(<span class="stringliteral">&quot;*** CHANGING TO TRANSMIT ROLE -- PRESS &#39;R&#39; TO SWITCH BACK&quot;</span>));</div>
+<div class="line">      role = role_ping_out;  <span class="comment">// Become the primary transmitter (ping out)</span></div>
+<div class="line">      counter = 1;</div>
+<div class="line">   }<span class="keywordflow">else</span></div>
+<div class="line">    <span class="keywordflow">if</span> ( c == <span class="charliteral">&#39;R&#39;</span> &amp;&amp; role == role_ping_out ){</div>
+<div class="line">      Serial.println(F(<span class="stringliteral">&quot;*** CHANGING TO RECEIVE ROLE -- PRESS &#39;T&#39; TO SWITCH BACK&quot;</span>));      </div>
+<div class="line">       role = role_pong_back; <span class="comment">// Become the primary receiver (pong back)</span></div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
+<div class="line">       counter = 1;</div>
+<div class="line">       radio.<a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>(1,&amp;counter,1);</div>
+<div class="line">       </div>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 23 2014 15:47:41 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

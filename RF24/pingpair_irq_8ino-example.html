@@ -98,8 +98,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;avr/sleep.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;avr/power.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Hardware configuration</span></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);                          <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
@@ -107,7 +105,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">short</span> role_pin = 5;                 <span class="comment">// sets the role of this unit in hardware.  Connect to GND to be the &#39;pong&#39; receiver</span></div>
 <div class="line">                                          <span class="comment">// Leave open to be the &#39;ping&#39; transmitter</span></div>
 <div class="line"></div>
-<div class="line">  <span class="keyword">const</span> uint64_t address[2] = {0xABCDABCD71LL, 0x544d52687CLL};  <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
+<div class="line"><span class="comment">// Demonstrates another method of setting up the addresses</span></div>
+<div class="line">byte address[][5] = { 0xCC,0xCE,0xCC,0xCE,0xCC , 0xCE,0xCC,0xCE,0xCC,0xCE};</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Role management</span></div>
 <div class="line"></div>
@@ -119,9 +118,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* role_friendly_name[] = { <span class="stringliteral">&quot;invalid&quot;</span>, <span class="stringliteral">&quot;Sender&quot;</span>, <span class="stringliteral">&quot;Receiver&quot;</span>};  <span class="comment">// The debug-friendly names of those roles</span></div>
 <div class="line">role_e role;                                                            <span class="comment">// The role of the current running sketch</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">boolean</span> gotMsg = 0;                                                     <span class="comment">// So we know when to go to sleep</span></div>
+<div class="line"><span class="keyword">static</span> uint32_t message_count = 0;</div>
+<div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/********************** Setup *********************/</span></div>
+<div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line"></div>
 <div class="line">  pinMode(role_pin, INPUT);                        <span class="comment">// set up the role pin                  </span></div>
@@ -141,22 +142,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  radio.<a name="a1"></a><a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>();  </div>
+<div class="line">  <span class="comment">//radio.setPALevel(RF24_PA_LOW);</span></div>
 <div class="line">  radio.<a name="a2"></a><a class="code" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload</a>();                         <span class="comment">// We will be using the Ack Payload feature, so please enable it</span></div>
+<div class="line">  radio.<a name="a3"></a><a class="code" href="classRF24.html#a443888504975d7441d6452a09d09a8fa">enableDynamicPayloads</a>();                    <span class="comment">// Ack payloads are dynamic payloads</span></div>
 <div class="line">                                                    <span class="comment">// Open pipes to other node for communication</span></div>
 <div class="line">  <span class="keywordflow">if</span> ( role == role_sender ) {                      <span class="comment">// This simple sketch opens a pipe on a single address for these two nodes to </span></div>
-<div class="line">     radio.<a name="a3"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(address[0]);             <span class="comment">// communicate back and forth.  One listens on it, the other talks to it.</span></div>
-<div class="line">     radio.<a name="a4"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,address[1]); </div>
+<div class="line">     radio.<a name="a4"></a><a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(address[0]);             <span class="comment">// communicate back and forth.  One listens on it, the other talks to it.</span></div>
+<div class="line">     radio.<a name="a5"></a><a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,address[1]); </div>
 <div class="line">  }<span class="keywordflow">else</span>{</div>
 <div class="line">    radio.<a class="code" href="classRF24.html#af2e409e62d49a23e372a70b904ae30e1">openWritingPipe</a>(address[1]);</div>
 <div class="line">    radio.<a class="code" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a>(1,address[0]);</div>
-<div class="line">    radio.<a name="a5"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
+<div class="line">    radio.<a name="a6"></a><a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
+<div class="line">    radio.<a name="a7"></a><a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>( 1, &amp;message_count, <span class="keyword">sizeof</span>(message_count) );  <span class="comment">// Add an ack packet for the next time around.  This is a simple</span></div>
+<div class="line">    ++message_count;        </div>
 <div class="line">  }</div>
-<div class="line">  radio.<a name="a6"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                              <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">printDetails</a>();                             <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
 <div class="line">  delay(50);</div>
-<div class="line">  attachInterrupt(0, check_radio, FALLING);          <span class="comment">// Attach interrupt handler to interrupt #0 (using pin 2) on BOTH the sender and receiver</span></div>
+<div class="line">  attachInterrupt(0, check_radio, LOW);             <span class="comment">// Attach interrupt handler to interrupt #0 (using pin 2) on BOTH the sender and receiver</span></div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line"><span class="keyword">static</span> uint32_t message_count = 0;</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/********************** Main Loop *********************/</span></div>
@@ -166,7 +170,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> (role == role_sender)  {                        <span class="comment">// Sender role.  Repeatedly send the current time </span></div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>();                   <span class="comment">// Take the time, and send it.</span></div>
 <div class="line">    printf(<span class="stringliteral">&quot;Now sending %lu\n\r&quot;</span>,time);</div>
-<div class="line">    radio.<a name="a7"></a><a class="code" href="classRF24.html#aa27519fc289920094422033e0bbf8cf9">startWrite</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) ,0);</div>
+<div class="line">    radio.<a name="a9"></a><a class="code" href="classRF24.html#aa27519fc289920094422033e0bbf8cf9">startWrite</a>( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) ,0);</div>
 <div class="line">    delay(2000);                                     <span class="comment">// Try again soon</span></div>
 <div class="line">  }</div>
 <div class="line"></div>
@@ -182,7 +186,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">{</div>
 <div class="line">  </div>
 <div class="line">  <span class="keywordtype">bool</span> tx,fail,rx;</div>
-<div class="line">  radio.<a name="a8"></a><a class="code" href="classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89">whatHappened</a>(tx,fail,rx);                     <span class="comment">// What happened?</span></div>
+<div class="line">  radio.<a name="a10"></a><a class="code" href="classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89">whatHappened</a>(tx,fail,rx);                     <span class="comment">// What happened?</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="keywordflow">if</span> ( tx ) {                                         <span class="comment">// Have we successfully transmitted?</span></div>
 <div class="line">      <span class="keywordflow">if</span> ( role == role_sender ){   printf(<span class="stringliteral">&quot;Send:OK\n\r&quot;</span>); }</div>
@@ -194,10 +198,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">if</span> ( role == role_receiver ){ printf(<span class="stringliteral">&quot;Ack Payload:Failed\n\r&quot;</span>);  }</div>
 <div class="line">  }</div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordflow">if</span> ( rx || radio.<a name="a9"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                      <span class="comment">// Did we receive a message?</span></div>
+<div class="line">  <span class="keywordflow">if</span> ( rx || radio.<a name="a11"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>()){                      <span class="comment">// Did we receive a message?</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">if</span> ( role == role_sender ) {                      <span class="comment">// If we&#39;re the sender, we&#39;ve received an ack payload</span></div>
-<div class="line">        radio.<a name="a10"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(&amp;message_count,<span class="keyword">sizeof</span>(message_count));</div>
+<div class="line">        radio.<a name="a12"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>(&amp;message_count,<span class="keyword">sizeof</span>(message_count));</div>
 <div class="line">        printf(<span class="stringliteral">&quot;Ack:%lu\n\r&quot;</span>,message_count);</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -206,7 +210,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> got_time;                  <span class="comment">// Get this payload and dump it</span></div>
 <div class="line">      radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( &amp;got_time, <span class="keyword">sizeof</span>(got_time) );</div>
 <div class="line">      printf(<span class="stringliteral">&quot;Got payload %lu\n\r&quot;</span>,got_time);</div>
-<div class="line">      radio.<a name="a11"></a><a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>( 1, &amp;message_count, <span class="keyword">sizeof</span>(message_count) );  <span class="comment">// Add an ack packet for the next time around.  This is a simple</span></div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a65619238c25036c3de72dc2c1a1c6e52">writeAckPayload</a>( 1, &amp;message_count, <span class="keyword">sizeof</span>(message_count) );  <span class="comment">// Add an ack packet for the next time around.  This is a simple</span></div>
 <div class="line">      ++message_count;                                <span class="comment">// packet counter</span></div>
 <div class="line">  </div>
 <div class="line">    }</div>
@@ -215,7 +219,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 23 2014 15:47:41 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

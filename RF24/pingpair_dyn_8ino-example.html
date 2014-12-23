@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;nRF24L01.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;printf.h&quot;</span></div>
+<div class="line"><span class="comment">//#include &lt;printf.h&gt;  // Printf is used for debug </span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">// Hardware configuration</span></div>
@@ -164,10 +164,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Print preamble</span></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
-<div class="line">  Serial.begin(57600);</div>
-<div class="line">  printf_begin();</div>
-<div class="line">  printf(<span class="stringliteral">&quot;\n\rRF24/examples/pingpair_dyn/\n\r&quot;</span>);</div>
-<div class="line">  printf(<span class="stringliteral">&quot;ROLE: %s\n\r&quot;</span>,role_friendly_name[role]);</div>
+<div class="line">  Serial.begin(115200);</div>
+<div class="line">  <span class="comment">//printf_begin(); //Printf is used for debug</span></div>
+<div class="line">  </div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;RF24/examples/pingpair_dyn/&quot;</span>));</div>
+<div class="line">  Serial.print(F(<span class="stringliteral">&quot;ROLE: &quot;</span>));</div>
+<div class="line">  Serial.println(role_friendly_name[role]);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
@@ -229,7 +231,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.<a name="a8"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
-<div class="line">    printf(<span class="stringliteral">&quot;Now sending length %i...&quot;</span>,next_payload_size);</div>
+<div class="line">    Serial.print(F(<span class="stringliteral">&quot;Now sending length &quot;</span>));</div>
+<div class="line">    Serial.println(next_payload_size);</div>
 <div class="line">    radio.<a name="a9"></a><a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( send_payload, next_payload_size );</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Now, continue listening</span></div>
@@ -245,19 +248,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="comment">// Describe the results</span></div>
 <div class="line">    <span class="keywordflow">if</span> ( timeout )</div>
 <div class="line">    {</div>
-<div class="line">      printf(<span class="stringliteral">&quot;Failed, response timed out.\n\r&quot;</span>);</div>
+<div class="line">      Serial.println(F(<span class="stringliteral">&quot;Failed, response timed out.&quot;</span>));</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Grab the response, compare, and send to debugging spew</span></div>
 <div class="line">      uint8_t <a class="code" href="namespacepingpair__dyn.html#a8dee8f0bc8a11ce41bfb613f363bf171">len</a> = radio.<a name="a11"></a><a class="code" href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">getDynamicPayloadSize</a>();</div>
+<div class="line">      </div>
+<div class="line">      <span class="comment">// If a corrupt dynamic payload is received, it will be flushed</span></div>
+<div class="line">      <span class="keywordflow">if</span>(!len){</div>
+<div class="line">        <span class="keywordflow">return</span>; </div>
+<div class="line">      }</div>
+<div class="line">      </div>
 <div class="line">      radio.<a name="a12"></a><a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( receive_payload, len );</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Put a zero at the end for easy printing</span></div>
 <div class="line">      receive_payload[len] = 0;</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Spew it</span></div>
-<div class="line">      printf(<span class="stringliteral">&quot;Got response size=%i value=%s\n\r&quot;</span>,len,receive_payload);</div>
+<div class="line">      Serial.print(F(<span class="stringliteral">&quot;Got response size=&quot;</span>));</div>
+<div class="line">      Serial.print(len);</div>
+<div class="line">      Serial.print(F(<span class="stringliteral">&quot; value=&quot;</span>));</div>
+<div class="line">      Serial.println(receive_payload);</div>
 <div class="line">    }</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// Update size for next time.</span></div>
@@ -276,30 +288,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> ( role == role_pong_back )</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// if there is data ready</span></div>
-<div class="line">    <span class="keywordflow">if</span> ( radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() )</div>
+<div class="line">    <span class="keywordflow">while</span> ( radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() )</div>
 <div class="line">    {</div>
-<div class="line">      <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
-<div class="line">      uint8_t len;</div>
-<div class="line">      <span class="keywordtype">bool</span> done = <span class="keyword">false</span>;</div>
-<div class="line">      <span class="keywordflow">while</span> (radio.<a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>())</div>
-<div class="line">      {</div>
-<div class="line">        <span class="comment">// Fetch the payload, and see if this was the last one.</span></div>
-<div class="line">    len = radio.<a class="code" href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">getDynamicPayloadSize</a>();</div>
-<div class="line">    radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( receive_payload, len );</div>
 <div class="line"></div>
-<div class="line">    <span class="comment">// Put a zero at the end for easy printing</span></div>
-<div class="line">    receive_payload[len] = 0;</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">// Spew it</span></div>
-<div class="line">    printf(<span class="stringliteral">&quot;Got payload size=%i value=%s\n\r&quot;</span>,len,receive_payload);</div>
+<div class="line">      <span class="comment">// Fetch the payload, and see if this was the last one.</span></div>
+<div class="line">      uint8_t len = radio.<a class="code" href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">getDynamicPayloadSize</a>();</div>
+<div class="line">      </div>
+<div class="line">      <span class="comment">// If a corrupt dynamic payload is received, it will be flushed</span></div>
+<div class="line">      <span class="keywordflow">if</span>(!len){</div>
+<div class="line">        <span class="keywordflow">continue</span>; </div>
 <div class="line">      }</div>
+<div class="line">      </div>
+<div class="line">      radio.<a class="code" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read</a>( receive_payload, len );</div>
+<div class="line"></div>
+<div class="line">      <span class="comment">// Put a zero at the end for easy printing</span></div>
+<div class="line">      receive_payload[len] = 0;</div>
+<div class="line"></div>
+<div class="line">      <span class="comment">// Spew it</span></div>
+<div class="line">      Serial.print(F(<span class="stringliteral">&quot;Got response size=&quot;</span>));</div>
+<div class="line">      Serial.print(len);</div>
+<div class="line">      Serial.print(F(<span class="stringliteral">&quot; value=&quot;</span>));</div>
+<div class="line">      Serial.println(receive_payload);</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// First, stop listening so we can talk</span></div>
 <div class="line">      radio.<a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Send the final one back.</span></div>
 <div class="line">      radio.<a class="code" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write</a>( receive_payload, len );</div>
-<div class="line">      printf(<span class="stringliteral">&quot;Sent response.\n\r&quot;</span>);</div>
+<div class="line">      Serial.println(F(<span class="stringliteral">&quot;Sent response.&quot;</span>));</div>
 <div class="line"></div>
 <div class="line">      <span class="comment">// Now, resume listening so we catch the next packets.</span></div>
 <div class="line">      radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
@@ -310,7 +326,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 23 2014 15:47:41 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

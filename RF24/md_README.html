@@ -150,6 +150,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </pre><p>A. Update the tool via the menu as required B. Select Advanced and enable the SPI kernel module C. Update other software and libraries: </p>
 <pre class="fragment"> sudo apt-get update  
  sudo apt-get upgrade  
+</pre><p>#New: RPi <a class="el" href="classRF24.html">RF24</a> Library Installer for all <a class="el" href="classRF24.html">RF24</a> libraries</p>
+<p>A. Download the install.sh file from <a href="http://tmrh20.github.io/RF24Installer/RPi/install.sh">http://tmrh20.github.io/RF24Installer/RPi/install.sh</a> </p>
+<pre class="fragment">wget http://tmrh20.github.io/RF24Installer/RPi/install.sh   
+</pre><p>B. Make it executable: </p>
+<pre class="fragment">chmod +x install.sh  
+</pre><p>C. Run it and choose your options: </p>
+<pre class="fragment">./install.sh  
+</pre><p>D. Run an example file from one of the libraries: </p>
+<pre class="fragment">cd rf24libs/RF24/examples_RPi  
+make  
+sudo ./gettingstarted  
 </pre><h1>RPi - <a class="el" href="classRF24.html">RF24</a> Quick-Start</h1>
 <p>A. Make a directory to contain the <a class="el" href="classRF24.html">RF24</a> and possibly RF24Network lib and enter it: </p>
 <pre class="fragment">mkdir ~/rf24libs  
@@ -167,14 +178,12 @@ sudo ./gettingstarted
 <p>A. Enter the same directory that contains the <a class="el" href="classRF24.html">RF24</a> library folder </p>
 <pre class="fragment">cd ~/rf24libs  
 </pre><p>B. Clone the RF24Network Repo </p>
-<pre class="fragment">git clone https://github.com/tmrh20/RF24Network.git ntemp  
+<pre class="fragment">git clone https://github.com/tmrh20/RF24Network.git RF24Network  
 </pre><p>C. Copy the RF24Network folder to the current directory, and delete the rest </p>
-<pre class="fragment">mv ntemp/RPi/RF24Network ./  
-rm -r ntemp  
-cd RF24Network  
+<pre class="fragment">cd RF24Network  
 </pre><p>D. Build the library </p>
 <pre class="fragment">sudo make install
-cd examples  
+cd examples_RPi  
 make  
 sudo ./helloworld_rx   OR   sudo ./helloworld_tx  
 </pre><h1>Connection Info</h1>
@@ -217,7 +226,7 @@ RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_26, BCM2835_SPI_SPEED_8MHZ);
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 6 2014 15:24:39 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 23 2014 15:47:42 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
