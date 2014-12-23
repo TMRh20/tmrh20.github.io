@@ -102,6 +102,7 @@ News</h1>
 <li>Delays have been removed where possible to ensure maximum efficiency</li>
 <li>Full Due support with extended SPI functions</li>
 <li>ATTiny now supported.</li>
+<li>New: Intel Galileo now supported</li>
 <li>Raspberry Pi now supported</li>
 <li>More! See the links below and class documentation for more info.</li>
 </ul>
@@ -110,14 +111,16 @@ News</h1>
 Useful References</h1>
 <p>Please refer to:</p>
 <ul>
-<li><a href="http://tmrh20.github.io/">Documentation Main Page</a> </li>
-<li><a href="http://tmrh20.github.io/RF24/classRF24.html">RF24 Class Documentation</a> </li>
-<li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html">My Blog: RF24 Optimization Overview</a> </li>
-<li><a href="https://github.com/tmrh20/RF24/">Source Code</a> </li>
-<li><a href="https://github.com/TMRh20/RF24/archive/master.zip">Download</a> </li>
+<li><a href="http://tmrh20.github.io/RF24/classRF24.html"><b>RF24</b> Class Documentation</a> </li>
+<li><a href="https://github.com/TMRh20/RF24/archive/master.zip"><b>Download</b></a> </li>
+<li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html"><b>My Blog:</b> RF24 Optimization Overview</a> </li>
+<li><a href="http://tmrh20.github.io/RF24Network"><b>RF24Network:</b> OSI Network Layer for multi-device communication. Create a home sensor network.</a> </li>
+<li><a href="http://tmrh20.github.io/RF24Mesh"><b>RF24Mesh:</b> Dynamic Mesh Layer for the Development version of RF24Network</a> </li>
+<li><a href="http://tmrh20.github.io/RF24Ethernet"><b>RF24Ethernet:</b> TCP/IP over RF24Network </a> </li>
+<li><a href="http://tmrh20.github.io/RF24Audio"><b>RF24Audio:</b> Realtime Wireless Audio streaming</a> </li>
+<li><a href="https://github.com/tmrh20/RF24/"><b>Source Code</b></a> </li>
 <li><a href="http://www.nordicsemi.com/files/Product/data_sheet/nRF24L01_Product_Specification_v2_0.pdf">Chip Datasheet</a> </li>
-<li><a href="http://tmrh20.github.io/RF24Network/">RF24Network: Easily create a home or long-range RF24 sensor network</a> </li>
-<li><a href="http://tmrh20.blogspot.com/2014/03/arduino-radiointercomwireless-audio.html">My Blog: RF24 Wireless Audio</a> </li>
+<li><a href="http://tmrh20.github.io/">All TMRh20 Documentation Main Page</a> </li>
 <li><a href="https://github.com/maniacbug/RF24">Original Library</a></li>
 </ul>
 <p>This chip uses the SPI bus, plus two chip control pins. Remember that pin 10 must still remain an output, or the SPI hardware will go into 'slave' mode.</p>
@@ -128,6 +131,7 @@ Board Support</h1>
 <li>ATMega 328 based boards (Uno, Nano, etc)</li>
 <li>Mega Boards (1280, 2560, etc)</li>
 <li>Arduino Due: Must use one of the hardware SS/CSN pins as extended SPI methods are used. Initial Due support taken from <a href="https://github.com/mcrosson/RF24/tree/due">https://github.com/mcrosson/RF24/tree/due</a></li>
+<li>Intel Galileo support</li>
 <li>ATTiny board support initially added from <a href="https://github.com/jscrane/RF24">https://github.com/jscrane/RF24</a> Note: ATTiny support is built into the library. Do not include SPI.h. <br/>
  See the included examples for more info on using ATTiny with <a class="el" href="classRF24.html">RF24</a> <br/>
  See <a href="https://github.com/TCWORLD/ATTinyCore/tree/master/PCREL%20Patch%20for%20GCC">https://github.com/TCWORLD/ATTinyCore/tree/master/PCREL%20Patch%20for%20GCC</a> for ATTiny patch</li>
@@ -139,16 +143,13 @@ More Information</h1>
 <h1><a class="anchor" id="Info"></a>
 and Projects</h1>
 <ul>
-<li>Project blog: </li>
-<li><a href="http://TMRh20.blogspot.com">TMRh20.blogspot.com </a> </li>
-<li><a href="http://tmrh20.github.io/RF24Audio/">RF24 Wireless Audio Library </a> </li>
-<li><a href="https://github.com/TMRh20/RF24Network">Optimized RF24 Network Layer </a> </li>
+<li><a href="http://TMRh20.blogspot.com">Project Blog: TMRh20.blogspot.com </a> </li>
 <li><a href="https://github.com/maniacbug/RF24">ManiacBug on GitHub (Original Library Author)</a> </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 23 2014 15:47:42 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Dec 23 2014 16:01:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
