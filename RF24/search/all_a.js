@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['next_5fpayload_5fsize',['next_payload_size',['../namespacepingpair__dyn.html#a3a9209e1a62a77ad571a207d8f88a882',1,'pingpair_dyn']]]
+  ['powerdown',['powerDown',['../classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
+  ['powerup',['powerUp',['../classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
+  ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]]
 ];

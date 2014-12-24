@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,25 +86,20 @@ Design Goals</h1>
 <ul>
 <li>More compliant with the manufacturer specified operation of the chip, while allowing advanced users to work outside the recommended operation. </li>
 <li>Utilize the capabilities of the radio to their full potential via Arduino </li>
-<li>More reliable, responsive and feature rich </li>
+<li>More reliable, responsive, bug-free and feature rich </li>
 <li>Easy for beginners to use, with well documented examples and features </li>
 <li>Consumed with a public interface that's similiar to other Arduino standard libraries</li>
 </ul>
 <h1><a class="anchor" id="News"></a>
 News</h1>
-<p><b>Main changes: </b><br/>
+<p><b>Dec 2014 </b><br/>
 </p>
 <ul>
-<li>The library has been tweaked to allow full use of the FIFO buffers for maximum transfer speeds</li>
-<li>Many issues and bugs have been resolved</li>
-<li>Changes to read() and available () functionality have increased reliability and response</li>
-<li>Extended timeout periods have been added to aid in noisy or otherwise unreliable environments</li>
-<li>Delays have been removed where possible to ensure maximum efficiency</li>
-<li>Full Due support with extended SPI functions</li>
-<li>ATTiny now supported.</li>
 <li>New: Intel Galileo now supported</li>
-<li>Raspberry Pi now supported</li>
-<li>More! See the links below and class documentation for more info.</li>
+<li>New: Python wrapper for RPi included</li>
+<li>Documentation updated</li>
+<li>Example files have been updated</li>
+<li>See the links below and class documentation for more info.</li>
 </ul>
 <p>If issues are discovered with the documentation, please report them <a href="https://github.com/TMRh20/tmrh20.github.io/issues">here</a> </p>
 <h1><a class="anchor" id="Useful"></a>
@@ -115,7 +110,7 @@ Useful References</h1>
 <li><a href="https://github.com/TMRh20/RF24/archive/master.zip"><b>Download</b></a> </li>
 <li><a href="http://tmrh20.blogspot.com/2014/03/high-speed-data-transfers-and-wireless.html"><b>My Blog:</b> RF24 Optimization Overview</a> </li>
 <li><a href="http://tmrh20.github.io/RF24Network"><b>RF24Network:</b> OSI Network Layer for multi-device communication. Create a home sensor network.</a> </li>
-<li><a href="http://tmrh20.github.io/RF24Mesh"><b>RF24Mesh:</b> Dynamic Mesh Layer for the Development version of RF24Network</a> </li>
+<li><a href="http://tmrh20.github.io/RF24Mesh"><b>RF24Mesh:</b> Dynamic Mesh Layer for RF24Network</a> </li>
 <li><a href="http://tmrh20.github.io/RF24Ethernet"><b>RF24Ethernet:</b> TCP/IP over RF24Network </a> </li>
 <li><a href="http://tmrh20.github.io/RF24Audio"><b>RF24Audio:</b> Realtime Wireless Audio streaming</a> </li>
 <li><a href="https://github.com/tmrh20/RF24/"><b>Source Code</b></a> </li>
@@ -149,7 +144,7 @@ and Projects</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 23 2014 16:01:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 24 2014 08:45:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

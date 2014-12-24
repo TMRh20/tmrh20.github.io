@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,9 +80,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">GettingStarted.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p><b>Updated: TMRh20 2014 </b><br/>
+<p><b>For Arduino</b><br/>
+ <b>Updated: TMRh20 2014 </b><br/>
 </p>
-<p>This is an example of how to use the <a class="el" href="classRF24.html">RF24</a> class to communicate on a basic level. Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and <br/>
+<p>This is an example of how to use the <a class="el" href="classRF24.html">RF24</a> class to communicate on a basic level. Configure and write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and <br/>
  sending a 'T'. The ping node sends the current time to the pong node, which responds by sending the value back. The ping node can then see how long the whole cycle took. <br/>
  </p>
 <dl class="section note"><dt>Note</dt><dd>For a more efficient call-response scenario see the GettingStarted_CallResponse.ino example. </dd>
@@ -153,8 +154,8 @@ When switching between sketches, the radio may need to be powered down to clear 
 <div class="line">        </div>
 <div class="line">    radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();                                    <span class="comment">// Now, continue listening</span></div>
 <div class="line">    </div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacepingpair__dyn.html#ad96de31e44e44172961703fd03090edb">started_waiting_at</a> = micros();               <span class="comment">// Set up a timeout period, get the current microseconds</span></div>
-<div class="line">    <span class="keywordtype">boolean</span> <a class="code" href="namespacepingpair__dyn.html#aa9982371e38561a3427b77be4be9a7cf">timeout</a> = <span class="keyword">false</span>;                                   <span class="comment">// Set up a variable to indicate if a response was received or not</span></div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = micros();               <span class="comment">// Set up a timeout period, get the current microseconds</span></div>
+<div class="line">    <span class="keywordtype">boolean</span> timeout = <span class="keyword">false</span>;                                   <span class="comment">// Set up a variable to indicate if a response was received or not</span></div>
 <div class="line">    </div>
 <div class="line">    <span class="keywordflow">while</span> ( ! radio.<a name="a8"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() ){                             <span class="comment">// While nothing is received</span></div>
 <div class="line">      <span class="keywordflow">if</span> (micros() - started_waiting_at &gt; 200000 ){            <span class="comment">// If waited longer than 200ms, indicate timeout and exit while loop</span></div>
@@ -233,7 +234,7 @@ When switching between sketches, the radio may need to be powered down to clear 
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 23 2014 16:01:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 24 2014 08:45:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

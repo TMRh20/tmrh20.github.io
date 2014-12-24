@@ -66,7 +66,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">pingpair_dyn.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use payloads of a varying (dynamic) size.</p>
+<p>This is an example of how to use payloads of a varying (dynamic) size on Arduino.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> Copyright (C) 2011 J. Coliz &lt;maniacbug@ymail.com&gt;</span></div>
 <div class="line"><span class="comment"></span></div>
@@ -225,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordflow">if</span> (role == role_ping_out)</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// The payload will always be the same, what will change is how much of it we send.</span></div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> <a class="code" href="namespacepingpair__dyn.html#a8ef28109b74cd43d000f189d7256a911">send_payload</a>[] = <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ789012&quot;</span>;</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">char</span> send_payload[] = <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ789012&quot;</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// First, stop listening so we can talk.</span></div>
 <div class="line">    radio.<a name="a8"></a><a class="code" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a>();</div>
@@ -239,10 +239,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.<a class="code" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a>();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Wait here until we get a response, or timeout</span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="namespacepingpair__dyn.html#ad96de31e44e44172961703fd03090edb">started_waiting_at</a> = <a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>();</div>
-<div class="line">    <span class="keywordtype">bool</span> <a class="code" href="namespacepingpair__dyn.html#aa9982371e38561a3427b77be4be9a7cf">timeout</a> = <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = millis();</div>
+<div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> ( ! radio.<a name="a10"></a><a class="code" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available</a>() &amp;&amp; ! timeout )</div>
-<div class="line">      <span class="keywordflow">if</span> (<a class="code" href="namespacepingpair__dyn.html#a67ee2c978e4021ef45875a67c0964937">millis</a>() - started_waiting_at &gt; 500 )</div>
+<div class="line">      <span class="keywordflow">if</span> (millis() - started_waiting_at &gt; 500 )</div>
 <div class="line">        timeout = <span class="keyword">true</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Describe the results</span></div>
@@ -253,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordflow">else</span></div>
 <div class="line">    {</div>
 <div class="line">      <span class="comment">// Grab the response, compare, and send to debugging spew</span></div>
-<div class="line">      uint8_t <a class="code" href="namespacepingpair__dyn.html#a8dee8f0bc8a11ce41bfb613f363bf171">len</a> = radio.<a name="a11"></a><a class="code" href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">getDynamicPayloadSize</a>();</div>
+<div class="line">      uint8_t len = radio.<a name="a11"></a><a class="code" href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">getDynamicPayloadSize</a>();</div>
 <div class="line">      </div>
 <div class="line">      <span class="comment">// If a corrupt dynamic payload is received, it will be flushed</span></div>
 <div class="line">      <span class="keywordflow">if</span>(!len){</div>
@@ -326,7 +326,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Dec 23 2014 16:01:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 24 2014 08:45:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
