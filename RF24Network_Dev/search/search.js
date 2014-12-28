@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   1: "rs",
   2: "abfimprstuw",
   3: "fhimnrt",
-  4: "cnp"
+  4: "acnp"
 };
 
 var indexSectionNames =

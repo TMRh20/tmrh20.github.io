@@ -134,6 +134,9 @@ Advanced Operation</h2></td></tr>
 <tr class="memitem:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb">multicastRelay</a></td></tr>
 <tr class="memdesc:add7408ca2b2f9ab15331ba77a747f7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level.  <a href="#add7408ca2b2f9ab15331ba77a747f7bb">More...</a><br/></td></tr>
 <tr class="separator:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa06f1fdd0fd986d427c2c5193b47b212">frame_buffer</a> [MAX_FRAME_SIZE]</td></tr>
+<tr class="memdesc:aa06f1fdd0fd986d427c2c5193b47b212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Space to put the frame that will be sent/received over the air.  <a href="#aa06f1fdd0fd986d427c2c5193b47b212">More...</a><br/></td></tr>
+<tr class="separator:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRF24NetworkFrame.html">RF24NetworkFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a1c994c5fdcb2173b187c52b641aaeae0">frag_ptr</a></td></tr>
 <tr class="memdesc:a1c994c5fdcb2173b187c52b641aaeae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frag_ptr is only used with Arduino (not RPi/Linux) and is mainly used for external data systems like RF24Ethernet.  <a href="#a1c994c5fdcb2173b187c52b641aaeae0">More...</a><br/></td></tr>
 <tr class="separator:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,7 +266,9 @@ Advanced Operation</h2></td></tr>
 
 <p>Bring up the network. </p>
 <dl class="section warning"><dt>Warning</dt><dd>Be sure to 'begin' the radio first.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Begin on channel 90 with address 0 (master node) </p>
+<div class="fragment"><div class="line">network.begin(90,0);</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_channel</td><td>The RF channel to operate on </td></tr>
     <tr><td class="paramname">_node_address</td><td>The logical address of this node </td></tr>
@@ -369,7 +374,17 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read a message. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line"><span class="keywordflow">while</span> ( network.available() )  {</div>
+<div class="line">  <a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header;</div>
+<div class="line">  uint32_t time;</div>
+<div class="line">  network.peek(header);</div>
+<div class="line">  <span class="keywordflow">if</span>(header.<a class="code" href="structRF24NetworkHeader.html#ac99ab14e561670f4445d1fea7775e2db">type</a> == <span class="charliteral">&#39;T&#39;</span>){</div>
+<div class="line">    network.read(header,&amp;time,<span class="keyword">sizeof</span>(time));</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot;Got time: &quot;</span>);</div>
+<div class="line">    Serial.println(time);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">header</td><td>The header (envelope) of this message </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">message</td><td>Pointer to memory where the message should be placed </td></tr>
@@ -413,7 +428,11 @@ Advanced Operation</h2></td></tr>
 
 <p>Send a message. </p>
 <dl class="section note"><dt>Note</dt><dd><a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> now supports fragmentation for very long messages, send as normal. Fragmentation may need to be enabled or configured by editing the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file. Default max payload size is 120 bytes.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<div class="fragment"><div class="line">uint32_t time = millis();</div>
+<div class="line">uint16_t to = 00; <span class="comment">// Send to master</span></div>
+<div class="line"><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(to, <span class="charliteral">&#39;T&#39;</span>); <span class="comment">// Send header type &#39;T&#39;</span></div>
+<div class="line">network.write(header,&amp;time,<span class="keyword">sizeof</span>(time));</div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">header</td><td>The header (envelope) of this message. The critical thing to fill in is the <code>to_node</code> field so we know where to send the message. It is then updated with the details of the actual header sent. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">message</td><td>Pointer to memory where the message is located </td></tr>
@@ -760,6 +779,20 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 
 </div>
 </div>
+<a class="anchor" id="aa06f1fdd0fd986d427c2c5193b47b212"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t RF24Network::frame_buffer[MAX_FRAME_SIZE]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Space to put the frame that will be sent/received over the air. </p>
+
+</div>
+</div>
 <a class="anchor" id="a1c994c5fdcb2173b187c52b641aaeae0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -778,7 +811,7 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 8 2014 06:26:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 28 2014 06:21:20 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

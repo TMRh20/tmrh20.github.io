@@ -122,14 +122,14 @@ Examples</h1>
 <p><b>Example 2:</b> Network with master node and three leaf nodes that send data to the master node. The second leaf node needs to receive configuration data from the master at set intervals of 1 second, and send data back to the master node. The other leaf nodes will send basic sensor information every few seconds, and a few dropped payloads will not affect the operation greatly.</p>
 <p>a: Master node configured with extended timeouts of .5 seconds, and increased retry delay: </p>
 <div class="fragment"><div class="line">radio.setRetries(11,15);</div>
-<div class="line">network.txTimeout(500);</div>
+<div class="line">network.txTimeout = 500;</div>
 </div><!-- fragment --><p> b: Second leaf node configured with a similar timeout period and retry delay: </p>
 <div class="fragment"><div class="line">radio.setRetries(8,15);</div>
-<div class="line">network.txTimeout(553);</div>
+<div class="line">network.txTimeout = 553;</div>
 </div><!-- fragment --><p> c: First and third leaf nodes configured with default timeout periods or slightly increased timout periods.</p>
 <h1><a class="anchor" id="DualHead"></a>
 Dual Headed Operation</h1>
-<p>The library now supports a dual radio configuration to further enhance network performance, while reducing errors on busy networks. Master nodes or relay nodes with a large number of child nodes can benefit greatly from a dual headed configuration, since one radio is used for receiving, and the other entirely for transmission.</p>
+<p>The library now supports a dual radio configuration to further enhance network performance, while reducing errors on busy networks. Master nodes or relay nodes with a large number of child nodes can benefit somewhat from a dual headed configuration, since one radio is used for receiving, and the other entirely for transmission.</p>
 <p>To configure a dual headed node:</p>
 <ol type="1">
 <li>Edit the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file, and uncomment #define DUAL_HEAD_RADIO</li>
@@ -150,7 +150,7 @@ Dual Headed Operation</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 8 2014 06:26:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 28 2014 06:21:20 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
