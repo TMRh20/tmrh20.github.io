@@ -100,15 +100,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="comment">//#include &lt;printf.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;HTML.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;RF24Mesh.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;EEPROM.h&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*** Configure the radio CE &amp; CS pins ***/</span></div>
-<div class="line">RF24 radio(7,8);</div>
+<div class="line">RF24 radio(7, 8);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio, network);</div>
-<div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#define LED_PIN A3 //Analog pin A3</span></div>
 <div class="line"></div>
@@ -123,26 +121,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//printf_begin();</span></div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;start&quot;</span>);</div>
 <div class="line">  pinMode(LED_PIN, OUTPUT);</div>
+<div class="line"></div>
 <div class="line">  <span class="comment">// This initializes the radio with basic settings.</span></div>
 <div class="line">  <span class="comment">// Needs to be called at the beginning of every sketch</span></div>
 <div class="line">  Ethernet.use_device();</div>
-<div class="line">  </div>
+<div class="line"></div>
 <div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it</span></div>
 <div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
 <div class="line">  Ethernet.setChannel(97);</div>
-<div class="line">  mesh.setChannel(97);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
 <div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
 <div class="line">  <span class="comment">// This is the RF24Network address and needs to be configured accordingly if</span></div>
 <div class="line">  <span class="comment">// using more than 4 nodes with the master node. Otherwise, 01-04 can be used.</span></div>
-<div class="line"><span class="comment">//  uint16_t myRF24NetworkAddress = 033;</span></div>
-<div class="line"><span class="comment">//  Ethernet.setMac(myRF24NetworkAddress);</span></div>
-<div class="line">  </div>
-<div class="line">  mesh.setNodeID(30);</div>
-<div class="line">  mesh.begin();</div>
-<div class="line">  Serial.println(mesh.mesh_address,HEX);</div>
-<div class="line">  Ethernet.setMac(mesh.mesh_address);</div>
+<div class="line">  uint16_t myRF24NetworkAddress = 01;</div>
+<div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Optional</span></div>
 <div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
@@ -166,18 +159,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">/********************************************************/</span></div>
 <div class="line"></div>
-<div class="line">uint32_t mesh_timer = 0;</div>
-<div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
-<div class="line">  <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
-<div class="line">    mesh_timer = millis();</div>
-<div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
-<div class="line">        <span class="comment">//refresh the network address        </span></div>
-<div class="line">        Ethernet.setMac(mesh.renewAddress());</div>
-<div class="line">     }</div>
-<div class="line">  }</div>
-<div class="line">  </div>
 <div class="line">  <span class="keywordtype">size_t</span> size;</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> (EthernetClient client = server.available())</div>
@@ -280,7 +263,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 4 2015 01:03:55 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 4 2015 01:20:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
