@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">Beta 1.10</span>
+   &#160;<span id="projectnumber">1.2b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -105,8 +105,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a9f688463052e857a9633f0a23698ab31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a290965c8cb4803f07598a585d61188dc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a290965c8cb4803f07598a585d61188dc">packets_out</a> [UIP_SOCKET_NUMPACKETS]</td></tr>
 <tr class="separator:a290965c8cb4803f07598a585d61188dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecc4b5170c9fa47ffcb2a6f9daa32af8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#aecc4b5170c9fa47ffcb2a6f9daa32af8">out_pos</a></td></tr>
-<tr class="separator:aecc4b5170c9fa47ffcb2a6f9daa32af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a311003e2a9b765c964c657d42a888fe6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a311003e2a9b765c964c657d42a888fe6">out_pos</a></td></tr>
+<tr class="separator:a311003e2a9b765c964c657d42a888fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acac3adec7a16e63c9a0a7465cb182c30"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">timer</a></td></tr>
 <tr class="separator:acac3adec7a16e63c9a0a7465cb182c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30ae91ade72b243d2b093fe8a5d40a99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">windowOpened</a></td></tr>
@@ -117,11 +117,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4d568a524d7e1469edbb63a0ce4fc6eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5439bf03d8440a5ecc683e742cd1888"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">connAbortTime</a></td></tr>
 <tr class="separator:ac5439bf03d8440a5ecc683e742cd1888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606cd619917ffb22f6121bc4ad56ac3e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a606cd619917ffb22f6121bc4ad56ac3e">myData</a> [<a class="el" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a>]</td></tr>
+<tr class="separator:a606cd619917ffb22f6121bc4ad56ac3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c6ccdb0b0ab4ed51597aace47ac6d8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#ac1c6ccdb0b0ab4ed51597aace47ac6d8">dataCnt</a> = 0</td></tr>
+<tr class="separator:ac1c6ccdb0b0ab4ed51597aace47ac6d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data structure for holding per connection data </p><dl class="section warning"><dt>Warning</dt><dd><b> This is used internally and should not be accessed directly by users </b> </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00044">44</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00037">37</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="a13868519e8f2e77a082c4eefa0e6af9b"></a>
 <div class="memitem">
@@ -133,9 +137,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00045">45</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00038">38</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00042">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00036">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00407">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00105">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00030">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00024">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
@@ -149,9 +153,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00046">46</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00039">39</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00042">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00036">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00407">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00105">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00030">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00024">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00486">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00470">RF24Client::peek()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
@@ -165,21 +169,21 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00047">47</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00040">40</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aecc4b5170c9fa47ffcb2a6f9daa32af8"></a>
+<a class="anchor" id="a311003e2a9b765c964c657d42a888fe6"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t uip_userdata_t::out_pos</td>
+          <td class="memname">uint16_t uip_userdata_t::out_pos</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00048">48</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00041">41</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
 </div>
 </div>
@@ -193,7 +197,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00050">50</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00043">43</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
 </div>
 </div>
@@ -207,7 +211,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00052">52</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00045">45</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
 </div>
 </div>
@@ -221,9 +225,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00053">53</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00046">46</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00407">RF24Client::read()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>.</p>
 
 </div>
 </div>
@@ -237,7 +241,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00054">54</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00047">47</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
 </div>
 </div>
@@ -251,14 +255,46 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00055">55</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00048">48</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a606cd619917ffb22f6121bc4ad56ac3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t uip_userdata_t::myData[<a class="el" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00049">49</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00470">RF24Client::peek()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1c6ccdb0b0ab4ed51597aace47ac6d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t uip_userdata_t::dataCnt = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00050">50</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
+
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00486">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 4 2015 01:20:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

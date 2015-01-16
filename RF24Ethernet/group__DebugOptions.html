@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">Beta 1.10</span>
+   &#160;<span id="projectnumber">1.2b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -94,6 +94,10 @@ Macros</h2></td></tr>
 <tr class="separator:gaea48f4207d30c735ce2a9c4f6c7f563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3b8085cc8c4b9f489af8a7b6559680c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DebugOptions.html#ga3b8085cc8c4b9f489af8a7b6559680c6">IF_ETH_DEBUG_L2</a>(x)</td></tr>
 <tr class="separator:ga3b8085cc8c4b9f489af8a7b6559680c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa2088bbdfdd816f5343ebfc9082cdb7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DebugOptions.html#gaa2088bbdfdd816f5343ebfc9082cdb7c">IF_RF24ETHERNET_DEBUG_UDP</a>(x)</td></tr>
+<tr class="separator:gaa2088bbdfdd816f5343ebfc9082cdb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga582731f9d492527f773b78d613e2da85"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>(x)</td></tr>
+<tr class="separator:ga582731f9d492527f773b78d613e2da85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p><b>Debugging Options</b> </p>
@@ -111,13 +115,11 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Uncomment <b>#define RF24ETHERNET_DEBUG_CLIENT</b> to enable main debugging output</p>
-<p>Uncomment <b>#define ETH_DEBUG_L1</b> for debugging window reopening &amp; retransmissions</p>
-<p>Uncomment <b>#define ETH_DEBUG_L2</b> for extra client state debugging </p>
+<p>Uncomment <b>#define RF24ETHERNET_DEBUG_CLIENT</b> to enable main debugging output </p>
 
-<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00029">29</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00024">24</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00042">RF24Client::connect()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00105">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00030">RF24Client::connect()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
@@ -134,8 +136,9 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Uncomment <b>#define ETH_DEBUG_L1</b> for debugging window reopening &amp; retransmissions </p>
 
-<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00035">35</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00032">32</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
 
 </div>
 </div>
@@ -152,17 +155,56 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Uncomment <b>#define ETH_DEBUG_L2</b> for extra client state debugging </p>
 
-<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00041">41</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00040">40</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00407">RF24Client::read()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="gaa2088bbdfdd816f5343ebfc9082cdb7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IF_RF24ETHERNET_DEBUG_UDP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Uncomment <b>#define RF24ETHERNET_DEBUG_UDP</b> for UDP debugging </p>
+
+<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00048">48</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ga582731f9d492527f773b78d613e2da85"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IF_RF24ETHERNET_DEBUG_DNS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Uncomment <b>#define RF24ETHERNET_DEBUG_DNS</b> for DNS debugging </p>
+
+<p>Definition at line <a class="el" href="RF24Ethernet__config_8h_source.html#l00056">56</a> of file <a class="el" href="RF24Ethernet__config_8h_source.html">RF24Ethernet_config.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 4 2015 01:20:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

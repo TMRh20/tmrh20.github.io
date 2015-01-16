@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">Beta 1.10</span>
+   &#160;<span id="projectnumber">1.2b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -96,15 +96,27 @@ How does it work?</h1>
 <p>RF24Network addresses need to be assigned as MAC addresses, and IP addresses can be configured as desired by the user. The master node (00) uses either the Address Resolution Protocol (ARP) or RF24Mesh to find the appropriate nodes when IP traffic is sent though, and routes traffic to the correct RF24Network address.</p>
 <p>This provides a fairly seamless interaction, since users only need to configure standard IP forwarding and firewall rules as desired.</p>
 <h1><a class="anchor" id="News"></a>
-News</h1>
-<p><b>Jan 4 2015</b></p><ul>
+Update News</h1>
+<dl class="section version"><dt>Version</dt><dd><b>1.2b - Jan 16 2015</b><ul>
+<li>Add UDP support</li>
+<li>Add DNS support</li>
+<li>Add support for up to 512 byte buffer size</li>
+<li>Reduce used memory and program space</li>
+<li>Support for multiple connections with per-connection memory buffers</li>
+</ul>
+</dd>
+<dd>
+<b>1.1b - Jan 4 2015</b><ul>
 <li>Add connection timeout to recover from hangs during failed client downloads</li>
 <li>Better TCP window management to prevent hangs during client downloads</li>
 <li>Stability improvements</li>
 </ul>
-<p><b>Dec 2014</b></p><ul>
+</dd>
+<dd>
+<b>1.0b - Dec 2014</b><ul>
 <li>Outgoing client data corruption should be fixed</li>
 </ul>
+</dd></dl>
 <h1><a class="anchor" id="Config"></a>
 Configuration and Setup</h1>
 <p>RF24Ethernet requires the RF24 and RF24Network_DEV libraries (optionally RF24Mesh) found on my github repository at <a href="https://github.com/TMRh20">https://github.com/TMRh20</a> <br />
@@ -168,7 +180,7 @@ MAC address formatting:</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 4 2015 01:20:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

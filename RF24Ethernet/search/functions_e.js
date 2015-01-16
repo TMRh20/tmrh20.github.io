@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['timer_5fexpired',['timer_expired',['../group__timer.html#ga6d71dececfce707c668e6257aad5906e',1,'timer.c']]],
-  ['timer_5freset',['timer_reset',['../group__timer.html#gaedaf3e48c2b04229b85455fb948468d6',1,'timer.c']]],
-  ['timer_5frestart',['timer_restart',['../group__timer.html#gacb807bd57e5489b386b876af5c1f163a',1,'timer.c']]],
-  ['timer_5fset',['timer_set',['../group__timer.html#ga6614d96fdfcd95c95ec6e6f63071ff51',1,'timer.c']]]
+  ['write',['write',['../classRF24Client.html#a0735631a999c8a2f8d5d027096efcd5c',1,'RF24Client::write(uint8_t)'],['../classRF24Client.html#a9facc0b9cd510e0381672eb722a7ea94',1,'RF24Client::write(const uint8_t *buf, size_t size)'],['../classRF24Server.html#a082d33da04786e2241e64a51b2486a44',1,'RF24Server::write(uint8_t)'],['../classRF24Server.html#af92146a76ffc12429c6909d54d254959',1,'RF24Server::write(const uint8_t *buf, size_t size)'],['../classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d',1,'RF24UDP::write(uint8_t)'],['../classRF24UDP.html#a9a4e0053b7092b4009745393e6877206',1,'RF24UDP::write(const uint8_t *buffer, size_t size)']]]
 ];

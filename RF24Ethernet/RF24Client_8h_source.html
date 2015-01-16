@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">Beta 1.10</span>
+   &#160;<span id="projectnumber">1.2b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -88,77 +88,77 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#ifndef RF24CLIENT_H</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define RF24CLIENT_H</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;ethernet_comp.h&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;Print.h&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#import &quot;Client.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">  #import &quot;utility/uip.h&quot;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Print.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#import &quot;Client.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define UIP_SOCKET_DATALEN UIP_TCP_MSS</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//#define UIP_SOCKET_NUMPACKETS UIP_RECEIVE_WINDOW/UIP_TCP_MSS+1</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef UIP_SOCKET_NUMPACKETS</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#define UIP_SOCKET_NUMPACKETS 5</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define UIP_SOCKET_DATALEN UIP_TCP_MSS</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">//#define UIP_SOCKET_NUMPACKETS UIP_RECEIVE_WINDOW/UIP_TCP_MSS+1</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef UIP_SOCKET_NUMPACKETS</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define UIP_SOCKET_NUMPACKETS 5</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#define UIP_CLIENT_CONNECTED 0x10</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define UIP_CLIENT_CLOSE 0x20</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define UIP_CLIENT_REMOTECLOSED 0x40</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define UIP_CLIENT_RESTART 0x80</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define UIP_CLIENT_STATEFLAGS (UIP_CLIENT_CONNECTED | UIP_CLIENT_CLOSE | UIP_CLIENT_REMOTECLOSED | UIP_CLIENT_RESTART)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define UIP_CLIENT_SOCKETS ~UIP_CLIENT_STATEFLAGS</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> * @warning &lt;b&gt; This is used internally and should not be accessed directly by users &lt;/b&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html">   33</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">   34</a></span>&#160;  uint8_t <a class="code" href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">state</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#aac5e1cd0fe6258e11aac583ae7194524">   35</a></span>&#160;  uint8_t packets_in[UIP_SOCKET_NUMPACKETS];</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">   36</a></span>&#160;  uint16_t <a class="code" href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">lport</a>;        <span class="comment">/**&lt; The local TCP port, in network byte order. */</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;} <a class="code" href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * Data structure for holding per connection data</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * @warning &lt;b&gt; This is used internally and should not be accessed directly by users &lt;/b&gt;</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html">   44</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">   45</a></span>&#160;  uint8_t <a class="code" href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">state</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a9f688463052e857a9633f0a23698ab31">   46</a></span>&#160;  uint8_t packets_in[UIP_SOCKET_NUMPACKETS];</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a290965c8cb4803f07598a585d61188dc">   47</a></span>&#160;  uint8_t packets_out[UIP_SOCKET_NUMPACKETS];</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#aecc4b5170c9fa47ffcb2a6f9daa32af8">   48</a></span>&#160;  uint8_t <a class="code" href="structuip__userdata__t.html#aecc4b5170c9fa47ffcb2a6f9daa32af8">out_pos</a>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#if UIP_CLIENT_TIMER &gt;= 0</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">   50</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">timer</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">   52</a></span>&#160; <span class="keywordtype">bool</span> <a class="code" href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">windowOpened</a>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">   53</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">restartTime</a>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">   54</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">restartInterval</a>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">   55</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">connAbortTime</a>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define UIP_CLIENT_CONNECTED 0x10</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define UIP_CLIENT_CLOSE 0x20</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define UIP_CLIENT_REMOTECLOSED 0x40</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define UIP_CLIENT_RESTART 0x80</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define UIP_CLIENT_STATEFLAGS (UIP_CLIENT_CONNECTED | UIP_CLIENT_CLOSE | UIP_CLIENT_REMOTECLOSED | UIP_CLIENT_RESTART)</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define UIP_CLIENT_SOCKETS ~UIP_CLIENT_STATEFLAGS</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * @warning &lt;b&gt; This is used internally and should not be accessed directly by users &lt;/b&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html">   26</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">   27</a></span>&#160;  uint8_t <a class="code" href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">state</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#aac5e1cd0fe6258e11aac583ae7194524">   28</a></span>&#160;  uint8_t packets_in[UIP_SOCKET_NUMPACKETS];</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">   29</a></span>&#160;  uint16_t <a class="code" href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">lport</a>;        <span class="comment">/**&lt; The local TCP port, in network byte order. */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;} <a class="code" href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> * Data structure for holding per connection data</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment"> * @warning &lt;b&gt; This is used internally and should not be accessed directly by users &lt;/b&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html">   37</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">   38</a></span>&#160;  uint8_t <a class="code" href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">state</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a9f688463052e857a9633f0a23698ab31">   39</a></span>&#160;  uint8_t packets_in[UIP_SOCKET_NUMPACKETS];</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a290965c8cb4803f07598a585d61188dc">   40</a></span>&#160;  uint8_t packets_out[UIP_SOCKET_NUMPACKETS];</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a311003e2a9b765c964c657d42a888fe6">   41</a></span>&#160;  uint16_t <a class="code" href="structuip__userdata__t.html#a311003e2a9b765c964c657d42a888fe6">out_pos</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#if UIP_CLIENT_TIMER &gt;= 0</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">   43</a></span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">timer</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">   45</a></span>&#160; <span class="keywordtype">bool</span> <a class="code" href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">windowOpened</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">   46</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">restartTime</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">   47</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">restartInterval</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">   48</a></span>&#160; uint32_t <a class="code" href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">connAbortTime</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#a606cd619917ffb22f6121bc4ad56ac3e">   49</a></span>&#160; uint8_t myData[<a class="code" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a>];</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structuip__userdata__t.html#ac1c6ccdb0b0ab4ed51597aace47ac6d8">   50</a></span>&#160; uint16_t dataCnt = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;} <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classRF24Client.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRF24Client.html">RF24Client</a> : <span class="keyword">public</span> Client {</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classRF24Client.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRF24Client.html">RF24Client</a> : <span class="keyword">public</span> Client {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    * Basic constructor</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    */</span>  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="classRF24Client.html#a760707b590efa9f07d01a8fe56d2aa07">RF24Client</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    * Basic constructor</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    */</span>  </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="classRF24Client.html#a760707b590efa9f07d01a8fe56d2aa07">RF24Client</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">    * Establish a connection to a specified IP address and port</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">connect</a>(IPAddress ip, uint16_t port);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    * Establish a connection to a specified IP address and port</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    */</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">connect</a>(IPAddress ip, uint16_t port);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment"></span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    * Establish a connection to a given hostname and port</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">    * Establish a connection to a given hostname and port</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">    * @note UDP must be enabled in uip-conf.h for DNS lookups to work  </span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">    * </span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    * @note Tip: DNS lookups generally require a buffer size of 250-300 bytes or greater.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">    * Lookups will generally return responses with a single A record if using hostnames like</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">    * &quot;www.google.com&quot; instead of &quot;google.com&quot; which works well with the default buffer size</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">connect</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *host, uint16_t port);</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="comment"></span></div>
@@ -203,18 +203,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">    /**</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">    * Indicates whether data is available to be read by the client.</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">    * Returns the number of bytes available to be read</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">    * @note Calling client or server available() keeps the RF24Network layer running, so needs to be called regularly,  </span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">    * @note Calling client or server available() keeps the IP stack and RF24Network layer running, so needs to be called regularly,  </span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">    * even when disconnected or delaying for extended periods.  </span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classRF24Client.html#aa3e897f86e5b5553a07c73ef556625d3">available</a>();</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">    * Not working currently</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">    * Read a byte from the incoming buffer without advancing the point of reading</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6">peek</a>();</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="comment"></span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">    * Not working currently</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">    * Flush all incoming client data from the current connection/buffer</span></div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">    */</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classRF24Client.html#adac638b4d71ed2d56c40591d37e52a46">flush</a>();</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">using</span> Print::write; </div>
@@ -222,7 +222,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">operator</span> bool();</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classRF24Client.html#a00e66ecc1dc3c0c2caec882492115db4">operator==</a>(<span class="keyword">const</span> EthernetClient&amp;);</div>
 <div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classRF24Client.html#a61c2e9e2dcf9e272cb5215e5df441696">  139</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classRF24Client.html#a61c2e9e2dcf9e272cb5215e5df441696">operator!=</a>(<span class="keyword">const</span> EthernetClient&amp; rhs) { <span class="keywordflow">return</span> !this-&gt;<a class="code" href="classRF24Client.html#a00e66ecc1dc3c0c2caec882492115db4">operator==</a>(rhs); };</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keyword">static</span> <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a> <a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">all_data</a>[UIP_CONNS];</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> handle_connection(uip_tcp_appstate_t *s);</div>
@@ -233,7 +233,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> _available(<a class="code" href="structuip__userdata__t.html">uip_userdata_t</a> *);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">static</span> <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a> all_data[UIP_CONNS];</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">static</span> <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>* _allocateData();</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">size_t</span> _write(<a class="code" href="structuip__userdata__t.html">uip_userdata_t</a> *,<span class="keyword">const</span> uint8_t *buf, <span class="keywordtype">size_t</span> size);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    </div>
@@ -242,41 +242,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    </div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="comment">//friend void uipclient_appcall(void);  </span></div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="classRF24Client.html#a8d670dfd402546dd32b678660d609b49">serialip_appcall</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7">uip_log</a>(<span class="keywordtype">char</span>* msg);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;};</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classRF24Client_html_a00e66ecc1dc3c0c2caec882492115db4"><div class="ttname"><a href="classRF24Client.html#a00e66ecc1dc3c0c2caec882492115db4">RF24Client::operator==</a></div><div class="ttdeci">virtual bool operator==(const EthernetClient &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00133">RF24Client.cpp:133</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_ac5439bf03d8440a5ecc683e742cd1888"><div class="ttname"><a href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">uip_userdata_t::connAbortTime</a></div><div class="ttdeci">uint32_t connAbortTime</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00055">RF24Client.h:55</a></div></div>
+<div class="ttc" id="classRF24Client_html_a00e66ecc1dc3c0c2caec882492115db4"><div class="ttname"><a href="classRF24Client.html#a00e66ecc1dc3c0c2caec882492115db4">RF24Client::operator==</a></div><div class="ttdeci">virtual bool operator==(const EthernetClient &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00129">RF24Client.cpp:129</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_ac5439bf03d8440a5ecc683e742cd1888"><div class="ttname"><a href="structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888">uip_userdata_t::connAbortTime</a></div><div class="ttdeci">uint32_t connAbortTime</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00048">RF24Client.h:48</a></div></div>
 <div class="ttc" id="classRF24Client_html_a61c2e9e2dcf9e272cb5215e5df441696"><div class="ttname"><a href="classRF24Client.html#a61c2e9e2dcf9e272cb5215e5df441696">RF24Client::operator!=</a></div><div class="ttdeci">virtual bool operator!=(const EthernetClient &amp;rhs)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00139">RF24Client.h:139</a></div></div>
-<div class="ttc" id="classRF24Client_html_a4fbc538b64c27747509475fcc047c60e"><div class="ttname"><a href="classRF24Client.html#a4fbc538b64c27747509475fcc047c60e">RF24Client::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00105">RF24Client.cpp:105</a></div></div>
-<div class="ttc" id="classRF24Client_html_aa3e897f86e5b5553a07c73ef556625d3"><div class="ttname"><a href="classRF24Client.html#aa3e897f86e5b5553a07c73ef556625d3">RF24Client::available</a></div><div class="ttdeci">int available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00390">RF24Client.cpp:390</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_a4d568a524d7e1469edbb63a0ce4fc6eb"><div class="ttname"><a href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">uip_userdata_t::restartInterval</a></div><div class="ttdeci">uint32_t restartInterval</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00054">RF24Client.h:54</a></div></div>
-<div class="ttc" id="structuip__userdata__closed__t_html_ab5ee289170f687f5e75f9471b37cf2e6"><div class="ttname"><a href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">uip_userdata_closed_t::lport</a></div><div class="ttdeci">uint16_t lport</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00036">RF24Client.h:36</a></div></div>
-<div class="ttc" id="classRF24Client_html_a08cfb995b3f10b89115e93544c843b1a"><div class="ttname"><a href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">RF24Client::connect</a></div><div class="ttdeci">int connect(IPAddress ip, uint16_t port)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00042">RF24Client.cpp:42</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_a4a26e04f1c0105546c102eea10200ce3"><div class="ttname"><a href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">uip_userdata_t::restartTime</a></div><div class="ttdeci">uint32_t restartTime</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00053">RF24Client.h:53</a></div></div>
-<div class="ttc" id="structuip__userdata__closed__t_html"><div class="ttname"><a href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00033">RF24Client.h:33</a></div></div>
-<div class="ttc" id="classRF24Client_html_a0735631a999c8a2f8d5d027096efcd5c"><div class="ttname"><a href="classRF24Client.html#a0735631a999c8a2f8d5d027096efcd5c">RF24Client::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00148">RF24Client.cpp:148</a></div></div>
+<div class="ttc" id="classRF24Client_html_a4fbc538b64c27747509475fcc047c60e"><div class="ttname"><a href="classRF24Client.html#a4fbc538b64c27747509475fcc047c60e">RF24Client::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00100">RF24Client.cpp:100</a></div></div>
+<div class="ttc" id="classRF24Client_html_aa3e897f86e5b5553a07c73ef556625d3"><div class="ttname"><a href="classRF24Client.html#aa3e897f86e5b5553a07c73ef556625d3">RF24Client::available</a></div><div class="ttdeci">int available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00400">RF24Client.cpp:400</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_a4d568a524d7e1469edbb63a0ce4fc6eb"><div class="ttname"><a href="structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb">uip_userdata_t::restartInterval</a></div><div class="ttdeci">uint32_t restartInterval</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00047">RF24Client.h:47</a></div></div>
+<div class="ttc" id="classRF24Client_html_a12b2e871c95fb155e06e3ce8fcd64734"><div class="ttname"><a href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a></div><div class="ttdeci">static uip_userdata_t all_data[UIP_CONNS]</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00139">RF24Client.h:139</a></div></div>
+<div class="ttc" id="structuip__userdata__closed__t_html_ab5ee289170f687f5e75f9471b37cf2e6"><div class="ttname"><a href="structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6">uip_userdata_closed_t::lport</a></div><div class="ttdeci">uint16_t lport</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00029">RF24Client.h:29</a></div></div>
+<div class="ttc" id="classRF24Client_html_a08cfb995b3f10b89115e93544c843b1a"><div class="ttname"><a href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">RF24Client::connect</a></div><div class="ttdeci">int connect(IPAddress ip, uint16_t port)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00030">RF24Client.cpp:30</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_a4a26e04f1c0105546c102eea10200ce3"><div class="ttname"><a href="structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3">uip_userdata_t::restartTime</a></div><div class="ttdeci">uint32_t restartTime</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00046">RF24Client.h:46</a></div></div>
+<div class="ttc" id="structuip__userdata__closed__t_html"><div class="ttname"><a href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00026">RF24Client.h:26</a></div></div>
+<div class="ttc" id="classRF24Client_html_a0735631a999c8a2f8d5d027096efcd5c"><div class="ttname"><a href="classRF24Client.html#a0735631a999c8a2f8d5d027096efcd5c">RF24Client::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00144">RF24Client.cpp:144</a></div></div>
+<div class="ttc" id="classRF24Client_html_ab58e1ceb7cb73ca2bcd73146b6c1b4e7"><div class="ttname"><a href="classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7">RF24Client::uip_log</a></div><div class="ttdeci">friend void uip_log(char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00206">RF24Client.cpp:206</a></div></div>
 <div class="ttc" id="classRF24Server_html"><div class="ttname"><a href="classRF24Server.html">RF24Server</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8h_source.html#l00009">RF24Server.h:9</a></div></div>
-<div class="ttc" id="structuip__userdata__closed__t_html_a670e21faf24e9b4bbdb540ff2a92ab1d"><div class="ttname"><a href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">uip_userdata_closed_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00034">RF24Client.h:34</a></div></div>
-<div class="ttc" id="classRF24Client_html_a926ec9a2c23a5e629028d34e671b7f94"><div class="ttname"><a href="classRF24Client.html#a926ec9a2c23a5e629028d34e671b7f94">RF24Client::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00448">RF24Client.cpp:448</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_aecc4b5170c9fa47ffcb2a6f9daa32af8"><div class="ttname"><a href="structuip__userdata__t.html#aecc4b5170c9fa47ffcb2a6f9daa32af8">uip_userdata_t::out_pos</a></div><div class="ttdeci">uint8_t out_pos</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00048">RF24Client.h:48</a></div></div>
-<div class="ttc" id="classRF24Client_html_a760707b590efa9f07d01a8fe56d2aa07"><div class="ttname"><a href="classRF24Client.html#a760707b590efa9f07d01a8fe56d2aa07">RF24Client::RF24Client</a></div><div class="ttdeci">RF24Client()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00023">RF24Client.cpp:23</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_acac3adec7a16e63c9a0a7465cb182c30"><div class="ttname"><a href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">uip_userdata_t::timer</a></div><div class="ttdeci">unsigned long timer</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00050">RF24Client.h:50</a></div></div>
-<div class="ttc" id="classRF24Client_html_a8d670dfd402546dd32b678660d609b49"><div class="ttname"><a href="classRF24Client.html#a8d670dfd402546dd32b678660d609b49">RF24Client::serialip_appcall</a></div><div class="ttdeci">friend void serialip_appcall(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00202">RF24Client.cpp:202</a></div></div>
-<div class="ttc" id="classRF24Client_html"><div class="ttname"><a href="classRF24Client.html">RF24Client</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00061">RF24Client.h:61</a></div></div>
-<div class="ttc" id="classRF24EthernetClass_html"><div class="ttname"><a href="classRF24EthernetClass.html">RF24EthernetClass</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet_8h_source.html#l00092">RF24Ethernet.h:92</a></div></div>
-<div class="ttc" id="classRF24Client_html_ac00eec5d1a8dadb6ed58d56821529e67"><div class="ttname"><a href="classRF24Client.html#ac00eec5d1a8dadb6ed58d56821529e67">RF24Client::connected</a></div><div class="ttdeci">uint8_t connected()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00036">RF24Client.cpp:36</a></div></div>
-<div class="ttc" id="classRF24Client_html_adac638b4d71ed2d56c40591d37e52a46"><div class="ttname"><a href="classRF24Client.html#adac638b4d71ed2d56c40591d37e52a46">RF24Client::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00474">RF24Client.cpp:474</a></div></div>
-<div class="ttc" id="classRF24Client_html_af4ef0367085f8e14b81b59d7517416f6"><div class="ttname"><a href="classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6">RF24Client::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00458">RF24Client.cpp:458</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html"><div class="ttname"><a href="structuip__userdata__t.html">uip_userdata_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00044">RF24Client.h:44</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_a13868519e8f2e77a082c4eefa0e6af9b"><div class="ttname"><a href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">uip_userdata_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00045">RF24Client.h:45</a></div></div>
-<div class="ttc" id="structuip__userdata__t_html_a30ae91ade72b243d2b093fe8a5d40a99"><div class="ttname"><a href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">uip_userdata_t::windowOpened</a></div><div class="ttdeci">bool windowOpened</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00052">RF24Client.h:52</a></div></div>
+<div class="ttc" id="structuip__userdata__closed__t_html_a670e21faf24e9b4bbdb540ff2a92ab1d"><div class="ttname"><a href="structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d">uip_userdata_closed_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00027">RF24Client.h:27</a></div></div>
+<div class="ttc" id="classRF24Client_html_a926ec9a2c23a5e629028d34e671b7f94"><div class="ttname"><a href="classRF24Client.html#a926ec9a2c23a5e629028d34e671b7f94">RF24Client::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00460">RF24Client.cpp:460</a></div></div>
+<div class="ttc" id="classRF24Client_html_a760707b590efa9f07d01a8fe56d2aa07"><div class="ttname"><a href="classRF24Client.html#a760707b590efa9f07d01a8fe56d2aa07">RF24Client::RF24Client</a></div><div class="ttdeci">RF24Client()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00011">RF24Client.cpp:11</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_acac3adec7a16e63c9a0a7465cb182c30"><div class="ttname"><a href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">uip_userdata_t::timer</a></div><div class="ttdeci">unsigned long timer</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00043">RF24Client.h:43</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_a311003e2a9b765c964c657d42a888fe6"><div class="ttname"><a href="structuip__userdata__t.html#a311003e2a9b765c964c657d42a888fe6">uip_userdata_t::out_pos</a></div><div class="ttdeci">uint16_t out_pos</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00041">RF24Client.h:41</a></div></div>
+<div class="ttc" id="classRF24Client_html_a8d670dfd402546dd32b678660d609b49"><div class="ttname"><a href="classRF24Client.html#a8d670dfd402546dd32b678660d609b49">RF24Client::serialip_appcall</a></div><div class="ttdeci">friend void serialip_appcall(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00214">RF24Client.cpp:214</a></div></div>
+<div class="ttc" id="classRF24Client_html"><div class="ttname"><a href="classRF24Client.html">RF24Client</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00056">RF24Client.h:56</a></div></div>
+<div class="ttc" id="classRF24EthernetClass_html"><div class="ttname"><a href="classRF24EthernetClass.html">RF24EthernetClass</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet_8h_source.html#l00086">RF24Ethernet.h:86</a></div></div>
+<div class="ttc" id="classRF24Client_html_ac00eec5d1a8dadb6ed58d56821529e67"><div class="ttname"><a href="classRF24Client.html#ac00eec5d1a8dadb6ed58d56821529e67">RF24Client::connected</a></div><div class="ttdeci">uint8_t connected()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00024">RF24Client.cpp:24</a></div></div>
+<div class="ttc" id="classRF24Client_html_adac638b4d71ed2d56c40591d37e52a46"><div class="ttname"><a href="classRF24Client.html#adac638b4d71ed2d56c40591d37e52a46">RF24Client::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00486">RF24Client.cpp:486</a></div></div>
+<div class="ttc" id="classRF24Client_html_af4ef0367085f8e14b81b59d7517416f6"><div class="ttname"><a href="classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6">RF24Client::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00470">RF24Client.cpp:470</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html"><div class="ttname"><a href="structuip__userdata__t.html">uip_userdata_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00037">RF24Client.h:37</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_a13868519e8f2e77a082c4eefa0e6af9b"><div class="ttname"><a href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">uip_userdata_t::state</a></div><div class="ttdeci">uint8_t state</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00038">RF24Client.h:38</a></div></div>
+<div class="ttc" id="structuip__userdata__t_html_a30ae91ade72b243d2b093fe8a5d40a99"><div class="ttname"><a href="structuip__userdata__t.html#a30ae91ade72b243d2b093fe8a5d40a99">uip_userdata_t::windowOpened</a></div><div class="ttdeci">bool windowOpened</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00045">RF24Client.h:45</a></div></div>
+<div class="ttc" id="group__UipConfiguration_html_ga29a61474854edfeed19457644161249f"><div class="ttname"><a href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a></div><div class="ttdeci">#define OUTPUT_BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="uip-conf_8h_source.html#l00154">uip-conf.h:154</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 4 2015 01:20:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
