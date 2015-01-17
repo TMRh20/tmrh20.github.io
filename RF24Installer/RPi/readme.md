@@ -15,4 +15,4 @@ Make it executable:
 2. ```chmod +x install.sh```
 
 Run it:
-3. ```sudo ./install.sh```
+3. ```./install.sh```
