@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: Getting_Started_SimpleServer.ino</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: Getting_Started_SimpleServer_Minimal.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,100 +80,69 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Getting_Started_SimpleServer.ino</div>  </div>
+<div class="title">Getting_Started_SimpleServer_Minimal.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p><b>Updated: TMRh20 2014 </b><br />
 </p>
-<p>This is an example of how to use the RF24Ethernet class to create a web server which will allow you to connect via any device with a web-browser. The url is <a href="http://your_chosen_IP:1000">http://your_chosen_IP:1000</a></p>
+<p>This is an example of how to use the RF24Ethernet class to create a web server which will allow you to connect via any device with a web-browser using minimal resources. The url is <a href="http://your_chosen_IP:1000">http://your_chosen_IP:1000</a></p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * RF24Ethernet Getting_Started_SimpleServer example by TMRh20</span></div>
+<div class="line"><span class="comment"> * RF24Ethernet Getting_Started_SimpleServer_Minimal example by TMRh20</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the fine uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This example demonstrates how to send out an HTTP response to a browser using extra</span></div>
-<div class="line"><span class="comment"> * resources to print radio debug information and uses Serial.print</span></div>
+<div class="line"><span class="comment"> * This example demonstrates how to send out an HTTP response to a browser using minimal resources</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * In order to minimize memory use and program space:</span></div>
 <div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
 <div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
 <div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
-<div class="line"><span class="comment"> * 4. See the Getting_Started_SimpleServer_Minimal example</span></div>
+<div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;printf.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
-<div class="line"></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">/** Configure the radio CE &amp; CS pins **/</span></div>
 <div class="line">RF24 radio(7,8);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio,network);</div>
 <div class="line"></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Set up the server to listen on port 1000</span></div>
 <div class="line">EthernetServer server = EthernetServer(1000);</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">  <span class="comment">// Set up the speed of our serial link.</span></div>
-<div class="line">  Serial.begin(115200);</div>
-<div class="line">  printf_begin();</div>
-<div class="line">  Serial.println(F(<span class="stringliteral">&quot;start&quot;</span>));</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it </span></div>
-<div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
-<div class="line">  <span class="comment">//Ethernet.setChannel(97);</span></div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
-<div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
-<div class="line">  <span class="comment">// This is the RF24Network address and needs to be configured accordingly if</span></div>
-<div class="line">  <span class="comment">// using more than 4 nodes with the master node. Otherwise, 01-04 can be used.</span></div>
+<div class="line"></div>
 <div class="line">  uint16_t myRF24NetworkAddress = 02;</div>
 <div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
 <div class="line">  </div>
-<div class="line">  <span class="comment">//Optional</span></div>
-<div class="line">  radio.setPALevel(RF24_PA_LOW);</div>
-<div class="line">  radio.printDetails();</div>
-<div class="line">  </div>
-<div class="line">  <span class="comment">// Set the IP address we&#39;ll be using.  Make sure this doesn&#39;t conflict with</span></div>
-<div class="line">  <span class="comment">// any IP addresses or subnets on your LAN or you won&#39;t be able to connect to</span></div>
-<div class="line">  <span class="comment">// either the Arduino or your LAN...</span></div>
-<div class="line">  IPAddress myIP(10,10,2,4);</div>
+<div class="line">  IPAddress myIP(10,10,3,7);</div>
 <div class="line">  Ethernet.begin(myIP);</div>
 <div class="line">  </div>
-<div class="line">  <span class="comment">// If you&#39;ll be making outgoing connections from the Arduino to the rest of</span></div>
-<div class="line">  <span class="comment">// the world, you&#39;ll need a gateway set up.</span></div>
-<div class="line">  IPAddress gwIP(10,10,2,2);</div>
+<div class="line">  IPAddress gwIP(10,10,3,1);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);</div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// Listen for incoming connections on TCP port 1000.  Each incoming</span></div>
-<div class="line">  <span class="comment">// connection will result in the uip_callback() function being called.</span></div>
 <div class="line">  server.begin();</div>
 <div class="line">}</div>
+<div class="line"></div>
+<div class="line">uint16_t testTimer = 0;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordtype">size_t</span> size;</div>
 <div class="line"></div>
-<div class="line">  <span class="keywordflow">if</span>(EthernetClient client = server.available())  </div>
-<div class="line">  {</div>
+<div class="line">  <span class="keywordflow">if</span>(EthernetClient client = server.available()) {</div>
 <div class="line"></div>
-<div class="line">      <span class="keywordflow">while</span>((size = client.available()) &gt; 0)</div>
-<div class="line">      {                 </div>
-<div class="line">        <span class="comment">// Read any incoming data from the client</span></div>
-<div class="line">        Serial.print((<span class="keywordtype">char</span>)client.read());</div>
-<div class="line">        Serial.println(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line">       }</div>
-<div class="line">        <span class="comment">// Send an HTML response to the client.</span></div>
+<div class="line">      <span class="keywordflow">while</span>((size = client.available()) &gt; 0) {                 </div>
+<div class="line">        <span class="comment">// Flush any incoming data from the client</span></div>
+<div class="line">        client.flush();</div>
+<div class="line">      }</div>
+<div class="line">      <span class="comment">// Send an HTML response to the client.</span></div>
 <div class="line">    client.write( <span class="stringliteral">&quot;HTTP/1.1 200 OK\n Content-Type: text/html\n Connection: close\n Refresh: 5\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;\n&lt;!DOCTYPE HTML&gt;\n &lt;html&gt;\nHELLO FROM ARDUINO!\n&lt;/html&gt;\n&quot;</span>);    </div>
-<div class="line">       </div>
-<div class="line">       client.stop(); </div>
-<div class="line">       Serial.println(F(<span class="stringliteral">&quot;********&quot;</span>));       </div>
+<div class="line">        client.write( <span class="stringliteral">&quot;\n&lt;!DOCTYPE HTML&gt;\n &lt;html&gt;\nHELLO FROM ARDUINO!\n&lt;/html&gt;\n&quot;</span>);       </div>
+<div class="line">        client.stop();     </div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// We can do other things in the loop, but be aware that the loop will</span></div>
