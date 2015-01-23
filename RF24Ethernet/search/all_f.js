@@ -8,7 +8,6 @@ var searchData=
   ['uip_5fconf_5fudp',['UIP_CONF_UDP',['../group__UipConfiguration.html#ga763f12007aad8cc0e483bf50f8a8d9b4',1,'uip-conf.h']]],
   ['uip_5fconf_5fudp_5fchecksums',['UIP_CONF_UDP_CHECKSUMS',['../group__UipConfiguration.html#ga9dd44616d41cef74d3beb51d8be5ecec',1,'uip-conf.h']]],
   ['uip_5fconnection_5ftimeout',['UIP_CONNECTION_TIMEOUT',['../group__UipConfiguration.html#ga0921001d8a4c23682bff63f133337a90',1,'uip-conf.h']]],
-  ['uip_5fhdrlen',['uip_hdrlen',['../classRF24EthernetClass.html#a2319f7ec60013297ad931dfbd895e2a3',1,'RF24EthernetClass']]],
   ['uip_5flog',['uip_log',['../classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7',1,'RF24Client']]],
   ['uip_5ftimer_5fdivisor',['UIP_TIMER_DIVISOR',['../group__UipConfiguration.html#ga53db37eee558bda45a4342cae3d6e452',1,'uip-conf.h']]],
   ['uip_5fuserdata_5fclosed_5ft',['uip_userdata_closed_t',['../structuip__userdata__closed__t.html',1,'']]],

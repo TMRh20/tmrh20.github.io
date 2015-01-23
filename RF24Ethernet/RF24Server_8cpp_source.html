@@ -108,72 +108,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="comment">//#include &quot;uip-conf.h&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">   26</a></span>&#160;<a class="code" href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">RF24Server::RF24Server</a>(uint16_t port) : _port(htons(port))</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">   30</a></span>&#160;<a class="code" href="classRF24Client.html">RF24Client</a> <a class="code" href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">RF24Server::available</a>()</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  Ethernet.tick();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keywordflow">for</span> ( <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>* data = &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[0]; data &lt; &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[UIP_CONNS]; data++ )</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (data-&gt;packets_in[0] != 0 &amp;&amp; (((data-&gt;state &amp; UIP_CLIENT_CONNECTED) &amp;&amp; uip_conns[data-&gt;state &amp; UIP_CLIENT_SOCKETS].lport ==_port)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;              || ((data-&gt;state &amp; UIP_CLIENT_REMOTECLOSED) &amp;&amp; ((<a class="code" href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a> *)data)-&gt;lport == _port))){</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;              </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//Serial.println(&quot;*********OK&quot;);      </span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classRF24Client.html">RF24Client</a>(data);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="comment">//Serial.println(&quot;************NOK&quot;);</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classRF24Client.html">RF24Client</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*************************************************************/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">   28</a></span>&#160;<a class="code" href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">RF24Server::RF24Server</a>(uint16_t port) : _port(htons(port))</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*************************************************************/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">   34</a></span>&#160;<a class="code" href="classRF24Client.html">RF24Client</a> <a class="code" href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">RF24Server::available</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  Ethernet.tick();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordflow">for</span> ( <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>* data = &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[0]; data &lt; &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[UIP_CONNS]; data++ )</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">if</span> (data-&gt;packets_in != 0 &amp;&amp; (((data-&gt;state &amp; UIP_CLIENT_CONNECTED) &amp;&amp; uip_conns[data-&gt;state &amp; UIP_CLIENT_SOCKETS].lport ==_port)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;              || ((data-&gt;state &amp; UIP_CLIENT_REMOTECLOSED) &amp;&amp; ((<a class="code" href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a> *)data)-&gt;lport == _port))){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;              <span class="keywordflow">return</span> <a class="code" href="classRF24Client.html">RF24Client</a>(data);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    }   </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classRF24Client.html">RF24Client</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/*    uint8_t sok=1;</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">      EthernetClient client(sok);</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">      if (client.available()) {</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">        // XXX: don&#39;t always pick the lowest numbered socket.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">        return client;</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">      }</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">   58</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">RF24Server::begin</a>()</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{  </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  uip_listen(_port);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  RF24Ethernet.tick();  </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/*************************************************************/</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">RF24Server::begin</a>()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  uip_listen(_port);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  RF24Ethernet.tick();  </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/*************************************************************/</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">   57</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a>(uint8_t c)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">write</a>(&amp;c,1);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">/*************************************************************/</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">   64</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a>(uint8_t c)</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="classRF24Server.html#af92146a76ffc12429c6909d54d254959">   64</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a>(<span class="keyword">const</span> uint8_t *buf, <span class="keywordtype">size_t</span> size)</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">write</a>(&amp;c,1);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classRF24Server.html#af92146a76ffc12429c6909d54d254959">   69</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a>(<span class="keyword">const</span> uint8_t *buf, <span class="keywordtype">size_t</span> size)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">size_t</span> ret = 0;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">for</span> ( <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>* data = &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[0]; data &lt; &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[UIP_CONNS]; data++ )</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keywordflow">if</span> ((data-&gt;state &amp; UIP_CLIENT_CONNECTED) &amp;&amp; uip_conns[data-&gt;state &amp; UIP_CLIENT_SOCKETS].lport ==_port)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        ret += RF24Client::_write(data,buf,size);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="ttc" id="classRF24Server_html_a7a805094f2ff0ef355a1e62d9bda174f"><div class="ttname"><a href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">RF24Server::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00058">RF24Server.cpp:58</a></div></div>
-<div class="ttc" id="classRF24Server_html_a082d33da04786e2241e64a51b2486a44"><div class="ttname"><a href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00064">RF24Server.cpp:64</a></div></div>
-<div class="ttc" id="classRF24Client_html_a12b2e871c95fb155e06e3ce8fcd64734"><div class="ttname"><a href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a></div><div class="ttdeci">static uip_userdata_t all_data[UIP_CONNS]</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00139">RF24Client.h:139</a></div></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">size_t</span> ret = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordflow">for</span> ( <a class="code" href="structuip__userdata__t.html">uip_userdata_t</a>* data = &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[0]; data &lt; &amp;<a class="code" href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a>[UIP_CONNS]; data++ )</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keywordflow">if</span> ((data-&gt;state &amp; UIP_CLIENT_CONNECTED) &amp;&amp; uip_conns[data-&gt;state &amp; UIP_CLIENT_SOCKETS].lport ==_port)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ret += RF24Client::_write(data,buf,size);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/*************************************************************/</span></div>
+<div class="ttc" id="classRF24Server_html_a7a805094f2ff0ef355a1e62d9bda174f"><div class="ttname"><a href="classRF24Server.html#a7a805094f2ff0ef355a1e62d9bda174f">RF24Server::begin</a></div><div class="ttdeci">void begin()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00049">RF24Server.cpp:49</a></div></div>
+<div class="ttc" id="classRF24Server_html_a082d33da04786e2241e64a51b2486a44"><div class="ttname"><a href="classRF24Server.html#a082d33da04786e2241e64a51b2486a44">RF24Server::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00057">RF24Server.cpp:57</a></div></div>
+<div class="ttc" id="classRF24Client_html_a12b2e871c95fb155e06e3ce8fcd64734"><div class="ttname"><a href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a></div><div class="ttdeci">static uip_userdata_t all_data[UIP_CONNS]</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00140">RF24Client.h:140</a></div></div>
 <div class="ttc" id="structuip__userdata__closed__t_html"><div class="ttname"><a href="structuip__userdata__closed__t.html">uip_userdata_closed_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00026">RF24Client.h:26</a></div></div>
-<div class="ttc" id="classRF24Server_html_aed5308faf0652ddc150589956d35d7ed"><div class="ttname"><a href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">RF24Server::available</a></div><div class="ttdeci">RF24Client available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00030">RF24Server.cpp:30</a></div></div>
-<div class="ttc" id="classRF24Server_html_ab287912e5d1580bce6c2d0ccc938c352"><div class="ttname"><a href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">RF24Server::RF24Server</a></div><div class="ttdeci">RF24Server(uint16_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00026">RF24Server.cpp:26</a></div></div>
+<div class="ttc" id="classRF24Server_html_aed5308faf0652ddc150589956d35d7ed"><div class="ttname"><a href="classRF24Server.html#aed5308faf0652ddc150589956d35d7ed">RF24Server::available</a></div><div class="ttdeci">RF24Client available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00034">RF24Server.cpp:34</a></div></div>
+<div class="ttc" id="classRF24Server_html_ab287912e5d1580bce6c2d0ccc938c352"><div class="ttname"><a href="classRF24Server.html#ab287912e5d1580bce6c2d0ccc938c352">RF24Server::RF24Server</a></div><div class="ttdeci">RF24Server(uint16_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Server_8cpp_source.html#l00028">RF24Server.cpp:28</a></div></div>
 <div class="ttc" id="classRF24Client_html"><div class="ttname"><a href="classRF24Client.html">RF24Client</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00056">RF24Client.h:56</a></div></div>
 <div class="ttc" id="structuip__userdata__t_html"><div class="ttname"><a href="structuip__userdata__t.html">uip_userdata_t</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00037">RF24Client.h:37</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 22 2015 19:32:30 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

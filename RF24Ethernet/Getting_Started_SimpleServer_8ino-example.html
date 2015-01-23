@@ -87,14 +87,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </p>
 <p>This is an example of how to use the RF24Ethernet class to create a web server which will allow you to connect via any device with a web-browser. The url is <a href="http://your_chosen_IP:1000">http://your_chosen_IP:1000</a></p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * RF24Ethernet Hello World example, lib initially based on SerialIP</span></div>
+<div class="line"><span class="comment"> * RF24Ethernet Getting_Started_SimpleServer example by TMRh20</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the fine uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This example demonstrates how to send out an HTTP response to a browser</span></div>
+<div class="line"><span class="comment"> * This example demonstrates how to send out an HTTP response to a browser using extra</span></div>
+<div class="line"><span class="comment"> * resources to print radio debug information and uses Serial.print</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This example was based upon uIP hello-world by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
-<div class="line"><span class="comment"> * Ported to the Arduino IDE by Adam Nielsen &lt;malvineous@shikadi.net&gt;</span></div>
+<div class="line"><span class="comment"> * In order to minimize memory use and program space:</span></div>
+<div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
+<div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
+<div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
+<div class="line"><span class="comment"> * 4. See the Getting_Started_SimpleServer_Minimal example</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"></div>
@@ -102,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;printf.h&gt;</span></div>
-<div class="line"><span class="preprocessor"> #include &lt;RF24Ethernet.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">/** Configure the radio CE &amp; CS pins **/</span></div>
@@ -119,14 +123,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  printf_begin();</div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;start&quot;</span>));</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// This initializes the radio with basic settings.</span></div>
-<div class="line">  <span class="comment">// Needs to be called at the beginning of every sketch</span></div>
-<div class="line">  Ethernet.use_device();  </div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it </span></div>
 <div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
-<div class="line">  Ethernet.setChannel(97);</div>
+<div class="line">  <span class="comment">//Ethernet.setChannel(97);</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
 <div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
@@ -155,8 +155,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  server.begin();</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line">uint16_t testTimer = 0;</div>
-<div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordtype">size_t</span> size;</div>
@@ -171,15 +169,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        Serial.println(<span class="stringliteral">&quot;&quot;</span>);</div>
 <div class="line">       }</div>
 <div class="line">        <span class="comment">// Send an HTML response to the client.</span></div>
-<div class="line">    client.write( <span class="stringliteral">&quot;HTTP/1.1 200 OK\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;Content-Type: text/html\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;Connection: close\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;Refresh: 5\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;!DOCTYPE HTML&gt;\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;html&gt;\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;HELLO FROM ARDUINO!\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;/html&gt;\n&quot;</span>);</div>
+<div class="line">    client.write( <span class="stringliteral">&quot;HTTP/1.1 200 OK\n Content-Type: text/html\n Connection: close\n Refresh: 5\n&quot;</span>);</div>
+<div class="line">        client.write( <span class="stringliteral">&quot;\n&lt;!DOCTYPE HTML&gt;\n &lt;html&gt;\nHELLO FROM ARDUINO!\n&lt;/html&gt;\n&quot;</span>);    </div>
 <div class="line">       </div>
 <div class="line">       client.stop(); </div>
 <div class="line">       Serial.println(F(<span class="stringliteral">&quot;********&quot;</span>));       </div>
@@ -191,7 +182,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 22 2015 19:32:30 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

@@ -85,13 +85,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <p>This is an example of how to create a simple interactive web server.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * RF24Ethernet Webserver controlling an LED example *</span></div>
+<div class="line"><span class="comment"> * RF24Ethernet Getting_Started_InteractiveServer example by TMRh20</span></div>
+<div class="line"><span class="comment"> * - Webserver controlling an LED example</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * This example demonstrates how to configure a sensor node to act as a webserver and</span></div>
 <div class="line"><span class="comment"> * allows a user to control a connected LED by clicking links on the webpage</span></div>
 <div class="line"><span class="comment"> * The requested URL is used as input, to determine whether to turn the LED off or on</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * In order to minimize memory use and program space:</span></div>
+<div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
+<div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
+<div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
+<div class="line"><span class="comment"> * 4. See the Getting_Started_SimpleServer_Minimal example</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"></div>
@@ -117,16 +124,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Set up the speed of our serial link.</span></div>
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  <span class="comment">//printf_begin();</span></div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;start&quot;</span>);</div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;start&quot;</span>));</div>
 <div class="line">  pinMode(LED_PIN,OUTPUT); </div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// This initializes the radio with basic settings.</span></div>
-<div class="line">  <span class="comment">// Needs to be called at the beginning of every sketch</span></div>
-<div class="line">  Ethernet.use_device();  </div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it </span></div>
 <div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
-<div class="line">  Ethernet.setChannel(97);</div>
+<div class="line">  <span class="comment">//Ethernet.setChannel(97);</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
 <div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
@@ -136,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">//Optional</span></div>
-<div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
+<div class="line">  <span class="comment">//radio.setPALevel(RF24_PA_HIGH);</span></div>
 <div class="line">  <span class="comment">//radio.printDetails();</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Set the IP address we&#39;ll be using.  Make sure this doesn&#39;t conflict with</span></div>
@@ -194,13 +197,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordtype">char</span> stateLine[24];</div>
 <div class="line">        <span class="keywordtype">int</span> len = sprintf(stateLine, <span class="stringliteral">&quot;The LED state is %d\n&lt;br&gt;&quot;</span>,led_state);    </div>
 <div class="line">        </div>
-<div class="line">        client.write( <span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;Connection: close\n\n&lt;!DOCTYPE HTML&gt;\n&lt;html&gt;\n&quot;</span>);</div>
+<div class="line">        client.write( <span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n Connection: close\n\n&lt;!DOCTYPE HTML&gt;\n&lt;html&gt;\n&quot;</span>);</div>
 <div class="line">        client.write( <span class="stringliteral">&quot;Hello From Arduino!&lt;br&gt;\n&quot;</span>);</div>
 <div class="line">        client.write( stateLine );</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;a href=&#39;/ON&#39;&gt;Turn LED On&lt;/a&gt;&lt;br&gt;\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;a href=&#39;/OF&#39;&gt;Turn LED Off&lt;/a&gt;&lt;br&gt;\n&quot;</span>);</div>
-<div class="line">        client.write( <span class="stringliteral">&quot;&lt;/html&gt;\n&quot;</span>);</div>
+<div class="line">        client.write( <span class="stringliteral">&quot;&lt;a href=&#39;/ON&#39;&gt;Turn LED On&lt;/a&gt;&lt;br&gt;\n &lt;a href=&#39;/OF&#39;&gt;Turn LED Off&lt;/a&gt;&lt;br&gt;\n&lt;/html&gt;\n&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">       client.stop(); </div>
 <div class="line">       Serial.println(F(<span class="stringliteral">&quot;********&quot;</span>));</div>
@@ -215,7 +215,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 22 2015 19:32:30 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

@@ -93,6 +93,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the fine uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * In order to minimize memory use and program space:</span></div>
+<div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
+<div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
+<div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * This example connects to google and downloads the index page</span></div>
 <div class="line"><span class="comment"> */</span></div>
@@ -117,10 +121,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.begin(115200);</div>
 <div class="line"> <span class="comment">// printf_begin();</span></div>
 <div class="line">  </div>
-<div class="line">  <span class="comment">// This initializes the radio with basic settings.</span></div>
-<div class="line">  <span class="comment">// Needs to be called at the beginning of every sketch</span></div>
-<div class="line">  Ethernet.use_device();  </div>
-<div class="line">  </div>
 <div class="line">  <span class="comment">// Tell RF24Ethernet which channel to use. This step is not that important, but it </span></div>
 <div class="line">  <span class="comment">// is important to set the channel this way, not directly via the radio</span></div>
 <div class="line">  <span class="comment">//Ethernet.setChannel(97);</span></div>
@@ -133,8 +133,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">//Optional</span></div>
-<div class="line">  radio.setPALevel(RF24_PA_HIGH);</div>
-<div class="line">  <span class="comment">//radio.printDetails();</span></div>
+<div class="line">  <span class="comment">//radio.setPALevel(RF24_PA_HIGH);</span></div>
+<div class="line">  <span class="comment">//radio.printDetails(); // Requires printf</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Set the IP address we&#39;ll be using.  Make sure this doesn&#39;t conflict with</span></div>
 <div class="line">  <span class="comment">// any IP addresses or subnets on your LAN or you won&#39;t be able to connect to</span></div>
@@ -153,16 +153,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
-<div class="line"><span class="comment">//  if(millis() - testTimer &gt; 5000){</span></div>
-<div class="line"><span class="comment">//     testTimer = millis();</span></div>
-<div class="line"><span class="comment">//     Serial.println(F(&quot;alive&quot;)); </span></div>
-<div class="line"><span class="comment">//  }</span></div>
-<div class="line">  uint8_t c=0;</div>
-<div class="line">  <span class="keywordtype">size_t</span> size;</div>
+<div class="line"><span class="keywordtype">size_t</span> size;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordflow">if</span>(size = client.available() &gt; 0){</div>
 <div class="line">    <span class="keywordtype">char</span> c = client.read();</div>
 <div class="line">    Serial.print(c);</div>
+<div class="line">    <span class="comment">// Sends a line-break every 150 characters, comment out if not connecting to google</span></div>
 <div class="line">    <span class="keywordflow">if</span>(counter &gt; 150){ Serial.println(<span class="stringliteral">&quot;&quot;</span>); counter=0;}</div>
 <div class="line">    counter++;</div>
 <div class="line">}</div>
@@ -210,7 +206,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 22 2015 19:32:30 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

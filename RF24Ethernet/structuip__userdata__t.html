@@ -101,10 +101,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Attributes</h2></td></tr>
 <tr class="memitem:a13868519e8f2e77a082c4eefa0e6af9b"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b">state</a></td></tr>
 <tr class="separator:a13868519e8f2e77a082c4eefa0e6af9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f688463052e857a9633f0a23698ab31"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a9f688463052e857a9633f0a23698ab31">packets_in</a> [UIP_SOCKET_NUMPACKETS]</td></tr>
-<tr class="separator:a9f688463052e857a9633f0a23698ab31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a290965c8cb4803f07598a585d61188dc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a290965c8cb4803f07598a585d61188dc">packets_out</a> [UIP_SOCKET_NUMPACKETS]</td></tr>
-<tr class="separator:a290965c8cb4803f07598a585d61188dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3808885bbfc43520a740bdc9d62ad32d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a3808885bbfc43520a740bdc9d62ad32d">packets_in</a></td></tr>
+<tr class="separator:a3808885bbfc43520a740bdc9d62ad32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf849dc33628665e680883413fd96c6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#acf849dc33628665e680883413fd96c6f">packets_out</a></td></tr>
+<tr class="separator:acf849dc33628665e680883413fd96c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a311003e2a9b765c964c657d42a888fe6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#a311003e2a9b765c964c657d42a888fe6">out_pos</a></td></tr>
 <tr class="separator:a311003e2a9b765c964c657d42a888fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acac3adec7a16e63c9a0a7465cb182c30"><td class="memItemLeft" align="right" valign="top">unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structuip__userdata__t.html#acac3adec7a16e63c9a0a7465cb182c30">timer</a></td></tr>
@@ -139,32 +139,32 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00038">38</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00030">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00024">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00027">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00021">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00367">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00095">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9f688463052e857a9633f0a23698ab31"></a>
+<a class="anchor" id="a3808885bbfc43520a740bdc9d62ad32d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t uip_userdata_t::packets_in[UIP_SOCKET_NUMPACKETS]</td>
+          <td class="memname">bool uip_userdata_t::packets_in</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00039">39</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00030">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00024">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00486">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00470">RF24Client::peek()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00027">RF24Client::connect()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00021">RF24Client::connected()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00429">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00416">RF24Client::peek()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00367">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00095">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a290965c8cb4803f07598a585d61188dc"></a>
+<a class="anchor" id="acf849dc33628665e680883413fd96c6f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t uip_userdata_t::packets_out[UIP_SOCKET_NUMPACKETS]</td>
+          <td class="memname">bool uip_userdata_t::packets_out</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -227,7 +227,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00046">46</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00367">RF24Client::read()</a>.</p>
 
 </div>
 </div>
@@ -271,7 +271,7 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00049">49</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00470">RF24Client::peek()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00416">RF24Client::peek()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00367">RF24Client::read()</a>.</p>
 
 </div>
 </div>
@@ -287,14 +287,14 @@ Public Attributes</h2></td></tr>
 
 <p>Definition at line <a class="el" href="RF24Client_8h_source.html#l00050">50</a> of file <a class="el" href="RF24Client_8h_source.html">RF24Client.h</a>.</p>
 
-<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00486">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00419">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00100">RF24Client::stop()</a>.</p>
+<p>Referenced by <a class="el" href="RF24Client_8cpp_source.html#l00429">RF24Client::flush()</a>, <a class="el" href="RF24Client_8cpp_source.html#l00367">RF24Client::read()</a>, and <a class="el" href="RF24Client_8cpp_source.html#l00095">RF24Client::stop()</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jan 16 2015 17:05:05 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 22 2015 19:32:30 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
