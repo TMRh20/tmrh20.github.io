@@ -1,10 +1,16 @@
 var searchData=
 [
-  ['serialip_5fappcall',['serialip_appcall',['../classRF24Client.html#a8d670dfd402546dd32b678660d609b49',1,'RF24Client']]],
-  ['set_5fgateway',['set_gateway',['../classRF24EthernetClass.html#a9c11cc6c37a3fbb28750484f20ede422',1,'RF24EthernetClass']]],
-  ['setchannel',['setChannel',['../classRF24EthernetClass.html#a313d0b7cd7d6a4fab825f3770ac8486a',1,'RF24EthernetClass']]],
-  ['setmac',['setMac',['../classRF24EthernetClass.html#a307dddd1f2663939b4c4a626d633b3c2',1,'RF24EthernetClass']]],
-  ['state',['state',['../structuip__userdata__closed__t.html#a670e21faf24e9b4bbdb540ff2a92ab1d',1,'uip_userdata_closed_t::state()'],['../structuip__userdata__t.html#a13868519e8f2e77a082c4eefa0e6af9b',1,'uip_userdata_t::state()']]],
-  ['stop',['stop',['../classRF24Client.html#a4fbc538b64c27747509475fcc047c60e',1,'RF24Client']]],
-  ['subnetmask',['subnetMask',['../classRF24EthernetClass.html#a93d4f56dbc030907229af878634eff5d',1,'RF24EthernetClass']]]
+  ['uip_5fconf_5factive_5fopen',['UIP_CONF_ACTIVE_OPEN',['../group__UipConfiguration.html#ga95fdbefb17a3bbc5ccdc2d467e46f308',1,'uip-conf.h']]],
+  ['uip_5fconf_5fbuffer_5fsize',['UIP_CONF_BUFFER_SIZE',['../group__UipConfiguration.html#gacacc406c3bf7d0e00412e4c946252739',1,'uip-conf.h']]],
+  ['uip_5fconf_5fllh_5flen',['UIP_CONF_LLH_LEN',['../group__UipConfiguration.html#ga4e2d3f85474d28b20ecb3cfc7ffe0bfe',1,'uip-conf.h']]],
+  ['uip_5fconf_5fmax_5fconnections',['UIP_CONF_MAX_CONNECTIONS',['../group__UipConfiguration.html#ga3f6f1f6f98431f2d33ed30a30d2ccc35',1,'uip-conf.h']]],
+  ['uip_5fconf_5fmax_5flistenports',['UIP_CONF_MAX_LISTENPORTS',['../group__UipConfiguration.html#ga974c9b4bbe6b07cc1d64ac4fad278030',1,'uip-conf.h']]],
+  ['uip_5fconf_5fudp',['UIP_CONF_UDP',['../group__UipConfiguration.html#ga763f12007aad8cc0e483bf50f8a8d9b4',1,'uip-conf.h']]],
+  ['uip_5fconf_5fudp_5fchecksums',['UIP_CONF_UDP_CHECKSUMS',['../group__UipConfiguration.html#ga9dd44616d41cef74d3beb51d8be5ecec',1,'uip-conf.h']]],
+  ['uip_5fconnection_5ftimeout',['UIP_CONNECTION_TIMEOUT',['../group__UipConfiguration.html#ga0921001d8a4c23682bff63f133337a90',1,'uip-conf.h']]],
+  ['uip_5flog',['uip_log',['../classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7',1,'RF24Client']]],
+  ['uip_5ftimer_5fdivisor',['UIP_TIMER_DIVISOR',['../group__UipConfiguration.html#ga53db37eee558bda45a4342cae3d6e452',1,'uip-conf.h']]],
+  ['uip_5fwindow_5freopen_5fdelay',['UIP_WINDOW_REOPEN_DELAY',['../group__UipConfiguration.html#ga6444c52673950d411a98eb59a229297f',1,'uip-conf.h']]],
+  ['uipconfiguration',['UipConfiguration',['../group__UipConfiguration.html',1,'']]],
+  ['use_5fdevice',['use_device',['../classRF24EthernetClass.html#a272292f0089f7a0ea2bdedcb60b73cff',1,'RF24EthernetClass']]]
 ];

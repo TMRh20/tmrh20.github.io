@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: Examples</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: Troubleshooting and Technical Info</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,10 +41,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="examples.html"><span>Examples</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -63,7 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,35 +77,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Examples</div>  </div>
+<div class="title">Troubleshooting and Technical Info </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all examples:</div><ul>
-<li><a class="el" href="Getting_Started_InteractiveServer_8ino-example.html">Getting_Started_InteractiveServer.ino</a></li>
-
-<li><a class="el" href="Getting_Started_SimpleClient_8ino-example.html">Getting_Started_SimpleClient.ino</a></li>
-
-<li><a class="el" href="Getting_Started_SimpleClient_DNS_8ino-example.html">Getting_Started_SimpleClient_DNS.ino</a></li>
-
-<li><a class="el" href="Getting_Started_SimpleServer_8ino-example.html">Getting_Started_SimpleServer.ino</a></li>
-
-<li><a class="el" href="Getting_Started_SimpleServer_Minimal_8ino-example.html">Getting_Started_SimpleServer_Minimal.ino</a></li>
-
-<li><a class="el" href="HTML_8h-example.html">HTML.h</a></li>
-
-<li><a class="el" href="InteractiveServer_8ino-example.html">InteractiveServer.ino</a></li>
-
-<li><a class="el" href="SLIP_Gateway_8ino-example.html">SLIP_Gateway.ino</a></li>
-
-<li><a class="el" href="SLIP_InteractiveServer_8ino-example.html">SLIP_InteractiveServer.ino</a></li>
-
-</ul>
-</div><!-- contents -->
+<div class="textblock"><p>The RF24 libraries are divided into layers, generally according to the OSI model, which allows specialized testing and troubleshooting of individual layers. The RF24Ethernet library is based on the following systems:<br />
+ </p><table class="doxtable">
+<tr>
+<th>System </th><th>OSI Layer </th><th>Description  </th></tr>
+<tr>
+<td><b>NRF24L01 Radio Modules</b> </td><td>OSI Layer 1 (Physical) </td><td>Transmission and reception of the raw bit stream over the physical medium. </td></tr>
+<tr>
+<td><b>RF24 Core Radio Driver</b> </td><td>OSI Layer 2 (Data Link)</td><td>Transfer of data frames over the physical link. Establish/Terminate logical links between nodes. Manage acknowledgements, error checking </td></tr>
+<tr>
+<td><b>RF24Network</b> </td><td>OSI Layer 3 (Network) </td><td>Routing, subnets, subnet traffic control, logical-to-physical address mapping, frame fragmentation/reassembly. </td></tr>
+<tr>
+<td><b>RF24Ethernet (uIP)</b> </td><td>OSI Layer 4 (Transport)</td><td>Ensures error-free messages. Manages sequencing, losses, retries, and duplicates. </td></tr>
+<tr>
+<td><b>RF24Ethernet (core)</b> </td><td>OSI Layer 5 (Session) </td><td>Establish, maintain, and terminate connections </td></tr>
+<tr>
+<td><b>RF24Mesh</b> -Optional- </td><td>OSI Layer 7 (Application)</td><td>Provides DHCP/DNS type functions and allows dynamic addressing/topology. </td></tr>
+</table>
+<p>New users are generally advised to ensure proper hardware configuration by utilizing the included examples in the RF24 core library. <br />
+The GettingStarted.ino sketch will test for basic functionality, and the Transfer.ino example will test basic throughput. Speeds of approximately 47KB/s should be achieved at the default of 1MBPS datarate with auto-ack enabled in an optimal testing environment.</p>
+<h1><a class="anchor" id="TAP_TUN"></a>
+TAP vs TUN</h1>
+<p>RF24Ethernet and RF24toTUN are able to utilize both TAP and TUN type interfaces. <br />
+ <b> TAP </b> A TAP interface can be looked at much the same as an Ethernet interface, Ethernet headers are used to identify devices via MAC address, and the Address Resolution Protocol (ARP) is used to perform that identification. <br />
+ <b> TUN </b> A TUN interface does not utilize Ethernet headers, MAC addresses or ARP, in this case relying on RF24Mesh/IP routing instead. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 27 2015 21:12:51 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jan 27 2015 20:47:16 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

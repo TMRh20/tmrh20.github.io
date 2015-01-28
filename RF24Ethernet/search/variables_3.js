@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['d',['d',['../structIP__ADDR.html#aa4f9e7e54c0df36e0bce2d5e1912ef79',1,'IP_ADDR']]],
-  ['datacnt',['dataCnt',['../structuip__userdata__t.html#ac1c6ccdb0b0ab4ed51597aace47ac6d8',1,'uip_userdata_t']]]
+  ['lport',['lport',['../structuip__userdata__closed__t.html#ab5ee289170f687f5e75f9471b37cf2e6',1,'uip_userdata_closed_t']]]
 ];

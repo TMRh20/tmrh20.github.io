@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['b',['b',['../structIP__ADDR.html#ab8aafb890e05c6d09f9cb85c4b7b39b1',1,'IP_ADDR']]]
+  ['connaborttime',['connAbortTime',['../structuip__userdata__t.html#ac5439bf03d8440a5ecc683e742cd1888',1,'uip_userdata_t']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['packets_5fin',['packets_in',['../structuip__userdata__closed__t.html#aac5e1cd0fe6258e11aac583ae7194524',1,'uip_userdata_closed_t::packets_in()'],['../structuip__userdata__t.html#a3808885bbfc43520a740bdc9d62ad32d',1,'uip_userdata_t::packets_in()']]],
-  ['packets_5fout',['packets_out',['../structuip__userdata__t.html#acf849dc33628665e680883413fd96c6f',1,'uip_userdata_t']]]
+  ['restartinterval',['restartInterval',['../structuip__userdata__t.html#a4d568a524d7e1469edbb63a0ce4fc6eb',1,'uip_userdata_t']]],
+  ['restarttime',['restartTime',['../structuip__userdata__t.html#a4a26e04f1c0105546c102eea10200ce3',1,'uip_userdata_t']]]
 ];
