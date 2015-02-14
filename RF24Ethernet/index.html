@@ -144,7 +144,7 @@ Update News</h1>
 </dd></dl>
 <h1><a class="anchor" id="Config"></a>
 Configuration and Setup</h1>
-<p>RF24Ethernet requires the RF24 and RF24Network_DEV libraries (optionally RF24Mesh) found on my github repository at <a href="https://github.com/TMRh20">https://github.com/TMRh20</a> <br />
+<p>RF24Ethernet requires the RF24 and RF24Network_DEV libraries (optionally RF24Mesh) see <a href="http://tmrh20.github.io">http://tmrh20.github.io</a> for documentation and downloads <br />
  <br />
  <b> RPi </b> On the Raspberry Pi, a companion program, RF24toTUN must be installed along with the RF24 and RF24Network libraries</p>
 <p>See the video at <a href="https://www.youtube.com/watch?v=rBAIqAaRu0g">https://www.youtube.com/watch?v=rBAIqAaRu0g</a> for a walk-through of the software setup with Raspberry Pi and Arduino.</p>
@@ -162,7 +162,7 @@ Configuration and Setup</h1>
 <li>Raspberry Pi defaults to the master node (00). Secondary Raspberry pi nodes need to specify their RF24Network address or RF24Mesh nodeID.</li>
 </ol>
 <p><b> Arduino </b></p><ol type="1">
-<li>For Arduino devices, the RF24, RF24Network and RF24Ethernet libraries need to be installed.</li>
+<li>For Arduino devices, the RF24, RF24Network and RF24Ethernet libraries need to be installed ( see <a href="http://tmrh20.github.io">http://tmrh20.github.io</a> )</li>
 <li>Open the included Getting_Started_SimpleServer or Getting_Started_SimpleClient example</li>
 <li>Configure your chosen CE and CS pins for the radio connection.</li>
 <li>Configure the RF24Network address (see <a href="http://tmrh20.github.io/RF24Network_Dev/">http://tmrh20.github.io/RF24Network_Dev/</a> for more info)</li>
@@ -189,10 +189,9 @@ Configuration and Setup</h1>
 Advanced Configuration and Info</h1>
 <p>See the <a href="group__UipConfiguration.html">User Configuration</a> section for modifying <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a></p>
 <h1><a class="anchor" id="Troubleshooting"></a>
-Troubleshooting and Technical Info</h1>
+Troubleshooting</h1>
 <p>The RF24 libraries are divided into layers, generally according to the OSI model, which allows specialized testing and troubleshooting of individual layers.</p>
-<p>New users are generally advised to ensure proper hardware configuration by utilizing the included examples in the RF24 core library. <br />
-The GettingStarted.ino sketch will test for basic functionality, and the Transfer.ino example will test basic throughput.</p>
+<p>See the <a href="Troubleshooting.html">Troubleshooting</a> section for general troubleshooting steps.</p>
 <h1><a class="anchor" id="TAP_TUN"></a>
 TAP vs TUN</h1>
 <p>RF24Ethernet and RF24toTUN are able to utilize both TAP and TUN type interfaces. <br />
@@ -219,7 +218,7 @@ MAC address formatting:</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 27 2015 21:12:51 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 14 2015 13:54:58 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
