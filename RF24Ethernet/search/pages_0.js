@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ethernet_20and_20tcp_2fip_20networking_20for_20rf24network',['Ethernet and TCP/IP Networking for RF24Network',['../md_README.html',1,'']]]
+  ['building_20an_20rf24ethernet_20network',['Building an RF24Ethernet Network',['../CustomNetworks.html',1,'']]]
 ];

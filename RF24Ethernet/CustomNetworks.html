@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: Class List</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: Building an RF24Ethernet Network</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,9 +41,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -63,15 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li class="current"><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,19 +77,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Class List</div>  </div>
+<div class="title">Building an RF24Ethernet Network </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRF24Client.html" target="_self">RF24Client</a></td><td class="desc"></td></tr>
-<tr id="row_1_"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRF24EthernetClass.html" target="_self">RF24EthernetClass</a></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRF24Server.html" target="_self">RF24Server</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><p>The general configuration instructions set up a basic sensor network, with static nodes, using TCP/IP over RF24Network. The layered library design also allows some nodes to communicate solely at the RF24Network level, creating hybrid networks to extend range over large distances, or improve connectivity in distant areas.</p>
+<h1><a class="anchor" id="RF24Mesh"></a>
+RF24Mesh Networks</h1>
+<p>RF24Mesh allows dynamic configuration of RF24Network addresses, and allows the creation of dynamic sensor networks. Nodes are able to move around physically, releasing and renewing their RF24Network address as required. Once configured with a unique nodeID, nodes using RF24Mesh can automatically configure themselves and join the network as required, with no user interaction.</p>
+<p>See the included <a href="SimpleServer_mesh_8ino-example.html">SimpleServer_Mesh</a> example for general usage and configuration information with RF24Ethernet.</p>
+<p><b>RF24Mesh</b> - Additional Information</p>
+<p>When utilizing RF24Mesh along with RF24Ethernet, relay/routing nodes should be configured with RF24Mesh, or designated on the master node as static nodes with a pre-configured RF24Network address.</p>
+<p>RF24Mesh can be used with TAP/Ethernet configurations, but utilizing TUN/RF24Mesh together will reduce overhead.</p>
+<p>See the links below for more information on utilizing RF24Mesh with RF24Ethernet and RF24Network.</p>
+<h1><a class="anchor" id="RF24toTUN"></a>
+RF24toTUN</h1>
+<p>See the rf24totun_configAndPing.sh file included with RF24toTUN for general information and configuration examples for utilizing RF24toTUN with RF24Mesh.</p>
+<h1><a class="anchor" id="HybridNetworks"></a>
+Hybrid- RF24Network/RF24Ethernet Networks</h1>
+<p>The default configuration of RF24Ethernet and RF24Network enables both TCP/IP and the underlying messaging protocols provided by RF24Network.</p>
+<p>Relay/Routing nodes can be configured using only the RF24 and RF24Network layers (optionally RF24Mesh), and will automatically handle data accordingly, whether it is an external data type (TCP/IP) or an internal network message from another RF24Network node. This allows very small and inexpensive devices such as ATTiny to act as relay/routing nodes when extending network range and/or connectivity.</p>
+<p>Arduino/AVR devices can utilize custom or included sleep modes in RF24Network, and benefit from the lower power consumption and low-power features of the nrf24l01 chips directly.</p>
+<h1><a class="anchor" id="Links"></a>
+Links</h1>
+<p>See <a href="http://tmrh20.github.io/RF24Mesh">http://tmrh20.github.io/RF24Mesh</a> for more information on using RF24Mesh to create a dynamic network, with automatic RF24Network addressing <br />
+ See <a href="http://tmrh20.github.io/RF24Network_Dev">http://tmrh20.github.io/RF24Network_Dev</a> for more information on using RF24Network as well as addressing and topology. <br />
+<br />
+<br />
+ </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Sun Feb 15 2015 02:22:04 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">

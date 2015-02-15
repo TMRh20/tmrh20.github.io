@@ -141,69 +141,36 @@ Update News</h1>
 </dd>
 <dd>
 <b>1.0b - Dec 2014</b><ul>
-<li>Outgoing client data corruption should be fixed</li>
+<li>Outgoing client data corruption should be fixed <br />
+<br />
+ </li>
 </ul>
 </dd></dl>
 <h1><a class="anchor" id="Config"></a>
 Configuration and Setup</h1>
-<p>RF24Ethernet requires the RF24 and RF24Network_DEV libraries (optionally RF24Mesh) see <a href="http://tmrh20.github.io">http://tmrh20.github.io</a> for documentation and downloads <br />
+<p>See the <a href="ConfigAndSetup.html">Configuration and Set-Up</a> page for general installation and configuration information <br />
+<br />
+ </p>
+<h1><a class="anchor" id="BuildingANetwork"></a>
+Building a Network - Customizing your RF24 TCP/IP network</h1>
+<p>See the <a href="CustomNetworks.html">Building a network</a> page <br />
  <br />
- <b> RPi </b> On the Raspberry Pi, a companion program, RF24toTUN must be installed along with the RF24 and RF24Network libraries</p>
-<p>See the video at <a href="https://www.youtube.com/watch?v=rBAIqAaRu0g">https://www.youtube.com/watch?v=rBAIqAaRu0g</a> for a walk-through of the software setup with Raspberry Pi and Arduino.</p>
-<ol type="1">
-<li><div class="fragment"><div class="line">wget http:<span class="comment">//tmrh20.github.io/RF24Installer/RPi/install.sh  </span></div>
-</div><!-- fragment --></li>
-<li><div class="fragment"><div class="line">chmod +x install.sh  </div>
-</div><!-- fragment --></li>
-<li><div class="fragment"><div class="line">./install.sh  </div>
-</div><!-- fragment --></li>
-<li>Edit the included rf24totun_configAndPing.sh to modify the IP information to suit your desired network config</li>
-<li><div class="fragment"><div class="line">sudo ./rf24totun_configAndPing.sh 2 3 </div>
-</div><!-- fragment --></li>
-<li>The '2' specifies the last octet of the RPi IP address. The '3' specifies the last octet of the node it will attempt to ping once started.</li>
-<li>Raspberry Pi defaults to the master node (00). Secondary Raspberry pi nodes need to specify their RF24Network address or RF24Mesh nodeID.</li>
-</ol>
-<p><b> Arduino </b></p><ol type="1">
-<li>For Arduino devices, the RF24, RF24Network and RF24Ethernet libraries need to be installed ( see <a href="http://tmrh20.github.io">http://tmrh20.github.io</a> )</li>
-<li>Open the included Getting_Started_SimpleServer or Getting_Started_SimpleClient example</li>
-<li>Configure your chosen CE and CS pins for the radio connection.</li>
-<li>Configure the RF24Network address (see <a href="http://tmrh20.github.io/RF24Network_Dev/">http://tmrh20.github.io/RF24Network_Dev/</a> for more info)</li>
-<li>Configure the IP address according to your preferences, with the gateway set to the chosen IP of the RPi.</li>
-<li>Connect into your nodes web-server at <a href="http://ip-of-your-node:1000">http://ip-of-your-node:1000</a> from the RPi or configure the client sketch to connect to a server running on the Raspberry Pi. Note: To minimize memory usage on Arduino, edit RF24Network_config.h with a text editor, and uncomment #define DISABLE_USER_PAYLOADS. This will disable standard RF24Network messages, and only allow external data, such as TCP/IP information.</li>
-</ol>
-<p><b> Non-Raspberry Pi (Linux etc) Devices </b><br />
- Arduino can also function as a gateway for any Linux machine or PC/MAC that supports SLIP. <br />
- See the SLIP_Gateway and SLIP_InteractiveServer examples for usage without the need for a Raspberry Pi.</p>
-<p><b>Accessing External Systems: Forwarding and Routing</b></p>
-<p>In order to give your network or nodes access to your network or the internet beyond the RPi, it needs to be configured to route traffic between the networks.</p><ol type="1">
-<li>Run<div class="fragment"><div class="line">sudo sysctl -w net.ipv4.ip_forward=1 </div>
-</div><!-- fragment --> to allow the RPi to forward requests between the network interfaces</li>
-<li><div class="fragment"><div class="line">sudo iptables -t nat -A POSTROUTING -j MASQUERADE </div>
-</div><!-- fragment --> to allow the RPi to perform NAT between the network interfaces <br />
-</li>
-</ol>
-<dl class="section note"><dt>Note</dt><dd>This configuration is generally for initial testing only. Users may also need to add a static route to their local machine, or configure port forwarding on the RPi.<br />
- See the following links for more information on configuring and using IPTables:<br />
- <a href="http://www.karlrupp.net/en/computer/nat_tutorial">http://www.karlrupp.net/en/computer/nat_tutorial</a><br />
- <a href="http://serverfault.com/questions/326493/basic-iptables-nat-port-forwarding">http://serverfault.com/questions/326493/basic-iptables-nat-port-forwarding</a></dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd><b>Note:</b> Users are responsible to manage further routing rules along with their IP traffic in order to prevent unauthorized access.</dd></dl>
-<h1><a class="anchor" id="Advanced"></a>
-Advanced Configuration and Info</h1>
-<p>See the <a href="group__UipConfiguration.html">User Configuration</a> section for modifying <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a></p>
+ </p>
 <h1><a class="anchor" id="Troubleshooting"></a>
 Troubleshooting</h1>
-<p>The RF24 libraries are divided into layers, generally according to the OSI model, which allows specialized testing and troubleshooting of individual layers.</p>
-<p>See the <a href="Troubleshooting.html">Troubleshooting</a> section for general troubleshooting steps.</p>
-<h1><a class="anchor" id="TAP_TUN"></a>
-TAP vs TUN</h1>
+<p>The RF24 libraries are divided into layers, generally according to the OSI model, which allows specialized testing and troubleshooting of individual layers. <br />
+See the <a href="Troubleshooting.html">Troubleshooting</a> section for general troubleshooting steps. <br />
+ <br />
+ </p>
+<h1><a class="anchor" id="AdditionalInfo"></a>
+Additional Information</h1>
+<p><b>TAP vs TUN:</b></p>
 <p>RF24Ethernet and RF24toTUN are able to utilize both TAP and TUN type interfaces. <br />
- <b> TAP </b> A TAP interface can be looked at much the same as an Ethernet interface, Ethernet headers are used to identify devices via MAC address, and the Address Resolution Protocol (ARP) is used to perform that identification. <br />
- <b> TUN </b> A TUN interface does not utilize Ethernet headers, MAC addresses or ARP, in this case relying on RF24Mesh/IP routing instead.</p>
-<h1><a class="anchor" id="Limitations"></a>
-Limitations</h1>
+ <b> TAP -</b> A TAP interface can be looked at much the same as an Ethernet interface, Ethernet headers are used to identify devices via MAC address, and the Address Resolution Protocol (ARP) is used to perform that identification. <br />
+ <b> TUN -</b> A TUN interface does not utilize Ethernet headers, MAC addresses or ARP, in this case relying on RF24Mesh/IP routing instead.</p>
+<p><b>Limitations:</b></p>
 <p>UDP frames can be up to 512 bytes in length, so UDP/DNS is limited by available memory, and the defined MAX_PAYLOAD_SIZE / UIP_BUFFER_SIZE. If a DNS request exceeds the maximum allowed size, it will be dropped. DNS responses for addresses such as 'www.google.com' tend to be much smaller than requests for 'google.com', and will generally work with the default configuration.</p>
-<h1><a class="anchor" id="MAC_Addys"></a>
-MAC address formatting:</h1>
+<p><b>MAC address formatting:</b></p>
 <p>RF24Ethernet uses a simple method of formatting the MAC addresses, using the first four bytes to store the characters 'RF24', and the last two bytes to store the RF24Network address, which makes identification of nodes via MAC address very simple using standard monitoring tools.</p>
 <table class="doxtable">
 <tr>
@@ -220,7 +187,7 @@ MAC address formatting:</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 14 2015 20:10:15 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 15 2015 02:22:04 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
