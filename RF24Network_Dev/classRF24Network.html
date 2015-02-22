@@ -26,7 +26,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
@@ -86,20 +87,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classRF24Network-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RF24Network Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>2014 - Optimized Network Layer for RF24 Radios  
+<p>2014-2015 - Optimized Network Layer for RF24 Radios  
  <a href="classRF24Network.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="RF24Network_8h_source.html">RF24Network.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Primary Interface</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>These are the main methods you need to operate the network </p>
+</div></td></tr>
 <tr class="memitem:a814229a5a4e8e30f88a4bdce05807e50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a814229a5a4e8e30f88a4bdce05807e50">RF24Network</a> (RF24 &amp;_radio)</td></tr>
 <tr class="memdesc:a814229a5a4e8e30f88a4bdce05807e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network.  <a href="#a814229a5a4e8e30f88a4bdce05807e50">More...</a><br /></td></tr>
 <tr class="separator:a814229a5a4e8e30f88a4bdce05807e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,62 +124,70 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6b90e07f0f89d64af07b5da0b31e3c87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a6b90e07f0f89d64af07b5da0b31e3c87">write</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, const void *message, size_t len)</td></tr>
 <tr class="memdesc:a6b90e07f0f89d64af07b5da0b31e3c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message.  <a href="#a6b90e07f0f89d64af07b5da0b31e3c87">More...</a><br /></td></tr>
 <tr class="separator:a6b90e07f0f89d64af07b5da0b31e3c87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
-Advanced Operation</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpaf32cf1216e734b82e2b52429dae0bf6"></a>For advanced configuration of the network </p>
-</td></tr>
-<tr class="memitem:a8838b42717e7c9da37213b020db1f88c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a8838b42717e7c9da37213b020db1f88c">txTimeout</a></td></tr>
-<tr class="memdesc:a8838b42717e7c9da37213b020db1f88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network timeout value.  <a href="#a8838b42717e7c9da37213b020db1f88c">More...</a><br /></td></tr>
-<tr class="separator:a8838b42717e7c9da37213b020db1f88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a657fd03730b6c9084cc440b4fe0177c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a657fd03730b6c9084cc440b4fe0177c3">routeTimeout</a></td></tr>
-<tr class="memdesc:a657fd03730b6c9084cc440b4fe0177c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This only affects payloads that are routed by one or more nodes.  <a href="#a657fd03730b6c9084cc440b4fe0177c3">More...</a><br /></td></tr>
-<tr class="separator:a657fd03730b6c9084cc440b4fe0177c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb">multicastRelay</a></td></tr>
-<tr class="memdesc:add7408ca2b2f9ab15331ba77a747f7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level.  <a href="#add7408ca2b2f9ab15331ba77a747f7bb">More...</a><br /></td></tr>
-<tr class="separator:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa06f1fdd0fd986d427c2c5193b47b212">frame_buffer</a> [MAX_FRAME_SIZE]</td></tr>
-<tr class="memdesc:aa06f1fdd0fd986d427c2c5193b47b212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Space to put the frame that will be sent/received over the air.  <a href="#aa06f1fdd0fd986d427c2c5193b47b212">More...</a><br /></td></tr>
-<tr class="separator:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#afb6b1d5c0fa3d982425f7a1f4fb48d13">returnSysMsgs</a></td></tr>
-<tr class="memdesc:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to determine whether <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">update()</a> will return after the radio buffers have been emptied (DEFAULT), or whether to return immediately when (most) system types are received.  <a href="#afb6b1d5c0fa3d982425f7a1f4fb48d13">More...</a><br /></td></tr>
-<tr class="separator:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRF24NetworkFrame.html">RF24NetworkFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a1c994c5fdcb2173b187c52b641aaeae0">frag_ptr</a></td></tr>
-<tr class="memdesc:a1c994c5fdcb2173b187c52b641aaeae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frag_ptr is only used with Arduino (not RPi/Linux) and is mainly used for external data systems like RF24Ethernet.  <a href="#a1c994c5fdcb2173b187c52b641aaeae0">More...</a><br /></td></tr>
-<tr class="separator:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85150019642eb1fb4afe5f01c3b0c804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a85150019642eb1fb4afe5f01c3b0c804">RF24Network</a> (RF24 &amp;_radio, RF24 &amp;_radio1)</td></tr>
-<tr class="memdesc:a85150019642eb1fb4afe5f01c3b0c804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network in dual head mode using two radio modules.  <a href="#a85150019642eb1fb4afe5f01c3b0c804">More...</a><br /></td></tr>
-<tr class="separator:a85150019642eb1fb4afe5f01c3b0c804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Advanced Operation</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>For advanced operation of the network </p>
+</div></td></tr>
 <tr class="memitem:acb84d7556df00c933208ecf44b227a4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acb84d7556df00c933208ecf44b227a4f">failures</a> (uint32_t *_fails, uint32_t *_ok)</td></tr>
 <tr class="memdesc:acb84d7556df00c933208ecf44b227a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of failures and successes for all transmitted payloads, routed or sent directly.  <a href="#acb84d7556df00c933208ecf44b227a4f">More...</a><br /></td></tr>
 <tr class="separator:acb84d7556df00c933208ecf44b227a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad777906b31c19c765ffe6f97a3f7feb0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ad777906b31c19c765ffe6f97a3f7feb0">multicast</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, const void *message, size_t len, uint8_t level)</td></tr>
 <tr class="memdesc:ad777906b31c19c765ffe6f97a3f7feb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a multicast message to multiple nodes at once Allows messages to be rapidly broadcast through the network.  <a href="#ad777906b31c19c765ffe6f97a3f7feb0">More...</a><br /></td></tr>
 <tr class="separator:ad777906b31c19c765ffe6f97a3f7feb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a4fb7c61eee75d708a4ba20bb1caec54f">multicastLevel</a> (uint8_t level)</td></tr>
-<tr class="memdesc:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">By default, multicast addresses are divided into levels.  <a href="#a4fb7c61eee75d708a4ba20bb1caec54f">More...</a><br /></td></tr>
-<tr class="separator:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbcdf229d67fe57d324cb26d64f5841"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#abcbcdf229d67fe57d324cb26d64f5841">write</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, const void *message, size_t len, uint16_t writeDirect)</td></tr>
 <tr class="memdesc:abcbcdf229d67fe57d324cb26d64f5841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a direct (unicast) payload.  <a href="#abcbcdf229d67fe57d324cb26d64f5841">More...</a><br /></td></tr>
 <tr class="separator:abcbcdf229d67fe57d324cb26d64f5841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8921392fbd695721c3d137f139a2a56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a8921392fbd695721c3d137f139a2a56e">sleepNode</a> (unsigned int cycles, int interruptPin)</td></tr>
-<tr class="memdesc:a8921392fbd695721c3d137f139a2a56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node - For AVR devices only.  <a href="#a8921392fbd695721c3d137f139a2a56e">More...</a><br /></td></tr>
-<tr class="separator:a8921392fbd695721c3d137f139a2a56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb09129760ac9b171833af3055b2b6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a> (uint8_t prescalar)</td></tr>
-<tr class="memdesc:acb09129760ac9b171833af3055b2b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br />
- wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s.  <a href="#acb09129760ac9b171833af3055b2b6f5">More...</a><br /></td></tr>
-<tr class="separator:acb09129760ac9b171833af3055b2b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488bfa788f40b51bd5110b4594cf2d9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a488bfa788f40b51bd5110b4594cf2d9a">sleepNode</a> (unsigned int cycles, int interruptPin)</td></tr>
+<tr class="memdesc:a488bfa788f40b51bd5110b4594cf2d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node - For AVR devices only.  <a href="#a488bfa788f40b51bd5110b4594cf2d9a">More...</a><br /></td></tr>
+<tr class="separator:a488bfa788f40b51bd5110b4594cf2d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2274c0548e35b5182a2f6ced222d0699"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a2274c0548e35b5182a2f6ced222d0699">parent</a> () const </td></tr>
 <tr class="memdesc:a2274c0548e35b5182a2f6ced222d0699"><td class="mdescLeft">&#160;</td><td class="mdescRight">This node's parent address.  <a href="#a2274c0548e35b5182a2f6ced222d0699">More...</a><br /></td></tr>
 <tr class="separator:a2274c0548e35b5182a2f6ced222d0699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4a11edb3860f4a0e3808bccad36a5dc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa4a11edb3860f4a0e3808bccad36a5dc">addressOfPipe</a> (uint16_t node, uint8_t pipeNo)</td></tr>
-<tr class="memdesc:aa4a11edb3860f4a0e3808bccad36a5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided a node address and a pipe number, will return the <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address of that child pipe for that node.  <a href="#aa4a11edb3860f4a0e3808bccad36a5dc">More...</a><br /></td></tr>
+<tr class="memdesc:aa4a11edb3860f4a0e3808bccad36a5dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provided a node address and a pipe number, will return the <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address of that child pipe for that node.  <a href="#aa4a11edb3860f4a0e3808bccad36a5dc">More...</a><br /></td></tr>
 <tr class="separator:aa4a11edb3860f4a0e3808bccad36a5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab41da035bd7f469ea4364a06ab4efd1b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ab41da035bd7f469ea4364a06ab4efd1b">is_valid_address</a> (uint16_t node)</td></tr>
 <tr class="separator:ab41da035bd7f469ea4364a06ab4efd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Advanced Configuration</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpc70ec5b31b31ecef0efd3ea40e33909f"></a>For advanced configuration of the network </p>
+</td></tr>
+<tr class="memitem:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb">multicastRelay</a></td></tr>
+<tr class="memdesc:add7408ca2b2f9ab15331ba77a747f7bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level.  <a href="#add7408ca2b2f9ab15331ba77a747f7bb">More...</a><br /></td></tr>
+<tr class="separator:add7408ca2b2f9ab15331ba77a747f7bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8838b42717e7c9da37213b020db1f88c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a8838b42717e7c9da37213b020db1f88c">txTimeout</a></td></tr>
+<tr class="memdesc:a8838b42717e7c9da37213b020db1f88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network timeout value.  <a href="#a8838b42717e7c9da37213b020db1f88c">More...</a><br /></td></tr>
+<tr class="separator:a8838b42717e7c9da37213b020db1f88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a657fd03730b6c9084cc440b4fe0177c3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a657fd03730b6c9084cc440b4fe0177c3">routeTimeout</a></td></tr>
+<tr class="memdesc:a657fd03730b6c9084cc440b4fe0177c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This only affects payloads that are routed by one or more nodes.  <a href="#a657fd03730b6c9084cc440b4fe0177c3">More...</a><br /></td></tr>
+<tr class="separator:a657fd03730b6c9084cc440b4fe0177c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85150019642eb1fb4afe5f01c3b0c804"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a85150019642eb1fb4afe5f01c3b0c804">RF24Network</a> (RF24 &amp;_radio, RF24 &amp;_radio1)</td></tr>
+<tr class="memdesc:a85150019642eb1fb4afe5f01c3b0c804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network in dual head mode using two radio modules.  <a href="#a85150019642eb1fb4afe5f01c3b0c804">More...</a><br /></td></tr>
+<tr class="separator:a85150019642eb1fb4afe5f01c3b0c804"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a4fb7c61eee75d708a4ba20bb1caec54f">multicastLevel</a> (uint8_t level)</td></tr>
+<tr class="memdesc:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">By default, multicast addresses are divided into levels.  <a href="#a4fb7c61eee75d708a4ba20bb1caec54f">More...</a><br /></td></tr>
+<tr class="separator:a4fb7c61eee75d708a4ba20bb1caec54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb09129760ac9b171833af3055b2b6f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a> (uint8_t prescalar)</td></tr>
+<tr class="memdesc:acb09129760ac9b171833af3055b2b6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br />
+ wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s.  <a href="#acb09129760ac9b171833af3055b2b6f5">More...</a><br /></td></tr>
+<tr class="separator:acb09129760ac9b171833af3055b2b6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+External Applications/Systems</h2></td></tr>
+<tr><td class="ititle" colspan="2"><p><a class="anchor" id="amgrpa44565bba507e198594663bd302b9223"></a>Interface for External Applications and Systems ( RF24Mesh, RF24Ethernet ) </p>
+</td></tr>
+<tr class="memitem:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aa06f1fdd0fd986d427c2c5193b47b212">frame_buffer</a> [MAX_FRAME_SIZE]</td></tr>
+<tr class="memdesc:aa06f1fdd0fd986d427c2c5193b47b212"><td class="mdescLeft">&#160;</td><td class="mdescRight">The raw system frame buffer of received data.  <a href="#aa06f1fdd0fd986d427c2c5193b47b212">More...</a><br /></td></tr>
+<tr class="separator:aa06f1fdd0fd986d427c2c5193b47b212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRF24NetworkFrame.html">RF24NetworkFrame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a1c994c5fdcb2173b187c52b641aaeae0">frag_ptr</a></td></tr>
+<tr class="memdesc:a1c994c5fdcb2173b187c52b641aaeae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The frag_ptr is only used with Arduino (not RPi/Linux) and is mainly used for external data systems like RF24Ethernet.  <a href="#a1c994c5fdcb2173b187c52b641aaeae0">More...</a><br /></td></tr>
+<tr class="separator:a1c994c5fdcb2173b187c52b641aaeae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#afb6b1d5c0fa3d982425f7a1f4fb48d13">returnSysMsgs</a></td></tr>
+<tr class="memdesc:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to determine whether <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">update()</a> will return after the radio buffers have been emptied (DEFAULT), or whether to return immediately when (most) system types are received.  <a href="#afb6b1d5c0fa3d982425f7a1f4fb48d13">More...</a><br /></td></tr>
+<tr class="separator:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>2014 - Optimized Network Layer for RF24 Radios </p>
+<div class="textblock"><p>2014-2015 - Optimized Network Layer for RF24 Radios </p>
 <p>This class implements an OSI Network Layer using nRF24L01(+) radios driven by RF24 library. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a814229a5a4e8e30f88a4bdce05807e50"></a>
@@ -268,9 +279,12 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Bring up the network. </p>
+<p>Calling begin sets up the radio frequency/channel and configures the address, which designates the location of the node within <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> topology. </p><dl class="section note"><dt>Note</dt><dd>Node addresses are specified in Octal format, see <a href="Addressing.html">RF24Network Addressing</a> for more information. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Be sure to 'begin' the radio first.</dd></dl>
-<p>Begin on channel 90 with address 0 (master node) </p><div class="fragment"><div class="line">network.begin(90,0);</div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<p><b>Example 1:</b> Begin on channel 90 with address 0 (master node) </p><div class="fragment"><div class="line">network.begin(90,0);</div>
+</div><!-- fragment --><p> <b>Example 2:</b> Begin on channel 90 with address 01 (child of master) </p><div class="fragment"><div class="line">network.begin(90,01);</div>
+</div><!-- fragment --><p> <b>Example 3:</b> Begin on channel 90 with address 011 (child of 01, grandchild of master) </p><div class="fragment"><div class="line">network.begin(90,011);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_channel</td><td>The RF channel to operate on </td></tr>
     <tr><td class="paramname">_node_address</td><td>The logical address of this node </td></tr>
@@ -295,7 +309,9 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Main layer loop. </p>
-<p>This function must be called regularly to keep the layer going. This is where payloads are re-routed, received, and all the action happens. </p><dl class="section return"><dt>Returns</dt><dd>Returns the type of the last received payload. </dd></dl>
+<p>This function must be called regularly to keep the layer going. This is where payloads are re-routed, received, and all the action happens.</p>
+<dl class="section see"><dt>See also</dt><dd></dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the type of the last received payload. </dd></dl>
 
 </div>
 </div>
@@ -428,7 +444,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Send a message. </p>
-<dl class="section note"><dt>Note</dt><dd><a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> now supports fragmentation for very long messages, send as normal. Fragmentation may need to be enabled or configured by editing the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file. Default max payload size is 120 bytes.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd><a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> now supports fragmentation for very long messages, send as normal. Fragmentation may need to be enabled or configured by editing the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file. Default max payload size is 120 bytes.</dd></dl>
 <div class="fragment"><div class="line">uint32_t time = millis();</div>
 <div class="line">uint16_t to = 00; <span class="comment">// Send to master</span></div>
 <div class="line"><a class="code" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> header(to, <span class="charliteral">&#39;T&#39;</span>); <span class="comment">// Send header type &#39;T&#39;</span></div>
@@ -442,6 +458,60 @@ Advanced Operation</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Whether the message was successfully received </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4fb7c61eee75d708a4ba20bb1caec54f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Network::multicastLevel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>By default, multicast addresses are divided into levels. </p>
+<p>Nodes 1-5 share a multicast address, nodes n1-n5 share a multicast address, and nodes n11-n55 share a multicast address.<br />
+</p>
+<p>This option is used to override the defaults, and create custom multicast groups that all share a single address. <br />
+ The level should be specified in decimal format 1-6 <br />
+ </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Levels 1 to 6 are available. All nodes at the same level will receive the same messages if in range. Messages will be routed in order of level, low to high by default, with the master node (00) at multicast Level 0 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acb09129760ac9b171833af3055b2b6f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Network::setup_watchdog </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>prescalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br />
+ wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s. </p>
+<div class="fragment"><div class="line"><a class="code" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a>(7);   <span class="comment">// Sets the WDT to trigger every second</span></div>
+</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prescalar</td><td>The WDT prescaler to define how often the node will wake up. When defining sleep mode cycles, this time period is 1 cycle. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -470,6 +540,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return the number of failures and successes for all transmitted payloads, routed or sent directly. </p>
+<dl class="section note"><dt>Note</dt><dd>This needs to be enabled via #define ENABLE_NETWORK_STATS in <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a></dd></dl>
 <div class="fragment"><div class="line"><span class="keywordtype">bool</span> fails, success;  </div>
 <div class="line">network.failures(&amp;fails,&amp;success);  </div>
 </div><!-- fragment --> 
@@ -525,30 +596,6 @@ Advanced Operation</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4fb7c61eee75d708a4ba20bb1caec54f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24Network::multicastLevel </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>level</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>By default, multicast addresses are divided into levels. </p>
-<p>Nodes 1-5 share a multicast address, nodes n1-n5 share a multicast address, and nodes n11-n55 share a multicast address. This option is used to override the defaults, and create custom multicast groups that all share a single address. The level should be specified in decimal format 1-6 </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">level</td><td>Levels 1 to 6 are available. All nodes at the same level will receive the same messages if in range. Messages will be routed in order of level, low to high by default, with the master node (00) at multicast Level 0 </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a class="anchor" id="abcbcdf229d67fe57d324cb26d64f5841"></a>
 <div class="memitem">
 <div class="memproto">
@@ -590,12 +637,12 @@ Advanced Operation</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8921392fbd695721c3d137f139a2a56e"></a>
+<a class="anchor" id="a488bfa788f40b51bd5110b4594cf2d9a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void RF24Network::sleepNode </td>
+          <td class="memname">bool RF24Network::sleepNode </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
           <td class="paramname"><em>cycles</em>, </td>
@@ -635,34 +682,9 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>True if sleepNode completed normally, after the specified number of cycles. False if sleep was interrupted </dd></dl>
 </li>
 </ol>
-
-</div>
-</div>
-<a class="anchor" id="acb09129760ac9b171833af3055b2b6f5"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24Network::setup_watchdog </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>prescalar</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set up the watchdog timer for sleep mode using the number 0 through 10 to represent the following time periods:<br />
- wdt_16ms = 0, wdt_32ms, wdt_64ms, wdt_128ms, wdt_250ms, wdt_500ms, wdt_1s, wdt_2s, wdt_4s, wdt_8s. </p>
-<div class="fragment"><div class="line"><a class="code" href="classRF24Network.html#acb09129760ac9b171833af3055b2b6f5">setup_watchdog</a>(7);   <span class="comment">// Sets the WDT to trigger every second</span></div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">prescalar</td><td>The WDT prescaler to define how often the node will wake up. When defining sleep mode cycles, this time period is 1 cycle. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -708,7 +730,7 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
       </table>
 </div><div class="memdoc">
 
-<p>Provided a node address and a pipe number, will return the <a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address of that child pipe for that node. </p>
+<p>Provided a node address and a pipe number, will return the <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address of that child pipe for that node. </p>
 
 </div>
 </div>
@@ -731,6 +753,21 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="add7408ca2b2f9ab15331ba77a747f7bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Network::multicastRelay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level. </p>
+<p>Duplicate frames are filtered out, so multiple forwarding nodes at the same level should not interfere. Forwarded payloads will also be received. </p>
+
+</div>
+</div>
 <a class="anchor" id="a8838b42717e7c9da37213b020db1f88c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -762,21 +799,6 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 
 </div>
 </div>
-<a class="anchor" id="add7408ca2b2f9ab15331ba77a747f7bb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::multicastRelay</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Enabling this will allow this node to automatically forward received multicast frames to the next highest multicast level. </p>
-<p>Duplicate frames are filtered out, so multiple forwarding nodes at the same level should not interfere. Forwarded payloads will also be received. </p>
-
-</div>
-</div>
 <a class="anchor" id="aa06f1fdd0fd986d427c2c5193b47b212"></a>
 <div class="memitem">
 <div class="memproto">
@@ -787,22 +809,7 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
       </table>
 </div><div class="memdoc">
 
-<p>Space to put the frame that will be sent/received over the air. </p>
-
-</div>
-</div>
-<a class="anchor" id="afb6b1d5c0fa3d982425f7a1f4fb48d13"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Network::returnSysMsgs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Variable to determine whether <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">update()</a> will return after the radio buffers have been emptied (DEFAULT), or whether to return immediately when (most) system types are received. </p>
-<p>Used with RF24Mesh to catch and handle system messages without loading them into the user cache, during mesh.update() </p>
+<p>The raw system frame buffer of received data. </p>
 
 </div>
 </div>
@@ -817,14 +824,54 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 </div><div class="memdoc">
 
 <p>The frag_ptr is only used with Arduino (not RPi/Linux) and is mainly used for external data systems like RF24Ethernet. </p>
-<p>When an EXTERNAL_DATA payload type is received, and returned from network.update(), the frag_ptr will always point to the starting memory location of the received frame. This is used by external data systems (RF24Ethernet) to immediately copy the received data to a buffer, without using the user-cache. </p>
+<p>When an EXTERNAL_DATA payload type is received, and returned from network.update(), the frag_ptr will always point to the starting memory location of the received frame. <br />
+This is used by external data systems (RF24Ethernet) to immediately copy the received data to a buffer, without using the user-cache.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structRF24NetworkFrame.html" title="Frame structure for internal message handling, and for use by external applications. ">RF24NetworkFrame</a></dd></dl>
+<div class="fragment"><div class="line">uint8_t return_type = network.update();</div>
+<div class="line"><span class="keywordflow">if</span>(return_type == <a class="code" href="group__DEFINED__TYPES.html#gac6bbd2772e776d10ca7c5f3c7eddf982">EXTERNAL_DATA_TYPE</a>){</div>
+<div class="line">    <span class="keywordtype">size_t</span> size = network.frag_ptr-&gt;message_size;       </div>
+<div class="line">    memcpy(&amp;myDataBuffer,network.frag_ptr-&gt;message_buffer,network.frag_ptr-&gt;message_size);</div>
+<div class="line">}               </div>
+</div><!-- fragment --><p> Linux devices (defined as RF24_LINUX) currently cache all payload types, and do not utilize frag_ptr. </p>
+
+</div>
+</div>
+<a class="anchor" id="afb6b1d5c0fa3d982425f7a1f4fb48d13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Network::returnSysMsgs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable to determine whether <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">update()</a> will return after the radio buffers have been emptied (DEFAULT), or whether to return immediately when (most) system types are received. </p>
+<p>As an example, this is used with RF24Mesh to catch and handle system messages without loading them into the user cache.</p>
+<p>The following reserved/system message types are handled automatically, and not returned.</p>
+<table class="doxtable">
+<tr>
+<th>System Message Types <br />
+ (Not Returned)  </th></tr>
+<tr>
+<td>NETWORK_ADDR_RESPONSE </td></tr>
+<tr>
+<td>NETWORK_ACK </td></tr>
+<tr>
+<td>NETWORK_PING </td></tr>
+<tr>
+<td>NETWORK_POLL <br />
+(With multicast enabled) </td></tr>
+<tr>
+<td>NETWORK_REQ_ADDRESS </td></tr>
+</table>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 6 2015 10:43:04 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 01:19:22 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

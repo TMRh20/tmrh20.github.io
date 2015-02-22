@@ -26,7 +26,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -41,6 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
@@ -81,29 +82,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Advanced Configuration </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="classRF24Network.html" title="2014 - Optimized Network Layer for RF24 Radios ">RF24Network</a> offers many features, some of which can be configured by editing the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file</p>
+<div class="textblock"><p><a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> offers many features, some of which can be configured by editing the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file</p>
 <table class="doxtable">
 <tr>
 <th>Configuration Option </th><th>Description  </th></tr>
 <tr>
 <td><b> #define RF24NetworkMulticast </b> </td><td>This option allows nodes to send and receive multicast payloads. Nodes with multicast enabled can also be configured to relay multicast payloads on to further multicast levels. See multicastRelay </td></tr>
 <tr>
-<td><b> #define DISABLE_FRAGMENTATION </b> </td><td>Fragmentation is enabled by default, and uses an additional 120 bytes of memory. </td></tr>
+<td><b> #define DISABLE_FRAGMENTATION </b> </td><td>Fragmentation is enabled by default, and uses an additional 144 bytes of memory. </td></tr>
 <tr>
-<td><b> #define MAX_PAYLOAD_SIZE 120 </b> </td><td>The maximum size of payloads defaults to 120 bytes. If used with RF24toTUN and two Raspberry Pi, set this to 1514 (TAP) or 1500 (TUN) </td></tr>
+<td><b> #define MAX_PAYLOAD_SIZE 144 </b> </td><td>The maximum size of payloads defaults to 144 bytes. If used with RF24toTUN and two Raspberry Pi, set this to 1514 (TAP) or 1500 (TUN) </td></tr>
 <tr>
-<td><b> #define NUM_USER_PAYLOADS 5 </b> </td><td>This is the number of 32-byte payloads the network layer will cache for the user. If using fragmentation, this number * 32 must be larger than MAX_PAYLOAD_SIZE </td></tr>
+<td><b> #define NUM_USER_PAYLOADS 5 </b> </td><td>This is the number of 24-byte payloads the network layer will cache for the user. If using fragmentation, this number * 24 must be larger than MAX_PAYLOAD_SIZE </td></tr>
 <tr>
 <td><b> #define DISABLE_USER_PAYLOADS </b> </td><td>This option will disable user-caching of payloads entirely. Use with RF24Ethernet to reduce memory usage. (TCP/IP is an external data type, and not cached) </td></tr>
 <tr>
 <td><b> #define ENABLE_SLEEP_MODE </b> </td><td>Uncomment this option to enable sleep mode for AVR devices. (ATTiny,Uno, etc) </td></tr>
 <tr>
 <td><b> #define DUAL_HEAD_RADIO </b> </td><td>Uncomment this option to enable use of dual radios </td></tr>
+<tr>
+<td>**#define ENABLE_NETWORK_STATS** </td><td>Enable counting of all successful or failed transmissions, routed or sent directly </td></tr>
 </table>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 6 2015 10:43:04 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 22 2015 01:19:22 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

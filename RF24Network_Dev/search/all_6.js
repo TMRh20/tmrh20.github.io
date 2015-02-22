@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['message_5fbuffer',['message_buffer',['../structRF24NetworkFrame.html#a2ca805d90caa7aef8005fafd2c55fbc6',1,'RF24NetworkFrame']]],
-  ['message_5fsize',['message_size',['../structRF24NetworkFrame.html#a8fc9cedd18cffce96cf457c375e2081b',1,'RF24NetworkFrame']]],
-  ['multicast',['multicast',['../classRF24Network.html#ad777906b31c19c765ffe6f97a3f7feb0',1,'RF24Network']]],
-  ['multicastlevel',['multicastLevel',['../classRF24Network.html#a4fb7c61eee75d708a4ba20bb1caec54f',1,'RF24Network']]],
-  ['multicastrelay',['multicastRelay',['../classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb',1,'RF24Network']]]
+  ['id',['id',['../structRF24NetworkHeader.html#ad05daaac28b7d1e7a7ef749f7f0ce317',1,'RF24NetworkHeader']]],
+  ['is_5fvalid_5faddress',['is_valid_address',['../classRF24Network.html#ab41da035bd7f469ea4364a06ab4efd1b',1,'RF24Network']]]
 ];

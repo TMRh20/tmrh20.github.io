@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['network_20layer_20for_20rf24_20radios',['Network Layer for RF24 Radios',['../index.html',1,'']]],
-  ['next_5fid',['next_id',['../structRF24NetworkHeader.html#af02a00fa410f6c34bb395f7d0afe2bfd',1,'RF24NetworkHeader']]]
+  ['message_5fbuffer',['message_buffer',['../structRF24NetworkFrame.html#a2ca805d90caa7aef8005fafd2c55fbc6',1,'RF24NetworkFrame']]],
+  ['message_5fsize',['message_size',['../structRF24NetworkFrame.html#a8fc9cedd18cffce96cf457c375e2081b',1,'RF24NetworkFrame']]],
+  ['multicast',['multicast',['../classRF24Network.html#ad777906b31c19c765ffe6f97a3f7feb0',1,'RF24Network']]],
+  ['multicastlevel',['multicastLevel',['../classRF24Network.html#a4fb7c61eee75d708a4ba20bb1caec54f',1,'RF24Network']]],
+  ['multicastrelay',['multicastRelay',['../classRF24Network.html#add7408ca2b2f9ab15331ba77a747f7bb',1,'RF24Network']]]
 ];
