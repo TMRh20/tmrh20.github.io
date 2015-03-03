@@ -129,14 +129,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#define TRUNCATED        -3</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define INVALID_RESPONSE -4</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> DNSClient::begin(<span class="keyword">const</span> IPAddress&amp; aDNSServer)</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classDNSClient.html#aac123ed1182719dd850b3a05deafcaf0">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classDNSClient.html#aac123ed1182719dd850b3a05deafcaf0">DNSClient::begin</a>(<span class="keyword">const</span> IPAddress&amp; aDNSServer)</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    iDNSServer = aDNSServer;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    iRequestId = 0;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classDNSClient.html#ae1c134ae6c67ff2fc2e0c11e3ba1121a">iDNSServer</a> = aDNSServer;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">iRequestId</a> = 0;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> DNSClient::inet_aton(<span class="keyword">const</span> <span class="keywordtype">char</span>* aIPAddrString, IPAddress&amp; aResult)</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classDNSClient.html#acb77b0143a72500dcc6ec5523bceb734">   54</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classDNSClient.html#acb77b0143a72500dcc6ec5523bceb734">DNSClient::inet_aton</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* aIPAddrString, IPAddress&amp; aResult)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// See if we&#39;ve been given a valid IP address</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* p =aIPAddrString;</div>
@@ -196,41 +196,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keywordtype">int</span> DNSClient::getHostByName(<span class="keyword">const</span> <span class="keywordtype">char</span>* aHostname, IPAddress&amp; aResult)</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b">  114</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b">DNSClient::getHostByName</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* aHostname, IPAddress&amp; aResult)</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">int</span> ret =0;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">// See if it&#39;s a numeric IP address</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (inet_aton(aHostname, aResult))</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classDNSClient.html#acb77b0143a72500dcc6ec5523bceb734">inet_aton</a>(aHostname, aResult))</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    {</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="comment">// It is, our work here is done</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Check we&#39;ve got a valid DNS server to use</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (iDNSServer == INADDR_NONE)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classDNSClient.html#ae1c134ae6c67ff2fc2e0c11e3ba1121a">iDNSServer</a> == INADDR_NONE)</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    {</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS Invalid DNS Server&quot;</span>)) );</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> INVALID_SERVER;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    }</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    </div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="comment">// Find a socket to use</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">if</span> (iUdp.begin(1024+(millis() &amp; 0xF)) == 1)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#ade271f0eb07f5806168fe1991a8e1a78">begin</a>(1024+(millis() &amp; 0xF)) == 1)</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="comment">// Try up to three times</span></div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordtype">int</span> retries = 0;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">//        while ((retries &lt; 3) &amp;&amp; (ret &lt;= 0))</span></div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        {</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="comment">// Send DNS request</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            ret = iUdp.beginPacket(iDNSServer, DNS_PORT);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            ret = <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">beginPacket</a>(<a class="code" href="classDNSClient.html#ae1c134ae6c67ff2fc2e0c11e3ba1121a">iDNSServer</a>, DNS_PORT);</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            <span class="keywordflow">if</span> (ret != 0)</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            {</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                <span class="comment">// Now output the request data</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                ret = BuildRequest(aHostname);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                ret = <a class="code" href="classDNSClient.html#aa48bcfd274245e3d456b7ad0d8170463">BuildRequest</a>(aHostname);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                <span class="keywordflow">if</span> (ret != 0)</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                {</div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                    <span class="comment">// And finally send the request</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    ret = iUdp.endPacket();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                    ret = <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a12ce19aca81a82240fa975300baf569e">endPacket</a>();</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                    <span class="keywordflow">if</span> (ret != 0)</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                    {</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                        <span class="comment">// Now wait for a response</span></div>
@@ -238,7 +238,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                        ret = TIMED_OUT;</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        <span class="keywordflow">while</span> ((wait_retries &lt; 3) &amp;&amp; (ret == TIMED_OUT))</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                            ret = ProcessResponse(5000, aResult);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                            ret = <a class="code" href="classDNSClient.html#a1a03da561244297f59ae89e65ba1e0ef">ProcessResponse</a>(5000, aResult);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                            wait_retries++;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                        }</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    }</div>
@@ -248,13 +248,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        }</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="comment">// We&#39;re done with the socket now</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        iUdp.stop();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a5975e7560c46893578eadd4d599f878f">stop</a>();</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;uint16_t DNSClient::BuildRequest(<span class="keyword">const</span> <span class="keywordtype">char</span>* aName)</div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classDNSClient.html#aa48bcfd274245e3d456b7ad0d8170463">  172</a></span>&#160;uint16_t <a class="code" href="classDNSClient.html#aa48bcfd274245e3d456b7ad0d8170463">DNSClient::BuildRequest</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* aName)</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="comment">// Build header</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="comment">//                                    1  1  1  1  1  1</span></div>
@@ -274,25 +274,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">//    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+</span></div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">// As we only support one request at a time at present, we can simplify</span></div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="comment">// some of this header</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    iRequestId = millis(); <span class="comment">// generate a random ID</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <a class="code" href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">iRequestId</a> = millis(); <span class="comment">// generate a random ID</span></div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    uint16_t twoByteBuffer;</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">// FIXME We should also check that there&#39;s enough space available to write to, rather</span></div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">// FIXME than assume there&#39;s enough space (as the code does at present)</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    iUdp.write((uint8_t*)&amp;iRequestId, <span class="keyword">sizeof</span>(iRequestId));</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;<a class="code" href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">iRequestId</a>, <span class="keyword">sizeof</span>(<a class="code" href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">iRequestId</a>));</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    twoByteBuffer = htons(QUERY_FLAG | OPCODE_STANDARD_QUERY | RECURSION_DESIRED_FLAG);</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    twoByteBuffer = htons(1);  <span class="comment">// One question record</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    twoByteBuffer = 0;  <span class="comment">// Zero answer records</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="comment">// and zero additional records</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">// Build question</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* start =aName;</div>
@@ -312,9 +312,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        {</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            <span class="comment">// Write out the size of this section</span></div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            len = end-start;</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            iUdp.write(&amp;len, <span class="keyword">sizeof</span>(len));</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>(&amp;len, <span class="keyword">sizeof</span>(len));</div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            <span class="comment">// And then write out the section</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            iUdp.write((uint8_t*)start, end-start);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)start, end-start);</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        start = end+1;</div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
@@ -322,24 +322,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    <span class="comment">// We&#39;ve got to the end of the question name, so</span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">// terminate it with a zero-length section</span></div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    len = 0;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    iUdp.write(&amp;len, <span class="keyword">sizeof</span>(len));</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>(&amp;len, <span class="keyword">sizeof</span>(len));</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="comment">// Finally the type and class of question</span></div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    twoByteBuffer = htons(TYPE_A);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    twoByteBuffer = htons(CLASS_IN);  <span class="comment">// Internet class of question</span></div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    iUdp.write((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>((uint8_t*)&amp;twoByteBuffer, <span class="keyword">sizeof</span>(twoByteBuffer));</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">// Success!  Everything buffered okay</span></div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;uint16_t DNSClient::ProcessResponse(uint16_t aTimeout, IPAddress&amp; aAddress)</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="classDNSClient.html#a1a03da561244297f59ae89e65ba1e0ef">  252</a></span>&#160;uint16_t <a class="code" href="classDNSClient.html#a1a03da561244297f59ae89e65ba1e0ef">DNSClient::ProcessResponse</a>(uint16_t aTimeout, IPAddress&amp; aAddress)</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    uint32_t startTime = millis();</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <span class="comment">// Wait for a response packet</span></div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">while</span>(iUdp.parsePacket() &lt;= 0)</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">while</span>(<a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf">parsePacket</a>() &lt;= 0)</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    {</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        <span class="keywordflow">if</span>((millis() - startTime) &gt; aTimeout){</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24 DNS - Request timed out&quot;</span>)); );</div>
@@ -352,8 +352,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="comment">// Read the UDP header</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    uint8_t header[DNS_HEADER_SIZE]; <span class="comment">// Enough space to reuse for the DNS header</span></div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="comment">// Check that it&#39;s a response from the right server and the right port</span></div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span> ( (iDNSServer != iUdp.remoteIP()) || </div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        (iUdp.remotePort() != DNS_PORT) )</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">if</span> ( (<a class="code" href="classDNSClient.html#ae1c134ae6c67ff2fc2e0c11e3ba1121a">iDNSServer</a> != <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a52735b3cb3a304acb3eceadb94a8bb1f">remoteIP</a>()) || </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        (<a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a4d5c10d3a5a6801d2577a6e08922b2ad">remotePort</a>() != DNS_PORT) )</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    {</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        <span class="comment">// It&#39;s not from who we expected</span></div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS - Invalid Server: &quot;</span>)); );</div>
@@ -361,21 +361,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="comment">// Read through the rest of the response</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (iUdp.available() &lt; DNS_HEADER_SIZE)</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#ad500320ee5c726c91f318ac289a7596f">available</a>() &lt; DNS_HEADER_SIZE)</div>
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS - Truncated&quot;</span>)); );</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        <span class="keywordflow">return</span> TRUNCATED;</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.print(F(<span class="stringliteral">&quot;RF24DNS - DNS Header Size: &quot;</span>)); Serial.println(DNS_HEADER_SIZE); );</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    iUdp.read(header, DNS_HEADER_SIZE);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(header, DNS_HEADER_SIZE);</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    </div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    uint16_t header_flags = htons(*((uint16_t*)&amp;header[2]));</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="comment">// Check that it&#39;s a response to this request</span></div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> ( ( iRequestId != (*((uint16_t*)&amp;header[0])) ) ||</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">if</span> ( ( <a class="code" href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">iRequestId</a> != (*((uint16_t*)&amp;header[0])) ) ||</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        ((header_flags &amp; QUERY_RESPONSE_MASK) != (uint16_t)RESPONSE_FLAG) )</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    {</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        <span class="comment">// Mark the entire packet as read</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        iUdp.flush();</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">flush</a>();</div>
 <div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS - Invalid Response 1, Flushing&quot;</span>)); );</div>
 <div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="keywordflow">return</span> INVALID_RESPONSE;</div>
 <div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    }</div>
@@ -385,7 +385,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    {</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="comment">// Mark the entire packet as read</span></div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS - Invalid Response 2, Flushing&quot;</span>)); );</div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        iUdp.flush();</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">flush</a>();</div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        <span class="keywordflow">return</span> -5; <span class="comment">//INVALID_RESPONSE;</span></div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    }</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;</div>
@@ -395,7 +395,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    {</div>
 <div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        <span class="comment">// Mark the entire packet as read</span></div>
 <div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS - No Answer, Flushing&quot;</span>)); );</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        iUdp.flush();</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">flush</a>();</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">return</span> -6; <span class="comment">//INVALID_RESPONSE;</span></div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
 <div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;</div>
@@ -409,7 +409,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        uint8_t len;</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            iUdp.read(&amp;len, 1);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(&amp;len, 1);</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;            <span class="keywordflow">if</span> (len &gt; 0)</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;            {</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;                <span class="comment">// Don&#39;t need to actually read the data out for the string, just</span></div>
@@ -417,7 +417,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.print(F(<span class="stringliteral">&quot;RF24DNS Reading &quot;</span>)); Serial.println(len); );</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;                <span class="keywordflow">while</span>(len--)</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;                {</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                    iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;                    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                }</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;            }</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        } <span class="keywordflow">while</span> (len != 0);</div>
@@ -425,7 +425,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;        <span class="comment">// Now jump over the type and class</span></div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i =0; i &lt; 4; i++)</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        {</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        }</div>
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;</div>
@@ -440,7 +440,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        uint8_t len;</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        <span class="keywordflow">do</span></div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            iUdp.read(&amp;len, <span class="keyword">sizeof</span>(len));</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(&amp;len, <span class="keyword">sizeof</span>(len));</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;            <span class="keywordflow">if</span> ((len &amp; LABEL_COMPRESSION_MASK) == 0)</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            {</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                <span class="comment">// It&#39;s just a normal label</span></div>
@@ -451,7 +451,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                    <span class="comment">// just advance ptr to beyond it</span></div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;                    <span class="keywordflow">while</span>(len--)</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;                    {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                        iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;                        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                    }</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                }</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;            }</div>
@@ -464,7 +464,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                <span class="comment">// a pointer.  Either way, when we get here we&#39;re at the end of</span></div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                <span class="comment">// the name</span></div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;                <span class="comment">// Skip over the pointer</span></div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;                <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                <span class="comment">// And set len so that we drop out of the name loop</span></div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;                len = 0;</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            }</div>
@@ -473,19 +473,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <span class="comment">// Check the type and class</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        uint16_t answerType;</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        uint16_t answerClass;</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        iUdp.read((uint8_t*)&amp;answerType, <span class="keyword">sizeof</span>(answerType));</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        iUdp.read((uint8_t*)&amp;answerClass, <span class="keyword">sizeof</span>(answerClass));</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>((uint8_t*)&amp;answerType, <span class="keyword">sizeof</span>(answerType));</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>((uint8_t*)&amp;answerClass, <span class="keyword">sizeof</span>(answerClass));</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.print(F(<span class="stringliteral">&quot;RF24DNS Type: &quot;</span>)); Serial.println(HTONS(answerType),HEX);   Serial.print(F(<span class="stringliteral">&quot;RF24DNS Class: &quot;</span>)); Serial.println(HTONS(answerClass),HEX);  );</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        <span class="comment">// Ignore the Time-To-Live as we don&#39;t do any caching</span></div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i =0; i &lt; TTL_SIZE; i++)</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        {</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        }</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;        <span class="comment">// And read out the length of this answer</span></div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;        <span class="comment">// Don&#39;t need header_flags anymore, so we can reuse it here</span></div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        iUdp.read((uint8_t*)&amp;header_flags, <span class="keyword">sizeof</span>(header_flags));</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;        <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>((uint8_t*)&amp;header_flags, <span class="keyword">sizeof</span>(header_flags));</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <span class="keywordflow">if</span> ( (HTONS(answerType) == TYPE_A) &amp;&amp; (HTONS(answerClass) == CLASS_IN) )</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="comment">//if ( (answerType == TYPE_A) &amp;&amp; (answerClass == CLASS_IN) )</span></div>
@@ -495,10 +495,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                <span class="comment">// It&#39;s a weird size</span></div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;                <span class="comment">// Mark the entire packet as read</span></div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;                <a class="code" href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a>( Serial.println(F(<span class="stringliteral">&quot;RF24DNS Flush invalid&quot;</span>)); );</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                iUdp.flush();</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">flush</a>();</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                <span class="keywordflow">return</span> -9;<span class="comment">//INVALID_RESPONSE;</span></div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;            }</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            iUdp.read(aAddress.raw_address(), 4);</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(aAddress.raw_address(), 4);</div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="keywordflow">return</span> SUCCESS;</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        }</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">else</span></div>
@@ -508,24 +508,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            <span class="keywordflow">for</span> (uint16_t i =0; i &lt; HTONS(header_flags); i++)</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="comment">//for (uint16_t i =0; i &lt; header_flags; i++)</span></div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            {</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                iUdp.read(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;                <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(); <span class="comment">// we don&#39;t care about the returned byte</span></div>
 <div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;            }</div>
 <div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        }</div>
 <div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    }</div>
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="comment">// Mark the entire packet as read</span></div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    iUdp.flush();</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <a class="code" href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">iUdp</a>.<a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">flush</a>();</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="comment">// If we get here then we haven&#39;t found an answer</span></div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    <span class="keywordflow">return</span> -10;<span class="comment">//INVALID_RESPONSE;</span></div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;}</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classDNSClient_html_acb77b0143a72500dcc6ec5523bceb734"><div class="ttname"><a href="classDNSClient.html#acb77b0143a72500dcc6ec5523bceb734">DNSClient::inet_aton</a></div><div class="ttdeci">int inet_aton(const char *aIPAddrString, IPAddress &amp;aResult)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00054">Dns.cpp:54</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a52735b3cb3a304acb3eceadb94a8bb1f"><div class="ttname"><a href="classRF24UDP.html#a52735b3cb3a304acb3eceadb94a8bb1f">RF24UDP::remoteIP</a></div><div class="ttdeci">IPAddress remoteIP()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00261">RF24Udp.cpp:261</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a5975e7560c46893578eadd4d599f878f"><div class="ttname"><a href="classRF24UDP.html#a5975e7560c46893578eadd4d599f878f">RF24UDP::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00059">RF24Udp.cpp:59</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a1c45bf5a7028c4e75d0f185f59b6d917"><div class="ttname"><a href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">RF24UDP::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00252">RF24Udp.cpp:252</a></div></div>
+<div class="ttc" id="classDNSClient_html_aa48bcfd274245e3d456b7ad0d8170463"><div class="ttname"><a href="classDNSClient.html#aa48bcfd274245e3d456b7ad0d8170463">DNSClient::BuildRequest</a></div><div class="ttdeci">uint16_t BuildRequest(const char *aName)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00172">Dns.cpp:172</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a31273458ab5c9ff2263af98ffd193fcf"><div class="ttname"><a href="classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf">RF24UDP::parsePacket</a></div><div class="ttdeci">int parsePacket()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00179">RF24Udp.cpp:179</a></div></div>
+<div class="ttc" id="classRF24UDP_html_ade271f0eb07f5806168fe1991a8e1a78"><div class="ttname"><a href="classRF24UDP.html#ade271f0eb07f5806168fe1991a8e1a78">RF24UDP::begin</a></div><div class="ttdeci">uint8_t begin(uint16_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00044">RF24Udp.cpp:44</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a4d5c10d3a5a6801d2577a6e08922b2ad"><div class="ttname"><a href="classRF24UDP.html#a4d5c10d3a5a6801d2577a6e08922b2ad">RF24UDP::remotePort</a></div><div class="ttdeci">uint16_t remotePort()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00268">RF24Udp.cpp:268</a></div></div>
+<div class="ttc" id="classDNSClient_html_ae1c134ae6c67ff2fc2e0c11e3ba1121a"><div class="ttname"><a href="classDNSClient.html#ae1c134ae6c67ff2fc2e0c11e3ba1121a">DNSClient::iDNSServer</a></div><div class="ttdeci">IPAddress iDNSServer</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8h_source.html#l00039">Dns.h:39</a></div></div>
+<div class="ttc" id="classDNSClient_html_ace5dd5e39a52420bb379477ae80729bb"><div class="ttname"><a href="classDNSClient.html#ace5dd5e39a52420bb379477ae80729bb">DNSClient::iUdp</a></div><div class="ttdeci">RF24UDP iUdp</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8h_source.html#l00041">Dns.h:41</a></div></div>
+<div class="ttc" id="classDNSClient_html_ac62f5c79f85003f598223eec7fc1c22b"><div class="ttname"><a href="classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b">DNSClient::getHostByName</a></div><div class="ttdeci">int getHostByName(const char *aHostname, IPAddress &amp;aResult)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00114">Dns.cpp:114</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a12ce19aca81a82240fa975300baf569e"><div class="ttname"><a href="classRF24UDP.html#a12ce19aca81a82240fa975300baf569e">RF24UDP::endPacket</a></div><div class="ttdeci">int endPacket()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00140">RF24Udp.cpp:140</a></div></div>
+<div class="ttc" id="classDNSClient_html_a1a03da561244297f59ae89e65ba1e0ef"><div class="ttname"><a href="classDNSClient.html#a1a03da561244297f59ae89e65ba1e0ef">DNSClient::ProcessResponse</a></div><div class="ttdeci">uint16_t ProcessResponse(uint16_t aTimeout, IPAddress &amp;aAddress)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00252">Dns.cpp:252</a></div></div>
+<div class="ttc" id="classDNSClient_html_aac123ed1182719dd850b3a05deafcaf0"><div class="ttname"><a href="classDNSClient.html#aac123ed1182719dd850b3a05deafcaf0">DNSClient::begin</a></div><div class="ttdeci">void begin(const IPAddress &amp;aDNSServer)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00047">Dns.cpp:47</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a9b1a90b48b06b811dcba9b8792dcfb32"><div class="ttname"><a href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">RF24UDP::beginPacket</a></div><div class="ttdeci">int beginPacket(IPAddress ip, uint16_t port)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00078">RF24Udp.cpp:78</a></div></div>
+<div class="ttc" id="classDNSClient_html_a20b50f5a6a4101f8b2d388a75146763d"><div class="ttname"><a href="classDNSClient.html#a20b50f5a6a4101f8b2d388a75146763d">DNSClient::iRequestId</a></div><div class="ttdeci">uint16_t iRequestId</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8h_source.html#l00040">Dns.h:40</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a411f9fdb0712df20431f578d84b32b1d"><div class="ttname"><a href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">RF24UDP::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00156">RF24Udp.cpp:156</a></div></div>
 <div class="ttc" id="group__DebugOptions_html_ga582731f9d492527f773b78d613e2da85"><div class="ttname"><a href="group__DebugOptions.html#ga582731f9d492527f773b78d613e2da85">IF_RF24ETHERNET_DEBUG_DNS</a></div><div class="ttdeci">#define IF_RF24ETHERNET_DEBUG_DNS(x)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet__config_8h_source.html#l00056">RF24Ethernet_config.h:56</a></div></div>
+<div class="ttc" id="classRF24UDP_html_ad500320ee5c726c91f318ac289a7596f"><div class="ttname"><a href="classRF24UDP.html#ad500320ee5c726c91f318ac289a7596f">RF24UDP::available</a></div><div class="ttdeci">int available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00199">RF24Udp.cpp:199</a></div></div>
+<div class="ttc" id="classRF24UDP_html_a23ad6df09a5da6a22304016ff17693dc"><div class="ttname"><a href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">RF24UDP::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00207">RF24Udp.cpp:207</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 15 2015 02:22:04 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 3 2015 13:46:29 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

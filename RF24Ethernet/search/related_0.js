@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['rf24client',['RF24Client',['../classRF24EthernetClass.html#ace49748274217efa2d5817c9659262df',1,'RF24EthernetClass']]],
-  ['rf24ethernetclass',['RF24EthernetClass',['../classRF24Client.html#a256f2ce38756f538e9a8de60f4cd3131',1,'RF24Client']]],
+  ['rf24client',['RF24Client',['../classRF24EthernetClass.html#ace49748274217efa2d5817c9659262df',1,'RF24EthernetClass::RF24Client()'],['../classRF24UDP.html#ace49748274217efa2d5817c9659262df',1,'RF24UDP::RF24Client()']]],
+  ['rf24ethernetclass',['RF24EthernetClass',['../classRF24Client.html#a256f2ce38756f538e9a8de60f4cd3131',1,'RF24Client::RF24EthernetClass()'],['../classRF24UDP.html#a256f2ce38756f538e9a8de60f4cd3131',1,'RF24UDP::RF24EthernetClass()']]],
   ['rf24server',['RF24Server',['../classRF24Client.html#a671e8c5a10e578dcaa6fcfae80d0d938',1,'RF24Client::RF24Server()'],['../classRF24EthernetClass.html#a671e8c5a10e578dcaa6fcfae80d0d938',1,'RF24EthernetClass::RF24Server()']]],
   ['rf24udp',['RF24UDP',['../classRF24EthernetClass.html#a0dad18b1dbafe3af50f582a64b470c6c',1,'RF24EthernetClass']]]
 ];

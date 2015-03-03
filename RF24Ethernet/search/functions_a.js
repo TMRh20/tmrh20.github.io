@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['set_5fgateway',['set_gateway',['../classRF24EthernetClass.html#a9c11cc6c37a3fbb28750484f20ede422',1,'RF24EthernetClass']]],
-  ['setchannel',['setChannel',['../classRF24EthernetClass.html#a313d0b7cd7d6a4fab825f3770ac8486a',1,'RF24EthernetClass']]],
-  ['setmac',['setMac',['../classRF24EthernetClass.html#a307dddd1f2663939b4c4a626d633b3c2',1,'RF24EthernetClass']]],
-  ['stop',['stop',['../classRF24Client.html#a4fbc538b64c27747509475fcc047c60e',1,'RF24Client']]],
-  ['subnetmask',['subnetMask',['../classRF24EthernetClass.html#a93d4f56dbc030907229af878634eff5d',1,'RF24EthernetClass']]]
+  ['parsepacket',['parsePacket',['../classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf',1,'RF24UDP']]],
+  ['peek',['peek',['../classRF24Client.html#af4ef0367085f8e14b81b59d7517416f6',1,'RF24Client::peek()'],['../classRF24UDP.html#a66f91beebd3c9c3d88bbf9879fa3fbec',1,'RF24UDP::peek()']]],
+  ['processresponse',['ProcessResponse',['../classDNSClient.html#a1a03da561244297f59ae89e65ba1e0ef',1,'DNSClient']]]
 ];
