@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.3b</span>
+   &#160;<span id="projectnumber">1.4b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -189,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"> * with a single address if requesting an address of www.google.com vs google.com, and this will work with the default payload size</span></div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="group__UipConfiguration.html#ga763f12007aad8cc0e483bf50f8a8d9b4">  107</a></span>&#160;<span class="preprocessor">#define UIP_CONF_UDP             1</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="group__UipConfiguration.html#ga763f12007aad8cc0e483bf50f8a8d9b4">  107</a></span>&#160;<span class="preprocessor">#define UIP_CONF_UDP             0</span></div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//#define UIP_CONF_BROADCAST       0</span></div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">//#define UIP_CONF_UDP_CONNS       1</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
@@ -233,11 +233,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">* @note Must be an odd number or the TCP/IP sequence gets out of order with payloads larger than 511 bytes</span></div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">* I think this might be a bug or missing feature of the uip stack</span></div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">*/</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">//#if UIP_CONF_BUFFER_SIZE &gt;= 512</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="comment">//  #define OUTPUT_BUFFER_SIZE 511</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">//#else</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#if UIP_CONF_BUFFER_SIZE &gt;= 512</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">  #define OUTPUT_BUFFER_SIZE 511</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">  154</a></span>&#160;<span class="preprocessor">  #define OUTPUT_BUFFER_SIZE UIP_CONF_BUFFER_SIZE - UIP_CONF_LLH_LEN - UIP_TCPIP_HLEN</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">//#endif</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"></span></div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment"> /**</span></div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">  * &lt;b&gt;Optional:&lt;/b&gt; Used with UIP_CONNECTION_TIMEOUT  </span></div>
@@ -365,12 +365,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __UIP_CONF_H__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="ttc" id="classRF24Client_html_ab58e1ceb7cb73ca2bcd73146b6c1b4e7"><div class="ttname"><a href="classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7">RF24Client::uip_log</a></div><div class="ttdeci">friend void uip_log(char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00179">RF24Client.cpp:179</a></div></div>
-<div class="ttc" id="classRF24Client_html_a8d670dfd402546dd32b678660d609b49"><div class="ttname"><a href="classRF24Client.html#a8d670dfd402546dd32b678660d609b49">RF24Client::serialip_appcall</a></div><div class="ttdeci">friend void serialip_appcall(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00187">RF24Client.cpp:187</a></div></div>
+<div class="ttc" id="classRF24Client_html_ab58e1ceb7cb73ca2bcd73146b6c1b4e7"><div class="ttname"><a href="classRF24Client.html#ab58e1ceb7cb73ca2bcd73146b6c1b4e7">RF24Client::uip_log</a></div><div class="ttdeci">friend void uip_log(char *msg)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00190">RF24Client.cpp:190</a></div></div>
+<div class="ttc" id="classRF24Client_html_a8d670dfd402546dd32b678660d609b49"><div class="ttname"><a href="classRF24Client.html#a8d670dfd402546dd32b678660d609b49">RF24Client::serialip_appcall</a></div><div class="ttdeci">friend void serialip_appcall(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00198">RF24Client.cpp:198</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 6 2015 12:35:40 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 15:55:31 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

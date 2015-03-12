@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.3b</span>
+   &#160;<span id="projectnumber">1.4b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// Constructor</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a57e8410314459342cbe3a542c2a41db7">   35</a></span>&#160;<a class="code" href="classRF24UDP.html#a57e8410314459342cbe3a542c2a41db7">RF24UDP::RF24UDP</a>() :</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;RF24UDP::RF24UDP() :</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    _uip_udp_conn(NULL)</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  memset(&amp;appdata,0,<span class="keyword">sizeof</span>(appdata));</div>
@@ -126,7 +126,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">// initialize, start listening on specified port. Returns 1 if successful, 0 if there are no sockets available to use</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classRF24UDP.html#ade271f0eb07f5806168fe1991a8e1a78">   44</a></span>&#160;uint8_t <a class="code" href="classRF24UDP.html#ade271f0eb07f5806168fe1991a8e1a78">RF24UDP::begin</a>(uint16_t port) {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;uint8_t RF24UDP::begin(uint16_t port) {</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">if</span> (!_uip_udp_conn) {</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      _uip_udp_conn = uip_udp_new(NULL, 0);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">// Finish with the UDP socket</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a5975e7560c46893578eadd4d599f878f">   59</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classRF24UDP.html#a5975e7560c46893578eadd4d599f878f">RF24UDP::stop</a>() {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> RF24UDP::stop() {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordflow">if</span> (_uip_udp_conn) {</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      uip_udp_remove(_uip_udp_conn);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      _uip_udp_conn-&gt;appstate = NULL;</div>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">// Start building up a packet to send to the remote host specific in ip and port</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// Returns 1 if successful, 0 if there was a problem with the supplied IP address or port</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">   78</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">RF24UDP::beginPacket</a>(IPAddress ip, uint16_t port){</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">int</span> RF24UDP::beginPacket(IPAddress ip, uint16_t port){</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  RF24EthernetClass::tick();</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordflow">if</span> (ip &amp;&amp; port) {</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      uip_ipaddr_t ripaddr;</div>
@@ -203,16 +203,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">// Start building up a packet to send to the remote host specific in host and port</span></div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">// Returns 1 if successful, 0 if there was a problem resolving the hostname or port</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a95c19fecb6eccea1a1e2bf8228beac60">  121</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">RF24UDP::beginPacket</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *host, uint16_t port) {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">int</span> RF24UDP::beginPacket(<span class="keyword">const</span> <span class="keywordtype">char</span> *host, uint16_t port) {</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="comment">// Look up the host first</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keywordtype">int</span> ret = 0;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="classDNSClient.html">DNSClient</a> dns;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  DNSClient dns;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  IPAddress remote_addr;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  dns.<a class="code" href="classDNSClient.html#aac123ed1182719dd850b3a05deafcaf0">begin</a>(RF24Ethernet.<a class="code" href="classRF24EthernetClass.html#a7e70612c15de96f2dd6528cdfbcb5171">dnsServerIP</a>());</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  ret = dns.<a class="code" href="classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b">getHostByName</a>(host, remote_addr);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  dns.begin(RF24Ethernet.<a class="code" href="classRF24EthernetClass.html#a7e70612c15de96f2dd6528cdfbcb5171">dnsServerIP</a>());</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  ret = dns.getHostByName(host, remote_addr);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordflow">if</span> (ret == 1) {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">beginPacket</a>(remote_addr, port);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> beginPacket(remote_addr, port);</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  }</div>
@@ -222,7 +222,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">// Finish off this packet and send it</span></div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">// Returns 1 if the packet was sent successfully, 0 if there was an error</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a12ce19aca81a82240fa975300baf569e">  140</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a12ce19aca81a82240fa975300baf569e">RF24UDP::endPacket</a>() {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keywordtype">int</span> RF24UDP::endPacket() {</div>
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordflow">if</span> (_uip_udp_conn &amp;&amp; appdata.packet_out != 0) {</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      appdata.send = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <a class="code" href="group__DebugOptions.html#gaa2088bbdfdd816f5343ebfc9082cdb7c">IF_RF24ETHERNET_DEBUG_UDP</a>( Serial.println(F(<span class="stringliteral">&quot;RF24UDP endpacket&quot;</span>)); );</div>
@@ -238,14 +238,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">// Write a single byte into the packet</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">  156</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">RF24UDP::write</a>(uint8_t c) {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">write</a>(&amp;c,1);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keywordtype">size_t</span> RF24UDP::write(uint8_t c) {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordflow">return</span> write(&amp;c,1);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;}</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">// Write size bytes from buffer into the packet</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a9a4e0053b7092b4009745393e6877206">  163</a></span>&#160;<span class="keywordtype">size_t</span> <a class="code" href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">RF24UDP::write</a>(<span class="keyword">const</span> uint8_t *buffer, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="keywordtype">size_t</span> RF24UDP::write(<span class="keyword">const</span> uint8_t *buffer, <span class="keywordtype">size_t</span> size) {</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="keywordflow">if</span> (appdata.packet_out != 0) {</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <a class="code" href="group__DebugOptions.html#gaa2088bbdfdd816f5343ebfc9082cdb7c">IF_RF24ETHERNET_DEBUG_UDP</a>( Serial.println(<span class="stringliteral">&quot;RF24UDP Write: &quot;</span>); Serial.println(size); <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;size; i++){ Serial.print((<span class="keywordtype">char</span>)buffer[i]); Serial.print(<span class="stringliteral">&quot; &quot;</span>); } Serial.println(<span class="stringliteral">&quot;&quot;</span>); );</div>
@@ -261,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">// Start processing the next available incoming packet</span></div>
 <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">// Returns the size of the packet in bytes, or 0 if no packets are available</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf">  179</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf">RF24UDP::parsePacket</a>() {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keywordtype">int</span> RF24UDP::parsePacket() {</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  RF24EthernetClass::tick();</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keywordtype">int</span> size = appdata.packet_in_size;</div>
@@ -281,7 +281,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">// Number of bytes remaining in the current packet</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classRF24UDP.html#ad500320ee5c726c91f318ac289a7596f">  199</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#ad500320ee5c726c91f318ac289a7596f">RF24UDP::available</a>() {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">int</span> RF24UDP::available() {</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  RF24EthernetClass::tick();</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordflow">return</span> appdata.packet_in_size;</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
@@ -289,9 +289,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">// Read a single byte from the current packet</span></div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">  207</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">RF24UDP::read</a>() {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keywordtype">int</span> RF24UDP::read() {</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> c;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">if</span> (<a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">read</a>(&amp;c,1) &gt; 0) {</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordflow">if</span> (read(&amp;c,1) &gt; 0) {</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> c;</div>
 <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  }</div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordflow">return</span> -1;</div>
@@ -301,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">// Read up to len bytes from the current packet and place them into buffer</span></div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">// Returns the number of bytes read, or 0 if none are available</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a80376b9cd38078c4ff1ebbf7c91bb3df">  219</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">RF24UDP::read</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keywordtype">int</span> RF24UDP::read(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* buffer, <span class="keywordtype">size_t</span> len) {</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  </div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  RF24EthernetClass::tick();</div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  </div>
@@ -321,7 +321,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">// Return the next byte from the current packet without moving on to the next byte</span></div>
-<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a66f91beebd3c9c3d88bbf9879fa3fbec">  239</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classRF24UDP.html#a66f91beebd3c9c3d88bbf9879fa3fbec">RF24UDP::peek</a>() {</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keywordtype">int</span> RF24UDP::peek() {</div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  RF24EthernetClass::tick();</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
@@ -334,7 +334,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">// Finish reading the current packet</span></div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">  252</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">RF24UDP::flush</a>() {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keywordtype">void</span> RF24UDP::flush() {</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  appdata.packet_in = 0;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  appdata.packet_in_size = 0;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  RF24EthernetClass::tick();</div>
@@ -343,14 +343,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">// Return the IP address of the host who sent the current incoming packet</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a52735b3cb3a304acb3eceadb94a8bb1f">  261</a></span>&#160;IPAddress <a class="code" href="classRF24UDP.html#a52735b3cb3a304acb3eceadb94a8bb1f">RF24UDP::remoteIP</a>() {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;IPAddress RF24UDP::remoteIP() {</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">return</span> _uip_udp_conn ? ip_addr_uip(_uip_udp_conn-&gt;ripaddr) : IPAddress();</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment">/*******************************************************/</span></div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment">// Return the port of the host who sent the current incoming packet</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="classRF24UDP.html#a4d5c10d3a5a6801d2577a6e08922b2ad">  268</a></span>&#160;uint16_t <a class="code" href="classRF24UDP.html#a4d5c10d3a5a6801d2577a6e08922b2ad">RF24UDP::remotePort</a>() {</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;uint16_t RF24UDP::remotePort() {</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  <span class="keywordflow">return</span> _uip_udp_conn ? ntohs(_uip_udp_conn-&gt;rport) : 0;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
@@ -358,7 +358,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment">// uIP callback function</span></div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="classRF24UDP.html#aabcb6018b6d071112561466fcac249c0">  276</a></span>&#160;<span class="keywordtype">void</span> uipudp_appcall(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keywordtype">void</span> uipudp_appcall(<span class="keywordtype">void</span>) {</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordflow">if</span> (uip_udp_userdata_t *data = (uip_udp_userdata_t *)(uip_udp_conn-&gt;appstate)) {</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="keywordflow">if</span> (uip_newdata()) {</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;          <span class="keywordflow">if</span> (data-&gt;packet_next == 0) {</div>
@@ -412,28 +412,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="group__DebugOptions_html_gaa2088bbdfdd816f5343ebfc9082cdb7c"><div class="ttname"><a href="group__DebugOptions.html#gaa2088bbdfdd816f5343ebfc9082cdb7c">IF_RF24ETHERNET_DEBUG_UDP</a></div><div class="ttdeci">#define IF_RF24ETHERNET_DEBUG_UDP(x)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet__config_8h_source.html#l00048">RF24Ethernet_config.h:48</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a52735b3cb3a304acb3eceadb94a8bb1f"><div class="ttname"><a href="classRF24UDP.html#a52735b3cb3a304acb3eceadb94a8bb1f">RF24UDP::remoteIP</a></div><div class="ttdeci">IPAddress remoteIP()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00261">RF24Udp.cpp:261</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a5975e7560c46893578eadd4d599f878f"><div class="ttname"><a href="classRF24UDP.html#a5975e7560c46893578eadd4d599f878f">RF24UDP::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00059">RF24Udp.cpp:59</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a1c45bf5a7028c4e75d0f185f59b6d917"><div class="ttname"><a href="classRF24UDP.html#a1c45bf5a7028c4e75d0f185f59b6d917">RF24UDP::flush</a></div><div class="ttdeci">void flush()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00252">RF24Udp.cpp:252</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a31273458ab5c9ff2263af98ffd193fcf"><div class="ttname"><a href="classRF24UDP.html#a31273458ab5c9ff2263af98ffd193fcf">RF24UDP::parsePacket</a></div><div class="ttdeci">int parsePacket()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00179">RF24Udp.cpp:179</a></div></div>
-<div class="ttc" id="classRF24Client_html_a12b2e871c95fb155e06e3ce8fcd64734"><div class="ttname"><a href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a></div><div class="ttdeci">static uip_userdata_t all_data[UIP_CONNS]</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00155">RF24Client.h:155</a></div></div>
-<div class="ttc" id="classRF24UDP_html_ade271f0eb07f5806168fe1991a8e1a78"><div class="ttname"><a href="classRF24UDP.html#ade271f0eb07f5806168fe1991a8e1a78">RF24UDP::begin</a></div><div class="ttdeci">uint8_t begin(uint16_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00044">RF24Udp.cpp:44</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a4d5c10d3a5a6801d2577a6e08922b2ad"><div class="ttname"><a href="classRF24UDP.html#a4d5c10d3a5a6801d2577a6e08922b2ad">RF24UDP::remotePort</a></div><div class="ttdeci">uint16_t remotePort()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00268">RF24Udp.cpp:268</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a57e8410314459342cbe3a542c2a41db7"><div class="ttname"><a href="classRF24UDP.html#a57e8410314459342cbe3a542c2a41db7">RF24UDP::RF24UDP</a></div><div class="ttdeci">RF24UDP()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00035">RF24Udp.cpp:35</a></div></div>
-<div class="ttc" id="classDNSClient_html"><div class="ttname"><a href="classDNSClient.html">DNSClient</a></div><div class="ttdef"><b>Definition:</b> <a href="Dns_8h_source.html#l00013">Dns.h:13</a></div></div>
-<div class="ttc" id="classDNSClient_html_ac62f5c79f85003f598223eec7fc1c22b"><div class="ttname"><a href="classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b">DNSClient::getHostByName</a></div><div class="ttdeci">int getHostByName(const char *aHostname, IPAddress &amp;aResult)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00114">Dns.cpp:114</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a12ce19aca81a82240fa975300baf569e"><div class="ttname"><a href="classRF24UDP.html#a12ce19aca81a82240fa975300baf569e">RF24UDP::endPacket</a></div><div class="ttdeci">int endPacket()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00140">RF24Udp.cpp:140</a></div></div>
-<div class="ttc" id="classDNSClient_html_aac123ed1182719dd850b3a05deafcaf0"><div class="ttname"><a href="classDNSClient.html#aac123ed1182719dd850b3a05deafcaf0">DNSClient::begin</a></div><div class="ttdeci">void begin(const IPAddress &amp;aDNSServer)</div><div class="ttdef"><b>Definition:</b> <a href="Dns_8cpp_source.html#l00047">Dns.cpp:47</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a9b1a90b48b06b811dcba9b8792dcfb32"><div class="ttname"><a href="classRF24UDP.html#a9b1a90b48b06b811dcba9b8792dcfb32">RF24UDP::beginPacket</a></div><div class="ttdeci">int beginPacket(IPAddress ip, uint16_t port)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00078">RF24Udp.cpp:78</a></div></div>
-<div class="ttc" id="classRF24EthernetClass_html_a7e70612c15de96f2dd6528cdfbcb5171"><div class="ttname"><a href="classRF24EthernetClass.html#a7e70612c15de96f2dd6528cdfbcb5171">RF24EthernetClass::dnsServerIP</a></div><div class="ttdeci">IPAddress dnsServerIP()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet_8cpp_source.html#l00171">RF24Ethernet.cpp:171</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a66f91beebd3c9c3d88bbf9879fa3fbec"><div class="ttname"><a href="classRF24UDP.html#a66f91beebd3c9c3d88bbf9879fa3fbec">RF24UDP::peek</a></div><div class="ttdeci">int peek()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00239">RF24Udp.cpp:239</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a411f9fdb0712df20431f578d84b32b1d"><div class="ttname"><a href="classRF24UDP.html#a411f9fdb0712df20431f578d84b32b1d">RF24UDP::write</a></div><div class="ttdeci">size_t write(uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00156">RF24Udp.cpp:156</a></div></div>
-<div class="ttc" id="classRF24UDP_html_ad500320ee5c726c91f318ac289a7596f"><div class="ttname"><a href="classRF24UDP.html#ad500320ee5c726c91f318ac289a7596f">RF24UDP::available</a></div><div class="ttdeci">int available()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00199">RF24Udp.cpp:199</a></div></div>
-<div class="ttc" id="classRF24UDP_html_a23ad6df09a5da6a22304016ff17693dc"><div class="ttname"><a href="classRF24UDP.html#a23ad6df09a5da6a22304016ff17693dc">RF24UDP::read</a></div><div class="ttdeci">int read()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Udp_8cpp_source.html#l00207">RF24Udp.cpp:207</a></div></div>
+<div class="ttc" id="classRF24Client_html_a12b2e871c95fb155e06e3ce8fcd64734"><div class="ttname"><a href="classRF24Client.html#a12b2e871c95fb155e06e3ce8fcd64734">RF24Client::all_data</a></div><div class="ttdeci">static uip_userdata_t all_data[UIP_CONNS]</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8h_source.html#l00156">RF24Client.h:156</a></div></div>
+<div class="ttc" id="classRF24EthernetClass_html_a7e70612c15de96f2dd6528cdfbcb5171"><div class="ttname"><a href="classRF24EthernetClass.html#a7e70612c15de96f2dd6528cdfbcb5171">RF24EthernetClass::dnsServerIP</a></div><div class="ttdeci">IPAddress dnsServerIP()</div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet_8cpp_source.html#l00177">RF24Ethernet.cpp:177</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 6 2015 12:35:40 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 15:55:31 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

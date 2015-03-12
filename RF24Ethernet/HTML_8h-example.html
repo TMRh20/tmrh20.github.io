@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.3b</span>
+   &#160;<span id="projectnumber">1.4b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -173,14 +173,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"><span class="keywordtype">void</span> sendPage(EthernetClient&amp; _client, <span class="keyword">const</span> <span class="keywordtype">char</span>* _pointer, <span class="keywordtype">size_t</span> size ){</div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordtype">char</span> buffer[uip_mss()+1]; <span class="comment">// 91 bytes by default</span></div>
+<div class="line">  <span class="keywordtype">size_t</span> bufSize = UIP_TCP_MSS;;</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordtype">char</span> buffer[bufSize+1]; <span class="comment">// 91 bytes by default</span></div>
 <div class="line">   </div>
 <div class="line">  <span class="comment">// Create a pointer for iterating through the array</span></div>
 <div class="line">  <span class="keyword">const</span> <span class="keywordtype">char</span> *i;</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Increment the iterator (i) in increments of 45-3 (OUTPUT_BUFFER_SIZE-3) and send the data to the client</span></div>
-<div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;_pointer+(size-(uip_mss()));i+=uip_mss()){</div>
-<div class="line">    snprintf_P(buffer,uip_mss()+1,i);</div>
+<div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;_pointer+(size-(bufSize));i+=bufSize){</div>
+<div class="line">    snprintf_P(buffer,bufSize+1,i);</div>
 <div class="line">    _client.write( buffer );</div>
 <div class="line">  }</div>
 <div class="line">  <span class="comment">// For the last bit, send only the data that remains</span></div>
@@ -296,7 +298,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 6 2015 12:35:40 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 12 2015 15:55:31 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

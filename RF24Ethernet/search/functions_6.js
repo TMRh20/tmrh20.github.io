@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gatewayip',['gatewayIP',['../classRF24EthernetClass.html#afc1832fadf3992ae6ca0642137beaff5',1,'RF24EthernetClass']]],
-  ['gethostbyname',['getHostByName',['../classDNSClient.html#ac62f5c79f85003f598223eec7fc1c22b',1,'DNSClient']]]
+  ['listen',['listen',['../classRF24EthernetClass.html#a84961d1dec7dd8dbaeac538656084b45',1,'RF24EthernetClass']]],
+  ['localip',['localIP',['../classRF24EthernetClass.html#a8725f1af4ae093b5030997d690ddf4ae',1,'RF24EthernetClass']]]
 ];

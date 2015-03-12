@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['set_5fgateway',['set_gateway',['../classRF24EthernetClass.html#a9c11cc6c37a3fbb28750484f20ede422',1,'RF24EthernetClass']]],
-  ['setchannel',['setChannel',['../classRF24EthernetClass.html#a313d0b7cd7d6a4fab825f3770ac8486a',1,'RF24EthernetClass']]],
-  ['setmac',['setMac',['../classRF24EthernetClass.html#a307dddd1f2663939b4c4a626d633b3c2',1,'RF24EthernetClass']]],
-  ['stop',['stop',['../classRF24Client.html#a4fbc538b64c27747509475fcc047c60e',1,'RF24Client::stop()'],['../classRF24UDP.html#a5975e7560c46893578eadd4d599f878f',1,'RF24UDP::stop()']]],
-  ['subnetmask',['subnetMask',['../classRF24EthernetClass.html#a93d4f56dbc030907229af878634eff5d',1,'RF24EthernetClass']]]
+  ['waitavailable',['waitAvailable',['../classRF24Client.html#a407fa36d4296151aebd8f9660c66740a',1,'RF24Client']]],
+  ['write',['write',['../classRF24Client.html#a0735631a999c8a2f8d5d027096efcd5c',1,'RF24Client::write(uint8_t)'],['../classRF24Client.html#a9facc0b9cd510e0381672eb722a7ea94',1,'RF24Client::write(const uint8_t *buf, size_t size)'],['../classRF24Server.html#a082d33da04786e2241e64a51b2486a44',1,'RF24Server::write(uint8_t)'],['../classRF24Server.html#af92146a76ffc12429c6909d54d254959',1,'RF24Server::write(const uint8_t *buf, size_t size)']]]
 ];
