@@ -1,8 +1,25 @@
 var searchData=
 [
-  ['whathappened',['whatHappened',['../classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89',1,'RF24']]],
-  ['write',['write',['../classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58',1,'RF24::write(const void *buf, uint8_t len)'],['../classRF24.html#a23bfe6502d74bb5bbccb3a7f2ba2b5ea',1,'RF24::write(const void *buf, uint8_t len, const bool multicast)']]],
-  ['writeackpayload',['writeAckPayload',['../classRF24.html#a65619238c25036c3de72dc2c1a1c6e52',1,'RF24']]],
-  ['writeblocking',['writeBlocking',['../classRF24.html#ae6fd8d5ee490d54ae1cb2e8fefee535f',1,'RF24']]],
-  ['writefast',['writeFast',['../classRF24.html#a47b2516993481b58e724d1274a7fd9cb',1,'RF24::writeFast(const void *buf, uint8_t len)'],['../classRF24.html#ad16d53de0327c0b41d170cbda4bf41af',1,'RF24::writeFast(const void *buf, uint8_t len, const bool multicast)']]]
+  ['pgm_5fread_5fbyte',['pgm_read_byte',['../group__Porting__General.html#gae6778ca2c38951f24bd39f9c38cab9b2',1,'RF24_arch_config.h']]],
+  ['pgm_5fread_5fword',['pgm_read_word',['../RF24__config_8h.html#aa59a94d7ea755db0d7811b543253ebc4',1,'pgm_read_word():&#160;RF24_config.h'],['../group__Porting__General.html#gaa59a94d7ea755db0d7811b543253ebc4',1,'pgm_read_word():&#160;RF24_arch_config.h']]],
+  ['pinmode',['pinMode',['../group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e',1,'RF24_arch_config.h']]],
+  ['pll_5flock',['PLL_LOCK',['../nRF24L01_8h.html#af76cfc0d6ed71259b4a237cbd8e30624',1,'nRF24L01.h']]],
+  ['plos_5fcnt',['PLOS_CNT',['../nRF24L01_8h.html#af45c13e8941613c7eb931001ab964965',1,'nRF24L01.h']]],
+  ['porting_3a_20general',['Porting: General',['../group__Porting__General.html',1,'']]],
+  ['porting_3a_20gpio',['Porting: GPIO',['../group__Porting__GPIO.html',1,'']]],
+  ['porting_3a_20includes',['Porting: Includes',['../group__Porting__Includes.html',1,'']]],
+  ['porting_3a_20spi',['Porting: SPI',['../group__Porting__SPI.html',1,'']]],
+  ['porting_3a_20timing',['Porting: Timing',['../group__Porting__Timing.html',1,'']]],
+  ['powerdown',['powerDown',['../classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
+  ['powerup',['powerUp',['../classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
+  ['prim_5frx',['PRIM_RX',['../nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6',1,'nRF24L01.h']]],
+  ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]],
+  ['printf_2eh',['printf.h',['../printf_8h.html',1,'']]],
+  ['printf_5fp',['printf_P',['../RF24__config_8h.html#a758ad569cbda7c5ddfaa902e8eed3360',1,'printf_P():&#160;RF24_config.h'],['../group__Porting__General.html#ga758ad569cbda7c5ddfaa902e8eed3360',1,'printf_P():&#160;RF24_arch_config.h']]],
+  ['pripstr',['PRIPSTR',['../RF24__config_8h.html#a7642e6d60f41fc769b32962c8c513668',1,'PRIPSTR():&#160;RF24_config.h'],['../group__Porting__General.html#ga7642e6d60f41fc769b32962c8c513668',1,'PRIPSTR():&#160;RF24_arch_config.h']]],
+  ['prog_5fuint16_5ft',['prog_uint16_t',['../RF24__config_8h.html#a05ca2f20b55933ad782917161d54287d',1,'prog_uint16_t():&#160;RF24_config.h'],['../group__Porting__General.html#ga05ca2f20b55933ad782917161d54287d',1,'prog_uint16_t():&#160;RF24_arch_config.h']]],
+  ['progmem',['PROGMEM',['../RF24__config_8h.html#a75acaba9e781937468d0911423bc0c35',1,'PROGMEM():&#160;RF24_config.h'],['../group__Porting__General.html#ga75acaba9e781937468d0911423bc0c35',1,'PROGMEM():&#160;RF24_arch_config.h'],['../RF24_8cpp.html#afde0f1bb9f776bae4233585a018f2fb2',1,'PROGMEM():&#160;RF24.cpp']]],
+  ['pstr',['PSTR',['../RF24__config_8h.html#a9c00057fd19e916cc1aa0a5949336beb',1,'PSTR():&#160;RF24_config.h'],['../group__Porting__General.html#ga9c00057fd19e916cc1aa0a5949336beb',1,'PSTR():&#160;RF24_arch_config.h']]],
+  ['pwr_5fup',['PWR_UP',['../nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'nRF24L01.h']]],
+  ['python_20wrapper_20_28by_20https_3a_2f_2fgithub_2ecom_2fmz_2dfuzzy_29',['Python Wrapper (by https://github.com/mz-fuzzy)',['../Python.html',1,'']]]
 ];

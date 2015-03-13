@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['powerdown',['powerDown',['../classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1',1,'RF24']]],
-  ['powerup',['powerUp',['../classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3',1,'RF24']]],
-  ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]]
+  ['lna_5fhcurr',['LNA_HCURR',['../nRF24L01_8h.html#ad031c713aa7c96ca88a9710f25229495',1,'nRF24L01.h']]],
+  ['low',['LOW',['../group__Porting__General.html#gab811d8c6ff3a505312d3276590444289',1,'RF24_arch_config.h']]]
 ];

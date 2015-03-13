@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['radio',['radio',['../namespacepingpair__dyn.html#abc034a65a01cec031061add466897461',1,'pingpair_dyn']]],
-  ['receive_5fpayload',['receive_payload',['../namespacepingpair__dyn.html#ac935a0375e2853be8ec56f413f1f9ee0',1,'pingpair_dyn']]]
+  ['speed',['speed',['../group__Porting__SPI.html#ga220859a8b5da0232739a11cbe7f79fc5',1,'spi.h']]],
+  ['spi',['SPI',['../RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343',1,'RF24_config.h']]]
 ];

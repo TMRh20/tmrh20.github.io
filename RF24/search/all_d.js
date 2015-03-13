@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['testcarrier',['testCarrier',['../classRF24.html#ad0d522ccf39493510e64bf1740be790d',1,'RF24']]],
-  ['testrpd',['testRPD',['../classRF24.html#a821285f3b54553f4402eb3fd0ac6d6c1',1,'RF24']]],
-  ['txstandby',['txStandBy',['../classRF24.html#a12cc453453c94969d4d3f0edb3778c83',1,'RF24::txStandBy()'],['../classRF24.html#aa6f36353c1bdfbaf3c530d118cb84baa',1,'RF24::txStandBy(uint32_t timeout)']]]
+  ['optimized_20high_20speed_20driver_20for_20nrf24l01_28_2b_29_202_2e4ghz_20wireless_20transceiver',['Optimized High Speed Driver for nRF24L01(+) 2.4GHz Wireless Transceiver',['../index.html',1,'']]],
+  ['observe_5ftx',['OBSERVE_TX',['../nRF24L01_8h.html#a491468eaa7f2db84c152709b0b5fb1aa',1,'nRF24L01.h']]],
+  ['open',['open',['../group__Porting__GPIO.html#gad3451cca241dbbf42bf381129385a35c',1,'gpio.h']]],
+  ['openreadingpipe',['openReadingPipe',['../classRF24.html#a9edc910ccc1ffcff56814b08faca5535',1,'RF24::openReadingPipe(uint8_t number, const uint8_t *address)'],['../classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45',1,'RF24::openReadingPipe(uint8_t number, uint64_t address)']]],
+  ['openwritingpipe',['openWritingPipe',['../classRF24.html#af2e409e62d49a23e372a70b904ae30e1',1,'RF24::openWritingPipe(const uint8_t *address)'],['../classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77',1,'RF24::openWritingPipe(uint64_t address)']]],
+  ['output',['OUTPUT',['../group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557',1,'RF24_arch_config.h']]],
+  ['output_5fhigh',['OUTPUT_HIGH',['../group__Porting__GPIO.html#ga18fd76f29528fc97aadcdb78495ff6bf',1,'gpio.h']]],
+  ['output_5flow',['OUTPUT_LOW',['../group__Porting__GPIO.html#gaa29a50f0f8fc0a62076c7f4bc7dc70db',1,'gpio.h']]]
 ];

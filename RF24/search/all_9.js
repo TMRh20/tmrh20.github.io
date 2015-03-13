@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['optimized_20high_20speed_20driver_20for_20nrf24l01_28_2b_29_202_2e4ghz_20wireless_20transceiver',['Optimized High Speed Driver for nRF24L01(+) 2.4GHz Wireless Transceiver',['../index.html',1,'']]],
-  ['optimized_20high_20speed_20arduino_20driver_20for_20nrf24l01_202_2e4ghz_20wireless_20transceiver',['Optimized High Speed Arduino driver for nRF24L01 2.4GHz Wireless Transceiver',['../md_README.html',1,'']]],
-  ['openreadingpipe',['openReadingPipe',['../classRF24.html#a9edc910ccc1ffcff56814b08faca5535',1,'RF24::openReadingPipe(uint8_t number, const uint8_t *address)'],['../classRF24.html#aa7e8523f86f9f8f20c274e0c89a5fd45',1,'RF24::openReadingPipe(uint8_t number, uint64_t address)']]],
-  ['openwritingpipe',['openWritingPipe',['../classRF24.html#af2e409e62d49a23e372a70b904ae30e1',1,'RF24::openWritingPipe(const uint8_t *address)'],['../classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77',1,'RF24::openWritingPipe(uint64_t address)']]]
+  ['if_5fserial_5fdebug',['IF_SERIAL_DEBUG',['../RF24__config_8h.html#ab2cf239a98bc5d0beee4ceb41a5dd549',1,'IF_SERIAL_DEBUG():&#160;RF24_config.h'],['../group__Porting__General.html#gab2cf239a98bc5d0beee4ceb41a5dd549',1,'IF_SERIAL_DEBUG():&#160;RF24_arch_config.h']]],
+  ['includes_2eh',['includes.h',['../includes_8h.html',1,'']]],
+  ['input',['INPUT',['../group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82',1,'RF24_arch_config.h']]],
+  ['isackpayloadavailable',['isAckPayloadAvailable',['../classRF24.html#a30c2736fd0df9c8128cef408c8b88e92',1,'RF24']]],
+  ['ispvariant',['isPVariant',['../classRF24.html#a62846750b82682beb7593719eb60ed60',1,'RF24']]],
+  ['isvalid',['isValid',['../classRF24.html#a35e5f1533b7753806c42b76e782d917e',1,'RF24']]]
 ];
