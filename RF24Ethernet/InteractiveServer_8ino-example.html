@@ -109,12 +109,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/pgmspace.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;HTML.h&quot;</span></div>
-<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &quot;RF24Mesh.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;EEPROM.h&quot;</span></div>
 <div class="line"><span class="comment">/*** Configure the radio CE &amp; CS pins ***/</span></div>
 <div class="line">RF24 radio(7, 8);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio, network);</div>
-<div class="line"></div>
+<div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><span class="preprocessor">#define LED_PIN A3 //Analog pin A3</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Configure the server to listen on port 1000</span></div>
@@ -129,13 +130,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.println(<span class="stringliteral">&quot;start&quot;</span>);</div>
 <div class="line">  pinMode(LED_PIN, OUTPUT);</div>
 <div class="line"></div>
-<div class="line">  uint16_t myRF24NetworkAddress = 01;</div>
-<div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
-<div class="line"></div>
-<div class="line">  IPAddress myIP(10, 10, 2, 4);</div>
+<div class="line"><span class="comment">//  uint16_t myRF24NetworkAddress = 01;</span></div>
+<div class="line"><span class="comment">//  Ethernet.setMac(myRF24NetworkAddress);</span></div>
+<div class="line">  mesh.setNodeID(7);</div>
+<div class="line">  mesh.begin();</div>
+<div class="line">  Serial.println(mesh.mesh_address,HEX);</div>
+<div class="line">  Ethernet.setMac(mesh.mesh_address);</div>
+<div class="line">  </div>
+<div class="line">  IPAddress myIP(10, 10, 3,7);</div>
 <div class="line">  Ethernet.begin(myIP);</div>
 <div class="line"></div>
-<div class="line">  IPAddress gwIP(10, 10, 2, 2);</div>
+<div class="line">  IPAddress gwIP(10, 10, 3,1);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);</div>
 <div class="line"></div>
 <div class="line">  server.begin();</div>
@@ -248,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 15:55:31 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 14 2015 16:29:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
