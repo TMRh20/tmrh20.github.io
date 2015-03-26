@@ -153,8 +153,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="classRF24.html#a8cd165a822c8f77e10782c6729c5b088">RF24</a>(uint8_t _cepin, uint8_t _cspin, uint32_t spispeed );</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">//#endif</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">  #if !defined (RF24_TINY)</span></div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classRF24.html#a56311ab4c4042525c166e81e0a09890c">  119</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classRF24.html#a56311ab4c4042525c166e81e0a09890c">~RF24</a>() {};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">  #if defined (RF24_LINUX)</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="classRF24.html">RF24</a>() {};</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">  #endif</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a>(<span class="keywordtype">void</span>);</div>
@@ -344,7 +344,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24_html_ad0d522ccf39493510e64bf1740be790d"><div class="ttname"><a href="classRF24.html#ad0d522ccf39493510e64bf1740be790d">RF24::testCarrier</a></div><div class="ttdeci">bool testCarrier(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01427">RF24.cpp:1427</a></div></div>
 <div class="ttc" id="classRF24_html_a5cdaf47aa0edd6dca1b9a8bb7972a1a3"><div class="ttname"><a href="classRF24.html#a5cdaf47aa0edd6dca1b9a8bb7972a1a3">RF24::powerUp</a></div><div class="ttdeci">void powerUp(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l00809">RF24.cpp:809</a></div></div>
 <div class="ttc" id="classRF24_html_a62846750b82682beb7593719eb60ed60"><div class="ttname"><a href="classRF24.html#a62846750b82682beb7593719eb60ed60">RF24::isPVariant</a></div><div class="ttdeci">bool isPVariant(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01391">RF24.cpp:1391</a></div></div>
-<div class="ttc" id="classRF24_html_a56311ab4c4042525c166e81e0a09890c"><div class="ttname"><a href="classRF24.html#a56311ab4c4042525c166e81e0a09890c">RF24::~RF24</a></div><div class="ttdeci">virtual ~RF24()</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00119">RF24.h:119</a></div></div>
 <div class="ttc" id="classRF24_html_a9edc910ccc1ffcff56814b08faca5535"><div class="ttname"><a href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">RF24::openReadingPipe</a></div><div class="ttdeci">void openReadingPipe(uint8_t number, const uint8_t *address)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01234">RF24.cpp:1234</a></div></div>
 <div class="ttc" id="classRF24_html_a65963ed8d8fd45f847e2f673995b85e1"><div class="ttname"><a href="classRF24.html#a65963ed8d8fd45f847e2f673995b85e1">RF24::getDynamicPayloadSize</a></div><div class="ttdeci">uint8_t getDynamicPayloadSize(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01076">RF24.cpp:1076</a></div></div>
 <div class="ttc" id="classRF24_html_a30a2733a3889bdc331fe2d2f4f0f7b39"><div class="ttname"><a href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">RF24::startListening</a></div><div class="ttdeci">void startListening(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l00741">RF24.cpp:741</a></div></div>
@@ -384,7 +383,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 12 2015 19:21:19 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 26 2015 00:26:43 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
