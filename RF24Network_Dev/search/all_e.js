@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write',['write',['../classRF24Network.html#a6b90e07f0f89d64af07b5da0b31e3c87',1,'RF24Network::write(RF24NetworkHeader &amp;header, const void *message, size_t len)'],['../classRF24Network.html#abcbcdf229d67fe57d324cb26d64f5841',1,'RF24Network::write(RF24NetworkHeader &amp;header, const void *message, size_t len, uint16_t writeDirect)']]]
+  ['write',['write',['../classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541',1,'RF24Network::write(RF24NetworkHeader &amp;header, const void *message, uint16_t len)'],['../classRF24Network.html#a3d99643014071fef706c0320c8011648',1,'RF24Network::write(RF24NetworkHeader &amp;header, const void *message, uint16_t len, uint16_t writeDirect)']]]
 ];

@@ -175,7 +175,7 @@ Macros</h2></td></tr>
 <p><b>Arduino/AVR/Etc:</b> Data transmitted with the type set to EXTERNAL_DATA_TYPE will not be loaded into the user cache. <br />
  External systems can extract external data using the following process, while internal data types are cached in the user buffer, and accessed using network.read() : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;uint8_t return_type = network.update();</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;if(return_type == EXTERNAL_DATA_TYPE){</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    size_t size = network.frag_ptr-&gt;message_size;       </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    uint16_t size = network.frag_ptr-&gt;message_size;     </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    memcpy(&amp;myDataBuffer,network.frag_ptr-&gt;message_buffer,network.frag_ptr-&gt;message_size);</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}               </div>
 </div><!-- fragment --> 
@@ -276,7 +276,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 14:15:00 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 28 2015 11:48:35 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

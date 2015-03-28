@@ -159,7 +159,7 @@ Octal Addressing and Topology</h1>
 </table>
 <h1><a class="anchor" id="Routing"></a>
 How routing is handled</h1>
-<p>When sending a message using <a class="el" href="classRF24Network.html#a6b90e07f0f89d64af07b5da0b31e3c87" title="Send a message. ">RF24Network::write()</a>, you fill in the header with the logical node address. The network layer figures out the right path to find that node, and sends it through the system until it gets to the right place. This works even if the two nodes are far separated, as it will send the message down to the base node, and then back out to the final destination.</p>
+<p>When sending a message using <a class="el" href="classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541" title="Send a message. ">RF24Network::write()</a>, you fill in the header with the logical node address. The network layer figures out the right path to find that node, and sends it through the system until it gets to the right place. This works even if the two nodes are far separated, as it will send the message down to the base node, and then back out to the final destination.</p>
 <p>All of this work is handled by the <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">RF24Network::update()</a> method, so be sure to call it regularly or your network will miss packets.</p>
 <h1><a class="anchor" id="Startup"></a>
 Starting up a node</h1>
@@ -171,7 +171,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 14:15:01 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 28 2015 11:48:35 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

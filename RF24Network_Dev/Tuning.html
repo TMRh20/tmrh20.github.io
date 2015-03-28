@@ -108,7 +108,7 @@ Routing</h1>
 <p>Routing of traffic is handled invisibly to the user, by the network layer. If the network addresses are assigned in accordance with the physical layout of the network, nodes will route traffic automatically as required. Users simply constuct a header containing the appropriate destination address, and the network will forward it through to the correct node. Individual nodes only route individual fragments, so if using fragmentation, routing nodes do not need it enabled, unless sending or receiving fragmented payloads themselves.</p>
 <p>If routing data between parent and child nodes (marked by direct links on the topology image above) the network uses built-in acknowledgement and retry functions of the chip to prevent data loss. When payloads are sent to other nodes, they need to be routed. Routing is managed using a combination of built in ACK requests, and software driven network ACKs. This allows all routing nodes to forward data very quickly, with only the final routing node confirming delivery and sending back an acknowledgement.</p>
 <p>Example: Node 00 sends to node 01. The nodes will use the built in auto-retry and auto-ack functions.<br />
- Example: Node 00 sends to node 011. Node 00 will send to node 01 as before. Node 01 will forward the message to 011. If delivery was successful, node 01 will also forward a message back to node 00, (noACK) indicating success.</p>
+ Example: Node 00 sends to node 011. Node 00 will send to node 01 as before. Node 01 will forward the message to 011. If delivery was successful, node 01 will also forward a message back to node 00, indicating success.</p>
 <p>Old Functionality: Node 00 sends to node 011 using auto-ack. Node 00 first sends to 01, 01 acknowledges. Node 01 forwards the payload to 011 using auto-ack. If the payload fails between 01 and 011, node 00 has no way of knowing.</p>
 <dl class="section note"><dt>Note</dt><dd>When retrying failed payloads that have been routed, there is a chance of duplicate payloads if the network-ack is not successful. In this case, it is left up to the user to manage retries and filtering of duplicate payloads.</dd></dl>
 <p>Acknowledgements can and should be managed by the application or user. If requesting a response from another node, an acknowledgement is not required, so a user defined type of 0-64 should be used, to prevent the network from responding with an acknowledgement. If not requesting a response, and wanting to know if the payload was successful or not, users can utilize header types 65-127.</p>
@@ -158,7 +158,7 @@ Dual Headed Operation</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 22 2015 14:15:00 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 28 2015 11:48:35 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
