@@ -43,6 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -102,18 +103,25 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
 <tr class="separator:a1312aa864c8edbd44f7af75081e25caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33c259fdc8989208a39a2eeb5a1761de"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a33c259fdc8989208a39a2eeb5a1761de">thisNodeID</a></td></tr>
 <tr class="separator:a33c259fdc8989208a39a2eeb5a1761de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5845650441bbb0e6dc6d46581a8defd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#ab5845650441bbb0e6dc6d46581a8defd">config_TUN</a></td></tr>
+<tr class="separator:ab5845650441bbb0e6dc6d46581a8defd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a939a9d63e37fb627847ebe70d4fb6043"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a939a9d63e37fb627847ebe70d4fb6043">RF24Gateway</a> (RF24 &amp;_radio, RF24Network &amp;_network, RF24Mesh &amp;_mesh)</td></tr>
 <tr class="separator:a939a9d63e37fb627847ebe70d4fb6043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9005d67e041ab3352cdd57ac358b6024"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a9005d67e041ab3352cdd57ac358b6024">begin</a> (uint8_t nodeID=0, uint8_t channel=97, rf24_datarate_e data_rate=RF24_1MBPS)</td></tr>
 <tr class="separator:a9005d67e041ab3352cdd57ac358b6024"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a409e9363e3ed47bc111fa36eeb3ef67b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a409e9363e3ed47bc111fa36eeb3ef67b">begin</a> (uint16_t address, uint8_t channel=97, rf24_datarate_e data_rate=RF24_1MBPS, bool meshEnable=0, uint8_t nodeID=0)</td></tr>
 <tr class="separator:a409e9363e3ed47bc111fa36eeb3ef67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dcb8921636e754ae4a7f21d59fcfb3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a1dcb8921636e754ae4a7f21d59fcfb3e">setIP</a> (char *ip_addr, char *mask)</td></tr>
+<tr class="separator:a1dcb8921636e754ae4a7f21d59fcfb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd78869c4a5bd4ff69ac5aa606e62f11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#abd78869c4a5bd4ff69ac5aa606e62f11">update</a> ()</td></tr>
 <tr class="separator:abd78869c4a5bd4ff69ac5aa606e62f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dad81701804d1fb5cd55d0370d1a2df"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Gateway.html#a7dad81701804d1fb5cd55d0370d1a2df">meshEnabled</a> ()</td></tr>
+<tr class="separator:a7dad81701804d1fb5cd55d0370d1a2df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00041">41</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
+<div class="textblock"><dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Gateway_ncurses_8cpp-example.html#_a0">RF24Gateway_ncurses.cpp</a>, and <a class="el" href="RF24GatewayNode_8cpp-example.html#_a0">RF24GatewayNode.cpp</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00039">39</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a939a9d63e37fb627847ebe70d4fb6043"></a>
 <div class="memitem">
@@ -190,7 +198,7 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
   </dd>
 </dl>
 <div class="fragment"><div class="line">gw.begin(); <span class="comment">//Start the gateway using RF24Mesh, with nodeID 0 (Master) </span></div>
-</div><!-- fragment --> <div class="fragment"><div class="line">gw.begin(1); <span class="comment">//Start the gateway using RF24Mesh, with nodeID 1 (Child node) </span></div>
+</div><!-- fragment --> <div class="fragment"><div class="line">uint8_t nodeID; gw.begin(nodeID); <span class="comment">//Start the gateway using RF24Mesh, with nodeID 1 (Child node) </span></div>
 </div><!-- fragment --> 
 <p>Definition at line <a class="el" href="RF24Gateway_8cpp_source.html#l00015">15</a> of file <a class="el" href="RF24Gateway_8cpp_source.html">RF24Gateway.cpp</a>.</p>
 
@@ -259,6 +267,43 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a1dcb8921636e754ae4a7f21d59fcfb3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RF24Gateway::setIP </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>mask</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Once the Gateway has been started via <a class="el" href="classRF24Gateway.html#a9005d67e041ab3352cdd57ac358b6024">begin()</a> , call setIP to configure the IP and subnet mask.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>A character array containing the numeric IP address ie: 192.168.1.1 </td></tr>
+    <tr><td class="paramname">mask</td><td>A character array containing the subnet mask ie: 255.255.255.0 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>-1 if failed, 0 on success </dd></dl>
+
+<p>Definition at line <a class="el" href="RF24Gateway_8cpp_source.html#l00172">172</a> of file <a class="el" href="RF24Gateway_8cpp_source.html">RF24Gateway.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="abd78869c4a5bd4ff69ac5aa606e62f11"></a>
 <div class="memitem">
 <div class="memproto">
@@ -276,7 +321,25 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
 <div class="line"> ...do something</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24Gateway_8cpp_source.html#l00157">157</a> of file <a class="el" href="RF24Gateway_8cpp_source.html">RF24Gateway.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24Gateway_8cpp_source.html#l00234">234</a> of file <a class="el" href="RF24Gateway_8cpp_source.html">RF24Gateway.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7dad81701804d1fb5cd55d0370d1a2df"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Gateway::meshEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Is RF24Mesh enabled? </p>
+
+<p>Definition at line <a class="el" href="RF24Gateway_8cpp_source.html#l00080">80</a> of file <a class="el" href="RF24Gateway_8cpp_source.html">RF24Gateway.cpp</a>.</p>
 
 </div>
 </div>
@@ -292,7 +355,7 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
 </div><div class="memdoc">
 <p>Address of our node in Octal format (01,021, etc) </p>
 
-<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00096">96</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00104">104</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
 
 </div>
 </div>
@@ -307,14 +370,29 @@ RF24Gateway (RPi/Linux)</h2></td></tr>
 </div><div class="memdoc">
 <p>NodeID (0-255) </p>
 
-<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00097">97</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00105">105</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab5845650441bbb0e6dc6d46581a8defd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Gateway::config_TUN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Using a TAP(false) or TUN(true) interface </p>
+
+<p>Definition at line <a class="el" href="RF24Gateway_8h_source.html#l00109">109</a> of file <a class="el" href="RF24Gateway_8h_source.html">RF24Gateway.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 15 2015 21:26:26 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 1 2015 16:49:44 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

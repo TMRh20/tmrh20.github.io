@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['thisnodeaddress',['thisNodeAddress',['../classRF24Gateway.html#a1312aa864c8edbd44f7af75081e25caf',1,'RF24Gateway']]],
-  ['thisnodeid',['thisNodeID',['../classRF24Gateway.html#a33c259fdc8989208a39a2eeb5a1761de',1,'RF24Gateway']]]
+  ['config_5ftun',['config_TUN',['../classRF24Gateway.html#ab5845650441bbb0e6dc6d46581a8defd',1,'RF24Gateway']]]
 ];

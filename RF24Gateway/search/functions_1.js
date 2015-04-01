@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rf24gateway',['RF24Gateway',['../classRF24Gateway.html#a939a9d63e37fb627847ebe70d4fb6043',1,'RF24Gateway']]]
+  ['meshenabled',['meshEnabled',['../classRF24Gateway.html#a7dad81701804d1fb5cd55d0370d1a2df',1,'RF24Gateway']]]
 ];
