@@ -412,7 +412,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <span class="keywordflow">if</span> (u-&gt;state &amp; UIP_CLIENT_RESTART &amp;&amp; !u-&gt;windowOpened) {</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keywordflow">if</span>( !(u-&gt;state &amp; (UIP_CLIENT_CLOSE | UIP_CLIENT_REMOTECLOSED))){      </div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      uip_restart();</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor">      #if defined RF24ETHERNET_DEBUG_CLIENT || defined ETH_DEBUG_L1</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="preprocessor">      #if defined ETH_DEBUG_L1</span></div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        Serial.println();</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        Serial.println(F(<span class="stringliteral">&quot;UIPClient Re-Open TCP Window&quot;</span>));</div>
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="preprocessor">      #endif</span></div>
@@ -568,7 +568,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 14 2015 16:29:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 7 2015 13:22:18 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

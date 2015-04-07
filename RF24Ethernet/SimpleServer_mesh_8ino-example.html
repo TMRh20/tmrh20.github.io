@@ -120,19 +120,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Note: The mesh nodeID must be equal to the last octet of the assigned</span></div>
 <div class="line">  <span class="comment">// IP address</span></div>
-<div class="line">  mesh.setNodeID(4); <span class="comment">//Node id must be any unique value between 1 and 250</span></div>
+<div class="line">  mesh.setNodeID(9); <span class="comment">//Node id must be any unique value between 1 and 250</span></div>
 <div class="line">  mesh.begin();</div>
-<div class="line">  <span class="comment">//Serial.println(mesh.mesh_address,HEX);</span></div>
-<div class="line">  Ethernet.setMac(mesh.mesh_address);</div>
+<div class="line">  <span class="comment">//Serial.println(mesh.mesh_address,OCT);</span></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Set the IP address we&#39;ll be using. The last octet of the IP must be equal</span></div>
 <div class="line">  <span class="comment">// to the designated mesh nodeID</span></div>
-<div class="line">  IPAddress myIP(10,10,2,4);</div>
+<div class="line">  IPAddress myIP(10,10,3,9);</div>
 <div class="line">  Ethernet.begin(myIP);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// If you&#39;ll be making outgoing connections from the Arduino to the rest of</span></div>
 <div class="line">  <span class="comment">// the world, you&#39;ll need a gateway set up.</span></div>
-<div class="line">  IPAddress gwIP(10,10,2,2);</div>
+<div class="line">  IPAddress gwIP(10,10,3,1);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Listen for incoming connections on TCP port 1000.  Each incoming</span></div>
@@ -140,7 +139,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  server.begin();</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line">uint16_t testTimer = 0;</div>
 <div class="line">uint32_t mesh_timer = 0;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -151,7 +149,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    mesh_timer = millis();</div>
 <div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
 <div class="line">        <span class="comment">//refresh the network address        </span></div>
-<div class="line">        Ethernet.setMac(mesh.renewAddress());</div>
+<div class="line">        mesh.renewAddress();</div>
 <div class="line">     }</div>
 <div class="line">  }</div>
 <div class="line">  </div>
@@ -174,7 +172,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 14 2015 16:29:57 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 7 2015 13:22:18 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
