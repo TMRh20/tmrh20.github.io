@@ -106,9 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a814229a5a4e8e30f88a4bdce05807e50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a814229a5a4e8e30f88a4bdce05807e50">RF24Network</a> (RF24 &amp;_radio)</td></tr>
 <tr class="memdesc:a814229a5a4e8e30f88a4bdce05807e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the network.  <a href="#a814229a5a4e8e30f88a4bdce05807e50">More...</a><br /></td></tr>
 <tr class="separator:a814229a5a4e8e30f88a4bdce05807e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf0da46b2e78b2010171c9f20cba8bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#abf0da46b2e78b2010171c9f20cba8bae">begin</a> (uint8_t _channel, uint16_t _node_address)</td></tr>
-<tr class="memdesc:abf0da46b2e78b2010171c9f20cba8bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bring up the network.  <a href="#abf0da46b2e78b2010171c9f20cba8bae">More...</a><br /></td></tr>
-<tr class="separator:abf0da46b2e78b2010171c9f20cba8bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad6a74b55514a26e95e20eaa6a093a0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#aad6a74b55514a26e95e20eaa6a093a0b">begin</a> (uint16_t _node_address)</td></tr>
+<tr class="memdesc:aad6a74b55514a26e95e20eaa6a093a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bring up the network using the current radio frequency/channel.  <a href="#aad6a74b55514a26e95e20eaa6a093a0b">More...</a><br /></td></tr>
+<tr class="separator:aad6a74b55514a26e95e20eaa6a093a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59983f89b09d17d7d9b0581f658a41c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c">update</a> (void)</td></tr>
 <tr class="memdesc:ad59983f89b09d17d7d9b0581f658a41c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main layer loop.  <a href="#ad59983f89b09d17d7d9b0581f658a41c">More...</a><br /></td></tr>
 <tr class="separator:ad59983f89b09d17d7d9b0581f658a41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,6 +147,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa4a11edb3860f4a0e3808bccad36a5dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab41da035bd7f469ea4364a06ab4efd1b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ab41da035bd7f469ea4364a06ab4efd1b">is_valid_address</a> (uint16_t node)</td></tr>
 <tr class="separator:ab41da035bd7f469ea4364a06ab4efd1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Maintained for backwards compatibility </p>
+</div></td></tr>
+<tr class="memitem:abf0da46b2e78b2010171c9f20cba8bae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#abf0da46b2e78b2010171c9f20cba8bae">begin</a> (uint8_t _channel, uint16_t _node_address)</td></tr>
+<tr class="memdesc:abf0da46b2e78b2010171c9f20cba8bae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bring up the network on a specific radio frequency/channel.  <a href="#abf0da46b2e78b2010171c9f20cba8bae">More...</a><br /></td></tr>
+<tr class="separator:abf0da46b2e78b2010171c9f20cba8bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Advanced Configuration</h2></td></tr>
@@ -255,39 +261,37 @@ External Applications/Systems</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abf0da46b2e78b2010171c9f20cba8bae"></a>
+<a class="anchor" id="aad6a74b55514a26e95e20eaa6a093a0b"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void RF24Network::begin </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>_channel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>_node_address</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>_node_address</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Bring up the network. </p>
-<p>Calling begin sets up the radio frequency/channel and configures the address, which designates the location of the node within <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> topology. </p><dl class="section note"><dt>Note</dt><dd>Node addresses are specified in Octal format, see <a href="Addressing.html">RF24Network Addressing</a> for more information. </dd></dl>
+<p>Bring up the network using the current radio frequency/channel. </p>
+<p>Calling begin brings up the network, and configures the address, which designates the location of the node within <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> topology. </p><dl class="section note"><dt>Note</dt><dd>Node addresses are specified in Octal format, see <a href="Addressing.html">RF24Network Addressing</a> for more information. </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Be sure to 'begin' the radio first.</dd></dl>
-<p><b>Example 1:</b> Begin on channel 90 with address 0 (master node) </p><div class="fragment"><div class="line">network.begin(90,0);</div>
-</div><!-- fragment --><p> <b>Example 2:</b> Begin on channel 90 with address 01 (child of master) </p><div class="fragment"><div class="line">network.begin(90,01);</div>
-</div><!-- fragment --><p> <b>Example 3:</b> Begin on channel 90 with address 011 (child of 01, grandchild of master) </p><div class="fragment"><div class="line">network.begin(90,011);</div>
-</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+<p><b>Example 1:</b> Begin on current radio channel with address 0 (master node) </p><div class="fragment"><div class="line">network.begin(00);</div>
+</div><!-- fragment --><p> <b>Example 2:</b> Begin with address 01 (child of master) </p><div class="fragment"><div class="line">network.begin(01);</div>
+</div><!-- fragment --><p> <b>Example 3:</b> Begin with address 011 (child of 01, grandchild of master) </p><div class="fragment"><div class="line">network.begin(011);</div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="classRF24Network.html#abf0da46b2e78b2010171c9f20cba8bae" title="Bring up the network on a specific radio frequency/channel. ">begin(uint8_t _channel, uint16_t _node_address )</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_channel</td><td>The RF channel to operate on </td></tr>
     <tr><td class="paramname">_node_address</td><td>The logical address of this node </td></tr>
   </table>
   </dd>
@@ -756,6 +760,45 @@ The watchdog timer should be configured in setup() if using sleep mode. This fun
 
 </div>
 </div>
+<a class="anchor" id="abf0da46b2e78b2010171c9f20cba8bae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Network::begin </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>_channel</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>_node_address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bring up the network on a specific radio frequency/channel. </p>
+<dl class="section note"><dt>Note</dt><dd>Use radio.setChannel() to configure the radio channel</dd></dl>
+<p><b>Example 1:</b> Begin on channel 90 with address 0 (master node) </p><div class="fragment"><div class="line">network.begin(90,0);</div>
+</div><!-- fragment --><p> <b>Example 2:</b> Begin on channel 90 with address 01 (child of master) </p><div class="fragment"><div class="line">network.begin(90,01);</div>
+</div><!-- fragment --><p> <b>Example 3:</b> Begin on channel 90 with address 011 (child of 01, grandchild of master) </p><div class="fragment"><div class="line">network.begin(90,011);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_channel</td><td>The RF channel to operate on </td></tr>
+    <tr><td class="paramname">_node_address</td><td>The logical address of this node </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a class="anchor" id="add7408ca2b2f9ab15331ba77a747f7bb"></a>
 <div class="memitem">
@@ -885,7 +928,7 @@ This is used by external data systems (RF24Ethernet) to immediately copy the rec
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 28 2015 11:48:35 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Apr 7 2015 11:22:38 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
