@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pingnode',['pingNode',['../RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07',1,'RF24Mesh_Ncurses_Master.cpp']]],
-  ['printnodes',['printNodes',['../RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358',1,'RF24Mesh_Ncurses_Master.cpp']]]
+  ['network',['network',['../RF24Mesh__Ncurses__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320',1,'network(radio):&#160;RF24Mesh_Ncurses_Master.cpp'],['../RF24Mesh__Example_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320',1,'network(radio):&#160;RF24Mesh_Example.cpp'],['../RF24Mesh__Example__Master_8cpp.html#aa7924d94ea32c8d33a81ff41f8678320',1,'network(radio):&#160;RF24Mesh_Example_Master.cpp']]]
 ];

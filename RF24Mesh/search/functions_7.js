@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['radio',['radio',['../RF24Mesh__Ncurses__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c',1,'radio(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ):&#160;RF24Mesh_Ncurses_Master.cpp'],['../RF24Mesh__Example_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c',1,'radio(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ):&#160;RF24Mesh_Example.cpp'],['../RF24Mesh__Example__Master_8cpp.html#a8f6cf4daca08e3fe0338e3e9d651f59c',1,'radio(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ):&#160;RF24Mesh_Example_Master.cpp']]],
-  ['releaseaddress',['releaseAddress',['../classRF24Mesh.html#a17287798f73105b8c10cbbcdf79979a1',1,'RF24Mesh']]],
-  ['renewaddress',['renewAddress',['../classRF24Mesh.html#a92fb3307f861976f7a6a34af930c8a00',1,'RF24Mesh']]],
-  ['rf24mesh',['RF24Mesh',['../classRF24Mesh.html#a8b2bde3730c955d28a269f35b610a562',1,'RF24Mesh']]]
+  ['pingnode',['pingNode',['../RF24Mesh__Ncurses__Master_8cpp.html#a13fcca18a18e245a698c10adddb9bb07',1,'RF24Mesh_Ncurses_Master.cpp']]],
+  ['printnodes',['printNodes',['../RF24Mesh__Ncurses__Master_8cpp.html#aa0e19167abf84fa7e771f0f963129358',1,'RF24Mesh_Ncurses_Master.cpp']]]
 ];

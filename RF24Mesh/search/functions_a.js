@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['write',['write',['../classRF24Mesh.html#a17e366fc27c033e68c4edfec5eed7704',1,'RF24Mesh']]]
+  ['update',['update',['../classRF24Mesh.html#a7a07df36e2d69a9cdaa9519e32854130',1,'RF24Mesh']]]
 ];
