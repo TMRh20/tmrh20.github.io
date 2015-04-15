@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: Getting_Started_SimpleClient_DNS.ino</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: Getting_Started_SimpleClient_Mesh.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.4b</span>
+   &#160;<span id="projectnumber">1.5 RC1</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -80,38 +80,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Getting_Started_SimpleClient_DNS.ino</div>  </div>
+<div class="title">Getting_Started_SimpleClient_Mesh.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p><b>Updated: TMRh20 2014 </b><br />
-</p>
-<p>This is an example of how to use the RF24Ethernet class to connect out to a web server and retrieve data via HTTP using DNS.</p>
+<p>This is an example of how to use the RF24Ethernet class to connect out to a web server and retrieve data via HTTP.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * TMRh20 2014</span></div>
 <div class="line"><span class="comment"> * </span></div>
-<div class="line"><span class="comment"> * RF24Ethernet simple web client using DNS example</span></div>
+<div class="line"><span class="comment"> * RF24Ethernet simple web client example</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * RF24Ethernet uses the fine uIP stack by Adam Dunkels &lt;adam@sics.se&gt;</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * In order to use DNS, UDP must be enabled in the uIP stack:</span></div>
-<div class="line"><span class="comment"> * 1. Open the RF24Ethernet library folder</span></div>
-<div class="line"><span class="comment"> * 2. Edit the uip_conf.h file</span></div>
-<div class="line"><span class="comment"> * 3. Set #define UIP_CONF_UDP 1</span></div>
-<div class="line"><span class="comment"> * 4. The gateway device must be able to forward DNS requests to the DNS server</span></div>
+<div class="line"><span class="comment"> * In order to minimize memory use and program space:</span></div>
+<div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
+<div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
+<div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * This example connects to google and downloads the index page</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Mesh.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="comment">//#include &lt;printf.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#if !defined __arm__ &amp;&amp; !defined __ARDUINO_X86__</span></div>
+<div class="line"><span class="preprocessor">  #include &lt;EEPROM.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*** Configure the radio CE &amp; CS pins ***/</span></div>
 <div class="line">RF24 radio(7,8);</div>
 <div class="line">RF24Network network(radio);</div>
+<div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio,network);</div>
 <div class="line"></div>
 <div class="line"></div>
@@ -121,14 +124,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  Serial.begin(115200);</div>
 <div class="line"> <span class="comment">// printf_begin();</span></div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;Start&quot;</span>);</div>
 <div class="line">  </div>
-<div class="line">  uint16_t myRF24NetworkAddress = 01;</div>
-<div class="line">  Ethernet.setMac(myRF24NetworkAddress);</div>
+<div class="line">  <span class="comment">// This step is very important. The address of the node needs to be set both</span></div>
+<div class="line">  <span class="comment">// on the radio and in the UIP layer</span></div>
+<div class="line">  <span class="comment">// This is the RF24Network address and needs to be configured accordingly if</span></div>
+<div class="line">  <span class="comment">// using more than 4 nodes with the master node. Otherwise, 01-04 can be used.</span></div>
+<div class="line">  mesh.setNodeID(4);</div>
+<div class="line">  mesh.begin();</div>
+<div class="line">  Serial.println(mesh.mesh_address,OCT);</div>
 <div class="line">  </div>
+<div class="line">  <span class="comment">// Set the IP address we&#39;ll be using. The last octet mast match the nodeID (9)</span></div>
 <div class="line">  IPAddress myIP(10,10,2,4);</div>
-<div class="line">  IPAddress dnsIP(192,168,1,1);</div>
-<div class="line">  Ethernet.begin(myIP,dnsIP);</div>
+<div class="line">  Ethernet.begin(myIP);</div>
 <div class="line">  </div>
+<div class="line">  <span class="comment">// If you&#39;ll be making outgoing connections from the Arduino to the rest of</span></div>
+<div class="line">  <span class="comment">// the world, you&#39;ll need a gateway set up.</span></div>
 <div class="line">  IPAddress gwIP(10,10,2,2);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);  </div>
 <div class="line">}</div>
@@ -144,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="keywordtype">char</span> c = client.read();</div>
 <div class="line">    Serial.print(c);</div>
 <div class="line">    <span class="comment">// Sends a line-break every 150 characters, comment out if not connecting to google</span></div>
-<div class="line">    <span class="keywordflow">if</span>(counter &gt; 150){ Serial.println(<span class="stringliteral">&quot;&quot;</span>); counter=0;}</div>
+<div class="line">    <span class="comment">//if(counter &gt; 150){ Serial.println(&quot;&quot;); counter=0;}</span></div>
 <div class="line">    counter++;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -154,9 +165,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;Disconnect. Waiting for disconnect timeout&quot;</span>));</div>
 <div class="line">    client.stop();</div>
 <div class="line">  </div>
-<div class="line">    <span class="comment">// Wait for serial input to begin</span></div>
-<div class="line">    <span class="comment">//while (!Serial.available() &amp;&amp; !client.connected()){}</span></div>
-<div class="line">    <span class="comment">//Serial.read();</span></div>
+<div class="line">    <span class="comment">// Wait 5 seconds between requests</span></div>
 <div class="line">    reqTimer = millis();</div>
 <div class="line">    <span class="keywordflow">while</span>(millis() - reqTimer &lt; 5000 &amp;&amp; !client.available() ){ }    </div>
 <div class="line">    connect();</div>
@@ -168,25 +177,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> connect(){</div>
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;connecting&quot;</span>));</div>
-<div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span> (client.connect(<span class="stringliteral">&quot;www.google.com&quot;</span>, 80)) {</div>
+<div class="line">    IPAddress goog(74,125,224,87);</div>
+<div class="line">    IPAddress pizza(94,199,58,243);</div>
+<div class="line">    <span class="keywordflow">if</span> (client.connect(pizza, 80)) {</div>
 <div class="line">      Serial.println(F(<span class="stringliteral">&quot;connected&quot;</span>));</div>
 <div class="line">      </div>
 <div class="line">      <span class="comment">// Make an HTTP request:</span></div>
-<div class="line">      client.write(<span class="stringliteral">&quot;GET / HTTP/1.1\n&quot;</span>);      </div>
-<div class="line">      client.write(<span class="stringliteral">&quot;Host: www.google.ca\n&quot;</span>);      </div>
-<div class="line">      client.write(<span class="stringliteral">&quot;Connection: close\n&quot;</span>);</div>
-<div class="line">      client.println();    </div>
+<div class="line">      client.write(<span class="stringliteral">&quot;GET /asciiart/pizza.txt HTTP/1.1\n&quot;</span>);</div>
+<div class="line">      <span class="comment">//client.write(&quot;GET / HTTP/1.1\n&quot;);</span></div>
+<div class="line">      </div>
+<div class="line">      client.write(<span class="stringliteral">&quot;Host: fiikus.net\n&quot;</span>);</div>
+<div class="line">      <span class="comment">//client.write(&quot;Host: www.google.ca\n&quot;);</span></div>
+<div class="line">      </div>
+<div class="line">      client.write(<span class="stringliteral">&quot;Connection: close\n\n&quot;</span>);   </div>
 <div class="line">    </div>
 <div class="line">    }<span class="keywordflow">else</span>{</div>
 <div class="line">      <span class="comment">// if you didn&#39;t get a connection to the server:</span></div>
 <div class="line">      Serial.println(F(<span class="stringliteral">&quot;connection failed&quot;</span>));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
+<div class="line"></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 15 2015 15:06:48 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

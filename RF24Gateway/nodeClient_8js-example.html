@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: ethernet_comp.h Source File</title>
+<title>RF24Gateway - TCP/IP over RF24Network: nodeClient.js</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,8 +24,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.5 RC1</span>
+   <div id="projectname">RF24Gateway - TCP/IP over RF24Network
+   &#160;<span id="projectnumber">0.1b</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -42,7 +42,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
@@ -80,22 +79,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ethernet_comp.h</div>  </div>
+<div class="title">nodeClient.js</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ETHERNET_COMP_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ETHERNET_COMP_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define Ethernet RF24Ethernet</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define EthernetClient RF24Client</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define EthernetServer RF24Server</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EthernetUDP RF24UDP</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
-</div><!-- fragment --></div><!-- contents -->
+<p>Once <a class="el" href="classRF24Gateway.html">RF24Gateway</a> and RF24Ethernet are configured, standard tools can be used to interact with the sensor nodes. <br />
+ Example of on demand LED/Lighting control using a NodeJS script.</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"></div>
+<div class="line">var request = require(<span class="stringliteral">&#39;request&#39;</span>)</div>
+<div class="line">var url = &#39;http:<span class="comment">//10.10.2.4:1000/ON&#39; // input your url here /ON to turn on and /OFF to turn off</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// use a timeout value of 10 seconds</span></div>
+<div class="line">var timeoutInMilliseconds = 10*1000</div>
+<div class="line">var opts = {</div>
+<div class="line">  url: url,</div>
+<div class="line">  timeout: timeoutInMilliseconds</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">request(opts, <span class="keyword">function</span> (err, res, body) {</div>
+<div class="line">  <span class="keywordflow">if</span> (err) {</div>
+<div class="line">    console.dir(err)</div>
+<div class="line">    <span class="keywordflow">return</span></div>
+<div class="line">  }</div>
+<div class="line">  var statusCode = res.statusCode</div>
+<div class="line">  console.log(<span class="stringliteral">&#39;status code: &#39;</span> + statusCode)</div>
+<div class="line">})</div>
+</div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 14:13:28 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

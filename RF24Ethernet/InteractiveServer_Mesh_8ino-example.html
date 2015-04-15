@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: InteractiveServer.ino</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: InteractiveServer_Mesh.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.4b</span>
+   &#160;<span id="projectnumber">1.5 RC1</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">InteractiveServer.ino</div>  </div>
+<div class="title">InteractiveServer_Mesh.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p>This is an example of how to create a more advanced interactive web server.</p>
@@ -98,7 +98,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
 <div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
 <div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
-<div class="line"><span class="comment"> * 4. See the Getting_Started_SimpleServer_Minimal example</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This example uses RF24Mesh. </span></div>
+<div class="line"><span class="comment"> * Set #define UIP_CONF_LLH_LEN 0 in uip_conf.h if used with a TUN(RF24Mesh) or SLIP interface </span></div>
+<div class="line"><span class="comment"> * </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"></div>
@@ -111,12 +115,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &quot;HTML.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;RF24Mesh.h&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;EEPROM.h&quot;</span></div>
+<div class="line"></div>
 <div class="line"><span class="comment">/*** Configure the radio CE &amp; CS pins ***/</span></div>
 <div class="line">RF24 radio(7, 8);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio, network);</div>
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><span class="preprocessor">#define LED_PIN A3 //Analog pin A3</span></div>
+<div class="line"></div>
+<div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Configure the server to listen on port 1000</span></div>
 <div class="line">EthernetServer server = EthernetServer(1000);</div>
@@ -129,27 +136,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//printf_begin();</span></div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;start&quot;</span>);</div>
 <div class="line">  pinMode(LED_PIN, OUTPUT);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">//  uint16_t myRF24NetworkAddress = 01;</span></div>
-<div class="line"><span class="comment">//  Ethernet.setMac(myRF24NetworkAddress);</span></div>
-<div class="line">  mesh.setNodeID(7);</div>
-<div class="line">  mesh.begin();</div>
-<div class="line">  Serial.println(mesh.mesh_address,HEX);</div>
-<div class="line">  Ethernet.setMac(mesh.mesh_address);</div>
 <div class="line">  </div>
-<div class="line">  IPAddress myIP(10, 10, 3,7);</div>
+<div class="line">  <span class="comment">//Set nodeID to the same as last octet of IP address</span></div>
+<div class="line">  mesh.setNodeID(4);</div>
+<div class="line">  mesh.begin();</div>
+<div class="line">  Serial.println(mesh.mesh_address,OCT);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">//Set IP to same last octet (4) as nodeID</span></div>
+<div class="line">  IPAddress myIP(10, 10, 2,4);</div>
 <div class="line">  Ethernet.begin(myIP);</div>
 <div class="line"></div>
-<div class="line">  IPAddress gwIP(10, 10, 3,1);</div>
+<div class="line">  <span class="comment">//Set IP of the RPi (gateway)</span></div>
+<div class="line">  IPAddress gwIP(10, 10, 2,2);</div>
 <div class="line">  Ethernet.set_gateway(gwIP);</div>
 <div class="line"></div>
 <div class="line">  server.begin();</div>
+<div class="line"></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/********************************************************/</span></div>
 <div class="line"></div>
+<div class="line">uint32_t mesh_timer = 0;</div>
+<div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Optional: If the node needs to move around physically, or using failover nodes etc.,</span></div>
+<div class="line">  <span class="comment">// enable address renewal</span></div>
+<div class="line">  <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
+<div class="line">    mesh_timer = millis();</div>
+<div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
+<div class="line">        <span class="comment">//refresh the network address        </span></div>
+<div class="line">        mesh.renewAddress();</div>
+<div class="line">     }</div>
+<div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="keywordtype">size_t</span> size;</div>
 <div class="line"></div>
@@ -163,6 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="keywordflow">if</span> (size &gt;= 7) {</div>
 <div class="line">        client.findUntil(<span class="stringliteral">&quot;/&quot;</span>, <span class="stringliteral">&quot;/&quot;</span>);</div>
 <div class="line">        <span class="keywordtype">char</span> buf[3] = {<span class="stringliteral">&quot;  &quot;</span>};</div>
+<div class="line">        <span class="keywordflow">if</span>(client.available() &gt;= 2){</div>
 <div class="line">        buf[0] = client.read();  <span class="comment">// Read in the first two characters from the request</span></div>
 <div class="line">        buf[1] = client.read();</div>
 <div class="line"></div>
@@ -176,15 +197,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">          pageReq = 1;</div>
 <div class="line">          digitalWrite(LED_PIN, led_state);</div>
 <div class="line">          </div>
-<div class="line">        }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(buf, <span class="stringliteral">&quot;ST&quot;</span>) == 0) { <span class="comment">// If the user requested http://ip-of-node:1000/OF</span></div>
+<div class="line">        }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(buf, <span class="stringliteral">&quot;ST&quot;</span>) == 0) { <span class="comment">// If the user requested http://ip-of-node:1000/ST</span></div>
 <div class="line">          pageReq = 2;</div>
 <div class="line">          </div>
-<div class="line">        }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(buf, <span class="stringliteral">&quot;CR&quot;</span>) == 0) { <span class="comment">// If the user requested http://ip-of-node:1000/OF</span></div>
+<div class="line">        }<span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(buf, <span class="stringliteral">&quot;CR&quot;</span>) == 0) { <span class="comment">// If the user requested http://ip-of-node:1000/CR</span></div>
 <div class="line">          pageReq = 3;</div>
 <div class="line">          </div>
 <div class="line">        }<span class="keywordflow">else</span> <span class="keywordflow">if</span>(buf[0] == <span class="charliteral">&#39; &#39;</span>){</div>
 <div class="line">          pageReq = 4; </div>
 <div class="line">        }</div>
+<div class="line">      }</div>
 <div class="line">      }</div>
 <div class="line">      <span class="comment">// Empty the rest of the data from the client</span></div>
 <div class="line">      <span class="keywordflow">while</span> (client.waitAvailable()) {</div>
@@ -253,7 +275,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 15 2015 15:06:48 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

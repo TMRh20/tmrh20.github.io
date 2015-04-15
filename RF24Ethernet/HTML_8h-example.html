@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.4b</span>
+   &#160;<span id="projectnumber">1.5 RC1</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -85,6 +85,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <p>This file is included with the Interactive Server example</p>
 <div class="fragment"><div class="line"></div>
+<div class="line"><span class="preprocessor">#if defined (ARDUINO_SAM_DUE)</span></div>
+<div class="line"><span class="preprocessor">  #define sprintf_P sprintf</span></div>
+<div class="line"><span class="preprocessor">  #define snprintf_P snprintf</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"></div>
 <div class="line"><span class="keywordtype">bool</span> led_state = 0;</div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">/**</span></div>
@@ -173,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"><span class="keywordtype">void</span> sendPage(EthernetClient&amp; _client, <span class="keyword">const</span> <span class="keywordtype">char</span>* _pointer, <span class="keywordtype">size_t</span> size ){</div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordtype">size_t</span> bufSize = UIP_TCP_MSS;;</div>
+<div class="line">  <span class="keywordtype">size_t</span> bufSize = UIP_TCP_MSS;</div>
 <div class="line">  </div>
 <div class="line">  <span class="keywordtype">char</span> buffer[bufSize+1]; <span class="comment">// 91 bytes by default</span></div>
 <div class="line">   </div>
@@ -182,11 +187,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Increment the iterator (i) in increments of 45-3 (OUTPUT_BUFFER_SIZE-3) and send the data to the client</span></div>
 <div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;_pointer+(size-(bufSize));i+=bufSize){</div>
-<div class="line">    snprintf_P(buffer,bufSize+1,i);</div>
+<div class="line">    strncpy_P(buffer, i, bufSize);</div>
 <div class="line">    _client.write( buffer );</div>
 <div class="line">  }</div>
 <div class="line">  <span class="comment">// For the last bit, send only the data that remains</span></div>
-<div class="line">  snprintf_P(buffer,((_pointer+size)-i)+1,i);</div>
+<div class="line">  strncpy_P(buffer, i, ((_pointer+size)-i));</div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -253,27 +258,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  <span class="keywordtype">char</span> buffer[45];</div>
 <div class="line">  </div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;HTTP/1.1 200 OK\nContent-Type: text/html\n&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;Connection: close\n\n&lt;!DOCTYPE HTML&gt;\n&lt;html&gt;\n&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;Connection: close\n\n&lt;!DOCTYPE HTML&gt;\n&lt;html&gt;\n&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;head&gt;&lt;style&gt;body{background-color:linen;}\n&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;head&gt;&lt;style&gt;body{background-color:linen;}\n&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;td{border: 1px solid black;}&lt;/style&gt;&lt;/head&gt;\n&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;td{border: 1px solid black;}&lt;/style&gt;&lt;/head&gt;\n&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;body&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt; Uptime&lt;/td&gt;&lt;td&gt;\n&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;body&gt;&lt;table&gt;&lt;tr&gt;&lt;td&gt; Uptime&lt;/td&gt;&lt;td&gt;\n&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;%u days, %lu hours %lu minutes %lu&quot;</span>),days,hours,minutes,seconds);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;seconds&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;UIP Buffer Size&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;seconds&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;UIP Buffer Size&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;/td&gt;&lt;td&gt;%u bytes&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;User &quot;</span>),UIP_BUFSIZE);</div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;Output&lt;br&gt;Buffer Size&lt;/td&gt;&lt;td&gt;%u bytes&quot;</span>),<a class="code" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a>);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;&lt;br&gt;&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;br&gt;&lt;br&gt;&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
-<div class="line">  sprintf_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;a href=&#39;/&#39;&gt;Home&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>));</div>
+<div class="line">  strncpy_P(buffer, PSTR(<span class="stringliteral">&quot;&lt;a href=&#39;/&#39;&gt;Home&lt;/a&gt;&lt;/body&gt;&lt;/html&gt;&quot;</span>),45);</div>
 <div class="line">  _client.write( buffer );</div>
 <div class="line">  </div>
 <div class="line">}</div>
@@ -298,7 +303,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 7 2015 13:22:18 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

@@ -9,8 +9,7 @@ ROOT_PATH+=${INSTALL_DIR}
 DORF24=0
 DORF24Network=0
 DORF24Mesh=0
-DORF24toTUN=0
-DORF24toTUNMESH=0
+DORF24Gateway=0
 
 echo""
 echo "RF24 libraries installer by TMRh20"
@@ -53,29 +52,22 @@ case ${answer^^} in
 esac
 
 echo $'\n'
-echo -n "Do you want to install the RF24toTUN library?"
+echo -n "Do you want to install the RF24Gateway library?"
 read answer
 case ${answer^^} in
-    Y ) DORF24toTUN=1;;
+    Y ) DORF24Gateway=1;;
 esac
 
-if [[ $DORF24toTUN > 0 ]]
+if [[ $DORF24Gateway > 0 ]]
 then
-	echo "RF24toTUN requires installation of boost libraries"
-	echo -n "Install boost libs via APT?"
+	echo ""
+	echo "Install ncurses library? (Recommended for RF24Gateway)"
 	read answer
-	case ${answer^^} in
-		Y ) sudo apt-get install libboost-thread1.50-dev libboost-system1.50-dev
+    case ${answer^^} in
+		Y ) sudo apt-get install libncurses5-dev
 	esac
-	echo $'\n'
-	echo -n "Do you want to compile RF24toTUN with RF24Mesh support?"
-	read answer
-	case ${answer^^} in
-    		Y ) DORF24toTUNMESH=1;;
-	esac
+	echo ""
 fi
-
-
 
 if [[ $DORF24 > 0 ]]
 then
@@ -107,20 +99,19 @@ then
 	echo ""
 fi
 
-if [[ $DORF24toTUN > 0 ]]
+if [[ $DORF24Gateway > 0 ]]
 then
-	echo "Installing RF24toTUN Repo..."
+	echo "Installing RF24Gateway Repo..."
 	echo ""
-	git clone https://github.com/tmrh20/RF24toTUN.git ${ROOT_PATH}/RF24toTUN
+	git clone https://github.com/tmrh20/RF24Gateway.git ${ROOT_PATH}/RF24Gateway
 	echo ""
+	sudo make install -B -C ${ROOT_PATH}/RF24Gateway
 	
-	if [[ $DORF24toTUNMESH > 0 ]]
-	then
-		sudo make install MESH=1 -B -C ${ROOT_PATH}/RF24toTUN
-	else
-		sudo make install -B -C ${ROOT_PATH}/RF24toTUN
-	fi
-	echo ""
+    echo ""; echo -n "Do you want to build an RF24Gateway example?"
+    read answer
+    case ${answer^^} in
+       Y ) make -B -C${ROOT_PATH}/RF24Gateway/examples/ncurses; echo ""; echo "Complete, to run the example, cd to rf24libs/RF24Gateway/examples/ncurses and enter  ./RF24Gateway_ncurses";;
+    esac	
 fi
 
 

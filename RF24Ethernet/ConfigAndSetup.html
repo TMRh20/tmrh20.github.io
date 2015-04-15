@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.4b</span>
+   &#160;<span id="projectnumber">1.5 RC1</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -89,25 +89,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>See the video at <a href="https://www.youtube.com/watch?v=rBAIqAaRu0g">https://www.youtube.com/watch?v=rBAIqAaRu0g</a> for a walk-through of the software setup with Raspberry Pi and Arduino. <br />
 <br />
  <b> RPi </b></p>
-<p>On the Raspberry Pi, a companion program, RF24toTUN must be installed along with the RF24 and RF24Network libraries</p><ol type="1">
+<p>On the Raspberry Pi, a companion program, <a href="http://tmrh20.github.io/RF24Gateway/">RF24Gateway</a> must be installed along with the RF24 and RF24Network libraries</p><ol type="1">
 <li><div class="fragment"><div class="line">wget http:<span class="comment">//tmrh20.github.io/RF24Installer/RPi/install.sh  </span></div>
 </div><!-- fragment --></li>
 <li><div class="fragment"><div class="line">chmod +x install.sh  </div>
 </div><!-- fragment --></li>
 <li><div class="fragment"><div class="line">./install.sh  </div>
 </div><!-- fragment --></li>
-<li>Edit the included rf24totun_configAndPing.sh to modify the IP information to suit your desired network config</li>
-<li><div class="fragment"><div class="line">sudo ./rf24totun_configAndPing.sh 2 3 </div>
+<li><div class="fragment"><div class="line">cd RF24Gateway/examples/ncurses </div>
 </div><!-- fragment --></li>
-<li>The '2' specifies the last octet of the RPi IP address. The '3' specifies the last octet of the node it will attempt to ping once started.</li>
-<li>Raspberry Pi defaults to the master node (00). Secondary Raspberry pi nodes need to specify their RF24Network address or RF24Mesh nodeID.</li>
+<li><div class="fragment"><div class="line">make </div>
+</div><!-- fragment --></li>
+<li><div class="fragment"><div class="line">sudo ./RF24Gateway_ncurses </div>
+</div><!-- fragment --></li>
+<li>The application will require the user to specify an IP address and Subnet Mask: 10.10.2.2 and 255.255.255.0 are the defaults with RF24Ethernet examples</li>
+<li>Raspberry Pi defaults to the master node (00) using RF24Mesh. Secondary Raspberry pi nodes need to specify their RF24Network address or RF24Mesh nodeID.</li>
 </ol>
 <p><b> Arduino </b></p><ol type="1">
 <li>For Arduino devices, the RF24, RF24Network and RF24Ethernet libraries need to be installed ( see <a href="http://tmrh20.github.io">http://tmrh20.github.io</a> )</li>
 <li>Open the included Getting_Started_SimpleServer or Getting_Started_SimpleClient example</li>
 <li>Configure your chosen CE and CS pins for the radio connection.</li>
-<li>Configure the RF24Network address (see <a href="http://tmrh20.github.io/RF24Network_Dev/">http://tmrh20.github.io/RF24Network_Dev/</a> for more info)</li>
-<li>Configure the IP address according to your preferences, with the gateway set to the chosen IP of the RPi.</li>
+<li>Configure the RF24Mesh nodeID (Any unique value from 3 to 255)</li>
+<li>Configure the IP address according to your preferences, (last octet must==nodeID) with the gateway set to the chosen IP of the RPi.</li>
 <li>Connect into your nodes web-server at <a href="http://ip-of-your-node:1000">http://ip-of-your-node:1000</a> from the RPi or configure the client sketch to connect to a server running on the Raspberry Pi. Note: To minimize memory usage on Arduino, edit RF24Network_config.h with a text editor, and uncomment #define DISABLE_USER_PAYLOADS. This will disable standard RF24Network messages, and only allow external data, such as TCP/IP information.</li>
 </ol>
 <p><b> Non-Raspberry Pi (Linux etc) Devices </b><br />
@@ -132,7 +135,7 @@ Advanced (uIP) Configuration and Info</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 7 2015 13:22:18 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

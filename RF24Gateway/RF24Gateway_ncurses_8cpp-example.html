@@ -131,9 +131,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><span class="comment">//#include &lt;net/if.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;linux/if.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;net/if_arp.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sys/ioctl.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;linux/sockios.h&gt;</span></div>
@@ -185,6 +186,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordtype">int</span> main() {    </div>
 <div class="line">  </div>
 <div class="line">  gw.begin();</div>
+<div class="line"></div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">//uint8_t nodeID = 0;</span></div>
+<div class="line">  <span class="comment">//gw.begin(nodeID,3,RF24_2MBPS);</span></div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">//uint16_t address = 0;</span></div>
+<div class="line">  <span class="comment">//gw.begin(address,3,RF24_2MBPS);</span></div>
 <div class="line">  <span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Setup NCurses**/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span> </div>
@@ -212,17 +220,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  timeout(0);</div>
 <div class="line">  </div>
 <div class="line">  drawMain();</div>
-<div class="line">    </div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">  </div>
 <div class="line"><span class="comment">/******************************************************************/</span> </div>
 <div class="line"><span class="comment">/***********************LOOP***************************************/</span>  </div>
 <div class="line"> <span class="keywordflow">while</span>(1){</div>
-<div class="line">    <span class="comment"></span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">//delayMicroseconds(5000);</span></div>
+<div class="line">    <span class="comment">//delay(1);</span><span class="comment"></span></div>
 <div class="line"><span class="comment">    /**</span></div>
 <div class="line"><span class="comment">    * The gateway handles all IP traffic (marked as EXTERNAL_DATA_TYPE) and passes it to the associated network interface</span></div>
 <div class="line"><span class="comment">    * RF24Network user payloads are loaded into the user cache      </span></div>
 <div class="line"><span class="comment">    */</span></div>
 <div class="line">    gw.update();</div>
-<div class="line">    <span class="comment"></span></div>
+<div class="line">  <span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Read RF24Network Payloads (Do nothing with them currently) **/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span></div>
 <div class="line">    <span class="keywordflow">if</span>( network.available() ){</div>
@@ -287,6 +299,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;c&#39;</span> : drawCfg(1); <span class="keywordflow">break</span>;</div>
 <div class="line">        <span class="comment">// h: Display help menu</span></div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;h&#39;</span> : drawHelp(); <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;x&#39;</span> : clear(); endwin(); <span class="keywordflow">return</span> 0; <span class="keywordflow">break</span>;</div>
 <div class="line">      }</div>
 <div class="line"></div>
 <div class="line">    </div>
@@ -294,10 +307,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"> }<span class="comment">//while 1</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"> delwin(meshPad);</div>
-<div class="line"> delwin(connPad);</div>
+<div class="line"> <span class="comment">//delwin(meshPad);</span></div>
+<div class="line"> <span class="comment">//delwin(connPad);</span></div>
+<div class="line"> clear();</div>
 <div class="line"> endwin();</div>
-<div class="line"> refresh();</div>
 <div class="line"> <span class="keywordflow">return</span> 0;</div>
 <div class="line"> </div>
 <div class="line">}<span class="comment">//main</span></div>
@@ -315,17 +328,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  wprintw(win,<span class="stringliteral">&quot;RF24Gateway Ncurses Interface by TMRh20 - 2015\n&quot;</span>);  </div>
 <div class="line">  whline(win,ACS_HLINE, maxY-2);</div>
 <div class="line">  attroff(COLOR_PAIR(1));</div>
-<div class="line">  <span class="comment"></span></div>
+<div class="line">  refresh();<span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Display Network Interface Info **/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span></div>
 <div class="line"></div>
-<div class="line">retryIF:</div>
+<div class="line"></div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">//Interface Information</span></div>
 <div class="line">  <span class="keyword">struct </span>ifaddrs *ifap, *ifa;</div>
 <div class="line">  <span class="keywordtype">int</span> family,s,n;</div>
 <div class="line">  <span class="keywordtype">char</span> host[NI_MAXHOST];</div>
-<div class="line">  </div>
+<div class="line"></div>
+<div class="line">retryIF:  </div>
 <div class="line">  </div>
 <div class="line">  getifaddrs (&amp;ifap);</div>
 <div class="line">  <span class="keywordflow">for</span> (ifa = ifap, n=0; ifa != NULL; ifa = ifa-&gt;ifa_next, n++) {  </div>
@@ -390,12 +404,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> drawCfg(<span class="keywordtype">bool</span> isConf){</div>
 <div class="line"></div>
-<div class="line">    drawMain();</div>
+<div class="line">    <span class="keywordflow">if</span>(isConf){drawMain();}</div>
 <div class="line">    nocbreak();</div>
 <div class="line">    echo();</div>
 <div class="line">    timeout(30000);</div>
 <div class="line">    </div>
-<div class="line">    sleep(0.5);</div>
+<div class="line">    sleep(1);</div>
 <div class="line">    wattron(win,COLOR_PAIR(1));</div>
 <div class="line">    mvwprintw(win,5,1, isConf ? <span class="stringliteral">&quot;IP Configuration\n&quot;</span> : <span class="stringliteral">&quot;**Interface Not Configured:**\n&quot;</span>);</div>
 <div class="line">    wattroff(win,COLOR_PAIR(1));</div>
@@ -510,6 +524,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">   <span class="keywordtype">int</span> pa = radio.getPALevel();</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;PA Level: %s\n&quot;</span>, pa == 0 ? <span class="stringliteral">&quot;MIN&quot;</span> : pa == 1 ? <span class="stringliteral">&quot;LOW&quot;</span> : pa == 2 ? <span class="stringliteral">&quot;HIGH&quot;</span> : pa == 3 ? <span class="stringliteral">&quot;MAX&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> );</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;IF Type: %s\n&quot;</span>, gw.config_TUN == 1 ? <span class="stringliteral">&quot;TUN&quot;</span> : <span class="stringliteral">&quot;TAP&quot;</span> );</div>
+<div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;IF Drops: %u\n&quot;</span>, gw.ifDropped() );</div>
+<div class="line"><span class="preprocessor">   #if defined (ENABLE_NETWORK_STATS)</span></div>
+<div class="line">     uint32_t ok,fail;</div>
+<div class="line">     network.failures(&amp;fail,&amp;ok);</div>
+<div class="line">     wprintw(rf24Pad,<span class="stringliteral">&quot;TX Packets: %u\n&quot;</span>, ok );</div>
+<div class="line">     wprintw(rf24Pad,<span class="stringliteral">&quot;TX Drops: %u\n&quot;</span>, fail );</div>
+<div class="line"><span class="preprocessor">   #endif</span></div>
 <div class="line">   </div>
 <div class="line">   <span class="keywordflow">if</span>(padSelection == 1){</div>
 <div class="line">     wattron(rf24Pad,COLOR_PAIR(1));</div>
@@ -578,7 +599,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 1 2015 16:49:44 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Apr 15 2015 14:13:28 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

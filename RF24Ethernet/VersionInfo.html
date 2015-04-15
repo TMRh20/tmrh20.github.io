@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: ethernet_comp.h Source File</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: Version Info</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -63,7 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,21 +77,67 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">ethernet_comp.h</div>  </div>
+<div class="title">Version Info </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ETHERNET_COMP_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ETHERNET_COMP_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define Ethernet RF24Ethernet</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define EthernetClient RF24Client</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define EthernetServer RF24Server</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EthernetUDP RF24UDP</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#endif</span></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="textblock"><dl class="section version"><dt>Version</dt><dd><b>1.5RC1 - Apr15 2015</b><ul>
+<li>Seemingly stable release candidate</li>
+<li>Major change: <a href="http://tmrh20.github.io/RF24Gateway/">RF24Gateway</a> replaces RF24toTUN</li>
+<li>Now defaults to using RF24Mesh (TUN) interface</li>
+</ul>
+</dd>
+<dd>
+<b>1.4b/1.411b - March 14 - Apr 7 2015 </b><ul>
+<li>Add Ethernet.update() function</li>
+<li>Improve/Fix outgoing data handling</li>
+<li>Fix: Hanging in 1.4b</li>
+</ul>
+</dd>
+<dd>
+<b>1.3b - March 6 2015</b><ul>
+<li>Major Improvement: Better TCP window handling increases reliability, throughput and performance</li>
+</ul>
+</dd>
+<dd>
+<b>1.24b - March 3 2015</b><ul>
+<li>Utilize separate incoming/outgoing buffers (bugfix)</li>
+<li>Update documentation for DNS &amp; UDP</li>
+<li>Add waitAvailable() function, update examples to demonstrate usage.</li>
+</ul>
+</dd>
+<dd>
+<b>1.23b - Jan 22 2015</b><ul>
+<li>Small bugfixes from v1.20</li>
+<li>Slightly reduced latency</li>
+<li>Code clean-up/Reduce code size and memory usage for main Client/Server code</li>
+<li>Cleaned up some examples, added DNS and SimpleServer_Minimal examples</li>
+</ul>
+</dd>
+<dd>
+<b>1.221b - Jan 16 2015</b><ul>
+<li>Add UDP support</li>
+<li>Add DNS support</li>
+<li>Add support for up to 512 byte buffer size</li>
+<li>Reduce used memory and program space</li>
+<li>Support for multiple connections with per-connection memory buffers</li>
+</ul>
+</dd>
+<dd>
+<b>1.1b - Jan 4 2015</b><ul>
+<li>Add connection timeout to recover from hangs during failed client downloads</li>
+<li>Better TCP window management to prevent hangs during client downloads</li>
+<li>Stability improvements</li>
+</ul>
+</dd>
+<dd>
+<b>1.0b - Dec 2014</b><ul>
+<li>Outgoing client data corruption should be fixed </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
