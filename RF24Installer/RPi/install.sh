@@ -110,7 +110,7 @@ then
     echo ""; echo -n "Do you want to build an RF24Gateway example?"
     read answer
     case ${answer^^} in
-       Y ) make -B -C${ROOT_PATH}/RF24Gateway/examples/ncurses; echo ""; echo "Complete, to run the example, cd to rf24libs/RF24Gateway/examples/ncurses and enter  ./RF24Gateway_ncurses";;
+       Y ) make -B -C${ROOT_PATH}/RF24Gateway/examples/ncurses; echo ""; echo "Complete, to run the example, cd to rf24libs/RF24Gateway/examples/ncurses and enter  sudo ./RF24Gateway_ncurses";;
     esac	
 fi
 
