@@ -111,6 +111,8 @@ Advanced Operation</h2></td></tr>
 <tr class="separator:ga95fdbefb17a3bbc5ccdc2d467e46f308"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9dd44616d41cef74d3beb51d8be5ecec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UipConfiguration.html#ga9dd44616d41cef74d3beb51d8be5ecec">UIP_CONF_UDP_CHECKSUMS</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:ga9dd44616d41cef74d3beb51d8be5ecec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18ea58f86f142c9cf8bff8248ba85905"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UipConfiguration.html#ga18ea58f86f142c9cf8bff8248ba85905">UIP_CONF_EXTERNAL_BUFFER</a></td></tr>
+<tr class="separator:ga18ea58f86f142c9cf8bff8248ba85905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga29a61474854edfeed19457644161249f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UipConfiguration.html#ga29a61474854edfeed19457644161249f">OUTPUT_BUFFER_SIZE</a>&#160;&#160;&#160;<a class="el" href="group__UipConfiguration.html#gacacc406c3bf7d0e00412e4c946252739">UIP_CONF_BUFFER_SIZE</a> - <a class="el" href="group__UipConfiguration.html#ga4e2d3f85474d28b20ecb3cfc7ffe0bfe">UIP_CONF_LLH_LEN</a> - UIP_TCPIP_HLEN</td></tr>
 <tr class="separator:ga29a61474854edfeed19457644161249f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6444c52673950d411a98eb59a229297f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__UipConfiguration.html#ga6444c52673950d411a98eb59a229297f">UIP_WINDOW_REOPEN_DELAY</a>&#160;&#160;&#160;750</td></tr>
@@ -268,6 +270,23 @@ Advanced Operation</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ga18ea58f86f142c9cf8bff8248ba85905"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UIP_CONF_EXTERNAL_BUFFER</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>uIP User Output buffer size</p>
+<p>The output buffer size determines the max length of strings that can be sent by the user, and depends on the uip buffer size</p>
+<p>Must be &lt;= UIP_BUFSIZE - UIP_LLH_LEN - UIP_TCPIP_HLEN </p><dl class="section note"><dt>Note</dt><dd>Must be an odd number or the TCP/IP sequence gets out of order with payloads larger than 511 bytes I think this might be a bug or missing feature of the uip stack </dd></dl>
+
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00151">151</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ga29a61474854edfeed19457644161249f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -277,12 +296,9 @@ Advanced Operation</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>uIP User Output buffer size</p>
-<p>The output buffer size determines the max length of strings that can be sent by the user, and depends on the uip buffer size</p>
-<p>Must be &lt;= UIP_BUFSIZE - UIP_LLH_LEN - UIP_TCPIP_HLEN </p><dl class="section note"><dt>Note</dt><dd>Must be an odd number or the TCP/IP sequence gets out of order with payloads larger than 511 bytes I think this might be a bug or missing feature of the uip stack </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="HTML_8h-example.html#a0">HTML.h</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00154">154</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00156">156</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -300,14 +316,14 @@ Advanced Operation</h2></td></tr>
 <p>Adjust the initial delay period before restarting a connection that has already been restarted</p>
 <p>For small payloads (96-120 bytes) with a fast connection, this value can be as low as ~750ms or so. When increasing the uip buffer size, this value should be increased, or the window may be reopened while the requested data is still being received, hindering traffic flow. </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00168">168</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00170">170</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 16 2015 06:39:55 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

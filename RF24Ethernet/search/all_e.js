@@ -2,6 +2,7 @@ var searchData=
 [
   ['uip_5fconf_5factive_5fopen',['UIP_CONF_ACTIVE_OPEN',['../group__UipConfiguration.html#ga95fdbefb17a3bbc5ccdc2d467e46f308',1,'uip-conf.h']]],
   ['uip_5fconf_5fbuffer_5fsize',['UIP_CONF_BUFFER_SIZE',['../group__UipConfiguration.html#gacacc406c3bf7d0e00412e4c946252739',1,'uip-conf.h']]],
+  ['uip_5fconf_5fexternal_5fbuffer',['UIP_CONF_EXTERNAL_BUFFER',['../group__UipConfiguration.html#ga18ea58f86f142c9cf8bff8248ba85905',1,'uip-conf.h']]],
   ['uip_5fconf_5fllh_5flen',['UIP_CONF_LLH_LEN',['../group__UipConfiguration.html#ga4e2d3f85474d28b20ecb3cfc7ffe0bfe',1,'uip-conf.h']]],
   ['uip_5fconf_5fmax_5fconnections',['UIP_CONF_MAX_CONNECTIONS',['../group__UipConfiguration.html#ga3f6f1f6f98431f2d33ed30a30d2ccc35',1,'uip-conf.h']]],
   ['uip_5fconf_5fmax_5flistenports',['UIP_CONF_MAX_LISTENPORTS',['../group__UipConfiguration.html#ga974c9b4bbe6b07cc1d64ac4fad278030',1,'uip-conf.h']]],

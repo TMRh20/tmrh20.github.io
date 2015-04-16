@@ -188,11 +188,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// Increment the iterator (i) in increments of 45-3 (OUTPUT_BUFFER_SIZE-3) and send the data to the client</span></div>
 <div class="line">  <span class="keywordflow">for</span>(i=_pointer; i&lt;_pointer+(size-(bufSize));i+=bufSize){</div>
 <div class="line">    strncpy_P(buffer, i, bufSize);</div>
-<div class="line">    _client.write( buffer );</div>
+<div class="line">    _client.write( buffer,bufSize );</div>
 <div class="line">  }</div>
 <div class="line">  <span class="comment">// For the last bit, send only the data that remains</span></div>
 <div class="line">  strncpy_P(buffer, i, ((_pointer+size)-i));</div>
-<div class="line">  _client.write( buffer );</div>
+<div class="line">  _client.write( buffer,(_pointer+size)-i );</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***************************************************************/</span></div>
@@ -299,11 +299,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    <span class="stringliteral">&quot;&lt;/body&gt;&quot;</span></div>
 <div class="line">    <span class="stringliteral">&quot;&lt;/html&gt;&quot;</span>;</div>
 <div class="line">    </div>
-<div class="line"></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 15 2015 16:21:56 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Apr 16 2015 06:39:55 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
