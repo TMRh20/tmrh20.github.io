@@ -115,9 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a07df36e2d69a9cdaa9519e32854130"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a7a07df36e2d69a9cdaa9519e32854130">update</a> ()</td></tr>
 <tr class="memdesc:a7a07df36e2d69a9cdaa9519e32854130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Very similar to network.update(), it needs to be called regularly to keep the network and the mesh going.  <a href="#a7a07df36e2d69a9cdaa9519e32854130">More...</a><br /></td></tr>
 <tr class="separator:a7a07df36e2d69a9cdaa9519e32854130"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17e366fc27c033e68c4edfec5eed7704"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a17e366fc27c033e68c4edfec5eed7704">write</a> (const void *data, uint8_t msg_type, size_t size)</td></tr>
-<tr class="memdesc:a17e366fc27c033e68c4edfec5eed7704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically construct a header and send a payload to the 'master' node.  <a href="#a17e366fc27c033e68c4edfec5eed7704">More...</a><br /></td></tr>
-<tr class="separator:a17e366fc27c033e68c4edfec5eed7704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34535daf39ead14698f3718037358394"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a34535daf39ead14698f3718037358394">write</a> (const void *data, uint8_t msg_type, size_t size, uint8_t nodeID=0)</td></tr>
+<tr class="memdesc:a34535daf39ead14698f3718037358394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically construct a header and send a payload to the 'master' node.  <a href="#a34535daf39ead14698f3718037358394">More...</a><br /></td></tr>
+<tr class="separator:a34535daf39ead14698f3718037358394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3e662216ffd890e019537a95297ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a> (uint8_t nodeID)</td></tr>
 <tr class="memdesc:a9d3e662216ffd890e019537a95297ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a unique nodeID for this node.  <a href="#a9d3e662216ffd890e019537a95297ed4">More...</a><br /></td></tr>
 <tr class="separator:a9d3e662216ffd890e019537a95297ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,12 +132,9 @@ Advanced Operation</h2></td></tr>
 <tr class="memitem:abc64907a8d011fe4f8741a0be8560db4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#abc64907a8d011fe4f8741a0be8560db4">mesh_address</a></td></tr>
 <tr class="memdesc:abc64907a8d011fe4f8741a0be8560db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The assigned RF24Network (Octal) address of this node.  <a href="#abc64907a8d011fe4f8741a0be8560db4">More...</a><br /></td></tr>
 <tr class="separator:abc64907a8d011fe4f8741a0be8560db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab567773e39c2baacb373e5bc104bc6e4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#ab567773e39c2baacb373e5bc104bc6e4">getNodeID</a> ()</td></tr>
-<tr class="memdesc:ab567773e39c2baacb373e5bc104bc6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the nodeID of this node.  <a href="#ab567773e39c2baacb373e5bc104bc6e4">More...</a><br /></td></tr>
-<tr class="separator:ab567773e39c2baacb373e5bc104bc6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2553e231cd3083ee6cd533303854b6e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#ae2553e231cd3083ee6cd533303854b6e">getNodeId</a> (uint16_t address)</td></tr>
-<tr class="memdesc:ae2553e231cd3083ee6cd533303854b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an RF24Network address into a nodeId.  <a href="#ae2553e231cd3083ee6cd533303854b6e">More...</a><br /></td></tr>
-<tr class="separator:ae2553e231cd3083ee6cd533303854b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a306319f0722c77ee4e884b38d916af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a5a306319f0722c77ee4e884b38d916af">getNodeID</a> (uint16_t address=0)</td></tr>
+<tr class="memdesc:a5a306319f0722c77ee4e884b38d916af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an RF24Network address into a nodeId.  <a href="#a5a306319f0722c77ee4e884b38d916af">More...</a><br /></td></tr>
+<tr class="separator:a5a306319f0722c77ee4e884b38d916af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6330a2502e680f13e6ded3ff07d71087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a6330a2502e680f13e6ded3ff07d71087">checkConnection</a> ()</td></tr>
 <tr class="memdesc:a6330a2502e680f13e6ded3ff07d71087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests connectivity of this node to the mesh.  <a href="#a6330a2502e680f13e6ded3ff07d71087">More...</a><br /></td></tr>
 <tr class="separator:a6330a2502e680f13e6ded3ff07d71087"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,7 +267,7 @@ Address list struct</h2></td></tr>
 </dl>
 </div>
 </div>
-<a class="anchor" id="a17e366fc27c033e68c4edfec5eed7704"></a>
+<a class="anchor" id="a34535daf39ead14698f3718037358394"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -290,7 +287,13 @@ Address list struct</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>nodeID</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -305,6 +308,8 @@ Address list struct</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">data</td><td>Send any type of data of any length (Very large payloads will be more error prone) </td></tr>
     <tr><td class="paramname">msg_type</td><td>The user-defined (1-127) message header_type to send. Used to distinguish between different types of data being transmitted. </td></tr>
+    <tr><td class="paramname">size</td><td>The size of the data being sent </td></tr>
+    <tr><td class="paramname">nodeID</td><td>Optional: The nodeID of the recipient if not sending to master </td></tr>
   </table>
   </dd>
 </dl>
@@ -357,48 +362,25 @@ Address list struct</h2></td></tr>
 </dl>
 </div>
 </div>
-<a class="anchor" id="ab567773e39c2baacb373e5bc104bc6e4"></a>
+<a class="anchor" id="a5a306319f0722c77ee4e884b38d916af"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t RF24Mesh::getNodeID </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the nodeID of this node. </p>
-<p>The nodeID is linked to the assigned RF24Network address but is unique. </p><dl class="section return"><dt>Returns</dt><dd>Returns the nodeID saved in memory OR 0 if not found. </dd></dl>
-<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a7">RF24Mesh_Example.cpp</a>.</dd>
-</dl>
-</div>
-</div>
-<a class="anchor" id="ae2553e231cd3083ee6cd533303854b6e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t RF24Mesh::getNodeId </td>
+          <td class="memname">int RF24Mesh::getNodeID </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>address</em></td><td>)</td>
+          <td class="paramname"><em>address</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Convert an RF24Network address into a nodeId. </p>
-<p>When called on any node but the master node, this will return 0. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>- The RF24Network address of the node. </td></tr>
-  </table>
-  </dd>
+<p>When called on any node but the master node, this will result in a lookup request being sent to the master node</p>
+<dl class="section return"><dt>Returns</dt><dd>Returns the unique identifier (1-255) or -1 if not found. </dd></dl>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a7">RF24Mesh_Example.cpp</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the unique identifier (1-255) of the node or 0 if not found. </dd></dl>
-
 </div>
 </div>
 <a class="anchor" id="a6330a2502e680f13e6ded3ff07d71087"></a>
@@ -669,7 +651,7 @@ Address list struct</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Apr 16 2015 06:41:14 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 13 2015 10:46:33 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

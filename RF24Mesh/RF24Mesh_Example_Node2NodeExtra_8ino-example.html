@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9"/>
-<title>RF24Mesh: RF24Mesh_Example.ino</title>
+<title>RF24Mesh: RF24Mesh_Example_Node2NodeExtra.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,18 +80,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">RF24Mesh_Example.ino</div>  </div>
+<div class="title">RF24Mesh_Example_Node2NodeExtra.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p><b> Arduino Example Sketch </b><br />
- This example sketch shows how to manually configure a node via <a class="el" href="classRF24Mesh.html">RF24Mesh</a>, and send data to the master node.The nodes will refresh their network address as soon as a single write fails. This allows the nodes to change position in relation to each other and the master node.</p>
+<p>Extended Example of node to node communication using <a class="el" href="classRF24Mesh.html">RF24Mesh</a></p>
 <div class="fragment"><div class="line"></div>
-<div class="line"> /** RF24Mesh_Example.ino by TMRh20</div>
+<div class="line"> /** RF24Mesh_Example_Node2Node.ino by TMRh20</div>
 <div class="line">  * </div>
-<div class="line">  * This example sketch shows how to manually configure a node via RF24Mesh, and send data to the</div>
-<div class="line">  * master node.</div>
-<div class="line">  * The nodes will refresh their network address as soon as a single write fails. This allows the</div>
-<div class="line">  * nodes to change position in relation to each other and the master node.</div>
+<div class="line">  * This example sketch shows how to communicate between two (non-master) nodes using</div>
+<div class="line">  * RF24Mesh &amp; RF24Network</div>
 <div class="line">  */</div>
 <div class="line"></div>
 <div class="line"></div>
@@ -99,8 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">#include &quot;RF24Network.h&quot;</div>
 <div class="line">#include &quot;RF24Mesh.h&quot;</div>
 <div class="line">#include &lt;SPI.h&gt;</div>
-<div class="line">#include &lt;EEPROM.h&gt;</div>
-<div class="line">//#include &lt;printf.h&gt;</div>
+<div class="line">#include &lt;printf.h&gt;</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">/**** Configure the nrf24l01 CE and CS pins ****/</div>
@@ -109,56 +105,107 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"></div>
 <div class="line">/** </div>
-<div class="line"> * User Configuration: nodeID - A unique identifier for each radio. Allows addressing</div>
-<div class="line"> * to change dynamically with physical changes to the mesh.  </div>
-<div class="line"> *</div>
-<div class="line"> * In this example, configuration takes place below, prior to uploading the sketch to the device</div>
-<div class="line"> * A unique value from 1-255 must be configured for each node. </div>
-<div class="line"> * This will be stored in EEPROM on AVR devices, so remains persistent between further uploads, loss of power, etc.</div>
-<div class="line"> *</div>
+<div class="line"> * User Configuration: </div>
+<div class="line"> * nodeID - A unique identifier for each radio. Allows addressing to change dynamically</div>
+<div class="line"> * with physical changes to the mesh. (numbers 1-255 allowed)</div>
+<div class="line"> * </div>
+<div class="line"> * otherNodeID - A unique identifier for the &#39;other&#39; radio</div>
+<div class="line"> * </div>
 <div class="line"> **/</div>
 <div class="line">#define nodeID 1</div>
-<div class="line">    </div>
+<div class="line">#define otherNodeID 2    </div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line">uint32_t displayTimer=0;</div>
+<div class="line">uint32_t millisTimer=0;</div>
+<div class="line">uint32_t stringTimer=0;</div>
+<div class="line">char dataStr[] = {&quot;abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890&quot;};</div>
+<div class="line">char tmpStr[sizeof(dataStr)+1];</div>
+<div class="line">uint8_t strCtr=1;</div>
 <div class="line"></div>
 <div class="line">void setup() {</div>
-<div class="line">  </div>
+<div class="line"></div>
 <div class="line">  Serial.begin(115200);</div>
-<div class="line">  //printf_begin();</div>
+<div class="line">  printf_begin();</div>
+<div class="line">  printf(&quot;start\n&quot;);</div>
 <div class="line">  // Set the nodeID manually</div>
 <div class="line">  mesh.setNodeID(nodeID);</div>
 <div class="line">  // Connect to the mesh</div>
 <div class="line">  Serial.println(F(&quot;Connecting to the mesh...&quot;));</div>
-<div class="line">  mesh.begin();  </div>
+<div class="line">  mesh.begin(7);  </div>
 <div class="line">}</div>
-<div class="line"></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">void loop() {</div>
 <div class="line">  </div>
 <div class="line">  mesh.update();</div>
 <div class="line"></div>
-<div class="line">  // Send to the master node every second</div>
-<div class="line">  if(millis() - displayTimer &gt;= 1000){</div>
-<div class="line">    displayTimer = millis();    </div>
-<div class="line">    </div>
-<div class="line">    // Send an &#39;M&#39; type message containing the current millis()</div>
-<div class="line">    if(!mesh.write(&amp;displayTimer,&#39;M&#39;,sizeof(displayTimer))){</div>
-<div class="line">       </div>
-<div class="line">      // If a write fails, check connectivity to the mesh network</div>
-<div class="line">      if( ! mesh.checkConnection() ){</div>
-<div class="line">        //refresh the network address</div>
-<div class="line">        Serial.println(&quot;Renewing Address&quot;);</div>
-<div class="line">        mesh.renewAddress(); </div>
-<div class="line">      }else{</div>
-<div class="line">        Serial.println(&quot;Send fail, Test OK&quot;); </div>
+<div class="line">while(network.available()){</div>
+<div class="line">      RF24NetworkHeader hdr;</div>
+<div class="line">      size_t dataSize = network.peek(hdr);</div>
+<div class="line">      Serial.print(&quot;Size Rcv &quot;);</div>
+<div class="line">      Serial.print(dataSize);</div>
+<div class="line">      Serial.print(&quot;: &quot;); </div>
+<div class="line">      </div>
+<div class="line">      if(hdr.type == &#39;S&#39;){      </div>
+<div class="line">          //char datt[dataSize];</div>
+<div class="line">          network.read(hdr,&amp;tmpStr,dataSize);</div>
+<div class="line">          //Serial.println(tmpStr);</div>
+<div class="line">          for(int i=0; i&lt;dataSize; i++){</div>
+<div class="line">             Serial.print(tmpStr[i]);</div>
+<div class="line">          }</div>
+<div class="line">          Serial.println();</div>
+<div class="line">      }else</div>
+<div class="line">      if(hdr.type == &#39;M&#39;){</div>
+<div class="line">        uint32_t mills;</div>
+<div class="line">        network.read(hdr,&amp;mills,sizeof(mills));</div>
+<div class="line">        Serial.print(&quot;Rcv &quot;);</div>
+<div class="line">        Serial.print(mills);</div>
+<div class="line">        Serial.print(&quot; from nodeID &quot;);</div>
+<div class="line">        int _ID = 0;</div>
+<div class="line">        _ID = mesh.getNodeID(hdr.from_node);</div>
+<div class="line">        if( _ID &gt; 0){</div>
+<div class="line">           Serial.println(_ID);</div>
+<div class="line">        }else{</div>
+<div class="line">           Serial.println(&quot;Mesh ID Lookup Failed&quot;); </div>
+<div class="line">        }</div>
 <div class="line">      }</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  </div>
+<div class="line">  // Send to the master node every second</div>
+<div class="line">  if(millis() - millisTimer &gt;= 1303){</div>
+<div class="line">    millisTimer = millis();</div>
+<div class="line">    </div>
+<div class="line">    // Send an &#39;M&#39; type to other Node containing the current millis()</div>
+<div class="line">    if(!mesh.write(&amp;millisTimer,&#39;M&#39;,sizeof(millisTimer),otherNodeID)){</div>
+<div class="line">            Serial.println(&quot;Send fail&quot;);</div>
+<div class="line">            if( ! mesh.checkConnection() ){</div>
+<div class="line">              Serial.println(&quot;Renewing Address&quot;);</div>
+<div class="line">              mesh.renewAddress(); </div>
+<div class="line">            }else{</div>
+<div class="line">              Serial.println(&quot;Send fail, Test OK&quot;); </div>
+<div class="line">            }</div>
 <div class="line">    }else{</div>
-<div class="line">      Serial.print(&quot;Send OK: &quot;); Serial.println(displayTimer);</div>
+<div class="line">            Serial.print(&quot;Send OK: &quot;); Serial.println(millisTimer);</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
+<div class="line">    if(millis() - stringTimer &gt;= 1333){</div>
+<div class="line">      stringTimer=millis();</div>
+<div class="line">      //Copy the current number of characters to the temporary array</div>
+<div class="line">      memcpy(tmpStr,dataStr,strCtr);</div>
+<div class="line">      //Set the last character to NULL</div>
+<div class="line">      tmpStr[strCtr] = &#39;\0&#39;;</div>
+<div class="line">    </div>
+<div class="line">      // Send the temp string as an &#39;S&#39; type message</div>
+<div class="line">      // Send it to otherNodeID (An RF24Mesh address lookup will be performed)</div>
+<div class="line">      if(mesh.write(tmpStr,&#39;S&#39;,strCtr+1,otherNodeID)){</div>
+<div class="line">      }</div>
+<div class="line">        strCtr++;</div>
+<div class="line">        //Set the sending length back to 1 once max size is reached</div>
+<div class="line">        if(strCtr == sizeof(dataStr)){ strCtr=1; }</div>
+<div class="line">      //}</div>
+<div class="line">    </div>
+<div class="line">    }</div>
 <div class="line"></div>
 <div class="line">}</div>
 <div class="line"></div>
