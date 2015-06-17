@@ -1,6 +1,7 @@
 var searchData=
 [
   ['beaglebone_20black',['BeagleBone Black',['../BBB.html',1,'']]],
-  ['begin',['begin',['../classRF24.html#a9e720d303ad594de611a813c69244517',1,'RF24::begin()'],['../group__Porting__SPI.html#gaf79095574842d60a6297aa5b01b6185f',1,'begin():&#160;spi.h']]],
+  ['begin',['begin',['../classRF24.html#a048a20c73c7d9b2e02dcbae6fb9c4ba8',1,'RF24::begin()'],['../group__Porting__SPI.html#gaf79095574842d60a6297aa5b01b6185f',1,'begin():&#160;spi.h']]],
+  ['begintransaction',['beginTransaction',['../classRF24.html#a5a669f1c68203d5317f8f452a2bff1b5',1,'RF24']]],
   ['bits',['bits',['../group__Porting__SPI.html#ga46a6da6b1936191571fd30b2a749f38c',1,'spi.h']]]
 ];

@@ -26,7 +26,7 @@
   <td style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
    </div>
-   <div id="projectbrief">TMRh20 2014-2015 - Optimized Fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
  </tr>
  </tbody>
@@ -87,6 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="classRF24-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">RF24 Class Reference</div>  </div>
@@ -104,8 +105,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8cd165a822c8f77e10782c6729c5b088"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41f09142485a8867f8b7ecc4f6cb3f97"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a41f09142485a8867f8b7ecc4f6cb3f97">RF24</a> (uint8_t _cepin, uint8_t _cspin, uint32_t spispeed)</td></tr>
 <tr class="separator:a41f09142485a8867f8b7ecc4f6cb3f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e720d303ad594de611a813c69244517"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin</a> (void)</td></tr>
-<tr class="separator:a9e720d303ad594de611a813c69244517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048a20c73c7d9b2e02dcbae6fb9c4ba8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a048a20c73c7d9b2e02dcbae6fb9c4ba8">begin</a> (void)</td></tr>
+<tr class="separator:a048a20c73c7d9b2e02dcbae6fb9c4ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30a2733a3889bdc331fe2d2f4f0f7b39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening</a> (void)</td></tr>
 <tr class="separator:a30a2733a3889bdc331fe2d2f4f0f7b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f144d73fc447c8ac2d1a4166210fd88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening</a> (void)</td></tr>
@@ -121,7 +122,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9edc910ccc1ffcff56814b08faca5535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a9edc910ccc1ffcff56814b08faca5535">openReadingPipe</a> (uint8_t number, const uint8_t *address)</td></tr>
 <tr class="separator:a9edc910ccc1ffcff56814b08faca5535"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Optional Configurators</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>Methods you can use to get or set the configuration of the chip. None are required. Calling <a class="el" href="classRF24.html#a9e720d303ad594de611a813c69244517">begin()</a> sets up a reasonable set of defaults. </p>
+<tr><td colspan="2"><div class="groupText"><p>Methods you can use to get or set the configuration of the chip. None are required. Calling <a class="el" href="classRF24.html#a048a20c73c7d9b2e02dcbae6fb9c4ba8">begin()</a> sets up a reasonable set of defaults. </p>
 </div></td></tr>
 <tr class="memitem:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ad5aea7f9a3bd9c7d357fb296ce751f21">setAddressWidth</a> (uint8_t a_width)</td></tr>
 <tr class="separator:ad5aea7f9a3bd9c7d357fb296ce751f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,6 +171,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa7e8523f86f9f8f20c274e0c89a5fd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a50c8e68ee840e1860a31dbdc83afbd77">openWritingPipe</a> (uint64_t address)</td></tr>
 <tr class="separator:a50c8e68ee840e1860a31dbdc83afbd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5a669f1c68203d5317f8f452a2bff1b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a5a669f1c68203d5317f8f452a2bff1b5">beginTransaction</a> ()</td></tr>
+<tr class="separator:a5a669f1c68203d5317f8f452a2bff1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b196efad61a1b8a9bf493150901edb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a2b196efad61a1b8a9bf493150901edb4">endTransaction</a> ()</td></tr>
+<tr class="separator:a2b196efad61a1b8a9bf493150901edb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 Advanced Operation</h2></td></tr>
@@ -261,7 +269,7 @@ Advanced Operation</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00467">467</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00430">430</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -308,12 +316,64 @@ Advanced Operation</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a9e720d303ad594de611a813c69244517"></a>
+<a class="anchor" id="a5a669f1c68203d5317f8f452a2bff1b5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::beginTransaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>SPI transactions</p>
+<p>Common code for SPI transactions including CSN toggle </p>
+
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00072">72</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b196efad61a1b8a9bf493150901edb4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24::endTransaction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00081">81</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a048a20c73c7d9b2e02dcbae6fb9c4ba8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void RF24::begin </td>
+          <td class="memname">bool RF24::begin </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -324,7 +384,7 @@ Advanced Operation</h2></td></tr>
 <p>Begin operation of the chip</p>
 <p>Call this in setup(), before calling any other methods. </p><div class="fragment"><div class="line">radio.begin() </div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00620">620</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00585">585</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -353,7 +413,7 @@ Advanced Operation</h2></td></tr>
 <div class="line">radio.openReadingPipe(1,address);</div>
 <div class="line">radio.startListening();</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00741">741</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00705">705</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +434,7 @@ Advanced Operation</h2></td></tr>
 <p>Do this before calling <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. </p><div class="fragment"><div class="line">radio.stopListening();</div>
 <div class="line">radio.write(&amp;data,<span class="keyword">sizeof</span>(data));</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00772">772</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00736">736</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -396,7 +456,7 @@ Advanced Operation</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01104">1104</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01064">1064</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -440,7 +500,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>No return value. Use <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01131">1131</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01091">1091</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -482,7 +542,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
 <div class="line">radio.write(&amp;data,<span class="keyword">sizeof</span>(data));</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00876">876</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00840">840</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -515,7 +575,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01172">1172</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01132">1132</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -562,7 +622,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01234">1234</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01194">1194</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,7 +648,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">}</div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00554">554</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00519">519</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -620,7 +680,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01111">1111</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01071">1071</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -638,7 +698,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><div class="memdoc">
 <p>Check if the radio needs to be read. Can be used to prevent data loss </p><dl class="section return"><dt>Returns</dt><dd>True if all three 32-byte radio buffers are full </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01001">1001</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00965">965</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -662,7 +722,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">avr_enter_sleep_mode(); <span class="comment">// Custom function to sleep the device</span></div>
 <div class="line">radio.powerUp();</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00800">800</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00764">764</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -682,7 +742,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Leave low-power mode - required for normal radio operation after calling <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a></p>
 <p>To return to low power mode, call <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a>. </p><dl class="section note"><dt>Note</dt><dd>This will take up to 5ms for maximum compatibility </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00809">809</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00773">773</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -731,7 +791,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00840">840</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00804">804</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -780,7 +840,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00959">959</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00923">923</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -827,7 +887,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00925">925</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00889">889</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -882,7 +942,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was loaded into the buffer successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00882">882</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00846">846</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -911,7 +971,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd>txStandBy(unsigned long timeout) </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if transmission is successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01006">1006</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00970">970</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -954,7 +1014,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if transmission is successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01034">1034</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00998">998</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1053,9 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <a class="el" href="classRF24.html#a443888504975d7441d6452a09d09a8fa">enableDynamicPayloads()</a> </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Only three of these can be pending at any time as there are only 3 FIFO buffers.<br />
  Dynamic payloads must be enabled. </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Ack payloads are handled automatically by the radio chip when a payload is received. Users should generally write an ack payload as soon as <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a> is called, so one is available when a regular payload is received.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Ack payloads are handled automatically by the radio chip when a payload is received. Users should generally write an ack payload as soon as <a class="el" href="classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39">startListening()</a> is called, so one is available when a regular payload is received. </dd>
+<dd>
+Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. Call <a class="el" href="classRF24.html#a443888504975d7441d6452a09d09a8fa">enableDynamicPayloads()</a> to enable on all pipes.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pipe</td><td>Which pipe# (typically 1-5) will get this response. </td></tr>
@@ -1003,7 +1065,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01346">1346</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01304">1304</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1086,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Call <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to retrieve the ack payload.</p>
 <dl class="section return"><dt>Returns</dt><dd>True if an ack payload is available. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01384">1384</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01335">1335</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +1130,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01143">1143</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01103">1103</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1192,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00970">970</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00934">934</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1184,7 +1246,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00984">984</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00948">948</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1204,7 +1266,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>The function will instruct the radio to re-use the data in the FIFO buffers, and instructs the radio to re-send once the timeout limit has been reached. Used by writeFast and writeBlocking to initiate retries when a TX failure occurs. Retries are automatically initiated except with the standard <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. This way, data is not flushed from the buffer until switching between modes.</p>
 <dl class="section note"><dt>Note</dt><dd>This is to be used AFTER auto-retry fails if wanting to resend using the built-in payload reuse features. After issuing <a class="el" href="classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX()</a>, it will keep reending the same payload forever or until a payload is written to the FIFO, or a flush_tx command is given. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00916">916</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00880">880</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1224,7 +1286,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Empty the transmit buffer. This is generally not required in standard operation. May be required in specific cases after <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> , if operating at 250KBPS data rate.</p>
 <dl class="section return"><dt>Returns</dt><dd>Current value of status register </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00365">365</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00327">327</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1245,7 +1307,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Useful to check for interference on the current channel.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if was carrier, false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01427">1427</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01378">1378</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1271,7 +1333,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>true if signal =&gt; -64dBm, false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01434">1434</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01385">1385</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1360,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Test whether this is a real radio, or a mock shim for debugging. Setting either pin to 0xff is the way to indicate that this is not a real radio.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if this is a legitimate radio </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00632">632</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00646">646</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1384,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01262">1262</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01222">1222</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1347,7 +1409,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01223">1223</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01183">1183</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1383,7 +1445,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01593">1593</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01544">1544</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1408,7 +1470,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00484">484</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00449">449</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1434,7 +1496,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00492">492</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00457">457</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1455,7 +1517,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classRF24.html#a343e5d23477181011dea030fafb1954f">setPayloadSize()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of bytes in the payload </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00499">499</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00464">464</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1484,7 +1546,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Payload length of last-received dynamic payload </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01076">1076</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01040">1040</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1502,9 +1564,10 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
       </table>
 </div><div class="memdoc">
 <p>Enable custom payloads on the acknowledge packets</p>
-<p>Ack payloads are a handy way to return data back to senders without manually changing the radio modes on both units. </p>
+<p>Ack payloads are a handy way to return data back to senders without manually changing the radio modes on both units.</p>
+<dl class="section note"><dt>Note</dt><dd>Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. Call <a class="el" href="classRF24.html#a443888504975d7441d6452a09d09a8fa">enableDynamicPayloads()</a> to enable on all pipes. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01311">1311</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01269">1269</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1524,7 +1587,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Enable dynamically-sized payloads</p>
 <p>This way you don't always have to send large packets just to send them once in a while. This enables dynamic payloads on ALL pipes. </p>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01290">1290</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01248">1248</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1548,7 +1611,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">radio.write(&amp;data,32,0);  <span class="comment">// Sends a payload using auto-retry/autoACK</span></div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01332">1332</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01290">1290</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1568,7 +1631,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Determine whether the hardware is an nRF24L01+ or not.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if the hardware is nRF24L01+ (or compatible) and false if its not. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01391">1391</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01342">1342</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1594,7 +1657,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01398">1398</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01349">1349</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1694,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01408">1408</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01359">1359</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1658,7 +1721,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01441">1441</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01392">1392</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1679,7 +1742,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>NRF24L01: -18dBm, -12dBm, -6dBm and 0dBm SI24R1: -6dBm, 0dBm, 3dBm, 7dBm</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns values 0 to 3 representing the PA Level. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01458">1458</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01409">1409</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1706,7 +1769,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the change was successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01466">1466</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01417">1417</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1726,7 +1789,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Fetches the transmission data rate</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the hardware's currently configured datarate. The value is one of 250kbs, RF24_1MBPS for 1Mbps, or RF24_2MBPS, as defined in the rf24_datarate_e enum. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01516">1516</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01467">1467</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1751,7 +1814,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01543">1543</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01494">1494</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1771,7 +1834,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Get the CRC length</p>
 <dl class="section return"><dt>Returns</dt><dd>RF24_DISABLED if disabled or RF24_CRC_8 for 8-bit or RF24_CRC_16 for 16-bit </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01566">1566</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01517">1517</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1791,7 +1854,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Disable CRC validation</p>
 <dl class="section warning"><dt>Warning</dt><dd>CRC cannot be disabled if auto-ack/ESB is enabled. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01586">1586</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01537">1537</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1837,7 +1900,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01069">1069</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01033">1033</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1878,7 +1941,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01196">1196</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01156">1156</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1905,7 +1968,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01157">1157</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01117">1117</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1929,7 +1992,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">  report_failure();                    <span class="comment">// Blink leds, send a message, etc. to indicate failure</span></div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00662">662</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00676">676</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -1940,7 +2003,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 26 2015 00:26:43 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jun 16 2015 20:17:20 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

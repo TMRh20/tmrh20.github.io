@@ -39,6 +39,7 @@ var searchData=
   ['rf_5fpwr_5fhigh',['RF_PWR_HIGH',['../nRF24L01_8h.html#a2878a09923ef12371cab52dda0b869ee',1,'nRF24L01.h']]],
   ['rf_5fpwr_5flow',['RF_PWR_LOW',['../nRF24L01_8h.html#aa53b965d99f7de6c6c368398b24bf7ac',1,'nRF24L01.h']]],
   ['rf_5fsetup',['RF_SETUP',['../nRF24L01_8h.html#ad95edb7665f39454d7d7fd436301712b',1,'nRF24L01.h']]],
+  ['rf_5fspi_5fspeed',['RF_SPI_SPEED',['../RF24__config_8h.html#ad4888dd2252f846c79e41688ad834841',1,'RF24_config.h']]],
   ['rpd',['RPD',['../nRF24L01_8h.html#ab9743a9a0928c8f19ad9687ae6c67150',1,'nRF24L01.h']]],
   ['raspberry_20pi',['Raspberry Pi',['../RPi.html',1,'']]],
   ['rx_5faddr_5fp0',['RX_ADDR_P0',['../nRF24L01_8h.html#adc82a1b0dee303d8b783b9b9a89ae5aa',1,'nRF24L01.h']]],
