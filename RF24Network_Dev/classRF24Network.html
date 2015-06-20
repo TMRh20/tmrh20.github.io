@@ -192,6 +192,9 @@ External Applications/Systems</h2></td></tr>
 <tr class="memitem:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#afb6b1d5c0fa3d982425f7a1f4fb48d13">returnSysMsgs</a></td></tr>
 <tr class="memdesc:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable to determine whether <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">update()</a> will return after the radio buffers have been emptied (DEFAULT), or whether to return immediately when (most) system types are received.  <a href="#afb6b1d5c0fa3d982425f7a1f4fb48d13">More...</a><br /></td></tr>
 <tr class="separator:afb6b1d5c0fa3d982425f7a1f4fb48d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a476806538919b167465181ab872e0cad"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a476806538919b167465181ab872e0cad">networkFlags</a></td></tr>
+<tr class="memdesc:a476806538919b167465181ab872e0cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network Flags allow control of data flow.  <a href="#a476806538919b167465181ab872e0cad">More...</a><br /></td></tr>
+<tr class="separator:a476806538919b167465181ab872e0cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2014-2015 - Optimized Network Layer for RF24 Radios </p>
@@ -925,10 +928,37 @@ This is used by external data systems (RF24Ethernet) to immediately copy the rec
 
 </div>
 </div>
+<a class="anchor" id="a476806538919b167465181ab872e0cad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t RF24Network::networkFlags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Network Flags allow control of data flow. </p>
+<p>Incoming Blocking: If the network user-cache is full, lets radio cache fill up. Radio ACKs are not sent when radio internal cache is full.<br />
+ This behaviour may seem to result in more failed sends, but the payloads would have otherwise been dropped due to the cache being full.<br />
+</p>
+<table class="doxtable">
+<tr>
+<th>FLAGS </th><th>Value </th><th>Description  </th></tr>
+<tr>
+<td>FLAG_HOLD_INCOMING</td><td>1(bit_1) </td><td>INTERNAL: Set automatically when a fragmented payload will exceed the available cache </td></tr>
+<tr>
+<td>FLAG_BYPASS_HOLDS</td><td>2(bit_2) </td><td>EXTERNAL: Can be used to prevent holds from blocking. Note: Holds are disabled &amp; re-enabled by RF24Mesh when renewing addresses. This will cause data loss if incoming data exceeds the available cache space </td></tr>
+<tr>
+<td>FLAG_FAST_FRAG</td><td>4(bit_3) </td><td>INTERNAL: Replaces the fastFragTransfer variable, and allows for faster transfers between directly connected nodes. </td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Apr 7 2015 11:22:38 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Jun 20 2015 04:16:20 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
