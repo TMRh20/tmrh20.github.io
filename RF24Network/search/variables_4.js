@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['spi',['SPI',['../RF24Network__config_8h.html#a2332dcef61deaf30b01014f3bede4343',1,'RF24Network_config.h']]]
+  ['networkflags',['networkFlags',['../classRF24Network.html#a476806538919b167465181ab872e0cad',1,'RF24Network']]],
+  ['next_5fid',['next_id',['../structRF24NetworkHeader.html#af02a00fa410f6c34bb395f7d0afe2bfd',1,'RF24NetworkHeader']]]
 ];

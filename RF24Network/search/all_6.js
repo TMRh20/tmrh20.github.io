@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['network_20layer_20for_20rf24_20radios',['Network Layer for RF24 Radios',['../index.html',1,'']]],
-  ['next_5fid',['next_id',['../structRF24NetworkHeader.html#af02a00fa410f6c34bb395f7d0afe2bfd',1,'RF24NetworkHeader']]]
+  ['id',['id',['../structRF24NetworkHeader.html#ad05daaac28b7d1e7a7ef749f7f0ce317',1,'RF24NetworkHeader']]],
+  ['is_5fvalid_5faddress',['is_valid_address',['../classRF24Network.html#ab41da035bd7f469ea4364a06ab4efd1b',1,'RF24Network']]]
 ];

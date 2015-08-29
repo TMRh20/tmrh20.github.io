@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['char',['char',['../RF24Network__config_8h.html#ad5a90413477085cb1b8c31d37ebba567',1,'RF24Network_config.h']]],
-  ['comparison_20to_20zigbee',['Comparison to ZigBee',['../Zigbee.html',1,'']]]
+  ['external_5fdata_5ftype',['EXTERNAL_DATA_TYPE',['../group__DEFINED__TYPES.html#gac6bbd2772e776d10ca7c5f3c7eddf982',1,'RF24Network.h']]]
 ];
