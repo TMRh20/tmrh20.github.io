@@ -83,7 +83,7 @@ if [[ $DORF24Network > 0 ]]
 then
 	echo "Installing RF24Network_DEV Repo..."
 	echo ""
-	git clone -b Development https://github.com/tmrh20/RF24Network.git ${ROOT_PATH}/RF24Network
+	git clone https://github.com/tmrh20/RF24Network.git ${ROOT_PATH}/RF24Network
 	echo ""
 	sudo make install -B -C ${ROOT_PATH}/RF24Network
 	echo ""
