@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getchannel',['getChannel',['../classRF24.html#a6a66a94609309e17edaa1919e66cea0a',1,'RF24']]],
   ['getcrclength',['getCRCLength',['../classRF24.html#aba4ca91b829afcd94a4c11e0343e3796',1,'RF24']]],
   ['getdatarate',['getDataRate',['../classRF24.html#a72a7b11dafe8ffab6135f243decce0d7',1,'RF24']]],
   ['getdynamicpayloadsize',['getDynamicPayloadSize',['../classRF24.html#a65963ed8d8fd45f847e2f673995b85e1',1,'RF24']]],

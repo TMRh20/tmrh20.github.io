@@ -16,7 +16,6 @@ var searchData=
   ['startfastwrite',['startFastWrite',['../classRF24.html#acd19843064cb70ec23507412e519e4ef',1,'RF24']]],
   ['startlistening',['startListening',['../classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39',1,'RF24']]],
   ['startwrite',['startWrite',['../classRF24.html#aa27519fc289920094422033e0bbf8cf9',1,'RF24']]],
-  ['status',['STATUS',['../nRF24L01_8h.html#a59279bee44f34d08b3cbf3a89fb0d8d9',1,'nRF24L01.h']]],
   ['stoplistening',['stopListening',['../classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88',1,'RF24']]],
   ['strlen_5fp',['strlen_P',['../RF24__config_8h.html#a05dde754db9944c90362c1f861d358ba',1,'strlen_P():&#160;RF24_config.h'],['../group__Porting__General.html#ga05dde754db9944c90362c1f861d358ba',1,'strlen_P():&#160;RF24_arch_config.h']]]
 ];
