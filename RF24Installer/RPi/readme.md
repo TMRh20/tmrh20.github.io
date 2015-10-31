@@ -2,10 +2,10 @@
 ##RF24toTUN installer
 
 ###Installs the following libraries:
-RF24
-RF24Network
-RF24Mesh
-RF24toTUN
+- RF24
+- RF24Network
+- RF24Mesh
+- RF24toTUN
 
 ### Installer Instructions
 1. Download the install.sh file from http://tmrh20.github.io/RF24Installer/RPi/install.sh
