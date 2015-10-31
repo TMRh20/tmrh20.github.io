@@ -15,16 +15,21 @@ RF24toTUN
 > ```chmod +x install.sh```
 
 1. Run it:
->```./install.sh```
+> ./install.sh
+
+Done!
 
 ### Updater Instructions
 1. Download the update.sh file from http://tmrh20.github.io/RF24Installer/RPi/update.sh
->```wget http://tmrh20.github.io/RF24Installer/RPi/update.sh```
+> ```wget http://tmrh20.github.io/RF24Installer/RPi/update.sh```
 
 1. Make it executable:
->```chmod +x update.sh```
+> ```chmod +x update.sh```
 
 1. Run it:
->```./update.sh```
+> ./update.sh
+
+Done!
+
 
 
