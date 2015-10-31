@@ -32,9 +32,11 @@ echo "RF24 libraries updater by TMRh20/Sytone"
 echo "report issues at https://github.com/TMRh20/RF24/issues"
 echo ""
 echo "******************** NOTICE **********************"
-echo "Updater will update all the libraries under 'rf24libs' it assumes you 
-echo "have already used the installer. 
+echo "Updater will update all the libraries under 'rf24libs' it assumes you"
+echo "have already used the installer. "
 echo ""
+echo "Github Root: https://github.com/${GITHUB_ROOT}/"
+echo "Install Path: ${ROOT_PATH}"
 echo ""
 
 
