@@ -10,6 +10,22 @@ DORF24=0
 DORF24Network=0
 DORF24Mesh=0
 DORF24Gateway=0
+DORF24GatewayMake=0
+
+GITHUB_ROOT="tmrh20"
+
+while getopts :r: opt; do
+	case $opt in
+		r)
+			GITHUB_ROOT=$OPTARG
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			;;
+	esac
+done
+
+shift $((OPTIND - 1))
 
 echo""
 echo "RF24 libraries updater by TMRh20/Sytone"
@@ -56,33 +72,36 @@ case ${ANSWER^^} in
 esac
 
 
-echo $'\n'
 read -p "Do you want to install the RF24 core library [Y/n]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24=1;;
 esac
 
-echo $'\n'
 read -p "Do you want to install the RF24Network library [Y/n]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Network=1;;
 esac
 
-echo $'\n'
 read -p "Do you want to install the RF24Mesh library [Y/n]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Mesh=1;;
 esac
 
-echo $'\n'
 read -p "Do you want to install the RF24Gateway library [Y/n]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Gateway=1;;
 esac
+
+read -p "Do you want to build an RF24Gateway example [Y/n]?" ANSWER
+ANSWER=${ANSWER:-Y}
+case ${ANSWER^^} in
+	Y ) DORF24GatewayMake=1;;
+esac	
+
 
 if [[ $DORF24Gateway > 0 ]]
 then
@@ -107,7 +126,7 @@ if [[ $DORF24 > 0 ]]
 then
 	echo "Installing RF24 Repo..."
 	echo ""
-	git clone https://github.com/tmrh20/RF24.git ${ROOT_PATH}/RF24
+	git clone https://github.com/${GITHUB_ROOT}/RF24.git ${ROOT_PATH}/RF24
 	echo ""
 	sudo make install -B -C ${ROOT_PATH}/RF24
 	echo ""
@@ -117,7 +136,7 @@ if [[ $DORF24Network > 0 ]]
 then
 	echo "Installing RF24Network_DEV Repo..."
 	echo ""
-	git clone https://github.com/tmrh20/RF24Network.git ${ROOT_PATH}/RF24Network
+	git clone https://github.com/${GITHUB_ROOT}/RF24Network.git ${ROOT_PATH}/RF24Network
 	echo ""
 	sudo make install -B -C ${ROOT_PATH}/RF24Network
 	echo ""
@@ -127,7 +146,7 @@ if [[ $DORF24Mesh > 0 ]]
 then
 	echo "Installing RF24Mesh Repo..."
 	echo ""
-	git clone https://github.com/tmrh20/RF24Mesh.git ${ROOT_PATH}/RF24Mesh
+	git clone https://github.com/${GITHUB_ROOT}/RF24Mesh.git ${ROOT_PATH}/RF24Mesh
 	echo ""
 	sudo make install -B -C ${ROOT_PATH}/RF24Mesh
 	echo ""
@@ -137,16 +156,19 @@ if [[ $DORF24Gateway > 0 ]]
 then
 	echo "Installing RF24Gateway Repo..."
 	echo ""
-	git clone https://github.com/tmrh20/RF24Gateway.git ${ROOT_PATH}/RF24Gateway
+	git clone https://github.com/${GITHUB_ROOT}/RF24Gateway.git ${ROOT_PATH}/RF24Gateway
 	echo ""
 	sudo make install -B -C ${ROOT_PATH}/RF24Gateway
 	
     echo ""
-    read -p "Do you want to build an RF24Gateway example [Y/n]?" ANSWER
-    ANSWER=${ANSWER:-Y}
-    case ${ANSWER^^} in
-       Y ) make -B -C${ROOT_PATH}/RF24Gateway/examples/ncurses; echo ""; echo "Complete, to run the example, cd to rf24libs/RF24Gateway/examples/ncurses and enter  sudo ./RF24Gateway_ncurses";;
-    esac	
+	if [[ $DORF24GatewayMake > 0 ]]
+	then
+		make -B -C${ROOT_PATH}/RF24Gateway/examples/ncurses
+		echo ""
+		echo "Complete, to run the example:"
+		echo "  cd ./rf24libs/RF24Gateway/examples/ncurses"
+		echo "  sudo ./RF24Gateway_ncurses"
+	fi
 fi
 
 
