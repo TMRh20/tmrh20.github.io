@@ -8,28 +8,23 @@ RF24Mesh
 RF24toTUN
 
 ### Installer Instructions
-Download the install.sh file from http://tmrh20.github.io/RF24Installer/RPi/install.sh
+1. Download the install.sh file from http://tmrh20.github.io/RF24Installer/RPi/install.sh
+> ```wget http://tmrh20.github.io/RF24Installer/RPi/install.sh```
 
-1. ```wget http://tmrh20.github.io/RF24Installer/RPi/install.sh```
+1. Make it executable:
+> ```chmod +x install.sh```
 
-Make it executable:
-
-2. ```chmod +x install.sh```
-
-Run it:
-
-3. ```./install.sh```
+1. Run it:
+>```./install.sh```
 
 ### Updater Instructions
-Download the update.sh file from http://tmrh20.github.io/RF24Installer/RPi/update.sh
+1. Download the update.sh file from http://tmrh20.github.io/RF24Installer/RPi/update.sh
+>```wget http://tmrh20.github.io/RF24Installer/RPi/update.sh```
 
-1. ```wget http://tmrh20.github.io/RF24Installer/RPi/update.sh```
+1. Make it executable:
+>```chmod +x update.sh```
 
-Make it executable:
+1. Run it:
+>```./update.sh```
 
-2. ```chmod +x update.sh```
-
-Run it:
-
-3. ```./update.sh```
 
