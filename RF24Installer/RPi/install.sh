@@ -23,7 +23,7 @@ echo ""
 echo ""
 
 echo "Prerequisite: GIT "
-echo "Do you want to install GIT using APT?" 
+echo "Do you want to install GIT using APT, Y/N?" 
 echo -n "(Used to download source code) "
 read answer
 case ${answer^^} in
