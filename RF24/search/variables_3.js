@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mode',['mode',['../group__Porting__SPI.html#ga37e90f5e3bd99fac2021fb3a326607d4',1,'spi.h']]]
+  ['spi',['SPI',['../RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343',1,'RF24_config.h']]]
 ];

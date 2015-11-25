@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -166,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">      #define _SPI spi</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">      #else     </span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">        #include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">        #include &lt;SPI.h&gt;</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">        #define _SPI SPI</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">      #endif</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
@@ -177,7 +175,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"> #if defined(__arm__) || defined (__ARDUINO_X86__)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">   #include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">   #include &lt;SPI.h&gt;</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"> #endif</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
@@ -207,17 +205,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">// Progmem is Arduino-specific</span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">// Arduino DUE is arm and does not include avr/pgmspace</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#if defined (ARDUINO_ARCH_ESP8266)</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">  #include &lt;pgmspace.h&gt;</span>  </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">typedef</span> uint16_t <a class="code" href="RF24__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">  #define PSTR(x) (x)</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">  #define PSTR(x) (x)</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">  #define printf Serial.printf</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">  #define sprintf(...) os_sprintf( __VA_ARGS__ )</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">  #define printf_P printf</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">  #define strlen_P strlen  </span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">  #define PROGMEM</span></div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">  #define pgm_read_byte(addr) (*(const unsigned char *)(addr))</span></div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">  #define pgm_read_word(p) (*(p))</span></div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">  #define PRIPSTR &quot;%s&quot;</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#elif defined(ARDUINO) &amp;&amp; ! defined(__arm__) &amp;&amp; !defined (__ARDUINO_X86__)</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">    #include &lt;avr/pgmspace.h&gt;</span></div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">    #define PRIPSTR &quot;%S&quot;</span></div>
@@ -247,14 +245,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif // __RF24_CONFIG_H__</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
 <div class="ttc" id="RF24__config_8h_html_ad4888dd2252f846c79e41688ad834841"><div class="ttname"><a href="RF24__config_8h.html#ad4888dd2252f846c79e41688ad834841">RF_SPI_SPEED</a></div><div class="ttdeci">const uint32_t RF_SPI_SPEED</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00061">RF24_config.h:61</a></div></div>
-<div class="ttc" id="spi_8h_html"><div class="ttname"><a href="spi_8h.html">spi.h</a></div></div>
 <div class="ttc" id="RF24__config_8h_html_a05ca2f20b55933ad782917161d54287d"><div class="ttname"><a href="RF24__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a></div><div class="ttdeci">uint16_t prog_uint16_t</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00140">RF24_config.h:140</a></div></div>
 <div class="ttc" id="RF24__config_8h_html_a2332dcef61deaf30b01014f3bede4343"><div class="ttname"><a href="RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a></div><div class="ttdeci">HardwareSPI SPI</div></div>
 <div class="ttc" id="RF24__config_8h_html_ad5a90413477085cb1b8c31d37ebba567"><div class="ttname"><a href="RF24__config_8h.html#ad5a90413477085cb1b8c31d37ebba567">char</a></div><div class="ttdeci">char const char</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00134">RF24_config.h:134</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

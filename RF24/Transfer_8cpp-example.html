@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -105,7 +103,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24_8h.html">RF24/RF24.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">// Hardware configuration</span></div>
 <div class="line"><span class="comment">//</span></div>
@@ -218,7 +216,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordtype">long</span> <span class="keywordtype">int</span> cycles = 10000;                    <span class="comment">//Change this to a higher or lower number.</span></div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// unsigned long pauseTime = millis();      //Uncomment if autoAck == 1 ( NOACK )</span></div>
-<div class="line">        startTime = <a name="a4"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">        startTime = millis();</div>
 <div class="line">    </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;cycles; i++){                <span class="comment">//Loop through a number of cycles</span></div>
 <div class="line">                data[0] = i;                        <span class="comment">//Change the first byte of the payload for identification</span></div>
@@ -234,7 +232,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">                }</span></div>
 <div class="line"><span class="comment">        */</span></div>
 <div class="line">        }</div>
-<div class="line">        stopTime = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">        stopTime = millis();</div>
 <div class="line"></div>
 <div class="line">        <span class="keywordflow">if</span>(!radio.txStandBy()){ counter+=3; }</div>
 <div class="line"></div>
@@ -253,8 +251,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      radio.read(&amp;data,32);</div>
 <div class="line">      counter++;</div>
 <div class="line">     }</div>
-<div class="line">   <span class="keywordflow">if</span>(<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - rxTimer &gt; 1000){</div>
-<div class="line">     rxTimer = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">   <span class="keywordflow">if</span>(millis() - rxTimer &gt; 1000){</div>
+<div class="line">     rxTimer = millis();</div>
 <div class="line">     printf(<span class="stringliteral">&quot;Rate: &quot;</span>);</div>
 <div class="line">     <span class="keywordtype">float</span> numBytes = counter*32;</div>
 <div class="line">     printf(<span class="stringliteral">&quot;%.2f KB/s \n\r&quot;</span>,numBytes/1000);</div>
@@ -274,7 +272,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -97,15 +95,15 @@ Basic Hardware Template</h1>
 <tr>
 <th>File </th><th>Purpose  </th></tr>
 <tr>
-<td><a class="el" href="RF24__arch__config_8h.html">RF24_arch_config.h</a> </td><td>Basic Arduino/AVR compatibility, includes for remaining support files, etc </td></tr>
+<td>RF24_arch_config.h </td><td>Basic Arduino/AVR compatibility, includes for remaining support files, etc </td></tr>
 <tr>
-<td><a class="el" href="includes_8h.html">includes.h</a> </td><td>Linux only. Defines specific platform, include correct RF24_arch_config file </td></tr>
+<td>includes.h </td><td>Linux only. Defines specific platform, include correct RF24_arch_config file </td></tr>
 <tr>
-<td><a class="el" href="spi_8h.html">spi.h</a> </td><td>Provides standardized SPI ( <a class="el" href="group__Porting__SPI.html#gad8a210abb2138c105350cc91972edfa9">transfer()</a> ) methods </td></tr>
+<td>spi.h </td><td>Provides standardized SPI ( transfer() ) methods </td></tr>
 <tr>
-<td><a class="el" href="gpio_8h.html">gpio.h</a> </td><td>Provides standardized GPIO ( <a class="el" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite()</a> ) methods </td></tr>
+<td>gpio.h </td><td>Provides standardized GPIO ( digitalWrite() ) methods </td></tr>
 <tr>
-<td><a class="el" href="compatibility_8h.html">compatibility.h</a> </td><td>Provides standardized timing (<a class="el" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis()</a>, <a class="el" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay()</a>) methods </td></tr>
+<td>compatibility.h </td><td>Provides standardized timing (millis(), delay()) methods </td></tr>
 <tr>
 <td>your_custom_file.h </td><td>Provides access to custom drivers for spi,gpio, etc </td></tr>
 </table>
@@ -117,7 +115,7 @@ Basic Hardware Template</h1>
 <h1><a class="anchor" id="Device_Detection"></a>
 Device Detection</h1>
 <ol type="1">
-<li>The main detection for Linux devices is done in the Makefile, with the <a class="el" href="includes_8h.html">includes.h</a> from the proper hardware directory copied to RF24/utility/includes.h <br />
+<li>The main detection for Linux devices is done in the Makefile, with the includes.h from the proper hardware directory copied to RF24/utility/includes.h <br />
 </li>
 <li>Secondary detection is completed in <a class="el" href="RF24__config_8h.html">RF24_config.h</a>, causing the include.h file to be included for all supported Linux devices <br />
 </li>
@@ -135,7 +133,7 @@ Code</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:13:00 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

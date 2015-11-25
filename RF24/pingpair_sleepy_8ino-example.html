@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -100,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">      RX Mode: The radio can be left in standby mode (22uA current) and the Arduino slept using an interrupt pin</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/sleep.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;avr/power.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="nRF24L01_8h.html">nRF24L01.h</a>&quot;</span></div>
@@ -146,9 +144,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// set up the role pin</span></div>
-<div class="line">  <a name="a1"></a><a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(role_pin, <a name="a2"></a><a class="code" href="group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);</div>
-<div class="line">  <a name="a3"></a><a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(role_pin,<a name="a4"></a><a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
-<div class="line">  <a name="a5"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20); <span class="comment">// Just to get a solid reading on the role pin</span></div>
+<div class="line">  pinMode(role_pin, INPUT);</div>
+<div class="line">  digitalWrite(role_pin,HIGH);</div>
+<div class="line">  delay(20); <span class="comment">// Just to get a solid reading on the role pin</span></div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// read the address pin, establish our role</span></div>
 <div class="line">  <span class="keywordflow">if</span> ( digitalRead(role_pin) )</div>
@@ -199,7 +197,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.powerUp();                                <span class="comment">// Power up the radio after sleeping</span></div>
 <div class="line">    radio.stopListening();                          <span class="comment">// First, stop listening so we can talk.</span></div>
 <div class="line">                         </div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a6"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                  <span class="comment">// Take the time, and send it.                     </span></div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = millis();                  <span class="comment">// Take the time, and send it.                     </span></div>
 <div class="line">    Serial.print(F(<span class="stringliteral">&quot;Now sending... &quot;</span>));</div>
 <div class="line">    Serial.println(time);</div>
 <div class="line">    </div>
@@ -207,10 +205,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">    radio.startListening();                         <span class="comment">// Now, continue listening</span></div>
 <div class="line">    </div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();    <span class="comment">// Wait here until we get a response, or timeout (250ms)</span></div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = millis();    <span class="comment">// Wait here until we get a response, or timeout (250ms)</span></div>
 <div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> ( ! radio.available()  ){</div>
-<div class="line">        <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 250 ){  <span class="comment">// Break out of the while loop if nothing available</span></div>
+<div class="line">        <span class="keywordflow">if</span> (millis() - started_waiting_at &gt; 250 ){  <span class="comment">// Break out of the while loop if nothing available</span></div>
 <div class="line">          timeout = <span class="keyword">true</span>;</div>
 <div class="line">          <span class="keywordflow">break</span>;</div>
 <div class="line">        }</div>
@@ -222,11 +220,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> got_time;                     <span class="comment">// Grab the response, compare, and send to debugging spew</span></div>
 <div class="line">        radio.read( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
 <div class="line">    </div>
-<div class="line">        printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\n\r&quot;</span>,got_time,<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>()-got_time);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\n\r&quot;</span>,got_time,millis()-got_time);</div>
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Shut down the system</span></div>
-<div class="line">    <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(500);                     <span class="comment">// Experiment with some delay here to see if it has an effect</span></div>
+<div class="line">    delay(500);                     <span class="comment">// Experiment with some delay here to see if it has an effect</span></div>
 <div class="line">                                    <span class="comment">// Power down the radio.  </span></div>
 <div class="line">    radio.powerDown();              <span class="comment">// NOTE: The radio MUST be powered back up again manually</span></div>
 <div class="line"></div>
@@ -246,7 +244,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="keywordflow">while</span> (radio.available()) {                             <span class="comment">// Dump the payloads until we&#39;ve gotten everything</span></div>
 <div class="line">          radio.read( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );       <span class="comment">// Get the payload, and see if this was the last one.</span></div>
 <div class="line">                                                                <span class="comment">// Spew it.  Include our time, because the ping_out millis counter is unreliable</span></div>
-<div class="line">          printf(<span class="stringliteral">&quot;Got payload %lu @ %lu...&quot;</span>,got_time,<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>()); <span class="comment">// due to it sleeping</span></div>
+<div class="line">          printf(<span class="stringliteral">&quot;Got payload %lu @ %lu...&quot;</span>,got_time,millis()); <span class="comment">// due to it sleeping</span></div>
 <div class="line">        }</div>
 <div class="line">     </div>
 <div class="line">        radio.stopListening();                                  <span class="comment">// First, stop listening so we can talk</span></div>
@@ -255,7 +253,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        radio.startListening();                                 <span class="comment">// Now, resume listening so we catch the next packets.</span></div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
 <div class="line">        Serial.println(F(<span class="stringliteral">&quot;Sleeping&quot;</span>));</div>
-<div class="line">        <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(50);                                             <span class="comment">// Delay so the serial data can print out</span></div>
+<div class="line">        delay(50);                                             <span class="comment">// Delay so the serial data can print out</span></div>
 <div class="line">        do_sleep();</div>
 <div class="line"></div>
 <div class="line">    }</div>
@@ -276,7 +274,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  uint8_t wdtcsr = prescalar &amp; 7;</div>
 <div class="line">  <span class="keywordflow">if</span> ( prescalar &amp; 8 )</div>
-<div class="line">    wdtcsr |= <a name="a7"></a><a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDP3);</div>
+<div class="line">    wdtcsr |= <a name="a1"></a><a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDP3);</div>
 <div class="line">  MCUSR &amp;= ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDRF);                      <span class="comment">// Clear the WD System Reset Flag</span></div>
 <div class="line">  WDTCSR = <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDCE) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDE);            <span class="comment">// Write the WD Change enable bit to enable changing the prescaler and enable system reset</span></div>
 <div class="line">  WDTCSR = <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDCE) | wdtcsr | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDIE);  <span class="comment">// Write the prescalar bits (how long to sleep, enable the interrupt to wake the MCU</span></div>
@@ -292,7 +290,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">{</div>
 <div class="line">  set_sleep_mode(SLEEP_MODE_PWR_DOWN); <span class="comment">// sleep mode is set here</span></div>
 <div class="line">  sleep_enable();</div>
-<div class="line">  attachInterrupt(0,wakeUp,<a name="a8"></a><a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
+<div class="line">  attachInterrupt(0,wakeUp,LOW);</div>
 <div class="line">  WDTCSR |= <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(WDIE);</div>
 <div class="line">  sleep_mode();                        <span class="comment">// System sleeps here</span></div>
 <div class="line">                                       <span class="comment">// The WDT_vect interrupt wakes the MCU from here</span></div>
@@ -303,7 +301,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

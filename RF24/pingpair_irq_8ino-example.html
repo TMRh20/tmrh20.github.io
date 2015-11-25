@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -98,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> Update 2014 - TMRh20</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="nRF24L01_8h.html">nRF24L01.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">RF24.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="printf_8h.html">printf.h</a>&quot;</span></div>
@@ -129,9 +127,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line"></div>
-<div class="line">  <a name="a1"></a><a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(role_pin, <a name="a2"></a><a class="code" href="group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);                        <span class="comment">// set up the role pin                  </span></div>
-<div class="line">  <a name="a3"></a><a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(role_pin,<a name="a4"></a><a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);                     <span class="comment">// Change this to LOW/HIGH instead of using an external pin</span></div>
-<div class="line">  <a name="a5"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20);                                       <span class="comment">// Just to get a solid reading on the role pin</span></div>
+<div class="line">  pinMode(role_pin, INPUT);                        <span class="comment">// set up the role pin                  </span></div>
+<div class="line">  digitalWrite(role_pin,HIGH);                     <span class="comment">// Change this to LOW/HIGH instead of using an external pin</span></div>
+<div class="line">  delay(20);                                       <span class="comment">// Just to get a solid reading on the role pin</span></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> ( digitalRead(role_pin) )                    <span class="comment">// read the address pin, establish our role</span></div>
 <div class="line">    role = role_sender;</div>
@@ -161,8 +159,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    ++message_count;        </div>
 <div class="line">  }</div>
 <div class="line">  radio.printDetails();                             <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
-<div class="line">  <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(50);</div>
-<div class="line">  attachInterrupt(0, check_radio, <a name="a6"></a><a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);             <span class="comment">// Attach interrupt handler to interrupt #0 (using pin 2) on BOTH the sender and receiver</span></div>
+<div class="line">  delay(50);</div>
+<div class="line">  attachInterrupt(0, check_radio, LOW);             <span class="comment">// Attach interrupt handler to interrupt #0 (using pin 2) on BOTH the sender and receiver</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"></div>
@@ -172,11 +170,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span> (role == role_sender)  {                        <span class="comment">// Sender role.  Repeatedly send the current time </span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a7"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                   <span class="comment">// Take the time, and send it.</span></div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = millis();                   <span class="comment">// Take the time, and send it.</span></div>
 <div class="line">      Serial.print(F(<span class="stringliteral">&quot;Now sending &quot;</span>));</div>
 <div class="line">      Serial.println(time);</div>
 <div class="line">    radio.startWrite( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) ,0);</div>
-<div class="line">    <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(2000);                                     <span class="comment">// Try again soon</span></div>
+<div class="line">    delay(2000);                                     <span class="comment">// Try again soon</span></div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line"></div>
@@ -225,7 +223,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -254,37 +252,37 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="keyword">class </span>SPIClass {</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">  <span class="keyword">static</span> byte <a name="a0"></a><a class="code" href="group__Porting__SPI.html#gad8a210abb2138c105350cc91972edfa9">transfer</a>(byte _data);</div>
+<div class="line">  <span class="keyword">static</span> byte transfer(byte _data);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// SPI Configuration methods</span></div>
 <div class="line"></div>
 <div class="line">  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> attachInterrupt();</div>
 <div class="line">  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> detachInterrupt(); <span class="comment">// Default</span></div>
 <div class="line"></div>
-<div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> <a name="a1"></a><a class="code" href="group__Porting__SPI.html#gaf79095574842d60a6297aa5b01b6185f">begin</a>(); <span class="comment">// Default</span></div>
+<div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> begin(); <span class="comment">// Default</span></div>
 <div class="line">  <span class="keyword">static</span> <span class="keywordtype">void</span> end();</div>
 <div class="line"></div>
 <div class="line"><span class="comment">//  static void setBitOrder(uint8_t);</span></div>
 <div class="line"><span class="comment">//  static void setDataMode(uint8_t);</span></div>
 <div class="line"><span class="comment">//  static void setClockDivider(uint8_t);</span></div>
 <div class="line">};</div>
-<div class="line"><span class="keyword">extern</span> SPIClass <a name="a2"></a><a class="code" href="RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a>;</div>
+<div class="line"><span class="keyword">extern</span> SPIClass <a name="a0"></a><a class="code" href="RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a>;</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">/* RF24_TINY */</span><span class="preprocessor"></span></div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#if defined(RF24_TINY)</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code" href="group__Porting__SPI.html#gaf79095574842d60a6297aa5b01b6185f">SPIClass::begin</a>() {</div>
-<div class="line">  <a name="a3"></a><a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(SS, <a name="a4"></a><a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
-<div class="line">  <a name="a5"></a><a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(USCK, <a name="a6"></a><a class="code" href="group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
-<div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(DO, <a class="code" href="group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
-<div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(SS, <a class="code" href="group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
-<div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(DI, <a name="a7"></a><a class="code" href="group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);</div>
-<div class="line">  USICR = <a name="a8"></a><a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0);</div>
+<div class="line"><span class="keywordtype">void</span> SPIClass::begin() {</div>
+<div class="line">  digitalWrite(SS, HIGH);</div>
+<div class="line">  pinMode(USCK, OUTPUT);</div>
+<div class="line">  pinMode(DO, OUTPUT);</div>
+<div class="line">  pinMode(SS, OUTPUT);</div>
+<div class="line">  pinMode(DI, INPUT);</div>
+<div class="line">  USICR = <a name="a1"></a><a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0);</div>
 <div class="line">}</div>
 <div class="line"></div>
-<div class="line">byte <a class="code" href="group__Porting__SPI.html#gad8a210abb2138c105350cc91972edfa9">SPIClass::transfer</a>(byte b) {</div>
+<div class="line">byte SPIClass::transfer(byte b) {</div>
 <div class="line">  USIDR = b;</div>
 <div class="line">  USISR = <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIOIF);</div>
 <div class="line">  <span class="keywordflow">do</span></div>
@@ -304,7 +302,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">uint8_t csnLowSettle = 255;</div>
 <div class="line"><span class="comment">/****************************************************************************/</span></div>
 <div class="line"><span class="keywordtype">void</span> ce(<span class="keywordtype">bool</span> level) {</div>
-<div class="line">  <span class="keywordflow">if</span> (ce_pin != csn_pin) <a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(ce_pin,level);</div>
+<div class="line">  <span class="keywordflow">if</span> (ce_pin != csn_pin) digitalWrite(ce_pin,level);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/****************************************************************************/</span></div>
@@ -317,16 +315,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  csnLowSettle = level;</div>
 <div class="line">}</div>
 <div class="line"><span class="comment">/****************************************************************************/</span></div>
-<div class="line"><span class="keywordtype">void</span> csn(<span class="keywordtype">bool</span> <a name="a9"></a><a class="code" href="group__Porting__SPI.html#ga37e90f5e3bd99fac2021fb3a326607d4">mode</a>) {</div>
+<div class="line"><span class="keywordtype">void</span> csn(<span class="keywordtype">bool</span> mode) {</div>
 <div class="line">    <span class="keywordflow">if</span> (ce_pin != csn_pin) {</div>
-<div class="line">        <a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(csn_pin,mode);</div>
+<div class="line">        digitalWrite(csn_pin,mode);</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (mode == <a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>) {</div>
+<div class="line">        <span class="keywordflow">if</span> (mode == HIGH) {</div>
 <div class="line">            PORTB |= (1&lt;&lt;PINB2);    <span class="comment">// SCK-&gt;CSN HIGH</span></div>
-<div class="line">            <a name="a10"></a><a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(csnHighSettle);  <span class="comment">// allow csn to settle</span></div>
+<div class="line">            delayMicroseconds(csnHighSettle);  <span class="comment">// allow csn to settle</span></div>
 <div class="line">        } <span class="keywordflow">else</span> {</div>
 <div class="line">            PORTB &amp;= ~(1&lt;&lt;PINB2);   <span class="comment">// SCK-&gt;CSN LOW</span></div>
-<div class="line">            <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(csnLowSettle);  <span class="comment">// allow csn to settle</span></div>
+<div class="line">            delayMicroseconds(csnLowSettle);  <span class="comment">// allow csn to settle</span></div>
 <div class="line">        }</div>
 <div class="line">    }   </div>
 <div class="line">}</div>
@@ -334,10 +332,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">/****************************************************************************/</span></div>
 <div class="line">uint8_t read_register(uint8_t reg)</div>
 <div class="line">{</div>
-<div class="line">  csn(<a name="a11"></a><a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
-<div class="line">  SPI.transfer( <a name="a12"></a><a class="code" href="nRF24L01_8h.html#afb0b251378d3b14c508e51fd2c3157d6">R_REGISTER</a> | ( <a name="a13"></a><a class="code" href="nRF24L01_8h.html#a866fc0cef05f3c63ba55a555f63648a2">REGISTER_MASK</a> &amp; reg ) );</div>
+<div class="line">  csn(LOW);</div>
+<div class="line">  SPI.transfer( <a name="a2"></a><a class="code" href="nRF24L01_8h.html#afb0b251378d3b14c508e51fd2c3157d6">R_REGISTER</a> | ( <a name="a3"></a><a class="code" href="nRF24L01_8h.html#a866fc0cef05f3c63ba55a555f63648a2">REGISTER_MASK</a> &amp; reg ) );</div>
 <div class="line">  uint8_t result = SPI.transfer(0xff);</div>
-<div class="line">  csn(<a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
+<div class="line">  csn(HIGH);</div>
 <div class="line">  <span class="keywordflow">return</span> result;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -346,10 +344,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">{</div>
 <div class="line">  uint8_t status;</div>
 <div class="line"></div>
-<div class="line">  csn(<a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
-<div class="line">  status = SPI.transfer( <a name="a14"></a><a class="code" href="nRF24L01_8h.html#a3b68b214d5753039d2c156ad57cd7153">W_REGISTER</a> | ( <a class="code" href="nRF24L01_8h.html#a866fc0cef05f3c63ba55a555f63648a2">REGISTER_MASK</a> &amp; reg ) );</div>
+<div class="line">  csn(LOW);</div>
+<div class="line">  status = SPI.transfer( <a name="a4"></a><a class="code" href="nRF24L01_8h.html#a3b68b214d5753039d2c156ad57cd7153">W_REGISTER</a> | ( <a class="code" href="nRF24L01_8h.html#a866fc0cef05f3c63ba55a555f63648a2">REGISTER_MASK</a> &amp; reg ) );</div>
 <div class="line">  SPI.transfer(value);</div>
-<div class="line">  csn(<a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
+<div class="line">  csn(HIGH);</div>
 <div class="line">  <span class="keywordflow">return</span> status;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -382,22 +380,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">// csn is used in SPI transfers. Set to LOW at start and HIGH after transfer. Set to HIGH to reflect no transfer active</span></div>
 <div class="line">  <span class="comment">// SPI command are accepted in Power Down state.</span></div>
 <div class="line">  <span class="comment">// ce represent PRX (LOW) or PTX (HIGH) mode apart from register settings. Start in PRX mode.  </span></div>
-<div class="line">  ce(<a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
-<div class="line">  csn(<a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
+<div class="line">  ce(LOW);</div>
+<div class="line">  csn(HIGH);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// nRF24L01 goes from to Power Down state 100ms after Power on Reset ( Vdd &gt; 1.9V) or when PWR_UP is 0 in config register </span></div>
 <div class="line">  <span class="comment">// Goto Power Down state (Powerup or force) and set in transmit mode</span></div>
-<div class="line">  write_register2(<a name="a15"></a><a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>, read_register(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a16"></a><a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a17"></a><a class="code" href="nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6">PRIM_RX</a>));</div>
-<div class="line">  <a name="a18"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
+<div class="line">  write_register2(<a name="a5"></a><a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>, read_register(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a6"></a><a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a7"></a><a class="code" href="nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6">PRIM_RX</a>));</div>
+<div class="line">  delay(100);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Goto Standby-I</span></div>
 <div class="line">  <span class="comment">// Technically we require 4.5ms Tpd2stby+ 14us as a worst case. We&#39;ll just call it 5ms for good measure.</span></div>
 <div class="line">  <span class="comment">// WARNING: Delay is based on P-variant whereby non-P *may* require different timing.</span></div>
 <div class="line">  write_register2(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>, read_register(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>));</div>
-<div class="line">  <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(5) ;</div>
+<div class="line">  delay(5) ;</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Goto Standby-II</span></div>
-<div class="line">  ce(<a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
+<div class="line">  ce(HIGH);</div>
 <div class="line">  Serial.print(<span class="stringliteral">&quot;Scanning for optimal setting time for scn&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -427,7 +425,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      i = 0;</div>
 <div class="line">      <span class="keywordflow">while</span>(i&lt;255 &amp; success) {</div>
 <div class="line">        <span class="keywordflow">for</span> (j=0;j&lt;2;j++) {</div>
-<div class="line">          write_register2(<a name="a19"></a><a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>, value[j]);</div>
+<div class="line">          write_register2(<a name="a8"></a><a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>, value[j]);</div>
 <div class="line">          status = read_register(<a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>);</div>
 <div class="line">          <span class="keywordflow">if</span> (value[j] != status) {</div>
 <div class="line">            success = <span class="keyword">false</span>;</div>
@@ -485,7 +483,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

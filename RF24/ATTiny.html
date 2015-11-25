@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -42,7 +41,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -84,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ATTiny </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>ATTiny support is built into the library, so users are not required to include <a class="el" href="spi_8h.html">SPI.h</a> in their sketches<br />
+<div class="textblock"><p>ATTiny support is built into the library, so users are not required to include SPI.h in their sketches<br />
  See the included rf24ping85 example for pin info and usage</p>
 <p>Some versions of Arduino IDE may require a patch to allow use of the full program space on ATTiny<br />
  See <a href="https://github.com/TCWORLD/ATTinyCore/tree/master/PCREL%20Patch%20for%20GCC">https://github.com/TCWORLD/ATTinyCore/tree/master/PCREL%20Patch%20for%20GCC</a> for ATTiny patch</p>
@@ -95,8 +93,8 @@ Hardware Configuration</h1>
 <p><b>ATtiny25/45/85 Pin map with CE_PIN 3 and CSN_PIN 4</b> </p><div class="fragment"><div class="line">                             +-\/-+</div>
 <div class="line">               NC      PB5  1|o   |8  Vcc --- nRF24L01  VCC, pin2 --- LED --- 5V</div>
 <div class="line">nRF24L01  CE, pin3 --- PB3  2|    |7  PB2 --- nRF24L01  SCK, pin5</div>
-<div class="line">nRF24L01 CSN, pin4 --- PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin7</div>
-<div class="line">nRF24L01 GND, pin1 --- GND  4|    |5  PB0 --- nRF24L01 MISO, pin6 </div>
+<div class="line">nRF24L01 CSN, pin4 --- PB4  3|    |6  PB1 --- nRF24L01 MOSI, pin6</div>
+<div class="line">nRF24L01 GND, pin1 --- GND  4|    |5  PB0 --- nRF24L01 MISO, pin7</div>
 <div class="line">                             +----+ </div>
 </div><!-- fragment --><p><br />
  <b>ATtiny25/45/85 Pin map with CE_PIN 3 and CSN_PIN 3</b> =&gt; PB3 and PB4 are free to use for application <br />
@@ -124,7 +122,21 @@ Hardware Configuration</h1>
 <div class="line">                        PB3  4|    |11 PA2 --- nRF24L01   CE, pin3</div>
 <div class="line">                        PB2  5|    |10 PA3 --- nRF24L01  CSN, pin4</div>
 <div class="line">                        PA7  6|    |9  PA4 --- nRF24L01  SCK, pin5</div>
-<div class="line">nRF24L01 MOSI, pin7 --- PA6  7|    |8  PA5 --- nRF24L01 MISO, pin6</div>
+<div class="line">nRF24L01 MISO, pin7 --- PA6  7|    |8  PA5 --- nRF24L01 MOSI, pin6</div>
+<div class="line">                              +----+</div>
+</div><!-- fragment --><p><br />
+ <b>ATtiny2313/4313 Pin map with CE_PIN 12 and CSN_PIN 13</b> <br />
+ </p><div class="fragment"><div class="line">                              +-\/-+                                                              </div>
+<div class="line">                        PA2  1|o   |20 VCC --- nRF24L01  VCC, pin2</div>
+<div class="line">                        PD0  2|    |19 PB7 --- nRF24L01  SCK, pin5</div>
+<div class="line">                        PD1  3|    |18 PB6 --- nRF24L01 MOSI, pin6</div>
+<div class="line">                        PA1  4|    |17 PB5 --- nRF24L01 MISO, pin7</div>
+<div class="line">                        PA0  5|    |16 PB4 --- nRF24L01  CSN, pin4</div>
+<div class="line">                        PD2  6|    |15 PB3 --- nRF24L01   CE, pin3</div>
+<div class="line">                        PD3  7|    |14 PB2</div>
+<div class="line">                        PD4  8|    |13 PB1</div>
+<div class="line">                        PD5  9|    |12 PB0</div>
+<div class="line">nRF24L01  GND, pin1 --- GND 10|    |11 PD6</div>
 <div class="line">                              +----+</div>
 </div><!-- fragment --><p><br />
 <br />
@@ -133,7 +145,7 @@ Hardware Configuration</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 23 2015 12:55:28 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:12:59 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
