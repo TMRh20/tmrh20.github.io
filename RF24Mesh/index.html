@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V1.0</span>
+   &#160;<span id="projectnumber">V1.0.2b</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -87,34 +87,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h1><a class="anchor" id="Purpose"></a>
 Purpose/Goal</h1>
 <p>Provide a simple user interface for creating dynamic sensor networks with the RF24 and RF24Network libraries.</p>
-<p><b>What works currently?</b> </p><ul>
-<li>Basic 'mesh' functionality using an <b>Arduino or RPi</b> as the master node which will generally receive the sensor data </li>
-<li>Simple, dynamic addressing based on a pre-assigned unique identifier </li>
-<li>Dynamic/On-the fly configuration of addresses and network topology</li>
-</ul>
-<p><b>What are the functional limitations?</b> </p><ul>
-<li>Address assignments are not saved, except on RPi/Linux devices. If the 'master' node goes down, all nodes need to reconnect to the mesh or restart to prevent addressing conflicts.</li>
-</ul>
 <h1><a class="anchor" id="Overview"></a>
 RF24Mesh Overview</h1>
-<p>The RF24Network library provides a system of addressing and routing for RF24 radio modules, that allows large wireless sensor networks to be constructed. <a class="el" href="classRF24Mesh.html">RF24Mesh</a> provides extended features, including automatic addressing and dynamic configuration of wireless sensors.</p>
-<p>How does it work? The 'master' node keeps track of the unique nodeIDs and the assigned RF24Network addresses. When a node is moved physically, or just loses its connection to the network, it can be set to automatically re-join the mesh, and reconfigure itself within the network.</p>
+<p>The RF24Network library provides a system of addressing and routing for RF24 radio modules, that allows large wireless sensor networks to be constructed. <br />
+ <a class="el" href="classRF24Mesh.html">RF24Mesh</a> provides extended features, including automatic addressing and dynamic configuration of wireless sensors.</p>
+<p><b>How does it work?</b><br />
+ The 'master' node keeps track of the unique nodeIDs and the assigned RF24Network addresses. When a node is moved physically, or just loses its connection to the network, it can be set to automatically re-join the mesh, and reconfigure itself within the network.</p>
 <p>Nodes are assigned a unique number ranging from 1 to 255, and just about everything else, addressing, routing, etc. is managed by the library.</p>
 <p>In the 'mesh' configuration sensors/nodes can move around physically, far from the 'master node' using other nodes to route traffic over extended distances. Addressing and topology can be reconfigured as connections are broken and re-established within different areas of the network.</p>
+<p><b>What works currently? </b> </p><ul>
+<li>Basic 'mesh' functionality using an <b>Arduino or RPi</b> as the master node which will generally send or received data to/from nodes. </li>
+<li>Simple, dynamic addressing based on a pre-assigned unique identifier </li>
+<li>Dynamic/On-the fly configuration of addresses and network topology </li>
+<li>Automatic routing and handling of data - Nodes will join together to extend the range of radio links by routing data as required.</li>
+</ul>
+<p><b>Status (Dec 2015)</b> </p><ul>
+<li><a class="el" href="classRF24Mesh.html">RF24Mesh</a> is mostly complete and stable, but is being actively utilized &amp; tested with development ongoing. </li>
+<li>Address assignments are not saved, except on RPi/Linux devices. If the 'master' node goes down, all nodes need to reconnect to the mesh or restart to prevent addressing conflicts.</li>
+</ul>
 <h1><a class="anchor" id="More"></a>
 How to learn more</h1>
 <ul>
 <li>Try it out! </li>
 <li><a href="Setup-Config.html">Setup and Configuration</a> </li>
+<li><a href="General-Usage.html">Usage &amp; Overview </a> </li>
 <li><a href="classRF24Mesh.html">RF24Mesh Class Documentation</a> </li>
 <li><a href="http://tmrh20.github.io/RF24Network/">RF24 Network Class Documentation</a> </li>
-<li><a href="https://tmrh20.github.io">Documentation and Downloads</a> </li>
+<li><a href="http://tmrh20.github.io/RF24Ethernet/">RF24Ethernet: TCP/IP based Mesh over RF24</a> </li>
+<li><a href="https://tmrh20.github.io">All Documentation and Downloads</a> </li>
 <li><a href="https://github.com/TMRh20/RF24Mesh">Source Code</a> </li>
 </ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 5 2015 18:27:08 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 02:52:12 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

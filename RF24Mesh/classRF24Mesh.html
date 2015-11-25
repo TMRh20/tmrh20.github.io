@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Mesh
-   &#160;<span id="projectnumber">V1.0</span>
+   &#160;<span id="projectnumber">V1.0.2b</span>
    </div>
    <div id="projectbrief">A user friendly mesh overlay for sensor networks using RF24Network and nRF24L01 radio modules</div>
   </td>
@@ -118,6 +118,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a34535daf39ead14698f3718037358394"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a34535daf39ead14698f3718037358394">write</a> (const void *data, uint8_t msg_type, size_t size, uint8_t nodeID=0)</td></tr>
 <tr class="memdesc:a34535daf39ead14698f3718037358394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically construct a header and send a payload Very similar to the standard network.write() function, which can be used directly.  <a href="#a34535daf39ead14698f3718037358394">More...</a><br /></td></tr>
 <tr class="separator:a34535daf39ead14698f3718037358394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0638c31ee67dc9bbf266dd505627e030"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a0638c31ee67dc9bbf266dd505627e030">writeP</a> (const void *data, uint8_t msg_type, size_t size, uint8_t nodeID=0)</td></tr>
+<tr class="separator:a0638c31ee67dc9bbf266dd505627e030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab413db470b2a27c9c2088c77e564b010"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#ab413db470b2a27c9c2088c77e564b010">send</a> (const void *data, size_t size)</td></tr>
+<tr class="separator:ab413db470b2a27c9c2088c77e564b010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a306869b1975a77d5483bcd7fc5b827c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a306869b1975a77d5483bcd7fc5b827c5">sendP</a> (const void *data, size_t size)</td></tr>
+<tr class="separator:a306869b1975a77d5483bcd7fc5b827c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3e662216ffd890e019537a95297ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a> (uint8_t nodeID)</td></tr>
 <tr class="memdesc:a9d3e662216ffd890e019537a95297ed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a unique nodeID for this node.  <a href="#a9d3e662216ffd890e019537a95297ed4">More...</a><br /></td></tr>
 <tr class="separator:a9d3e662216ffd890e019537a95297ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -333,6 +339,96 @@ Message types 1-64 (decimal) will NOT be acknowledged by the network, types 65-1
 <dl class="section return"><dt>Returns</dt><dd>True if success, False if failed </dd></dl>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="RF24Mesh_Example_8cpp-example.html#a10">RF24Mesh_Example.cpp</a>.</dd>
 </dl>
+</div>
+</div>
+<a class="anchor" id="a0638c31ee67dc9bbf266dd505627e030"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Mesh::writeP </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>msg_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>nodeID</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab413db470b2a27c9c2088c77e564b010"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Mesh::send </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a306869b1975a77d5483bcd7fc5b827c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Mesh::sendP </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a class="anchor" id="a9d3e662216ffd890e019537a95297ed4"></a>
@@ -687,7 +783,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, lea
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 5 2015 18:27:08 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 02:52:12 for RF24Mesh by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
