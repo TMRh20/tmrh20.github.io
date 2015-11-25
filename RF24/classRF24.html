@@ -1827,8 +1827,8 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the CRC length</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Set the CRC length <br />
+CRC checking cannot be disabled if auto-ack is enabled </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">length</td><td>RF24_CRC_8 for 8-bit or RF24_CRC_16 for 16-bit </td></tr>
   </table>
@@ -1852,8 +1852,8 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the CRC length</p>
-<dl class="section return"><dt>Returns</dt><dd>RF24_DISABLED if disabled or RF24_CRC_8 for 8-bit or RF24_CRC_16 for 16-bit </dd></dl>
+<p>Get the CRC length <br />
+CRC checking cannot be disabled if auto-ack is enabled </p><dl class="section return"><dt>Returns</dt><dd>RF24_DISABLED if disabled or RF24_CRC_8 for 8-bit or RF24_CRC_16 for 16-bit </dd></dl>
 
 <p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01511">1511</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
@@ -2024,7 +2024,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 25 2015 06:13:00 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 25 2015 06:53:07 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
