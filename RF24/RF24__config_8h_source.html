@@ -25,6 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
+   &#160;<span id="projectnumber">V1.1.4</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -41,6 +42,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -128,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">  #include &quot;utility/includes.h&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">//ATTiny  </span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#elif defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#elif defined(__AVR_ATtiny25__) || defined(__AVR_ATtiny45__) || defined(__AVR_ATtiny85__) || defined(__AVR_ATtiny24__) || defined(__AVR_ATtiny44__) || defined(__AVR_ATtiny84__) || defined(__AVR_ATtiny2313__) || defined(__AVR_ATtiny4313__)</span></div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">  #define RF24_TINY</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  #include &quot;utility/ATTiny/RF24_arch_config.h&quot;</span></div>
@@ -148,7 +150,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">  #include &lt;Arduino.h&gt;</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="comment">// RF modules support 10 Mhz SPI bus speed</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="RF24__config_8h.html#ad4888dd2252f846c79e41688ad834841">   61</a></span>&#160;  <span class="keyword">const</span> uint32_t <a class="code" href="RF24__config_8h.html#ad4888dd2252f846c79e41688ad834841">RF_SPI_SPEED</a> = 10000000;  </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="RF24__config_8h.html#af023242fa833ea4a3ebdb93a7cca127f">   61</a></span>&#160;  <span class="keyword">const</span> uint32_t <a class="code" href="RF24__config_8h.html#af023242fa833ea4a3ebdb93a7cca127f">RF24_SPI_SPEED</a> = 10000000;  </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#if defined (ARDUINO) &amp;&amp; !defined (__arm__) &amp;&amp; !defined (__ARDUINO_X86__)</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">      #if defined SPI_UART</span></div>
@@ -164,7 +166,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">      #define _SPI spi</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      </div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">      #else     </span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">        #include &lt;SPI.h&gt;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">        #include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">        #define _SPI SPI</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">      #endif</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
@@ -175,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor"> #if defined(__arm__) || defined (__ARDUINO_X86__)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">   #include &lt;SPI.h&gt;</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">   #include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor"> #endif</span></div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
@@ -244,14 +246,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif // __RF24_CONFIG_H__</span></div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="ttc" id="RF24__config_8h_html_ad4888dd2252f846c79e41688ad834841"><div class="ttname"><a href="RF24__config_8h.html#ad4888dd2252f846c79e41688ad834841">RF_SPI_SPEED</a></div><div class="ttdeci">const uint32_t RF_SPI_SPEED</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00061">RF24_config.h:61</a></div></div>
+<div class="ttc" id="RF24__config_8h_html_af023242fa833ea4a3ebdb93a7cca127f"><div class="ttname"><a href="RF24__config_8h.html#af023242fa833ea4a3ebdb93a7cca127f">RF24_SPI_SPEED</a></div><div class="ttdeci">const uint32_t RF24_SPI_SPEED</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00061">RF24_config.h:61</a></div></div>
+<div class="ttc" id="spi_8h_html"><div class="ttname"><a href="spi_8h.html">spi.h</a></div></div>
 <div class="ttc" id="RF24__config_8h_html_a05ca2f20b55933ad782917161d54287d"><div class="ttname"><a href="RF24__config_8h.html#a05ca2f20b55933ad782917161d54287d">prog_uint16_t</a></div><div class="ttdeci">uint16_t prog_uint16_t</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00140">RF24_config.h:140</a></div></div>
 <div class="ttc" id="RF24__config_8h_html_a2332dcef61deaf30b01014f3bede4343"><div class="ttname"><a href="RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a></div><div class="ttdeci">HardwareSPI SPI</div></div>
 <div class="ttc" id="RF24__config_8h_html_ad5a90413477085cb1b8c31d37ebba567"><div class="ttname"><a href="RF24__config_8h.html#ad5a90413477085cb1b8c31d37ebba567">char</a></div><div class="ttdeci">char const char</div><div class="ttdef"><b>Definition:</b> <a href="RF24__config_8h_source.html#l00134">RF24_config.h:134</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 25 2015 07:12:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

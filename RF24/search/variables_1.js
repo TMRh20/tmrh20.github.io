@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['progmem',['PROGMEM',['../RF24_8cpp.html#afde0f1bb9f776bae4233585a018f2fb2',1,'RF24.cpp']]]
+  ['device',['device',['../group__Porting__SPI.html#gaa16e4ce7763a3624fb50b133b34a4ec0',1,'spi.h']]],
+  ['direction_5fin',['DIRECTION_IN',['../group__Porting__GPIO.html#gafbf58b193d0f84db90a843e00f27367c',1,'gpio.h']]],
+  ['direction_5fout',['DIRECTION_OUT',['../group__Porting__GPIO.html#gac39c2a3ce71b0df667c227292d4ab30c',1,'gpio.h']]]
 ];

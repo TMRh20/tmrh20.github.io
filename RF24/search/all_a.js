@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['makefile',['Makefile',['../Makefile.html',1,'']]],
-  ['mask_5fmax_5frt',['MASK_MAX_RT',['../nRF24L01_8h.html#a13e9f541027a36c23211d6c8f3b33a92',1,'nRF24L01.h']]],
-  ['mask_5frx_5fdr',['MASK_RX_DR',['../nRF24L01_8h.html#a5f30d66a7a448dc83fd695dbd3efbe31',1,'nRF24L01.h']]],
-  ['mask_5ftx_5fds',['MASK_TX_DS',['../nRF24L01_8h.html#ad5f819a0030605463504bd2599579b4c',1,'nRF24L01.h']]],
-  ['maskirq',['maskIRQ',['../classRF24.html#abf68b9b0c9cd17179e9e144c3e7f9c45',1,'RF24']]],
-  ['max_5frt',['MAX_RT',['../nRF24L01_8h.html#ab4482ead4f3b452a032f63ac03ee1870',1,'nRF24L01.h']]],
-  ['mraa',['MRAA',['../MRAA.html',1,'']]]
+  ['lna_5fhcurr',['LNA_HCURR',['../nRF24L01_8h.html#ad031c713aa7c96ca88a9710f25229495',1,'nRF24L01.h']]],
+  ['low',['LOW',['../group__Porting__General.html#gab811d8c6ff3a505312d3276590444289',1,'RF24_arch_config.h']]]
 ];

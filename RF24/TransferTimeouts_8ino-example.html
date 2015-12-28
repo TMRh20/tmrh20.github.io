@@ -25,6 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
+   &#160;<span id="projectnumber">V1.1.4</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -41,6 +42,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -95,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> version 2 as published by the Free Software Foundation.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="nRF24L01_8h.html">nRF24L01.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">RF24.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="printf_8h.html">printf.h</a>&quot;</span></div>
@@ -153,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span>(role == TX){    </div>
-<div class="line">    delay(2000);                                              <span class="comment">// Pause for a couple seconds between transfers    </span></div>
+<div class="line">    <a name="a4"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(2000);                                              <span class="comment">// Pause for a couple seconds between transfers    </span></div>
 <div class="line">    printf(<span class="stringliteral">&quot;Initiating Extended Timeout Data Transfer\n\r&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> cycles = 1000;                              <span class="comment">// Change this to a higher or lower number. This is the number of payloads that will be sent.   </span></div>
@@ -162,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.writeFast(&amp;transferCMD,12);                         <span class="comment">// Send the transfer command</span></div>
 <div class="line">    <span class="keywordflow">if</span>(radio.txStandBy(timeoutPeriod)){                       <span class="comment">// If transfer initiation was successful, do the following</span></div>
 <div class="line">   </div>
-<div class="line">        startTime = millis();                                 <span class="comment">// For calculating transfer rate</span></div>
+<div class="line">        startTime = <a name="a5"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                                 <span class="comment">// For calculating transfer rate</span></div>
 <div class="line">        <span class="keywordtype">boolean</span> timedOut = 0;                                 <span class="comment">// Boolean for keeping track of failures</span></div>
 <div class="line">      </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;cycles; i++){                          <span class="comment">// Loop through a number of cycles</span></div>
@@ -176,7 +178,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        }    </div>
 <div class="line">  </div>
 <div class="line">   </div>
-<div class="line">        stopTime = millis();                                  <span class="comment">// Capture the time of completion or failure</span></div>
+<div class="line">        stopTime = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                                  <span class="comment">// Capture the time of completion or failure</span></div>
 <div class="line">   </div>
 <div class="line">       <span class="comment">//This should be called to wait for completion and put the radio in standby mode after transmission, returns 0 if data still in FIFO (timed out), 1 if success</span></div>
 <div class="line">       <span class="keywordflow">if</span>(timedOut){ radio.txStandBy(); }                     <span class="comment">//Partially blocking standby, blocks until success or max retries. FIFO flushed if auto timeout reached</span></div>
@@ -209,21 +211,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">          payloads |= data[9] &lt;&lt; 8;              <span class="comment">// This is the number of payloads that will be sent</span></div>
 <div class="line">          counter = 0;                           <span class="comment">// Reset the payload counter to 0</span></div>
 <div class="line">          transferInProgress = 1;                <span class="comment">// Indicate it has started</span></div>
-<div class="line">          startTime = rxTimer = millis();        <span class="comment">// Capture the start time to measure transfer rate and calculate timeouts</span></div>
+<div class="line">          startTime = rxTimer = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();        <span class="comment">// Capture the start time to measure transfer rate and calculate timeouts</span></div>
 <div class="line">        }</div>
 <div class="line">     }</div>
 <div class="line">  }<span class="keywordflow">else</span>{</div>
 <div class="line">     <span class="keywordflow">if</span>(radio.available()){                     <span class="comment">// If in bulk transfer mode, and a payload is available</span></div>
 <div class="line">       radio.read(&amp;data,32);                    <span class="comment">// Read the payload</span></div>
-<div class="line">       rxTimer = millis();                      <span class="comment">// Reset the timeout timer</span></div>
+<div class="line">       rxTimer = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                      <span class="comment">// Reset the timeout timer</span></div>
 <div class="line">       counter++;                               <span class="comment">// Keep a count of received payloads</span></div>
 <div class="line">     }<span class="keywordflow">else</span></div>
-<div class="line">     <span class="keywordflow">if</span>(millis() - rxTimer &gt; timeoutPeriod){    <span class="comment">// If no data available, check the timeout period</span></div>
+<div class="line">     <span class="keywordflow">if</span>(<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - rxTimer &gt; timeoutPeriod){    <span class="comment">// If no data available, check the timeout period</span></div>
 <div class="line">       Serial.println(<span class="stringliteral">&quot;Transfer Failed&quot;</span>);       <span class="comment">// If per-payload timeout exceeeded, end the transfer</span></div>
 <div class="line">       transferInProgress = 0; </div>
 <div class="line">     }<span class="keywordflow">else</span></div>
 <div class="line">     <span class="keywordflow">if</span>(counter &gt;= payloads){                   <span class="comment">// If the specified number of payloads is reached, transfer is completed</span></div>
-<div class="line">      startTime = millis() - startTime;         <span class="comment">// Calculate the total time spent during transfer</span></div>
+<div class="line">      startTime = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - startTime;         <span class="comment">// Calculate the total time spent during transfer</span></div>
 <div class="line">      <span class="keywordtype">float</span> numBytes = counter*32;              <span class="comment">// Calculate the number of bytes transferred</span></div>
 <div class="line">      Serial.print(<span class="stringliteral">&quot;Rate: &quot;</span>);                   <span class="comment">// Print the transfer rate and number of payloads</span></div>
 <div class="line">      Serial.print(numBytes/startTime);</div>
@@ -266,7 +268,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 25 2015 07:12:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

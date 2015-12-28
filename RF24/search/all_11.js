@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['w_5fack_5fpayload',['W_ACK_PAYLOAD',['../nRF24L01_8h.html#a83176d6f9c44eb5e6738176b667f6430',1,'nRF24L01.h']]],
-  ['w_5fregister',['W_REGISTER',['../nRF24L01_8h.html#a3b68b214d5753039d2c156ad57cd7153',1,'nRF24L01.h']]],
-  ['w_5ftx_5fpayload',['W_TX_PAYLOAD',['../nRF24L01_8h.html#afd12673bc8ca8559b0eee395e8845982',1,'nRF24L01.h']]],
-  ['w_5ftx_5fpayload_5fno_5fack',['W_TX_PAYLOAD_NO_ACK',['../nRF24L01_8h.html#a661c2fa72a2694434c155ee75a4f952d',1,'nRF24L01.h']]],
-  ['whathappened',['whatHappened',['../classRF24.html#afb97dc4bdf4d2d84ea44060ac5b4ed89',1,'RF24']]],
-  ['write',['write',['../classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58',1,'RF24::write(const void *buf, uint8_t len)'],['../classRF24.html#a23bfe6502d74bb5bbccb3a7f2ba2b5ea',1,'RF24::write(const void *buf, uint8_t len, const bool multicast)']]],
-  ['writeackpayload',['writeAckPayload',['../classRF24.html#a65619238c25036c3de72dc2c1a1c6e52',1,'RF24']]],
-  ['writeblocking',['writeBlocking',['../classRF24.html#ae6fd8d5ee490d54ae1cb2e8fefee535f',1,'RF24']]],
-  ['writefast',['writeFast',['../classRF24.html#a47b2516993481b58e724d1274a7fd9cb',1,'RF24::writeFast(const void *buf, uint8_t len)'],['../classRF24.html#ad16d53de0327c0b41d170cbda4bf41af',1,'RF24::writeFast(const void *buf, uint8_t len, const bool multicast)']]]
+  ['testcarrier',['testCarrier',['../classRF24.html#ad0d522ccf39493510e64bf1740be790d',1,'RF24']]],
+  ['testrpd',['testRPD',['../classRF24.html#a821285f3b54553f4402eb3fd0ac6d6c1',1,'RF24']]],
+  ['transfer',['transfer',['../group__Porting__SPI.html#gad8a210abb2138c105350cc91972edfa9',1,'spi.h']]],
+  ['transfern',['transfern',['../group__Porting__SPI.html#gade902816b77c7377afd02ea4cb7e30b5',1,'spi.h']]],
+  ['transfernb',['transfernb',['../group__Porting__SPI.html#ga26b5af7f6420d54b479af9eaf1b2e452',1,'spi.h']]],
+  ['tx_5faddr',['TX_ADDR',['../nRF24L01_8h.html#aa734c6e08b9f794436eacbabe466a6c4',1,'nRF24L01.h']]],
+  ['tx_5fds',['TX_DS',['../nRF24L01_8h.html#ab5f5243908a39ffd514fe701e9749bdc',1,'nRF24L01.h']]],
+  ['tx_5fempty',['TX_EMPTY',['../nRF24L01_8h.html#ae4034d6a21b6646c8710d09e43bd9383',1,'nRF24L01.h']]],
+  ['tx_5ffull',['TX_FULL',['../nRF24L01_8h.html#af3b1baf3a7a57b7471443d1ff002c778',1,'nRF24L01.h']]],
+  ['tx_5freuse',['TX_REUSE',['../nRF24L01_8h.html#a506a58de7b75af27e3745db3e1e9733c',1,'nRF24L01.h']]],
+  ['txstandby',['txStandBy',['../classRF24.html#a12cc453453c94969d4d3f0edb3778c83',1,'RF24::txStandBy()'],['../classRF24.html#ab7f54decbe9d06cb026a5d3dfb505116',1,'RF24::txStandBy(uint32_t timeout, bool startTx=0)']]]
 ];

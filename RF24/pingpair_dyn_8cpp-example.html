@@ -25,6 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
+   &#160;<span id="projectnumber">V1.1.4</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -41,6 +42,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
@@ -94,7 +96,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">./RF24.h</a>&quot;</span></div>
 <div class="line"></div>
 <div class="line"></div>
-<div class="line"><span class="keyword">using namespace </span>std;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><span class="comment">//</span></div>
 <div class="line"><span class="comment">// Hardware configuration</span></div>
 <div class="line"><span class="comment">// Configure the appropriate pins for your connections</span></div>
@@ -158,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordtype">bool</span> role = 0;</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Print preamble:</span></div>
-<div class="line">  printf(<span class="stringliteral">&quot;RF24/examples/pingpair_dyn/\n&quot;</span>);</div>
+<div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;RF24/examples/pingpair_dyn/\n&quot;</span>;</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  radio.begin();</div>
@@ -215,10 +217,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.startListening();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Wait here until we get a response, or timeout</span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = millis();</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a name="a1"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> ( ! radio.available() &amp;&amp; ! timeout )</div>
-<div class="line">      <span class="keywordflow">if</span> (millis() - started_waiting_at &gt; 500 )</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 500 )</div>
 <div class="line">        timeout = <span class="keyword">true</span>;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Describe the results</span></div>
@@ -245,7 +247,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      next_payload_size = min_payload_size;</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Try again 1s later</span></div>
-<div class="line">    delay(100);</div>
+<div class="line">    <a name="a2"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
@@ -291,7 +293,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 25 2015 07:12:18 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

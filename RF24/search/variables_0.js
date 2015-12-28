@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['failuredetected',['failureDetected',['../classRF24.html#a2e40fe66d1231a333aa2534e8491f828',1,'RF24']]]
+  ['bits',['bits',['../group__Porting__SPI.html#ga46a6da6b1936191571fd30b2a749f38c',1,'spi.h']]]
 ];
