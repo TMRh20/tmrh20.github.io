@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.1.4</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -89,29 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><a class="el" href="classRF24.html">RF24</a> supports all MRAA supported platforms, but might not be tested on each individual platform due to the wide range of hardware support:<br />
  <a href="https://github.com/TMRh20/RF24/issues">Report an RF24 bug or issue </a></p>
 <h1><a class="anchor" id="Setup"></a>
-Setup</h1>
+Setup and installation</h1>
 <ol type="1">
 <li>Install the MRAA lib</li>
 <li>As per your device, SPI may need to be enabled</li>
-</ol>
-<h1><a class="anchor" id="MRAA_Install"></a>
-Install</h1>
-<ol type="1">
-<li>Make a directory to contain the <a class="el" href="classRF24.html">RF24</a> and possibly RF24Network lib and enter it: <div class="fragment"><div class="line">mkdir ~/rf24libs </div>
-<div class="line">cd ~/rf24libs</div>
-</div><!-- fragment --></li>
-<li>Clone the <a class="el" href="classRF24.html">RF24</a> repo: <div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/tmrh20/RF24.git RF24 </span></div>
-</div><!-- fragment --></li>
-<li>Change to the new <a class="el" href="classRF24.html">RF24</a> directory <div class="fragment"><div class="line">cd <a class="code" href="classRF24.html">RF24</a> </div>
-</div><!-- fragment --></li>
-<li>Build the library: <div class="fragment"><div class="line">sudo make install -B RF24_MRAA=1 </div>
-</div><!-- fragment --></li>
-<li>Configure the correct pins in gettingstarted.cpp (See <a href="http://iotdk.intel.com/docs/master/mraa/index.html">http://iotdk.intel.com/docs/master/mraa/index.html</a> ) <div class="fragment"><div class="line">cd examples_RPi  </div>
-<div class="line">nano gettingstarted.cpp </div>
-</div><!-- fragment --></li>
-<li>Build an example <div class="fragment"><div class="line">make  </div>
-<div class="line">sudo ./gettingstarted</div>
-</div><!-- fragment --></li>
+<li>Follow <a href="Linux.html">Linux installation steps</a> to install <a class="el" href="classRF24.html">RF24</a> libraries</li>
 </ol>
 <p><br />
 <br />
@@ -120,7 +102,7 @@ Install</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 08:35:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

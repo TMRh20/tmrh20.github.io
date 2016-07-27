@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['beaglebone_20black',['BeagleBone Black',['../BBB.html',1,'']]]
+  ['linux_20cross_2dcompilation',['Linux cross-compilation',['../CrossCompile.html',1,'']]],
+  ['linux_20devices',['Linux devices',['../Linux.html',1,'']]]
 ];

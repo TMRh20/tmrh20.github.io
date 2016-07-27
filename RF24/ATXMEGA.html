@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized High Speed NRF24L01+ Driver Class Documenation: RF24.cpp File Reference</title>
+<title>Optimized High Speed NRF24L01+ Driver Class Documenation: ATXMEGA</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,10 +41,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -64,12 +64,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
-    </ul>
-  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,47 +80,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">RF24.cpp File Reference</div>  </div>
+<div class="title">ATXMEGA </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="nRF24L01_8h_source.html">nRF24L01.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="RF24__config_8h_source.html">RF24_config.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="RF24_8h_source.html">RF24.h</a>&quot;</code><br />
-</div>
-<p><a href="RF24_8cpp_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:afde0f1bb9f776bae4233585a018f2fb2"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="RF24__config_8h.html#ad5a90413477085cb1b8c31d37ebba567">char</a> rf24_datarate_e_str_0[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24_8cpp.html#afde0f1bb9f776bae4233585a018f2fb2">PROGMEM</a> = &quot;1MBPS&quot;</td></tr>
-<tr class="separator:afde0f1bb9f776bae4233585a018f2fb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="afde0f1bb9f776bae4233585a018f2fb2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint8_t child_payload_size [] PROGMEM = &quot;1MBPS&quot;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00464">464</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<div class="textblock"><p>The <a class="el" href="classRF24.html">RF24</a> driver can be build as a static library with Atmel Studio 7 in order to be included as any other library in another program for the XMEGA family.</p>
+<p>Currently only the <b>ATXMEGA D3</b> family is implemented.</p>
+<h1><a class="anchor" id="Preparation"></a>
+Preparation</h1>
+<p>Create an empty GCC Static Library project in AS7.<br />
+ As not all files are required, copy the following directory structure in the project:</p>
+<div class="fragment"><div class="line">utility\</div>
+<div class="line">  ATXMegaD3\</div>
+<div class="line">    compatibility.c</div>
+<div class="line">    compatibility.h</div>
+<div class="line">    gpio.cpp</div>
+<div class="line">    gpio.h</div>
+<div class="line">    gpio_helper.c</div>
+<div class="line">    gpio_helper.h</div>
+<div class="line">    includes.h</div>
+<div class="line">    RF24_arch_config.h</div>
+<div class="line">    spi.cpp</div>
+<div class="line">    spi.h</div>
+<div class="line">nRF24L01.h</div>
+<div class="line">printf.h</div>
+<div class="line"><a class="code" href="classRF24.html">RF24</a>.cpp</div>
+<div class="line"><a class="code" href="classRF24.html">RF24</a>.h</div>
+<div class="line">RF24_config.h</div>
+</div><!-- fragment --><h1><a class="anchor" id="Usage"></a>
+Usage</h1>
+<p>Add the library to your project!<br />
+ In the file where the <b>main()</b> is put the following in order to update the millisecond functionality:</p>
+<div class="fragment"><div class="line">ISR(TCE0_OVF_vect)</div>
+<div class="line">{</div>
+<div class="line">   update_milisec();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Declare the rf24 radio with <b><a class="el" href="classRF24.html">RF24</a> radio(XMEGA_PORTC_PIN3, XMEGA_SPI_PORT_C);</b></p>
+<p>First parameter is the CE pin which can be any available pin on the uC.</p>
+<p>Second parameter is the CS which can be on port C (<b>XMEGA_SPI_PORT_C</b>) or on port D (<b>XMEGA_SPI_PORT_D</b>).</p>
+<p>Call the **__start_timer()** to start the millisecond timer.</p>
+<dl class="section note"><dt>Note</dt><dd>Note about the millisecond functionality:<br />
+</dd></dl>
+<p>The millisecond functionality is based on the TCE0 so don't use these pins as IO.<br />
+ The operating frequency of the uC is 32MHz. If you have other frequency change the TCE0 registers appropriatly in function **__start_timer()** in <b>compatibility.c</b> file for your frequency. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Jul 27 2016 08:35:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">

@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.1.4</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -150,8 +150,8 @@ When switching between sketches, the radio may need to be powered down to clear 
 <div class="line">    </div>
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;Now sending&quot;</span>));</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = micros();                             <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
-<div class="line">     <span class="keywordflow">if</span> (!radio.write( &amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) )){</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> start_time = micros();                             <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
+<div class="line">     <span class="keywordflow">if</span> (!radio.write( &amp;start_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) )){</div>
 <div class="line">       Serial.println(F(<span class="stringliteral">&quot;failed&quot;</span>));</div>
 <div class="line">     }</div>
 <div class="line">        </div>
@@ -172,15 +172,15 @@ When switching between sketches, the radio may need to be powered down to clear 
 <div class="line">    }<span class="keywordflow">else</span>{</div>
 <div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> got_time;                                 <span class="comment">// Grab the response, compare, and send to debugging spew</span></div>
 <div class="line">        radio.read( &amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>) );</div>
-<div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = micros();</div>
+<div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> end_time = micros();</div>
 <div class="line">        </div>
 <div class="line">        <span class="comment">// Spew it</span></div>
 <div class="line">        Serial.print(F(<span class="stringliteral">&quot;Sent &quot;</span>));</div>
-<div class="line">        Serial.print(time);</div>
+<div class="line">        Serial.print(start_time);</div>
 <div class="line">        Serial.print(F(<span class="stringliteral">&quot;, Got response &quot;</span>));</div>
 <div class="line">        Serial.print(got_time);</div>
 <div class="line">        Serial.print(F(<span class="stringliteral">&quot;, Round-trip delay &quot;</span>));</div>
-<div class="line">        Serial.print(time-got_time);</div>
+<div class="line">        Serial.print(end_time-start_time);</div>
 <div class="line">        Serial.println(F(<span class="stringliteral">&quot; microseconds&quot;</span>));</div>
 <div class="line">    }</div>
 <div class="line"></div>
@@ -237,7 +237,7 @@ When switching between sketches, the radio may need to be powered down to clear 
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 08:35:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

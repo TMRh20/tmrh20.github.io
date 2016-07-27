@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized High Speed NRF24L01+ Driver Class Documenation: utility/Template Directory Reference</title>
+<title>Optimized High Speed NRF24L01+ Driver Class Documenation: Linux devices</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,7 +41,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -78,31 +78,63 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_64e73385a8b7738563c26ce10415b58d.html">utility</a></li><li class="navelem"><a class="el" href="dir_08581547d0c03868bb69abd460b21ce0.html">Template</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Template Directory Reference</div>  </div>
+<div class="title">Linux devices </div>  </div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:compatibility_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="compatibility_8h.html">compatibility.h</a> <a href="compatibility_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gpio_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gpio_8h.html">gpio.h</a> <a href="gpio_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:includes_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="includes_8h.html">includes.h</a> <a href="includes_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:RF24__arch__config_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="RF24__arch__config_8h.html">RF24_arch_config.h</a> <a href="RF24__arch__config_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:spi_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="spi_8h.html">spi.h</a> <a href="spi_8h_source.html">[code]</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Generic Linux devices are supported via SPIDEV, MRAA, RPi native via BCM2835, or using LittleWire.</p>
+<dl class="section note"><dt>Note</dt><dd>The SPIDEV option should work with most Linux systems supporting spi userspace device. <br />
+</dd></dl>
+<p><br />
+ </p>
+<h1><a class="anchor" id="AutoInstall"></a>
+Automated Install</h1>
+<p>(<b>Designed &amp; Tested on RPi</b> - Defaults to SPIDEV on devices supporting it)</p>
+<ol type="1">
+<li>Install prerequisites if there are any (MRAA, LittleWire libraries, setup SPI device etc)</li>
+<li>Download the install.sh file from <a href="http://tmrh20.github.io/RF24Installer/RPi/install.sh">http://tmrh20.github.io/RF24Installer/RPi/install.sh</a> <div class="fragment"><div class="line">wget http:<span class="comment">//tmrh20.github.io/RF24Installer/RPi/install.sh </span></div>
+</div><!-- fragment --></li>
+<li>Make it executable <div class="fragment"><div class="line">chmod +x install.sh </div>
+</div><!-- fragment --></li>
+<li>Run it and choose your options <div class="fragment"><div class="line">./install.sh </div>
+</div><!-- fragment --></li>
+<li>Run an example from one of the libraries <div class="fragment"><div class="line">cd rf24libs/<a class="code" href="classRF24.html">RF24</a>/examples_linux  </div>
+</div><!-- fragment --> Edit the gettingstarted example, to set your pin configuration <div class="fragment"><div class="line">nano gettingstarted.cpp</div>
+<div class="line">make  </div>
+<div class="line">sudo ./gettingstarted  </div>
+</div><!-- fragment --></li>
+</ol>
+<p><br />
+ </p>
+<h1><a class="anchor" id="ManInstall"></a>
+Manual Install</h1>
+<ol type="1">
+<li>Install prerequisites if there are any (MRAA, LittleWire libraries, setup SPI device etc) <dl class="section note"><dt>Note</dt><dd>See the <a href="http://iotdk.intel.com/docs/master/mraa/index.html">MRAA </a> documentation for more info on installing MRAA <br />
+</dd></dl>
+</li>
+<li>Make a directory to contain the <a class="el" href="classRF24.html">RF24</a> and possibly RF24Network lib and enter it <div class="fragment"><div class="line">mkdir ~/rf24libs </div>
+<div class="line">cd ~/rf24libs</div>
+</div><!-- fragment --></li>
+<li>Clone the <a class="el" href="classRF24.html">RF24</a> repo <div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/tmrh20/RF24.git RF24 </span></div>
+</div><!-- fragment --></li>
+<li>Change to the new <a class="el" href="classRF24.html">RF24</a> directory <div class="fragment"><div class="line">cd <a class="code" href="classRF24.html">RF24</a> </div>
+</div><!-- fragment --></li>
+<li>Configure build environment using<div class="fragment"><div class="line">./configure </div>
+</div><!-- fragment --> script. It auto detectes device and build environment. For overriding autodetections, use command-line switches, see<div class="fragment"><div class="line">./configure --help </div>
+</div><!-- fragment --> for description.</li>
+<li>Build the library, and run an example file <div class="fragment"><div class="line">sudo make install </div>
+</div><!-- fragment --> <div class="fragment"><div class="line">cd examples_linux  </div>
+</div><!-- fragment --> Edit the gettingstarted example, to set your pin configuration <div class="fragment"><div class="line">nano gettingstarted.cpp </div>
+<div class="line">make </div>
+<div class="line">sudo ./gettingstarted</div>
+</div><!-- fragment --></li>
+</ol>
+<p><br />
+<br />
+ </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Wed Jul 27 2016 08:35:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">

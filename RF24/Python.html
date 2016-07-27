@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.1.4</span>
+   &#160;<span id="projectnumber">V1.0</span>
    </div>
    <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
   </td>
@@ -84,30 +84,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Python Wrapper (by <a href="https://github.com/mz-fuzzy">https://github.com/mz-fuzzy</a>) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="Install"></a>
+<div class="textblock"><dl class="section note"><dt>Note</dt><dd>Both python2 and python3 are supported.</dd></dl>
+<h1><a class="anchor" id="Install"></a>
 Installation:</h1>
-<p>Install the boost libraries: (Note: Only the python libraries should be needed, this is just for simplicity)</p>
-<div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install libboost1.50-all </div>
-</div><!-- fragment --><p>Build the library:</p>
-<div class="fragment"><div class="line">./setup.py build   </div>
-</div><!-- fragment --><p>Install the library</p>
-<div class="fragment"><div class="line">sudo ./setup.py install  </div>
-</div><!-- fragment --><p>See the additional <a href="pages.html">Platform Support</a> pages for information on connecting your hardware <br />
- See the included <a href="pingpair_dyn_8py-example.html">example </a> for usage information.</p>
-<p>Running the Example:</p>
-<p>Edit the pingpair_dyn.py example to configure the appropriate pins per the above documentation:</p>
-<div class="fragment"><div class="line">nano pingpair_dyn.py   </div>
-</div><!-- fragment --><p>Configure another device, Arduino or RPi with the <a href="pingpair_dyn_8py-example.html">pingpair_dyn</a> example</p>
-<p>Run the example</p>
-<div class="fragment"><div class="line">sudo ./pingpair_dyn.py  </div>
-</div><!-- fragment --><p><br />
+<ol type="1">
+<li>Install the python-dev (or python3-dev) and boost libraries <div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install python-dev libboost-python-dev </div>
+</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>For python3 in Raspbian, it's needed to manually link python boost library, like this: <div class="fragment"><div class="line">sudo ln -s /usr/lib/arm-linux-gnueabihf/libboost_python-py34.so /usr/lib/arm-linux-gnueabihf/libboost_python3.so </div>
+</div><!-- fragment --></dd></dl>
+</li>
+<li>Install python-setuptools (or python3-setuptools) <div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> install python-setuptools </div>
+</div><!-- fragment --></li>
+<li>Build the library <div class="fragment"><div class="line">./setup.py build   </div>
+</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Build takes several minutes on arm-based machines. Machines with RAM &lt;1GB may need to increase amount of swap for build.</dd></dl>
+</li>
+<li>Install the library <div class="fragment"><div class="line">sudo ./setup.py install  </div>
+</div><!-- fragment --> See the additional <a href="pages.html">Platform Support</a> pages for information on connecting your hardware <br />
+ See the included <a href="pingpair_dyn_8py-example.html">example </a> for usage information.</li>
+<li>Running the Example Edit the pingpair_dyn.py example to configure the appropriate pins per the above documentation: <div class="fragment"><div class="line">nano pingpair_dyn.py   </div>
+</div><!-- fragment --> Configure another device, Arduino or RPi with the <a href="pingpair_dyn_8py-example.html">pingpair_dyn</a> example <br />
+ Run the example <div class="fragment"><div class="line">sudo ./pingpair_dyn.py  </div>
+</div><!-- fragment --></li>
+</ol>
+<p><br />
 <br />
 <br />
  </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Dec 28 2015 00:31:29 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 27 2016 08:35:56 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
