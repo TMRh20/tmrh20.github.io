@@ -4,11 +4,11 @@ var indexSectionsWithContent =
   1: "r",
   2: "cgimnprs",
   3: "_abcdefgimoprstw~",
-  4: "bdfmoprs",
-  5: "cp",
+  4: "bdfmops",
+  5: "p",
   6: "r",
   7: "r",
-  8: "_acdefilmnoprstw",
+  8: "acdeflmnoprstw",
   9: "p",
   10: "almopr"
 };

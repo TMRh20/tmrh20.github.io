@@ -31,7 +31,6 @@ var searchData=
   ['rf24_5fpa_5flow',['RF24_PA_LOW',['../RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aacea7d8d09f4a047b7c22655e56c98ca010c',1,'RF24.h']]],
   ['rf24_5fpa_5fmax',['RF24_PA_MAX',['../RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aaceab0bfc94c4095e9495b2e49530b623d0d',1,'RF24.h']]],
   ['rf24_5fpa_5fmin',['RF24_PA_MIN',['../RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aacea445515b775236bb9db3cb4b0b828adff',1,'RF24.h']]],
-  ['rf24_5fspi_5fspeed',['RF24_SPI_SPEED',['../RF24__config_8h.html#af023242fa833ea4a3ebdb93a7cca127f',1,'RF24_config.h']]],
   ['rf_5fch',['RF_CH',['../nRF24L01_8h.html#a5c4da84e4a01531aa9f5c3e617848d66',1,'nRF24L01.h']]],
   ['rf_5fdr',['RF_DR',['../nRF24L01_8h.html#a1447bd35f38d6cc6d6841ca29c514675',1,'nRF24L01.h']]],
   ['rf_5fdr_5fhigh',['RF_DR_HIGH',['../nRF24L01_8h.html#ace5cdf603eecdfb4344114b589442407',1,'nRF24L01.h']]],

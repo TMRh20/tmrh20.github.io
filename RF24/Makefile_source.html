@@ -92,7 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <a href="Makefile.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;#############################################################################</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;#</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;# Makefile for librf24-bcm on Raspberry Pi</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;# Makefile for librf24</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;#</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;# License: GPL (General Public License)</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;# Author:  Charles-Henri Hallard </div>
@@ -100,123 +100,124 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;#</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;# Description:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;# ------------</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;# use make all and mak install to install the library </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;# You can change the install directory by editing the LIBDIR line</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;#</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;PREFIX=/usr/local</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;# Library parameters</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;# where to put the lib</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;LIBDIR=$(PREFIX)/lib</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;# lib name </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;LIB=librf24-bcm</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;# shared library name</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;LIBNAME=$(LIB).so.1.0</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;# Where to put the header files</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;HEADER_DIR=${PREFIX}/include/RF24</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;# The base location of support files for different devices</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;ARCH_DIR=utility</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;ARCH=armv6zk</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;ifeq &quot;$(shell uname -m)&quot; &quot;armv7l&quot;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;ARCH=armv7-a</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;endif</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;# The default objects to compile</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;OBJECTS=RF24.o spi.o</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;# use make all and make install to install the library </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;#</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;CONFIG_FILE=Makefile.inc</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;REMOTE_ERROR=&quot;[ERROR] Remote machine not configured. Run configure with respective arguments.&quot;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;include $(CONFIG_FILE)</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;# Objects to compile</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;OBJECTS=RF24.o</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;ifeq ($(DRIVER), MRAA)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;OBJECTS+=spi.o gpio.o compatibility.o</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;else ifeq ($(DRIVER), RPi)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;OBJECTS+=spi.o bcm2835.o interrupt.o</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;else ifeq ($(DRIVER), SPIDEV)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;OBJECTS+=spi.o gpio.o compatibility.o interrupt.o</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;endif</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;# make all</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;# reinstall the library after each recompilation</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;all: $(LIBNAME)</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;# Make the library</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;$(LIBNAME): $(OBJECTS)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   @echo &quot;[Linking]&quot;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   $(CC) $(SHARED_LINKER_FLAGS) $(CFLAGS) -o $(LIBNAME) $^</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;SHARED_LINKER_FLAGS=-shared -Wl,-soname,$@.so.1</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;# Library parts</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;RF24.o: RF24.cpp   </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   $(CXX) -fPIC $(CFLAGS) -c $^</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;# Detect the Raspberry Pi from cpuinfo</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;# Allow users to override the use of BCM2835 driver and force use of SPIDEV by specifying &quot; sudo make install -B RF24_SPIDEV=1 &quot;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;ifeq &quot;$(RF24_SPIDEV)&quot; &quot;1&quot;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;RPI=0</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;else</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;#Count the matches for BCM2708 or BCM2709 in cpuinfo</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;RPI=$(shell cat /proc/cpuinfo | grep Hardware | grep -c BCM2708)</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  ifneq &quot;${RPI}&quot; &quot;1&quot;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  RPI=$(shell cat /proc/cpuinfo | grep Hardware | grep -c BCM2709)</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  endif</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;endif</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;bcm2835.o: $(DRIVER_DIR)/bcm2835.c</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;   $(CC) -fPIC $(CFLAGS) -c $^</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;spi.o: $(DRIVER_DIR)/spi.cpp</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   $(CXX) -fPIC $(CFLAGS) -c $^</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;compatibility.o: $(DRIVER_DIR)/compatibility.c</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;   $(CC) -fPIC  $(CFLAGS) -c $(DRIVER_DIR)/compatibility.c</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;gpio.o: $(DRIVER_DIR)/gpio.cpp</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;   $(CXX) -fPIC $(CFLAGS) -c $(DRIVER_DIR)/gpio.cpp</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;ifeq &quot;$(RF24_MRAA)&quot; &quot;1&quot;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;SHARED_LINKER_FLAGS+=-lmraa </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;DRIVER_DIR=$(ARCH_DIR)/MRAA</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;OBJECTS+=gpio.o compatibility.o</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;else ifeq &quot;$(RPI)&quot; &quot;1&quot;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;DRIVER_DIR=$(ARCH_DIR)/RPi</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;OBJECTS+=bcm2835.o</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;OBJECTS+=interrupt.o</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;SHARED_LINKER_FLAGS+=-pthread</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;# The recommended compiler flags for the Raspberry Pi</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;CCFLAGS=-Ofast -mfpu=vfp -mfloat-abi=hard -march=$(ARCH) -mtune=arm1176jzf-s</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;interrupt.o: $(DRIVER_DIR)/interrupt.c</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   $(CXX) -fPIC $(CFLAGS) -c $(DRIVER_DIR)/interrupt.c</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;# clear configuration files</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;cleanconfig:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   @echo &quot;[Cleaning configuration]&quot;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   rm -rf $(CONFIG_FILE) utility/includes.h</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;# clear build files</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;clean:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;   @echo &quot;[Cleaning]&quot;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;   rm -rf *.o $(LIBNAME)</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;else</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;DRIVER_DIR=$(ARCH_DIR)/BBB</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;OBJECTS+=gpio.o compatibility.o</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;endif</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;# make all</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;# reinstall the library after each recompilation</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;all: test librf24-bcm</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;test:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   cp ${DRIVER_DIR}/includes.h $(ARCH_DIR)/includes.h</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;# Make the library</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;librf24-bcm: $(OBJECTS)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;   g++ ${SHARED_LINKER_FLAGS} ${CCFLAGS} -o ${LIBNAME} $^</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;   </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;# Library parts</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;RF24.o: RF24.cpp   </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;   g++ -Wall -fPIC ${CCFLAGS} -c $^</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;bcm2835.o: $(DRIVER_DIR)/bcm2835.c</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   gcc -Wall -fPIC ${CCFLAGS} -c $^</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;spi.o: $(DRIVER_DIR)/spi.cpp</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;   g++ -Wall -fPIC ${CCFLAGS} -c $^</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;compatibility.o: $(DRIVER_DIR)/compatibility.c</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;   gcc -Wall -fPIC  ${CCFLAGS} -c $(DRIVER_DIR)/compatibility.c</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;gpio.o: $(DRIVER_DIR)/gpio.cpp</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   g++ -Wall -fPIC ${CCFLAGS} -c $(DRIVER_DIR)/gpio.cpp</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;interrupt.o: $(DRIVER_DIR)/interrupt.c</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;   g++ -Wall -fPIC ${CCFLAGS} -c $(DRIVER_DIR)/interrupt.c</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;   </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;# clear build files</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;clean:</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;   rm -rf *.o ${LIB}.*</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;install: all install-libs install-headers</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;# Install the library to LIBPATH</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;install-libs: </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   @echo &quot;[Installing Libs]&quot;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   @if ( test ! -d $(PREFIX)/lib ) ; then mkdir -p $(PREFIX)/lib ; fi</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   @install -m 0755 ${LIBNAME} ${LIBDIR}</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   @ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so.1</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;   @ln -sf ${LIBDIR}/${LIBNAME} ${LIBDIR}/${LIB}.so</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;   @ldconfig</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;install-headers:</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   @echo &quot;[Installing Headers]&quot;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;   @if ( test ! -d ${HEADER_DIR} ) ; then mkdir -p ${HEADER_DIR} ; fi</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;   @install -m 0644 *.h ${HEADER_DIR}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   @if ( test ! -d ${HEADER_DIR}/${DRIVER_DIR} ) ; then mkdir -p ${HEADER_DIR}/${DRIVER_DIR} ; fi</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;   @install -m 0644 ${DRIVER_DIR}/*.h ${HEADER_DIR}/${DRIVER_DIR}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;   @install -m 0644 ${ARCH_DIR}/*.h ${HEADER_DIR}/${ARCH_DIR}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;$(CONFIG_FILE):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   @echo &quot;[Running configure]&quot;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;   @./configure --no-clean</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;install: all install-libs install-headers</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;upload: all upload-libs upload-headers</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;# Install the library to LIBPATH</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;install-libs:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;   @echo &quot;[Installing Libs to $(LIB_DIR)]&quot;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;   @if ( test ! -d $(LIB_DIR) ); then mkdir -p $(LIB_DIR); fi</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   @install -m 0755 $(LIBNAME) $(LIB_DIR)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   @orig=$(LIBNAME) &amp;&amp; \</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;   for sl in $(LIBSYMLINKS); do \</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;       ln -sf $(LIB_DIR)/$${orig} $(LIB_DIR)/$${sl}; \</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;       orig=$${sl}; \</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;   done &amp;&amp; \</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;   if [ &quot;$(LIBDEPRECATE)&quot; ]; then ln -sf $(LIB_DIR)/$${orig} $(LIB_DIR)/$(LIBDEPRECATE); fi</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;ifneq ($(LDCONFIG),)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;   @$(LDCONFIG)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;endif</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;upload-libs:</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;   @echo &quot;[Uploading Libs to $(REMOTE):$(REMOTE_LIB_DIR)]&quot;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;ifeq ($(REMOTE),)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;   @echo &quot;$(REMOTE_ERROR)&quot;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;   @exit 1</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;endif</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;mkdir -p $(REMOTE_LIB_DIR)&quot;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;   @scp -q -P $(REMOTE_PORT) $(LIBNAME) $(REMOTE):/tmp</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo install -m 0755 /tmp/$(LIBNAME) $(REMOTE_LIB_DIR) &amp;&amp;&quot; \</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;       &quot; orig=$(LIBNAME) &amp;&amp; for sl in $(LIBSYMLINKS); do sudo ln -sf $(REMOTE_LIB_DIR)/\$${orig} $(REMOTE_LIB_DIR)/\$${sl}; orig=\$${sl}; done &amp;&amp;&quot; \</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;       &quot; if [ &quot;$(LIBDEPRECATE)&quot; ]; then sudo ln -sf $(REMOTE_LIB_DIR)/\$${orig} $(REMOTE_LIB_DIR)/$(LIBDEPRECATE); fi &amp;&amp;&quot; \</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;       &quot; rm /tmp/$(LIBNAME)&quot;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;ifneq ($(REMOTE_LDCONFIG),)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo $(REMOTE_LDCONFIG)&quot;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;endif</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;install-headers:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;   @echo &quot;[Installing Headers to $(HEADER_DIR)]&quot;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;   @mkdir -p $(HEADER_DIR)/$(DRIVER_DIR)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;   @install -m 0644 *.h $(HEADER_DIR)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;   @install -m 0644 $(DRIVER_DIR)/*.h $(HEADER_DIR)/$(DRIVER_DIR)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;   @install -m 0644 $(ARCH_DIR)/*.h $(HEADER_DIR)/$(ARCH_DIR)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;upload-headers:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   @echo &quot;[Uploading Headers to $(REMOTE):$(REMOTE_HEADER_DIR)]&quot;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;ifeq ($(REMOTE),)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;   @echo &quot;$(REMOTE_ERROR)&quot;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;   @exit 1</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;endif</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo mkdir -p $(REMOTE_HEADER_DIR)/$(DRIVER_DIR)&quot;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;mkdir -p /tmp/RF24 &amp;&amp; rm -rf /tmp/RF24/*&quot;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;   @rsync -a --include=&quot;*.h&quot; --include=&quot;*/&quot; --exclude=&quot;*&quot; -e &quot;ssh -p $(REMOTE_PORT)&quot; . $(REMOTE):/tmp/RF24</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo install -m 0644 /tmp/RF24/*.h $(REMOTE_HEADER_DIR)&quot;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo install -m 0644 /tmp/RF24/$(DRIVER_DIR)/*.h $(REMOTE_HEADER_DIR)/$(DRIVER_DIR)&quot;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;sudo install -m 0644 /tmp/RF24/$(ARCH_DIR)/*.h $(REMOTE_HEADER_DIR)/$(ARCH_DIR)&quot;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;   @ssh -q -t -p $(REMOTE_PORT) $(REMOTE) &quot;rm -rf /tmp/RF24&quot;</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 10 2016 02:29:14 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 18 2016 18:27:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

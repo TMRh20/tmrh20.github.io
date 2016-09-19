@@ -11,11 +11,11 @@ var searchData=
   ['setup_5faw',['SETUP_AW',['../nRF24L01_8h.html#af5ef355ba3eca336db1285cab353ddc2',1,'nRF24L01.h']]],
   ['setup_5fretr',['SETUP_RETR',['../nRF24L01_8h.html#a2188309b3eceeae158dd64109cd919aa',1,'nRF24L01.h']]],
   ['speed',['speed',['../group__Porting__SPI.html#ga220859a8b5da0232739a11cbe7f79fc5',1,'spi.h']]],
-  ['spi',['SPI',['../RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343',1,'SPI():&#160;RF24_config.h'],['../group__Porting__SPI.html#gacd293e741d829f9578b8c5ee49833608',1,'SPI():&#160;spi.h']]],
+  ['spi',['SPI',['../group__Porting__SPI.html#gacd293e741d829f9578b8c5ee49833608',1,'spi.h']]],
   ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
   ['startfastwrite',['startFastWrite',['../classRF24.html#acd19843064cb70ec23507412e519e4ef',1,'RF24']]],
   ['startlistening',['startListening',['../classRF24.html#a30a2733a3889bdc331fe2d2f4f0f7b39',1,'RF24']]],
   ['startwrite',['startWrite',['../classRF24.html#aa27519fc289920094422033e0bbf8cf9',1,'RF24']]],
   ['stoplistening',['stopListening',['../classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88',1,'RF24']]],
-  ['strlen_5fp',['strlen_P',['../RF24__config_8h.html#a05dde754db9944c90362c1f861d358ba',1,'strlen_P():&#160;RF24_config.h'],['../group__Porting__General.html#ga05dde754db9944c90362c1f861d358ba',1,'strlen_P():&#160;RF24_arch_config.h']]]
+  ['strlen_5fp',['strlen_P',['../group__Porting__General.html#ga05dde754db9944c90362c1f861d358ba',1,'RF24_arch_config.h']]]
 ];

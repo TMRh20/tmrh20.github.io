@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['lna_5fhcurr',['LNA_HCURR',['../nRF24L01_8h.html#ad031c713aa7c96ca88a9710f25229495',1,'nRF24L01.h']]]
+  ['nop',['NOP',['../nRF24L01_8h.html#a700f88377bf36711b711f69b06c52f5d',1,'nRF24L01.h']]],
+  ['nrf_5fconfig',['NRF_CONFIG',['../nRF24L01_8h.html#ab365e330ce094a191c25fdf1d3f64a94',1,'nRF24L01.h']]],
+  ['nrf_5fstatus',['NRF_STATUS',['../nRF24L01_8h.html#a62c8d1dc6bd80fb70c17ef9de6d49cd2',1,'nRF24L01.h']]]
 ];

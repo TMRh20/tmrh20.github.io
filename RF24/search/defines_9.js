@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['nop',['NOP',['../nRF24L01_8h.html#a700f88377bf36711b711f69b06c52f5d',1,'nRF24L01.h']]],
-  ['nrf_5fstatus',['NRF_STATUS',['../nRF24L01_8h.html#a62c8d1dc6bd80fb70c17ef9de6d49cd2',1,'nRF24L01.h']]]
+  ['pll_5flock',['PLL_LOCK',['../nRF24L01_8h.html#af76cfc0d6ed71259b4a237cbd8e30624',1,'nRF24L01.h']]],
+  ['plos_5fcnt',['PLOS_CNT',['../nRF24L01_8h.html#af45c13e8941613c7eb931001ab964965',1,'nRF24L01.h']]],
+  ['prim_5frx',['PRIM_RX',['../nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6',1,'nRF24L01.h']]],
+  ['pwr_5fup',['PWR_UP',['../nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d',1,'nRF24L01.h']]]
 ];

@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['activate',['ACTIVATE',['../nRF24L01_8h.html#ad37ed8e28abe573e992766b0e3b0353b',1,'nRF24L01.h']]],
-  ['arc',['ARC',['../nRF24L01_8h.html#a14727f92df7a9466f732141f23b9c252',1,'nRF24L01.h']]],
-  ['arc_5fcnt',['ARC_CNT',['../nRF24L01_8h.html#aaae5ef9927daf8a4939cd2ed6ffff2ec',1,'nRF24L01.h']]],
-  ['ard',['ARD',['../nRF24L01_8h.html#aa9701b150e0589afb638c82a498d1dcb',1,'nRF24L01.h']]],
-  ['aw',['AW',['../nRF24L01_8h.html#abd18e97392c5401ae01a906e1567da88',1,'nRF24L01.h']]]
+  ['cd',['CD',['../nRF24L01_8h.html#a1050140a3d78b059f809a424e0d9e1c7',1,'nRF24L01.h']]],
+  ['crco',['CRCO',['../nRF24L01_8h.html#a253dd73b17f0ea7f71e55f52e796836a',1,'nRF24L01.h']]]
 ];

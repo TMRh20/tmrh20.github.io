@@ -268,7 +268,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">//  static void setDataMode(uint8_t);</span></div>
 <div class="line"><span class="comment">//  static void setClockDivider(uint8_t);</span></div>
 <div class="line">};</div>
-<div class="line"><span class="keyword">extern</span> SPIClass <a name="a2"></a><a class="code" href="RF24__config_8h.html#a2332dcef61deaf30b01014f3bede4343">SPI</a>;</div>
+<div class="line"><span class="keyword">extern</span> SPIClass <a name="a2"></a><a class="code" href="group__Porting__SPI.html#gacd293e741d829f9578b8c5ee49833608">SPI</a>;</div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">/* RF24_TINY */</span><span class="preprocessor"></span></div>
 <div class="line"></div>
@@ -281,15 +281,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(DO, <a class="code" href="group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
 <div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(SS, <a class="code" href="group__Porting__General.html#ga61a3c9a18380aafb6e430e79bf596557">OUTPUT</a>);</div>
 <div class="line">  <a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(DI, <a name="a7"></a><a class="code" href="group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);</div>
-<div class="line">  USICR = <a name="a8"></a><a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0);</div>
+<div class="line">  USICR = <a name="a8"></a><a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line">byte <a class="code" href="group__Porting__SPI.html#gad8a210abb2138c105350cc91972edfa9">SPIClass::transfer</a>(byte b) {</div>
 <div class="line">  USIDR = b;</div>
-<div class="line">  USISR = <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIOIF);</div>
+<div class="line">  USISR = <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USIOIF);</div>
 <div class="line">  <span class="keywordflow">do</span></div>
-<div class="line">    USICR = <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USICS1) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USICLK) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USITC);</div>
-<div class="line">  <span class="keywordflow">while</span> ((USISR &amp; <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(USIOIF)) == 0);</div>
+<div class="line">    USICR = <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USIWM0) | <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USICS1) | <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USICLK) | <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USITC);</div>
+<div class="line">  <span class="keywordflow">while</span> ((USISR &amp; <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(USIOIF)) == 0);</div>
 <div class="line">  <span class="keywordflow">return</span> USIDR;</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -387,13 +387,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  <span class="comment">// nRF24L01 goes from to Power Down state 100ms after Power on Reset ( Vdd &gt; 1.9V) or when PWR_UP is 0 in config register </span></div>
 <div class="line">  <span class="comment">// Goto Power Down state (Powerup or force) and set in transmit mode</span></div>
-<div class="line">  write_register2(<a name="a15"></a><a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>, read_register(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a16"></a><a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>) &amp; ~<a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a17"></a><a class="code" href="nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6">PRIM_RX</a>));</div>
-<div class="line">  <a name="a18"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
+<div class="line">  write_register2(CONFIG, read_register(CONFIG) &amp; ~<a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a15"></a><a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>) &amp; ~<a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a name="a16"></a><a class="code" href="nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6">PRIM_RX</a>));</div>
+<div class="line">  <a name="a17"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Goto Standby-I</span></div>
 <div class="line">  <span class="comment">// Technically we require 4.5ms Tpd2stby+ 14us as a worst case. We&#39;ll just call it 5ms for good measure.</span></div>
 <div class="line">  <span class="comment">// WARNING: Delay is based on P-variant whereby non-P *may* require different timing.</span></div>
-<div class="line">  write_register2(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>, read_register(<a class="code" href="nRF24L01_8h.html#a76ea3cf49247a07c54b3db005a3c7f57">CONFIG</a>) | <a class="code" href="RF24__config_8h.html#a483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>));</div>
+<div class="line">  write_register2(CONFIG, read_register(CONFIG) | <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#af0dbd9e4c17ba0db357fcb2cedd4aa6d">PWR_UP</a>));</div>
 <div class="line">  <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(5) ;</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// Goto Standby-II</span></div>
@@ -427,7 +427,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      i = 0;</div>
 <div class="line">      <span class="keywordflow">while</span>(i&lt;255 &amp; success) {</div>
 <div class="line">        <span class="keywordflow">for</span> (j=0;j&lt;2;j++) {</div>
-<div class="line">          write_register2(<a name="a19"></a><a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>, value[j]);</div>
+<div class="line">          write_register2(<a name="a18"></a><a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>, value[j]);</div>
 <div class="line">          status = read_register(<a class="code" href="nRF24L01_8h.html#aa84a282351a2c9b83dd653df6ac59216">EN_AA</a>);</div>
 <div class="line">          <span class="keywordflow">if</span> (value[j] != status) {</div>
 <div class="line">            success = <span class="keyword">false</span>;</div>
@@ -485,7 +485,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 10 2016 02:29:14 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Sep 18 2016 18:27:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
