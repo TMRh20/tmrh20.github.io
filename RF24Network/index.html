@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
-   &#160;<span id="projectnumber">v1.0.2</span>
+   &#160;<span id="projectnumber">v1.0.7</span>
    </div>
    <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
@@ -95,19 +95,17 @@ Purpose/Goal</h1>
 Features</h1>
 <p><b>Whats new? </b><br />
  </p><ul>
-<li>New: (Dec 8) Merge of RPi and Arduino code. Finally moving closer to a stable release. Report issues at <a href="https://github.com/TMRh20/RF24Network/issues">https://github.com/TMRh20/RF24Network/issues</a> </li>
-<li>New functionality: (Dec 8) Support for fragmented multicast payloads on both RPi and Arduino </li>
-<li>New functionality: (Nov 24) Fragmentation &amp; reassembly supported on both RPi and Arduino </li>
-<li>Note: structure of network frames is changed, these are only used by external applications like RF24Ethernet and RF24toTUN, and for fragmentation </li>
-<li>New functionality: User message types 1 through 64 will not receive a network ack</li>
+<li>(2016) Many bug fixes, RPi2,3 Autodetection &amp; General Cleanup</li>
 </ul>
 <p>The layer provides: </p><ul>
-<li><b>New</b> (2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
-<li><b>New</b> (2014): Updated addressing standard for optimal radio transmission. </li>
-<li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
-<li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
-<li><b>New</b> (2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a>)) </li>
-<li><b>New</b> (2014): Dual headed operation: The use of dual radios for busy routing nodes or the master node enhances throughput and decreases errors. See the <a href="Tuning.html">Tuning</a> section. </li>
+<li>(2015): Fragmentation &amp; reassembly of oversized payloads including multicast payloads </li>
+<li>(2015): User managed network acknowledgements: Message types 1 through 64 will not recieve a network-ack </li>
+<li>(2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
+<li>(2014): Updated addressing standard for optimal radio transmission. </li>
+<li>(2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
+<li>(2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
+<li>(2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a>)) </li>
+<li>(2014): Dual headed operation: The use of dual radios for busy routing nodes or the master node enhances throughput and decreases errors. See the <a href="Tuning.html">Tuning</a> section. </li>
 <li>Host Addressing. Each node has a logical address on the local network. </li>
 <li>Message Forwarding. Messages can be sent from one node to any other, and this layer will get them there no matter how many hops it takes. </li>
 <li>Ad-hoc Joining. A node can join a network without any changes to any existing nodes.</li>
@@ -172,7 +170,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 27 2015 10:45:18 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 20 2016 00:03:30 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
