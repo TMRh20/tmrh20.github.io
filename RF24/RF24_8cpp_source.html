@@ -142,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#if !defined (RF24_LINUX)</span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(csn_pin,mode);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(5);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(<a class="code" href="classRF24.html#ad08121bf844f08dbe53f51576b7c4066">csDelay</a>);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
@@ -820,10 +820,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;{  </div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;  ce(<a class="code" href="group__Porting__General.html#gab811d8c6ff3a505312d3276590444289">LOW</a>);</div>
 <div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(txRxDelay);</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;  <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(<a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>);</div>
 <div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;  </div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;  <span class="keywordflow">if</span>(read_register(<a class="code" href="nRF24L01_8h.html#adf81f7b30b6c08465ce704956b446a2d">FEATURE</a>) &amp; <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#a1a275ad559fa85d8278f06052baab004">EN_ACK_PAY</a>)){</div>
-<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(txRxDelay); <span class="comment">//200</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;    <a class="code" href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a>(<a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>); <span class="comment">//200</span></div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;    <a class="code" href="classRF24.html#adb7915b1d2661a82137573344f659e81">flush_tx</a>();</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;  }</div>
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;  <span class="comment">//flush_rx();</span></div>
@@ -1502,9 +1502,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01410"></a><span class="lineno"> 1410</span>&#160;  setup &amp;= ~(<a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#abd7f2e51313a2bc4be176c747c95f8f9">RF_DR_LOW</a>) | <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#ace5cdf603eecdfb4344114b589442407">RF_DR_HIGH</a>)) ;</div>
 <div class="line"><a name="l01411"></a><span class="lineno"> 1411</span>&#160;  </div>
 <div class="line"><a name="l01412"></a><span class="lineno"> 1412</span>&#160;<span class="preprocessor">  #if defined(__arm__) || defined (RF24_LINUX) || defined (__ARDUINO_X86__)</span></div>
-<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;    txRxDelay=250;</div>
+<div class="line"><a name="l01413"></a><span class="lineno"> 1413</span>&#160;    <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=250;</div>
 <div class="line"><a name="l01414"></a><span class="lineno"> 1414</span>&#160;<span class="preprocessor">  #else //16Mhz Arduino</span></div>
-<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;    txRxDelay=85;</div>
+<div class="line"><a name="l01415"></a><span class="lineno"> 1415</span>&#160;    <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=85;</div>
 <div class="line"><a name="l01416"></a><span class="lineno"> 1416</span>&#160;<span class="preprocessor">  #endif</span></div>
 <div class="line"><a name="l01417"></a><span class="lineno"> 1417</span>&#160;  <span class="keywordflow">if</span>( speed == <a class="code" href="RF24_8h.html#a82745de4aa1251b7561564b3ed1d6522ad6a241689903e120c99b6963cb98c97c">RF24_250KBPS</a> )</div>
 <div class="line"><a name="l01418"></a><span class="lineno"> 1418</span>&#160;  {</div>
@@ -1512,9 +1512,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01420"></a><span class="lineno"> 1420</span>&#160;    <span class="comment">// Making it &#39;10&#39;.</span></div>
 <div class="line"><a name="l01421"></a><span class="lineno"> 1421</span>&#160;    setup |= <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>( <a class="code" href="nRF24L01_8h.html#abd7f2e51313a2bc4be176c747c95f8f9">RF_DR_LOW</a> ) ;</div>
 <div class="line"><a name="l01422"></a><span class="lineno"> 1422</span>&#160;<span class="preprocessor">  #if defined(__arm__) || defined (RF24_LINUX) || defined (__ARDUINO_X86__)</span></div>
-<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    txRxDelay=450;</div>
+<div class="line"><a name="l01423"></a><span class="lineno"> 1423</span>&#160;    <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=450;</div>
 <div class="line"><a name="l01424"></a><span class="lineno"> 1424</span>&#160;<span class="preprocessor">  #else //16Mhz Arduino</span></div>
-<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;    txRxDelay=155;</div>
+<div class="line"><a name="l01425"></a><span class="lineno"> 1425</span>&#160;    <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=155;</div>
 <div class="line"><a name="l01426"></a><span class="lineno"> 1426</span>&#160;<span class="preprocessor">  #endif</span></div>
 <div class="line"><a name="l01427"></a><span class="lineno"> 1427</span>&#160;  }</div>
 <div class="line"><a name="l01428"></a><span class="lineno"> 1428</span>&#160;  <span class="keywordflow">else</span></div>
@@ -1525,9 +1525,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;    {</div>
 <div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160;      setup |= <a class="code" href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a>(<a class="code" href="nRF24L01_8h.html#ace5cdf603eecdfb4344114b589442407">RF_DR_HIGH</a>);</div>
 <div class="line"><a name="l01435"></a><span class="lineno"> 1435</span>&#160;<span class="preprocessor">      #if defined(__arm__) || defined (RF24_LINUX) || defined (__ARDUINO_X86__)</span></div>
-<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;      txRxDelay=190;</div>
+<div class="line"><a name="l01436"></a><span class="lineno"> 1436</span>&#160;      <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=190;</div>
 <div class="line"><a name="l01437"></a><span class="lineno"> 1437</span>&#160;<span class="preprocessor">      #else //16Mhz Arduino   </span></div>
-<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;      txRxDelay=65;</div>
+<div class="line"><a name="l01438"></a><span class="lineno"> 1438</span>&#160;      <a class="code" href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">txDelay</a>=65;</div>
 <div class="line"><a name="l01439"></a><span class="lineno"> 1439</span>&#160;<span class="preprocessor">      #endif</span></div>
 <div class="line"><a name="l01440"></a><span class="lineno"> 1440</span>&#160;    }</div>
 <div class="line"><a name="l01441"></a><span class="lineno"> 1441</span>&#160;  }</div>
@@ -1694,7 +1694,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24_html_aec71746d59da978bcbb975167886a2cc"><div class="ttname"><a href="classRF24.html#aec71746d59da978bcbb975167886a2cc">RF24::setAutoAck</a></div><div class="ttdeci">void setAutoAck(bool enable)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01336">RF24.cpp:1336</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_a62c8d1dc6bd80fb70c17ef9de6d49cd2"><div class="ttname"><a href="nRF24L01_8h.html#a62c8d1dc6bd80fb70c17ef9de6d49cd2">NRF_STATUS</a></div><div class="ttdeci">#define NRF_STATUS</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00034">nRF24L01.h:34</a></div></div>
 <div class="ttc" id="classRF24_html_ad22e44fe1a68747872fcb304a407fd30"><div class="ttname"><a href="classRF24.html#ad22e44fe1a68747872fcb304a407fd30">RF24::rxFifoFull</a></div><div class="ttdeci">bool rxFifoFull()</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l00956">RF24.cpp:956</a></div></div>
-<div class="ttc" id="classRF24_html_a2e40fe66d1231a333aa2534e8491f828"><div class="ttname"><a href="classRF24.html#a2e40fe66d1231a333aa2534e8491f828">RF24::failureDetected</a></div><div class="ttdeci">bool failureDetected</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00674">RF24.h:674</a></div></div>
+<div class="ttc" id="classRF24_html_a2e40fe66d1231a333aa2534e8491f828"><div class="ttname"><a href="classRF24.html#a2e40fe66d1231a333aa2534e8491f828">RF24::failureDetected</a></div><div class="ttdeci">bool failureDetected</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00673">RF24.h:673</a></div></div>
 <div class="ttc" id="classRF24_html_a9944d93994a80037e3586f340f5e0107"><div class="ttname"><a href="classRF24.html#a9944d93994a80037e3586f340f5e0107">RF24::closeReadingPipe</a></div><div class="ttdeci">void closeReadingPipe(uint8_t pipe)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01218">RF24.cpp:1218</a></div></div>
 <div class="ttc" id="classRF24_html_adc95213ed4c8569a90eb33122e16cea6"><div class="ttname"><a href="classRF24.html#adc95213ed4c8569a90eb33122e16cea6">RF24::printDetails</a></div><div class="ttdeci">void printDetails(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l00512">RF24.cpp:512</a></div></div>
 <div class="ttc" id="classRF24_html_a72a7b11dafe8ffab6135f243decce0d7"><div class="ttname"><a href="classRF24.html#a72a7b11dafe8ffab6135f243decce0d7">RF24::getDataRate</a></div><div class="ttdeci">rf24_datarate_e getDataRate(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01454">RF24.cpp:1454</a></div></div>
@@ -1729,6 +1729,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="nRF24L01_8h_html_a44bdf6946c1ae047ea2a2c981244d4d8"><div class="ttname"><a href="nRF24L01_8h.html#a44bdf6946c1ae047ea2a2c981244d4d8">RX_PW_P3</a></div><div class="ttdeci">#define RX_PW_P3</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00047">nRF24L01.h:47</a></div></div>
 <div class="ttc" id="group__Porting__General_html_ga483c9de27db573099572f5485ef841c9"><div class="ttname"><a href="group__Porting__General.html#ga483c9de27db573099572f5485ef841c9">_BV</a></div><div class="ttdeci">#define _BV(x)</div><div class="ttdef"><b>Definition:</b> <a href="RF24__arch__config_8h_source.html#l00041">RF24_arch_config.h:41</a></div></div>
 <div class="ttc" id="group__Porting__General_html_ga9384257bf5d5c1aae675b22cc3ecb91a"><div class="ttname"><a href="group__Porting__General.html#ga9384257bf5d5c1aae675b22cc3ecb91a">delayMicroseconds</a></div><div class="ttdeci">#define delayMicroseconds(usec)</div><div class="ttdef"><b>Definition:</b> <a href="RF24__arch__config_8h_source.html#l00078">RF24_arch_config.h:78</a></div></div>
+<div class="ttc" id="classRF24_html_a958fb99f54415101ca008ab11b3bfe79"><div class="ttname"><a href="classRF24.html#a958fb99f54415101ca008ab11b3bfe79">RF24::txDelay</a></div><div class="ttdeci">uint32_t txDelay</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00920">RF24.h:920</a></div></div>
 <div class="ttc" id="group__Porting__General_html_gabda89b115581947337690b2f85bfab6e"><div class="ttname"><a href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a></div><div class="ttdeci">#define digitalWrite(pin, value)</div><div class="ttdef"><b>Definition:</b> <a href="RF24__arch__config_8h_source.html#l00075">RF24_arch_config.h:75</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_a1b46f8336bda068b0759f70cceec3b65"><div class="ttname"><a href="nRF24L01_8h.html#a1b46f8336bda068b0759f70cceec3b65">EN_DPL</a></div><div class="ttdeci">#define EN_DPL</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00098">nRF24L01.h:98</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_a462d8c2314b823b724574c1ca73225a6"><div class="ttname"><a href="nRF24L01_8h.html#a462d8c2314b823b724574c1ca73225a6">R_RX_PAYLOAD</a></div><div class="ttdeci">#define R_RX_PAYLOAD</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00108">nRF24L01.h:108</a></div></div>
@@ -1794,6 +1795,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="classRF24_html_a8cd165a822c8f77e10782c6729c5b088"><div class="ttname"><a href="classRF24.html#a8cd165a822c8f77e10782c6729c5b088">RF24::RF24</a></div><div class="ttdeci">RF24(uint8_t _cepin, uint8_t _cspin)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l00418">RF24.cpp:418</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_a01228e7b997954bc9d715c8289731181"><div class="ttname"><a href="nRF24L01_8h.html#a01228e7b997954bc9d715c8289731181">RX_ADDR_P3</a></div><div class="ttdeci">#define RX_ADDR_P3</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00040">nRF24L01.h:40</a></div></div>
 <div class="ttc" id="classRF24_html_abf8efced2ee9edbcc6510878b20edc1b"><div class="ttname"><a href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">RF24::enableAckPayload</a></div><div class="ttdeci">void enableAckPayload(void)</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8cpp_source.html#l01256">RF24.cpp:1256</a></div></div>
+<div class="ttc" id="classRF24_html_ad08121bf844f08dbe53f51576b7c4066"><div class="ttname"><a href="classRF24.html#ad08121bf844f08dbe53f51576b7c4066">RF24::csDelay</a></div><div class="ttdeci">uint32_t csDelay</div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00931">RF24.h:931</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_af45c13e8941613c7eb931001ab964965"><div class="ttname"><a href="nRF24L01_8h.html#af45c13e8941613c7eb931001ab964965">PLOS_CNT</a></div><div class="ttdeci">#define PLOS_CNT</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00085">nRF24L01.h:85</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_afb0b251378d3b14c508e51fd2c3157d6"><div class="ttname"><a href="nRF24L01_8h.html#afb0b251378d3b14c508e51fd2c3157d6">R_REGISTER</a></div><div class="ttdeci">#define R_REGISTER</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00103">nRF24L01.h:103</a></div></div>
 <div class="ttc" id="nRF24L01_8h_html_ab365e330ce094a191c25fdf1d3f64a94"><div class="ttname"><a href="nRF24L01_8h.html#ab365e330ce094a191c25fdf1d3f64a94">NRF_CONFIG</a></div><div class="ttdeci">#define NRF_CONFIG</div><div class="ttdef"><b>Definition:</b> <a href="nRF24L01_8h_source.html#l00027">nRF24L01.h:27</a></div></div>
@@ -1851,7 +1853,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 18 2016 18:27:51 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 5 2016 10:02:27 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
