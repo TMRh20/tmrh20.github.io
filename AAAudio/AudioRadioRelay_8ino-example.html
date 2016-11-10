@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">* Features:</span></div>
 <div class="line"><span class="comment">* 1. Very simple user interface to Arduino DUE DAC and ADC</span></div>
 <div class="line"><span class="comment">* 2. PCM/WAV Audio/Analog Data playback using Arduino Due DAC</span></div>
-<div class="line"><span class="comment">* 3. PCM/WAV Audio/Analog Data recording using Arduino Due DAC</span></div>
+<div class="line"><span class="comment">* 3. PCM/WAV Audio/Analog Data recording using Arduino Due ADC</span></div>
 <div class="line"><span class="comment">* 4. Onboard timers drive the DAC &amp; ADC automatically</span></div>
 <div class="line"><span class="comment">* 5. Automatic sample rate/timer adjustment based on rate of user-driven data requests/input</span></div>
 <div class="line"><span class="comment">* 6. Uses DMA (Direct Memory Access) to buffer DAC &amp; ADC data</span></div>
@@ -129,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">* the AAAudio library and nrf24l01+ radio modules on Arduino Due.</span></div>
 <div class="line"><span class="comment">* </span></div>
 <div class="line"><span class="comment">* 1. This example uses the onboard DAC to play the incoming audio data via DAC0</span></div>
-<div class="line"><span class="comment">* 2. The ADC is used to sample the DAC0 pin, and the data is made available</span></div>
+<div class="line"><span class="comment">* 2. The ADC is used to sample the DAC (connected to pin A0) and the data is made available</span></div>
 <div class="line"><span class="comment">* 3. The data is re-broadcast over the radios</span></div>
 <div class="line"><span class="comment">* 4. Incoming radio data can be directly re-broadcast, but this example is a test of all peripherals</span></div>
 <div class="line"><span class="comment">* </span></div>
@@ -220,7 +220,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 5 2016 09:16:43 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 9 2016 20:24:38 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
