@@ -84,14 +84,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="LibInfo"></a>
 Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</h1>
+<p><b>Goals:</b></p>
+<p><b>Extremely low-latency digital audio recording, playback, communication and relaying at high speeds</b></p>
 <p><b>Features:</b></p><ul>
+<li>Designed with low-latency radio/wireless communication in mind</li>
 <li>Very simple user interface to Arduino DUE DAC and ADC</li>
 <li>PCM/WAV Audio/Analog Data playback using Arduino Due DAC</li>
 <li>PCM/WAV Audio/Analog Data recording using Arduino Due DAC</li>
 <li>Onboard timers drive the DAC &amp; ADC automatically</li>
 <li>Automatic sample rate/timer adjustment based on rate of user-driven data requests/input</li>
 <li>Uses DMA (Direct Memory Access) to buffer DAC &amp; ADC data</li>
+<li>ADC &amp; DAC: 8, 10 or 12-bit sampling</li>
 </ul>
+<p>The library internally configures timing based on user driven data requests or delivery, making data available or processing it at the appropriate speed without delays or while() loops.</p>
+<p>The library can also be configured to operate at a set sample rate, with the getADC() and feedDAC() functions blocking until data is available or ready to be processed.</p>
 <p><b>Library Source Code &amp; Information:</b><br />
  <a href="http://github.com/TMRh20">http://github.com/TMRh20</a> <br />
  <a href="http://tmrh20.blogspot.com">http://tmrh20.blogspot.com</a> <br />
@@ -99,7 +105,7 @@ Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 9 2016 20:24:38 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Nov 10 2016 09:47:09 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
