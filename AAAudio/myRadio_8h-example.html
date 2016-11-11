@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Auto Analog Audio: Examples</title>
+<title>Auto Analog Audio: myRadio.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -43,7 +43,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li class="current"><a href="examples.html"><span>Examples</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -79,18 +79,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Examples</div>  </div>
+<div class="title">myRadio.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all examples:</div><ul>
-<li><a class="el" href="AudioRadioRelay_8ino-example.html">AudioRadioRelay.ino</a></li>
-
-<li><a class="el" href="myRadio_8h-example.html">myRadio.h</a></li>
-
-<li><a class="el" href="SimpleSine_8ino-example.html">SimpleSine.ino</a></li>
-
+<p><b>For Arduino Due</b><br />
+</p>
+<ul>
+<li>Include file for nrf24l01+ radios:</li>
 </ul>
-</div><!-- contents -->
+<p>Contains the settings and config used for the radio examples</p>
+<div class="fragment"><div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
+<div class="line"></div>
+<div class="line">RF24 radio(46,52);</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">const</span> uint64_t pipes[14] = { 0xABCDABCD71LL, 0x544d52687CLL, 0x544d526832LL };</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">bool</span> tx,fail,rx;</div>
+<div class="line">uint8_t pipeNo = 0;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> RX();</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setupRadio(){</div>
+<div class="line">  </div>
+<div class="line">  radio.begin();</div>
+<div class="line">  radio.setChannel(1);</div>
+<div class="line">  radio.setPALevel(RF24_PA_MAX);</div>
+<div class="line">  radio.setDataRate(RF24_1MBPS);</div>
+<div class="line">  radio.setAutoAck(0);</div>
+<div class="line">  radio.setCRCLength(RF24_CRC_8);</div>
+<div class="line">  radio.setAddressWidth(5);</div>
+<div class="line">  radio.openReadingPipe(1,pipes[1]);</div>
+<div class="line">  radio.openReadingPipe(2,pipes[2]);</div>
+<div class="line">  radio.setAutoAck(2,1);</div>
+<div class="line">  radio.openWritingPipe(pipes[0]);</div>
+<div class="line">  radio.txDelay = 0;</div>
+<div class="line">  radio.csDelay = 0;</div>
+<div class="line">  radio.maskIRQ(0,1,0);</div>
+<div class="line">  radio.printDetails();</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">//radio.startListening();</span></div>
+<div class="line">  radio.stopListening();</div>
+<div class="line">  <span class="comment">//attachInterrupt(digitalPinToInterrupt(4),RX,FALLING);</span></div>
+<div class="line">  </div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated on Fri Nov 11 2016 07:32:38 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
