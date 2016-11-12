@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getadc',['getADC',['../classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504',1,'AutoAnalog']]]
+  ['feeddac',['feedDAC',['../classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3',1,'AutoAnalog']]]
 ];

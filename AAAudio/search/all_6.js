@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setsamplerate',['setSampleRate',['../classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6',1,'AutoAnalog']]]
+  ['max_5fbuffer_5fsize',['MAX_BUFFER_SIZE',['../AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6',1,'AutoAnalog_config.h']]]
 ];

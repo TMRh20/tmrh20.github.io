@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['max_5fbuffer_5fsize',['MAX_BUFFER_SIZE',['../AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6',1,'AutoAnalog_config.h']]]
+  ['getadc',['getADC',['../classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504',1,'AutoAnalog']]]
 ];
