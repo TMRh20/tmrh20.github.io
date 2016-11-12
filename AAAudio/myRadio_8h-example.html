@@ -105,8 +105,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  </div>
 <div class="line">  radio.begin();</div>
 <div class="line">  radio.setChannel(1);</div>
-<div class="line">  radio.setPALevel(RF24_PA_MAX);</div>
-<div class="line">  radio.setDataRate(RF24_1MBPS);</div>
+<div class="line">  radio.setPALevel(RF24_PA_LOW);</div>
+<div class="line">  radio.setDataRate(RF24_2MBPS);</div>
 <div class="line">  radio.setAutoAck(0);</div>
 <div class="line">  radio.setCRCLength(RF24_CRC_8);</div>
 <div class="line">  radio.setAddressWidth(5);</div>
@@ -119,9 +119,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.maskIRQ(0,1,0);</div>
 <div class="line">  radio.printDetails();</div>
 <div class="line"></div>
-<div class="line">  <span class="comment">//radio.startListening();</span></div>
-<div class="line">  radio.stopListening();</div>
-<div class="line">  <span class="comment">//attachInterrupt(digitalPinToInterrupt(4),RX,FALLING);</span></div>
+<div class="line">  radio.startListening();</div>
+<div class="line"></div>
+<div class="line">  attachInterrupt(digitalPinToInterrupt(4),RX,FALLING);</div>
 <div class="line">  </div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -131,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 11 2016 07:32:38 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 12 2016 07:34:51 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

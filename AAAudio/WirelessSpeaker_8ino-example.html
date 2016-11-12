@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Auto Analog Audio: AudioRadioRelay.ino</title>
+<title>Auto Analog Audio: WirelessSpeaker.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,19 +79,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">AudioRadioRelay.ino</div>  </div>
+<div class="title">WirelessSpeaker.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p><b>For Arduino Due</b><br />
 </p>
 <ul>
-<li>Audio Relay &amp; Peripheral Test Example: This example demonstrates how to manage incoming and outgoing audio streams using the AAAudio library and nrf24l01+ radio modules on Arduino Due.</li>
+<li><p class="startli">Simple Wireless Speaker:</p>
+<p class="startli">Demonstration of a single wireless speaker/wireless audio</p>
+<p class="startli">The incoming audio format is 16bit mono <br />
+ NRF24L01+ radios can support around 16-44khz sample rate w/16-bit samples, 88khz+ with 8-bit samples</p>
+</li>
 </ul>
-<p>This example uses the onboard DAC to play the incoming audio data via DAC0</p><ol type="1">
-<li>The ADC is used to sample the DAC0 pin, and the data is made available</li>
-<li>The data is re-broadcast over the radios</li>
-<li>Incoming radio data can be directly re-broadcast, but this example is a test of all peripherals</li>
-</ol>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment">    AutoAnalogAudio streaming via DAC &amp; ADC by TMRh20</span></div>
 <div class="line"><span class="comment">    Copyright (C) 2016  TMRh20 - tmrh20@gmail.com, github.com/TMRh20</span></div>
@@ -109,30 +108,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">    You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><span class="comment">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">* </span></div>
-<div class="line"><span class="comment">* Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</span></div>
-<div class="line"><span class="comment">* </span></div>
-<div class="line"><span class="comment">* Features:</span></div>
-<div class="line"><span class="comment">* 1. Very simple user interface to Arduino DUE DAC and ADC</span></div>
-<div class="line"><span class="comment">* 2. PCM/WAV Audio/Analog Data playback using Arduino Due DAC</span></div>
-<div class="line"><span class="comment">* 3. PCM/WAV Audio/Analog Data recording using Arduino Due ADC</span></div>
-<div class="line"><span class="comment">* 4. Onboard timers drive the DAC &amp; ADC automatically</span></div>
-<div class="line"><span class="comment">* 5. Automatic sample rate/timer adjustment based on rate of user-driven data requests/input</span></div>
-<div class="line"><span class="comment">* 6. Uses DMA (Direct Memory Access) to buffer DAC &amp; ADC data</span></div>
-<div class="line"><span class="comment">* </span></div>
-<div class="line"><span class="comment">* Auto Analog Audio Library Information:</span></div>
-<div class="line"><span class="comment">* http://github.com/TMRh20</span></div>
-<div class="line"><span class="comment">* http://tmrh20.blogspot.com</span></div>
-<div class="line"><span class="comment">* </span></div>
-<div class="line"><span class="comment">* Audio Relay &amp; Peripheral Test Example:</span></div>
-<div class="line"><span class="comment">* This example demonstrates how to manage incoming and outgoing audio streams using </span></div>
-<div class="line"><span class="comment">* the AAAudio library and nrf24l01+ radio modules on Arduino Due.</span></div>
-<div class="line"><span class="comment">* </span></div>
-<div class="line"><span class="comment">* 1. This example uses the onboard DAC to play the incoming audio data via DAC0</span></div>
-<div class="line"><span class="comment">* 2. The ADC is used to sample the DAC (connected to pin A0) and the data is made available</span></div>
-<div class="line"><span class="comment">* 3. The data is re-broadcast over the radios</span></div>
-<div class="line"><span class="comment">* 4. Incoming radio data can be directly re-broadcast, but this example is a test of all peripherals</span></div>
-<div class="line"><span class="comment">* </span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">  Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">  Features:</span></div>
+<div class="line"><span class="comment">  1. Very simple user interface to Arduino DUE DAC and ADC</span></div>
+<div class="line"><span class="comment">  2. PCM/WAV Audio/Analog Data playback using Arduino Due DAC</span></div>
+<div class="line"><span class="comment">  3. PCM/WAV Audio/Analog Data recording using Arduino Due ADC</span></div>
+<div class="line"><span class="comment">  4. Onboard timers drive the DAC &amp; ADC automatically</span></div>
+<div class="line"><span class="comment">  5. Automatic sample rate/timer adjustment based on rate of user-driven data requests/input</span></div>
+<div class="line"><span class="comment">  6. Uses DMA (Direct Memory Access) to buffer DAC &amp; ADC data</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">  Auto Analog Audio Library Information:</span></div>
+<div class="line"><span class="comment">  http://github.com/TMRh20</span></div>
+<div class="line"><span class="comment">  http://tmrh20.blogspot.com</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">  Audio Relay &amp; Peripheral Test Example:</span></div>
+<div class="line"><span class="comment">  This example demonstrates how to manage incoming and outgoing audio streams using</span></div>
+<div class="line"><span class="comment">  the AAAudio library and nrf24l01+ radio modules on Arduino Due.</span></div>
+<div class="line"><span class="comment"></span></div>
+<div class="line"><span class="comment">  1. This example uses the onboard DAC to play the incoming audio data via DAC0</span></div>
+<div class="line"><span class="comment">  2. The incoming audio format is 16bit mono</span></div>
+<div class="line"><span class="comment">  3. The nrf24l01+ radios can support around 16-44khz sample rate w/16-bit samples, 88khz+ with 8-bit samples</span></div>
+<div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"></div>
 <div class="line"></div>
@@ -144,7 +142,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">/*********************************************************/</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> DACC_Handler(<span class="keywordtype">void</span>){ </div>
+<div class="line"><span class="keywordtype">void</span> DACC_Handler(<span class="keywordtype">void</span>) {</div>
 <div class="line">  aaAudio.<a name="a1"></a><a class="code" href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">dacHandler</a>();   <span class="comment">//Link the DAC ISR/IRQ library. Called by the MCU when DAC is ready for data</span></div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -155,28 +153,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.begin(115200);</div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;Analog Audio Begin&quot;</span>);</div>
 <div class="line"></div>
-<div class="line">  aaAudio.<a name="a2"></a><a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(1,1);   <span class="comment">//Setup aaAudio using both DAC and ADC</span></div>
-<div class="line">  setupRadio();  </div>
+<div class="line">  aaAudio.<a name="a2"></a><a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(0, 1);  <span class="comment">//Setup aaAudio using both DAC and ADC</span></div>
+<div class="line">  aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a> = 1;</div>
+<div class="line">  aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">dacBitsPerSample</a> = 12;</div>
+<div class="line">  setupRadio();</div>
 <div class="line">}</div>
-<div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*********************************************************/</span></div>
 <div class="line"></div>
 <div class="line">uint32_t dispTimer = 0;</div>
+<div class="line">uint8_t channelSelection = 0;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Display the timer period variable for each channel every 3 seconds</span></div>
-<div class="line">  <span class="keywordflow">if</span>(millis() - dispTimer &gt; 3000){</div>
+<div class="line">  <span class="keywordflow">if</span> (millis() - dispTimer &gt; 3000) {</div>
 <div class="line">    dispTimer = millis();</div>
 <div class="line"></div>
 <div class="line">    TcChannel * t = &amp;(TC0-&gt;TC_CHANNEL)[0];</div>
-<div class="line">    TcChannel * tt= &amp;(TC0-&gt;TC_CHANNEL)[1];</div>
-<div class="line">    </div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch0:&quot;</span>); </div>
-<div class="line">    Serial.println(t-&gt;TC_RC);      </div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch1:&quot;</span>); </div>
+<div class="line">    TcChannel * tt = &amp;(TC0-&gt;TC_CHANNEL)[1];</div>
+<div class="line"></div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch0:&quot;</span>);</div>
+<div class="line">    Serial.println(t-&gt;TC_RC);</div>
+<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch1:&quot;</span>);</div>
 <div class="line">    Serial.println(tt-&gt;TC_RC);</div>
+<div class="line">  }</div>
+<div class="line"></div>
+<div class="line">  <span class="comment">// Send serial commands to control which channel the audio is played on</span></div>
+<div class="line">  <span class="comment">// DAC Channel 0, Channel 1, or both</span></div>
+<div class="line">  <span class="keywordflow">if</span> (Serial.available()) {</div>
+<div class="line">    <span class="keywordtype">char</span> dat = Serial.read();</div>
+<div class="line">    <span class="keywordflow">switch</span> (dat) {</div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;0&#39;</span>: channelSelection = 0; <span class="keywordflow">break</span>; <span class="comment">// Use DAC0 for output</span></div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;1&#39;</span>: channelSelection = 1; <span class="keywordflow">break</span>; <span class="comment">// Use DAC1 for output</span></div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;2&#39;</span>: channelSelection = 2; <span class="keywordflow">break</span>; <span class="comment">// Use both DAC0 and DAC1</span></div>
+<div class="line"></div>
+<div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -185,31 +197,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">uint32_t dynSampleRate = 0;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// See myRadio.h: Function is attached to an interrupt triggered by radio RX/TX</span></div>
-<div class="line"><span class="keywordtype">void</span> RX(){</div>
-<div class="line">    </div>
-<div class="line">  <span class="keywordflow">if</span>(radio.available(&amp;pipeNo)){             <span class="comment">// Check for data and get the pipe number</span></div>
+<div class="line"><span class="keywordtype">void</span> RX() {</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordflow">if</span>(pipeNo == 2){      </div>
-<div class="line">      radio.read(&amp;dynSampleRate,4);         <span class="comment">// Receive commands using pipe #2</span></div>
-<div class="line">      aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(dynSampleRate); <span class="comment">// Pipe 2 is being used for command data, pipe 1 &amp; others for audio data    </span></div>
-<div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line">  <span class="keywordflow">while</span> (radio.available(&amp;pipeNo)) {                          <span class="comment">// Check for data and get the pipe number</span></div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (pipeNo == 2) {</div>
+<div class="line">      radio.read(&amp;dynSampleRate, 4);                          <span class="comment">// Receive commands using pipe #2</span></div>
+<div class="line">      aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(dynSampleRate);                   <span class="comment">// Pipe 2 is being used for command data, pipe 1 &amp; others for audio data</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line"></div>
+<div class="line">      radio.read(&amp;aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>, 32);                   <span class="comment">// Read the available radio data</span></div>
 <div class="line">      </div>
-<div class="line">      radio.stopListening();                <span class="comment">// Prepare to send data out via radio</span></div>
-<div class="line">      radio.read(&amp;aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>,32);    <span class="comment">// Read the available radio data   </span></div>
-<div class="line">      </div>
-<div class="line">      aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>();                    <span class="comment">// Feed the DAC with the received data      </span></div>
-<div class="line">      aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>();                     <span class="comment">// Grab the available data from the ADC</span></div>
+<div class="line">      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 16; i++) {                          <span class="comment">//Convert signed 16-bit variables into unsigned 12-bit</span></div>
+<div class="line">        aaAudio.<a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>[i] += 0x8000;</div>
+<div class="line">        aaAudio.<a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>[i] = aaAudio.<a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>[i] &gt;&gt; 4;</div>
+<div class="line">      }</div>
 <div class="line"></div>
-<div class="line">      <span class="comment">//Send the received ADC data via radio      </span></div>
-<div class="line">      radio.startFastWrite(&amp;aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">adcBuffer</a>,32,1);</div>
-<div class="line"></div>
-<div class="line">    <span class="comment">/*Note: The data initially recieved can directly be sent via radio, but</span></div>
-<div class="line"><span class="comment">               this example is a test of all library peripherals               */</span></div>
-<div class="line"></div>
+<div class="line">      <span class="comment">//Received 32 bytes: 16 samples of 16-bits each</span></div>
+<div class="line">      <span class="comment">//Send them to the DAC using the channel selected via Serial command</span></div>
+<div class="line">      aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(channelSelection, 16);</div>
 <div class="line">    }</div>
-<div class="line">  }<span class="keywordflow">else</span>{  <span class="comment">//If not RX IRQ, must be TX complete    </span></div>
-<div class="line">    radio.txStandBy();                      <span class="comment">// Set the radio to standby mode from TX</span></div>
-<div class="line">    radio.startListening();                 <span class="comment">// Put the radio into listening (RX) mode</span></div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"></div>
