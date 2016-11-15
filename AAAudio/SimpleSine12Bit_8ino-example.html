@@ -147,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//AutoAdjust is disabled above, so this function will block until the DAC is ready for more data</span></div>
 <div class="line">  <span class="comment">//All other processing needs to be completed before the DAC is out of data</span></div>
 <div class="line">  <span class="comment">//In this example, the DAC is being fed data in chunks of 32 bytes or 32 8-bit samples</span></div>
-<div class="line">  aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>();</div>
+<div class="line">  aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(0,32);</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Choose between two different frequencies via Serial command</span></div>
 <div class="line">  <span class="comment">//Adjust the volume by sending a &#39;+&#39; or &#39;-&#39; over Serial</span></div>
@@ -243,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 12 2016 17:30:48 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 14 2016 19:37:07 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

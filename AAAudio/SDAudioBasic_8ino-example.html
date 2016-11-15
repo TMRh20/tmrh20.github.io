@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Auto Analog Audio: MultiChannelAdcStream.ino</title>
+<title>Auto Analog Audio: SDAudioBasic.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,15 +79,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">MultiChannelAdcStream.ino</div>  </div>
+<div class="title">SDAudioBasic.ino</div>  </div>
 </div><!--header-->
 <div class="contents">
 <p><b>For Arduino Due</b><br />
 </p>
 <ul>
-<li><p class="startli">Multi Channel ADC Sampling Example:</p>
-<p class="startli">This example demonstrates how to capture a steady stream of ADC data on multiple channels. Currently pins A0-A6 are supported.</p>
-<p class="startli">See AnalogAudio_config.h to change the MAX_BUFFER_SIZE allowing larger chunks of data</p>
+<li><p class="startli">Basic SDAudio Example:</p>
+<p class="startli">This example demonstrates how to play *.wav files from SD Card.</p>
 </li>
 </ul>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -107,87 +106,93 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">    You should have received a copy of the GNU General Public License</span></div>
 <div class="line"><span class="comment">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
 <div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">  Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  Features:</span></div>
-<div class="line"><span class="comment">  1. Very simple user interface to Arduino DUE DAC and ADC</span></div>
-<div class="line"><span class="comment">  2. PCM/WAV Audio/Analog Data playback using Arduino Due DAC</span></div>
-<div class="line"><span class="comment">  3. PCM/WAV Audio/Analog Data recording using Arduino Due ADC</span></div>
-<div class="line"><span class="comment">  4. Onboard timers drive the DAC &amp; ADC automatically</span></div>
-<div class="line"><span class="comment">  5. Automatic sample rate/timer adjustment based on rate of user-driven data requests/input</span></div>
-<div class="line"><span class="comment">  6. Uses DMA (Direct Memory Access) to buffer DAC &amp; ADC data</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">  Auto Analog Audio Library Information:</span></div>
 <div class="line"><span class="comment">  http://github.com/TMRh20</span></div>
 <div class="line"><span class="comment">  http://tmrh20.blogspot.com</span></div>
 <div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">**************************************************************************</span></div>
-<div class="line"><span class="comment">  Dual Pin ADC Sampling</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">  Sample the ADC in chunks of 32-bytes at a defined sample rate</span></div>
-<div class="line"><span class="comment">  The first sample will be from pin A1, second from A0, 3rd from A1, etc...</span></div>
-<div class="line"><span class="comment">  See AnalogAudio_config.h to change the MAX_BUFFER_SIZE allowing larger chunks</span></div>
-<div class="line"><span class="comment"></span></div>
-<div class="line"><span class="comment">**************************************************************************</span></div>
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;SD.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="AutoAnalogAudio_8h.html">AutoAnalogAudio.h</a>&gt;</span></div>
+<div class="line"></div>
 <div class="line"><a name="_a0"></a><a class="code" href="classAutoAnalog.html">AutoAnalog</a> aaAudio;</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*********************************************************/</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line"></div>
-<div class="line">  Serial.<a name="a1"></a><a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(115200);</div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;Analog Audio Begin&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">  aaAudio.<a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(1, 0);              <span class="comment">//Setup aaAudio using ADC only</span></div>
-<div class="line">  aaAudio.<a name="a2"></a><a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a> = 0;           <span class="comment">//Disable auto adjust of timers</span></div>
-<div class="line">  aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">adcBitsPerSample</a> = 12;    <span class="comment">//Sample at 12-bits</span></div>
-<div class="line">  aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(32);        <span class="comment">//Get 32 samples every second</span></div>
-<div class="line"></div>
-<div class="line">  <span class="comment">//AAAudio samples on analog pin A0 by default</span></div>
-<div class="line">  <span class="comment">//Enable sampling on two pins at once</span></div>
-<div class="line">  aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346">enableAdcChannel</a>(1);      <span class="comment">//Channels correspond to pin numbers (A1 == channel 1)</span></div>
-<div class="line">  <span class="comment">//aaAudio.enableAdcChannel(2);    //Optionally enable a third channel on pin A2</span></div>
-<div class="line">  <span class="comment">//aaAudio.disableAdcChannel(0);   //Optionally disable pin A0 and only sample 1 pin</span></div>
-<div class="line"></div>
-<div class="line">  <span class="comment">//Start loading ADC buffers</span></div>
-<div class="line">  aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(32);</div>
+<div class="line"><span class="keywordtype">void</span> DACC_Handler(<span class="keywordtype">void</span>) {</div>
+<div class="line">  aaAudio.<a name="a1"></a><a class="code" href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">dacHandler</a>();   <span class="comment">//Link the DAC ISR/IRQ to the library. Called by the MCU when DAC is ready for data</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*********************************************************/</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  Serial.begin(115200);</div>
+<div class="line"></div>
+<div class="line">  Serial.print(<span class="stringliteral">&quot;Init SD card...&quot;</span>);</div>
+<div class="line">  <span class="keywordflow">if</span> (!SD.begin(10)) {</div>
+<div class="line">    Serial.println(<span class="stringliteral">&quot;init failed!&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">  }</div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;init ok&quot;</span>);</div>
+<div class="line">  </div>
+<div class="line">  Serial.println(<span class="stringliteral">&quot;Analog Audio Begin&quot;</span>);</div>
+<div class="line">  aaAudio.<a name="a2"></a><a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(0, 1);  <span class="comment">//Setup aaAudio using DAC</span></div>
+<div class="line">  aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a> = 0;</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">//Setup for audio at 8-bit, 16khz, mono</span></div>
+<div class="line">  aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">dacBitsPerSample</a> = 8;</div>
+<div class="line">  aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(16000);</div>
+<div class="line">  </div>
+<div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// Get 32 samples from the ADC at the sample rate defined above</span></div>
-<div class="line">  <span class="comment">// Note: This function only blocks if the ADC is currently sampling and autoAdjust is set to 0</span></div>
-<div class="line">  <span class="comment">// As long as any additional code completes before the ADC is finished sampling, a continuous stream of ADC data</span></div>
-<div class="line">  <span class="comment">// at the defined sample rate will be available</span></div>
-<div class="line">  aaAudio.<a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(32);</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Sum all the samples into a float</span></div>
-<div class="line">  <span class="keywordtype">float</span> pinA0Samples = 0.0;</div>
-<div class="line">  <span class="keywordtype">float</span> pinA1Samples = 0.0;</div>
-<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 32; i += 2) {</div>
-<div class="line">    pinA1Samples += aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">adcBuffer16</a>[i];           <span class="comment">//Samples from highest pin number (A1)</span></div>
-<div class="line">    pinA0Samples += aaAudio.<a class="code" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">adcBuffer16</a>[i + 1];       <span class="comment">//Samples from next lowest pin number (A0)</span></div>
+<div class="line">  <span class="keywordflow">if</span>(Serial.available()){</div>
+<div class="line">    <span class="keywordtype">char</span> input = Serial.read();</div>
+<div class="line">    <span class="keywordflow">switch</span>(input){</div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;1&#39;</span>: playAudio(<span class="stringliteral">&quot;M8b24kM.wav&quot;</span>); <span class="keywordflow">break</span>;  <span class="comment">//Play a *.wav file by name - 8bit, 24khz, Mono</span></div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;2&#39;</span>: playAudio(<span class="stringliteral">&quot;M8b24kS.wav&quot;</span>); <span class="keywordflow">break</span>;  <span class="comment">//Play  8bit, 24khz, Stereo</span></div>
+<div class="line">      <span class="keywordflow">case</span> <span class="charliteral">&#39;3&#39;</span>: playAudio(<span class="stringliteral">&quot;audio.wav&quot;</span>);   <span class="keywordflow">break</span>;  <span class="comment">//Play a random file called audio.wav</span></div>
+<div class="line">    }</div>
 <div class="line">  }</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// Divide the total by the number of samples</span></div>
-<div class="line">  pinA1Samples /= 16.0;</div>
-<div class="line">  pinA0Samples /= 16.0;</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// This will print every second at a sample rate of 32 samples/second</span></div>
-<div class="line">  Serial.print(<span class="stringliteral">&quot;Pin A1 Samples Total / Number of Samples == &quot;</span>);</div>
-<div class="line">  Serial.println(pinA1Samples);</div>
-<div class="line">  Serial.print(<span class="stringliteral">&quot;Pin A0 Samples Total / Number of Samples == &quot;</span>);</div>
-<div class="line">  Serial.println(pinA0Samples);</div>
-<div class="line"></div>
+<div class="line">  </div>
+<div class="line">  loadBuffer();</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*********************************************************/</span></div>
+<div class="line"><span class="comment">/* A simple function to handle playing audio files</span></div>
+<div class="line"><span class="comment">/*********************************************************/</span></div>
+<div class="line"></div>
+<div class="line">File myFile;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> playAudio(<span class="keywordtype">char</span> *audioFile){</div>
+<div class="line"></div>
+<div class="line">  <span class="keywordflow">if</span> (myFile) {</div>
+<div class="line">    myFile.close();</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">//Open the designated file</span></div>
+<div class="line">  myFile = SD.open(audioFile);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">//Skip past the WAV header</span></div>
+<div class="line">  myFile.seek(44);</div>
+<div class="line">  pplay();</div>
+<div class="line">  </div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> loadBuffer(){</div>
+<div class="line">  <span class="comment">//Load 32 samples into the 8-bit dacBuffer</span></div>
+<div class="line">  <span class="keywordflow">if</span>(myFile.available()){</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0;i&lt;32;i++){</div>
+<div class="line">      aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>[i] = myFile.read();</div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">//Feed the dac with the buffer of data</span></div>
+<div class="line">    aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(0,32);</div>
+<div class="line">  }  </div>
+<div class="line">  </div>
+<div class="line">}</div>
 <div class="line"></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
