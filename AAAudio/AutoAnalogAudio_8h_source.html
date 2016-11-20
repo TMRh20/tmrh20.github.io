@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Auto Analog Audio
-   &#160;<span id="projectnumber">V1.2</span>
+   &#160;<span id="projectnumber">V1.3</span>
    </div>
    <div id="projectbrief">TMRh20 2016 - Automatic DAC, ADC &amp; Timers on Arduino Due</div>
   </td>
@@ -114,113 +114,117 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="AutoAnalog__config_8h.html">AutoAnalog_config.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a97475d07967046efdeaea99d160d55cf">   30</a></span>&#160;<span class="preprocessor">#define AAA_CHANNEL0 0</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a6bb2eff4f0118bacdf5103cf97fcc125">   31</a></span>&#160;<span class="preprocessor">#define AAA_CHANNEL1 1</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a96a94533ce3ba3de2eab562ba43883b3">   32</a></span>&#160;<span class="preprocessor">#define AAA_MODE_STEREO 2</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classAutoAnalog.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAutoAnalog.html">AutoAnalog</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="classAutoAnalog.html#a3667d5820bc647c87517c1eaea8ff722">AutoAnalog</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(<span class="keywordtype">bool</span> enADC, <span class="keywordtype">bool</span> enDAC);          </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#aedd70fc9f6f130c32ccb015b670f5318">triggerADC</a>();                           </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(uint32_t samples = <a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>);                               </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(uint8_t dacChannel = 0, uint32_t samples = <a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>);                              </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">   78</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;   </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">   85</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">adcBuffer</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">   92</a></span>&#160;  uint16_t <a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;   </div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">   99</a></span>&#160;  uint16_t <a class="code" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">adcBuffer16</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];    </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(uint32_t sampRate = 0);   </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">dacHandler</a>(<span class="keywordtype">void</span>);                                  </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;   </div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">  111</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a97475d07967046efdeaea99d160d55cf">   29</a></span>&#160;<span class="preprocessor">#define AAA_CHANNEL0 0</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a6bb2eff4f0118bacdf5103cf97fcc125">   30</a></span>&#160;<span class="preprocessor">#define AAA_CHANNEL1 1</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="AutoAnalogAudio_8h.html#a96a94533ce3ba3de2eab562ba43883b3">   31</a></span>&#160;<span class="preprocessor">#define AAA_MODE_STEREO 2</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classAutoAnalog.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="classAutoAnalog.html">AutoAnalog</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classAutoAnalog.html#a3667d5820bc647c87517c1eaea8ff722">AutoAnalog</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(<span class="keywordtype">bool</span> enADC, <span class="keywordtype">bool</span> enDAC);          </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#aedd70fc9f6f130c32ccb015b670f5318">triggerADC</a>();                           </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(uint32_t samples = <a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>);                               </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(uint8_t dacChannel = 0, uint32_t samples = <a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>);                              </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">   77</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;   </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">   84</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">adcBuffer</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">   91</a></span>&#160;  uint16_t <a class="code" href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">dacBuffer16</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];          </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;   </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">   98</a></span>&#160;  uint16_t <a class="code" href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">adcBuffer16</a>[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(uint32_t sampRate = 0);   </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">dacHandler</a>(<span class="keywordtype">void</span>);                                  </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;   </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">  110</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  </div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  </div>
-<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">  122</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">adcBitsPerSample</a>;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  </div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">  133</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">dacBitsPerSample</a>;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  </div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346">enableAdcChannel</a>(uint8_t pinAx);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#af23ab64cf3d4881f55ba1d5c0b1d607b">disableAdcChannel</a>(uint8_t pinAx);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  </div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a7529756d22a1082283fa86994b87a896">  153</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a7529756d22a1082283fa86994b87a896">disableDAC</a>(){dacc_disable_interrupt(DACC, DACC_IER_ENDTX);}  </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keywordtype">bool</span> whichDma = 0;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <span class="keywordtype">bool</span> whichDac;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keywordtype">bool</span> dacChan;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  uint8_t aCtr = 0;                    <span class="comment">/* Internal counter for ADC data */</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  uint16_t realBuf[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];   <span class="comment">/* Internal DAC buffer */</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  uint16_t adcDma[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>]; <span class="comment">/* Buffers for ADC DMA transfers */</span>  </div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  uint16_t dataReady;                  <span class="comment">/* Internal indicator for DAC data */</span> </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  uint32_t dataTimer;                  <span class="comment">/* Internal timer tracks timing of incoming data */</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  uint32_t sampleCount;                <span class="comment">/* Internal counter for delaying analysis of timing */</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  uint32_t tcTicks;                    <span class="comment">/* Stores the current TC0 Ch0 counter value */</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  uint32_t tcTicks2;                   <span class="comment">/* Stores the current TC0 Ch1 counter value */</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  uint32_t adjustDivider;              <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  uint32_t dacNumSamples;              <span class="comment">/* Internal variable for number of samples sent to the DAC */</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  uint32_t adcNumSamples;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  uint16_t adjustCtr;                  <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  uint16_t adjustCtr2;                 <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  uint32_t adcLastAdjust;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keywordtype">void</span> adcSetup(<span class="keywordtype">void</span>);                 <span class="comment">/* Enable the ADC */</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <span class="keywordtype">void</span> dacSetup(<span class="keywordtype">void</span>);                 <span class="comment">/* Enable the DAC */</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordtype">void</span> dacBufferStereo(uint8_t dacChannel);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keywordtype">void</span> tcSetup(uint32_t sampRate = 0);      <span class="comment">/* Sets up Timer TC0 Channel 0 */</span>  </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keywordtype">void</span> tc2Setup(uint32_t sampRate = 0);     <span class="comment">/* Sets up Timer TC0 Channel 1 */</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">int</span> frequencyToTimerCount(<span class="keywordtype">int</span> Frequency); <span class="comment">/* Function to calculate timer counters */</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;};</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
-<div class="ttc" id="classAutoAnalog_html_a122737d7a251d9da00ecf02be72c2e18"><div class="ttname"><a href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">AutoAnalog::dacBitsPerSample</a></div><div class="ttdeci">uint8_t dacBitsPerSample</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00133">AutoAnalogAudio.h:133</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a7529756d22a1082283fa86994b87a896"><div class="ttname"><a href="classAutoAnalog.html#a7529756d22a1082283fa86994b87a896">AutoAnalog::disableDAC</a></div><div class="ttdeci">void disableDAC()</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00153">AutoAnalogAudio.h:153</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_af23ab64cf3d4881f55ba1d5c0b1d607b"><div class="ttname"><a href="classAutoAnalog.html#af23ab64cf3d4881f55ba1d5c0b1d607b">AutoAnalog::disableAdcChannel</a></div><div class="ttdeci">void disableAdcChannel(uint8_t pinAx)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00097">AutoAnalogAudio.cpp:97</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_af050f10f4589e38907f4776bb49b0e07"><div class="ttname"><a href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">AutoAnalog::begin</a></div><div class="ttdeci">void begin(bool enADC, bool enDAC)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00055">AutoAnalogAudio.cpp:55</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a0bf0cb2ddbf79748887551f09a7932ec"><div class="ttname"><a href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">AutoAnalog::dacHandler</a></div><div class="ttdeci">void dacHandler(void)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00284">AutoAnalogAudio.cpp:284</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_ae3889332ba9cb317f7b13adfeb54b2e3"><div class="ttname"><a href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">AutoAnalog::feedDAC</a></div><div class="ttdeci">void feedDAC(uint8_t dacChannel=0, uint32_t samples=MAX_BUFFER_SIZE)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00158">AutoAnalogAudio.cpp:158</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a85377e5dc495fdbd129db30c6c88ca71"><div class="ttname"><a href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">AutoAnalog::dacBuffer16</a></div><div class="ttdeci">uint16_t dacBuffer16[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00092">AutoAnalogAudio.h:92</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a64b99ccc41ac44398397f12c89d292f3"><div class="ttname"><a href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">AutoAnalog::adcBuffer16</a></div><div class="ttdeci">uint16_t adcBuffer16[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00099">AutoAnalogAudio.h:99</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_ab4ad914a3f22ddaa0419be6498cce3c6"><div class="ttname"><a href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">AutoAnalog::setSampleRate</a></div><div class="ttdeci">void setSampleRate(uint32_t sampRate=0)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00070">AutoAnalogAudio.cpp:70</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a61f2ceee4ff61ec9323a30a6c44ab504"><div class="ttname"><a href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">AutoAnalog::getADC</a></div><div class="ttdeci">void getADC(uint32_t samples=MAX_BUFFER_SIZE)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00107">AutoAnalogAudio.cpp:107</a></div></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">  121</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">adcBitsPerSample</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">  132</a></span>&#160;  uint8_t <a class="code" href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">dacBitsPerSample</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346">enableAdcChannel</a>(uint8_t pinAx);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#af23ab64cf3d4881f55ba1d5c0b1d607b">disableAdcChannel</a>(uint8_t pinAx);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a7529756d22a1082283fa86994b87a896">disableDAC</a>();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classAutoAnalog.html#a04a015a15f13e2fdac6cc193d2818259">adcInterrupts</a>(<span class="keywordtype">bool</span> enabled = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#if defined (ARDUINO_ARCH_SAM)  </span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keywordtype">bool</span> whichDma = 0;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="keywordtype">bool</span> whichDac;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keywordtype">bool</span> dacChan;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  uint8_t aCtr = 0;                    <span class="comment">/* Internal counter for ADC data */</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  uint16_t realBuf[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>];   <span class="comment">/* Internal DAC buffer */</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  uint16_t adcDma[<a class="code" href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a>]; <span class="comment">/* Buffers for ADC DMA transfers */</span>  </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  uint16_t dataReady;                  <span class="comment">/* Internal indicator for DAC data */</span> </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  uint32_t dataTimer;                  <span class="comment">/* Internal timer tracks timing of incoming data */</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  uint32_t sampleCount;                <span class="comment">/* Internal counter for delaying analysis of timing */</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  uint32_t tcTicks;                    <span class="comment">/* Stores the current TC0 Ch0 counter value */</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  uint32_t tcTicks2;                   <span class="comment">/* Stores the current TC0 Ch1 counter value */</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  uint32_t adjustDivider;              <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  uint32_t dacNumSamples;              <span class="comment">/* Internal variable for number of samples sent to the DAC */</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  uint32_t adcNumSamples;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  uint16_t adjustCtr;                  <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  uint16_t adjustCtr2;                 <span class="comment">/* Internal variables for adjusting timers on-the-fly */</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  uint32_t adcLastAdjust;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordtype">void</span> adcSetup(<span class="keywordtype">void</span>);                 <span class="comment">/* Enable the ADC */</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordtype">void</span> dacSetup(<span class="keywordtype">void</span>);                 <span class="comment">/* Enable the DAC */</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keywordtype">void</span> dacBufferStereo(uint8_t dacChannel);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keywordtype">void</span> tcSetup(uint32_t sampRate = 0);      <span class="comment">/* Sets up Timer TC0 Channel 0 */</span>  </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keywordtype">void</span> tc2Setup(uint32_t sampRate = 0);     <span class="comment">/* Sets up Timer TC0 Channel 1 */</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  uint32_t frequencyToTimerCount(uint32_t Frequency); <span class="comment">/* Function to calculate timer counters */</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;};</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="ttc" id="classAutoAnalog_html_a122737d7a251d9da00ecf02be72c2e18"><div class="ttname"><a href="classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18">AutoAnalog::dacBitsPerSample</a></div><div class="ttdeci">uint8_t dacBitsPerSample</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00132">AutoAnalogAudio.h:132</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_a7529756d22a1082283fa86994b87a896"><div class="ttname"><a href="classAutoAnalog.html#a7529756d22a1082283fa86994b87a896">AutoAnalog::disableDAC</a></div><div class="ttdeci">void disableDAC()</div></div>
+<div class="ttc" id="classAutoAnalog_html_af23ab64cf3d4881f55ba1d5c0b1d607b"><div class="ttname"><a href="classAutoAnalog.html#af23ab64cf3d4881f55ba1d5c0b1d607b">AutoAnalog::disableAdcChannel</a></div><div class="ttdeci">void disableAdcChannel(uint8_t pinAx)</div></div>
+<div class="ttc" id="classAutoAnalog_html_af050f10f4589e38907f4776bb49b0e07"><div class="ttname"><a href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">AutoAnalog::begin</a></div><div class="ttdeci">void begin(bool enADC, bool enDAC)</div></div>
+<div class="ttc" id="classAutoAnalog_html_a0bf0cb2ddbf79748887551f09a7932ec"><div class="ttname"><a href="classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec">AutoAnalog::dacHandler</a></div><div class="ttdeci">void dacHandler(void)</div></div>
+<div class="ttc" id="classAutoAnalog_html_ae3889332ba9cb317f7b13adfeb54b2e3"><div class="ttname"><a href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">AutoAnalog::feedDAC</a></div><div class="ttdeci">void feedDAC(uint8_t dacChannel=0, uint32_t samples=MAX_BUFFER_SIZE)</div></div>
+<div class="ttc" id="classAutoAnalog_html_a85377e5dc495fdbd129db30c6c88ca71"><div class="ttname"><a href="classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71">AutoAnalog::dacBuffer16</a></div><div class="ttdeci">uint16_t dacBuffer16[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00091">AutoAnalogAudio.h:91</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_a04a015a15f13e2fdac6cc193d2818259"><div class="ttname"><a href="classAutoAnalog.html#a04a015a15f13e2fdac6cc193d2818259">AutoAnalog::adcInterrupts</a></div><div class="ttdeci">void adcInterrupts(bool enabled=true)</div></div>
+<div class="ttc" id="classAutoAnalog_html_a64b99ccc41ac44398397f12c89d292f3"><div class="ttname"><a href="classAutoAnalog.html#a64b99ccc41ac44398397f12c89d292f3">AutoAnalog::adcBuffer16</a></div><div class="ttdeci">uint16_t adcBuffer16[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00098">AutoAnalogAudio.h:98</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_ab4ad914a3f22ddaa0419be6498cce3c6"><div class="ttname"><a href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">AutoAnalog::setSampleRate</a></div><div class="ttdeci">void setSampleRate(uint32_t sampRate=0)</div></div>
+<div class="ttc" id="classAutoAnalog_html_a61f2ceee4ff61ec9323a30a6c44ab504"><div class="ttname"><a href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">AutoAnalog::getADC</a></div><div class="ttdeci">void getADC(uint32_t samples=MAX_BUFFER_SIZE)</div></div>
 <div class="ttc" id="AutoAnalog__config_8h_html"><div class="ttname"><a href="AutoAnalog__config_8h.html">AutoAnalog_config.h</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a3667d5820bc647c87517c1eaea8ff722"><div class="ttname"><a href="classAutoAnalog.html#a3667d5820bc647c87517c1eaea8ff722">AutoAnalog::AutoAnalog</a></div><div class="ttdeci">AutoAnalog()</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00031">AutoAnalogAudio.cpp:31</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_aedd70fc9f6f130c32ccb015b670f5318"><div class="ttname"><a href="classAutoAnalog.html#aedd70fc9f6f130c32ccb015b670f5318">AutoAnalog::triggerADC</a></div><div class="ttdeci">void triggerADC()</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00079">AutoAnalogAudio.cpp:79</a></div></div>
-<div class="ttc" id="AutoAnalog__config_8h_html_ad4d796b98c583d49e83adabd74a63bf6"><div class="ttname"><a href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a></div><div class="ttdeci">#define MAX_BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalog__config_8h_source.html#l00021">AutoAnalog_config.h:21</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_ab0f3ceccd76b77c0a6e407ba92f42346"><div class="ttname"><a href="classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346">AutoAnalog::enableAdcChannel</a></div><div class="ttdeci">void enableAdcChannel(uint8_t pinAx)</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8cpp_source.html#l00087">AutoAnalogAudio.cpp:87</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a4b5f46afb8f50e9bc28431cd467ee8bf"><div class="ttname"><a href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">AutoAnalog::dacBuffer</a></div><div class="ttdeci">uint8_t dacBuffer[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00078">AutoAnalogAudio.h:78</a></div></div>
-<div class="ttc" id="classAutoAnalog_html"><div class="ttname"><a href="classAutoAnalog.html">AutoAnalog</a></div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00034">AutoAnalogAudio.h:34</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a34814ebff21d9b602f1f33503c070a54"><div class="ttname"><a href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">AutoAnalog::autoAdjust</a></div><div class="ttdeci">bool autoAdjust</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00111">AutoAnalogAudio.h:111</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_a257d95cf5a0b43deaef32b761fc25792"><div class="ttname"><a href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">AutoAnalog::adcBuffer</a></div><div class="ttdeci">uint8_t adcBuffer[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00085">AutoAnalogAudio.h:85</a></div></div>
-<div class="ttc" id="classAutoAnalog_html_adf54b09207afbc94726a48642e3b611a"><div class="ttname"><a href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">AutoAnalog::adcBitsPerSample</a></div><div class="ttdeci">uint8_t adcBitsPerSample</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00122">AutoAnalogAudio.h:122</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_a3667d5820bc647c87517c1eaea8ff722"><div class="ttname"><a href="classAutoAnalog.html#a3667d5820bc647c87517c1eaea8ff722">AutoAnalog::AutoAnalog</a></div><div class="ttdeci">AutoAnalog()</div></div>
+<div class="ttc" id="classAutoAnalog_html_aedd70fc9f6f130c32ccb015b670f5318"><div class="ttname"><a href="classAutoAnalog.html#aedd70fc9f6f130c32ccb015b670f5318">AutoAnalog::triggerADC</a></div><div class="ttdeci">void triggerADC()</div></div>
+<div class="ttc" id="AutoAnalog__config_8h_html_ad4d796b98c583d49e83adabd74a63bf6"><div class="ttname"><a href="AutoAnalog__config_8h.html#ad4d796b98c583d49e83adabd74a63bf6">MAX_BUFFER_SIZE</a></div><div class="ttdeci">#define MAX_BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalog__config_8h_source.html#l00027">AutoAnalog_config.h:27</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_ab0f3ceccd76b77c0a6e407ba92f42346"><div class="ttname"><a href="classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346">AutoAnalog::enableAdcChannel</a></div><div class="ttdeci">void enableAdcChannel(uint8_t pinAx)</div></div>
+<div class="ttc" id="classAutoAnalog_html_a4b5f46afb8f50e9bc28431cd467ee8bf"><div class="ttname"><a href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">AutoAnalog::dacBuffer</a></div><div class="ttdeci">uint8_t dacBuffer[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00077">AutoAnalogAudio.h:77</a></div></div>
+<div class="ttc" id="classAutoAnalog_html"><div class="ttname"><a href="classAutoAnalog.html">AutoAnalog</a></div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00033">AutoAnalogAudio.h:33</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_a34814ebff21d9b602f1f33503c070a54"><div class="ttname"><a href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">AutoAnalog::autoAdjust</a></div><div class="ttdeci">bool autoAdjust</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00110">AutoAnalogAudio.h:110</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_a257d95cf5a0b43deaef32b761fc25792"><div class="ttname"><a href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">AutoAnalog::adcBuffer</a></div><div class="ttdeci">uint8_t adcBuffer[MAX_BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00084">AutoAnalogAudio.h:84</a></div></div>
+<div class="ttc" id="classAutoAnalog_html_adf54b09207afbc94726a48642e3b611a"><div class="ttname"><a href="classAutoAnalog.html#adf54b09207afbc94726a48642e3b611a">AutoAnalog::adcBitsPerSample</a></div><div class="ttdeci">uint8_t adcBitsPerSample</div><div class="ttdef"><b>Definition:</b> <a href="AutoAnalogAudio_8h_source.html#l00121">AutoAnalogAudio.h:121</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 14 2016 19:37:07 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 20 2016 12:29:39 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

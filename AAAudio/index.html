@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Auto Analog Audio: Automatic Analog Audio Library for Arduino Due (ARM SAM3X)</title>
+<title>Auto Analog Audio: Automatic Analog Audio Library for Arduino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Auto Analog Audio
-   &#160;<span id="projectnumber">V1.2</span>
+   &#160;<span id="projectnumber">V1.3</span>
    </div>
    <div id="projectbrief">TMRh20 2016 - Automatic DAC, ADC &amp; Timers on Arduino Due</div>
   </td>
@@ -79,7 +79,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Automatic Analog Audio Library for Arduino Due (ARM SAM3X) </div>  </div>
+<div class="title">Automatic Analog Audio Library for Arduino </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="LibInfo"></a>
@@ -87,6 +87,7 @@ Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</h1>
 <p><b>Goals:</b></p>
 <p><b>Extremely low-latency digital audio recording, playback, communication and relaying at high speeds</b></p>
 <p><b>Features:</b></p><ul>
+<li>Now supports AVR devices (Arduino Uno,Nano,Mega,etc)</li>
 <li>Designed with low-latency radio/wireless communication in mind</li>
 <li>Very simple user interface to Arduino DUE DAC and ADC</li>
 <li>PCM/WAV Audio/Analog Data playback using Arduino Due DAC</li>
@@ -100,6 +101,18 @@ Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</h1>
 </ul>
 <p>The library internally configures timing based on user driven data requests or delivery, making data available or processing it at the appropriate speed without delays or while() loops.</p>
 <p>The library can also be configured to operate at a set sample rate, with the getADC() and feedDAC() functions blocking until data is available or ready to be processed.</p>
+<p><b>Arduino Due Default Pin Configuration:</b></p>
+<p><b>Output:</b> DAC0, DAC1 (12-bit) <br />
+ <b>Input:</b> ADC (12-bit) on pin A0, configurable to pins A0-A6 with optional sampling on multiple pins <br />
+ <b>Audio Format:</b> Easily up to 48Khz, 16-bit, Stereo, WAV format <br />
+ <b>Recording:</b> Same as audio format, dependent on SD write speed. <br />
+ <br />
+ <b>Arduino Uno, Nano, Mega:</b> <br />
+ <b>Output:</b> Pins 9,10, PWM roughly 8-10bit for audio (based on timer speed) <br />
+ <b>Input:</b> ADC (10-bit) on pin A0, configurable to any analog pin <br />
+ <b>Audio Format:</b> Up to 24-32Khz, 8-bit, Mono, WAV format <br />
+ <b>Recording:</b> 11-16khz WAV format. Requires SDFat lib. Dependent on SD write speed. <br />
+</p>
 <p><b>Library Source Code &amp; Information:</b><br />
  <a href="http://github.com/TMRh20">http://github.com/TMRh20</a> <br />
  <a href="http://tmrh20.blogspot.com">http://tmrh20.blogspot.com</a> <br />
@@ -107,7 +120,7 @@ Auto Analog Audio (Automatic DAC, ADC &amp; Timer) library</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 14 2016 19:37:07 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 20 2016 12:29:39 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

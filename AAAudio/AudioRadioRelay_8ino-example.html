@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Auto Analog Audio
-   &#160;<span id="projectnumber">V1.2</span>
+   &#160;<span id="projectnumber">V1.3</span>
    </div>
    <div id="projectbrief">TMRh20 2016 - Automatic DAC, ADC &amp; Timers on Arduino Due</div>
   </td>
@@ -135,6 +135,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">* </span></div>
 <div class="line"><span class="comment">*/</span></div>
 <div class="line"></div>
+<div class="line"><span class="comment">/************************USER CONFIG**********************/</span></div>
+<div class="line"><span class="preprocessor">#define radioCEPin 7</span></div>
+<div class="line"><span class="preprocessor">#define radioCSPin 8</span></div>
+<div class="line"><span class="preprocessor">#define radioInterruptPin 2</span></div>
+<div class="line"><span class="comment">/*********************************************************/</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="AutoAnalogAudio_8h.html">AutoAnalogAudio.h</a>&gt;</span></div>
@@ -156,6 +161,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  Serial.println(<span class="stringliteral">&quot;Analog Audio Begin&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">  aaAudio.<a name="a2"></a><a class="code" href="classAutoAnalog.html#af050f10f4589e38907f4776bb49b0e07">begin</a>(1,1);   <span class="comment">//Setup aaAudio using both DAC and ADC</span></div>
+<div class="line"><span class="preprocessor">  #if defined (ARDUINO_AVR)</span></div>
+<div class="line">    aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#a34814ebff21d9b602f1f33503c070a54">autoAdjust</a> = 0;</div>
+<div class="line"><span class="preprocessor">  #endif</span></div>
 <div class="line">  setupRadio();  </div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -169,14 +177,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//Display the timer period variable for each channel every 3 seconds</span></div>
 <div class="line">  <span class="keywordflow">if</span>(millis() - dispTimer &gt; 3000){</div>
 <div class="line">    dispTimer = millis();</div>
-<div class="line"></div>
-<div class="line">    TcChannel * t = &amp;(TC0-&gt;TC_CHANNEL)[0];</div>
-<div class="line">    TcChannel * tt= &amp;(TC0-&gt;TC_CHANNEL)[1];</div>
 <div class="line">    </div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch0:&quot;</span>); </div>
-<div class="line">    Serial.println(t-&gt;TC_RC);      </div>
-<div class="line">    Serial.print(<span class="stringliteral">&quot;Ch1:&quot;</span>); </div>
-<div class="line">    Serial.println(tt-&gt;TC_RC);</div>
+<div class="line"><span class="preprocessor">    #if !defined (ARDUINO_ARCH_AVR)</span></div>
+<div class="line">      TcChannel * t = &amp;(TC0-&gt;TC_CHANNEL)[0];</div>
+<div class="line">      TcChannel * tt= &amp;(TC0-&gt;TC_CHANNEL)[1];</div>
+<div class="line">    </div>
+<div class="line">      Serial.print(<span class="stringliteral">&quot;Ch0:&quot;</span>); </div>
+<div class="line">      Serial.println(t-&gt;TC_RC);      </div>
+<div class="line">      Serial.print(<span class="stringliteral">&quot;Ch1:&quot;</span>); </div>
+<div class="line">      Serial.println(tt-&gt;TC_RC);</div>
+<div class="line"><span class="preprocessor">    #else</span></div>
+<div class="line">      Serial.print(<span class="stringliteral">&quot;Ch0/1:&quot;</span>);</div>
+<div class="line">      Serial.println(ICR1);</div>
+<div class="line"><span class="preprocessor">    #endif</span></div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -191,17 +204,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">if</span>(pipeNo == 2){      </div>
 <div class="line">      radio.read(&amp;dynSampleRate,4);         <span class="comment">// Receive commands using pipe #2</span></div>
-<div class="line">      aaAudio.<a name="a3"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(dynSampleRate); <span class="comment">// Pipe 2 is being used for command data, pipe 1 &amp; others for audio data    </span></div>
+<div class="line">      aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#ab4ad914a3f22ddaa0419be6498cce3c6">setSampleRate</a>(dynSampleRate); <span class="comment">// Pipe 2 is being used for command data, pipe 1 &amp; others for audio data    </span></div>
 <div class="line">    }<span class="keywordflow">else</span>{</div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">      #if !defined (ARDUINO_ARCH_AVR)         //AVR (Uno, Nano can&#39;t handle extra processing)</span></div>
+<div class="line">        radio.stopListening();                <span class="comment">// Prepare to send data out via radio</span></div>
+<div class="line"><span class="preprocessor">      #endif  </span></div>
+<div class="line">      radio.read(&amp;aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>,32);      <span class="comment">// Read the available radio data   </span></div>
 <div class="line">      </div>
-<div class="line">      radio.stopListening();                <span class="comment">// Prepare to send data out via radio</span></div>
-<div class="line">      radio.read(&amp;aaAudio.<a name="a4"></a><a class="code" href="classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf">dacBuffer</a>,32);    <span class="comment">// Read the available radio data   </span></div>
-<div class="line">      </div>
-<div class="line">      aaAudio.<a name="a5"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(0,32);                    <span class="comment">// Feed the DAC with the received data      </span></div>
-<div class="line">      aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(32);                     <span class="comment">// Grab the available data from the ADC</span></div>
+<div class="line">      aaAudio.<a name="a6"></a><a class="code" href="classAutoAnalog.html#ae3889332ba9cb317f7b13adfeb54b2e3">feedDAC</a>(0,32);                  <span class="comment">// Feed the DAC with the received data      </span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">      #if !defined (ARDUINO_ARCH_AVR)</span></div>
+<div class="line">      aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#a61f2ceee4ff61ec9323a30a6c44ab504">getADC</a>(32);                     <span class="comment">// Grab the available data from the ADC</span></div>
 <div class="line"></div>
 <div class="line">      <span class="comment">//Send the received ADC data via radio      </span></div>
-<div class="line">      radio.startFastWrite(&amp;aaAudio.<a name="a7"></a><a class="code" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">adcBuffer</a>,32,1);</div>
+<div class="line">      radio.startFastWrite(&amp;aaAudio.<a name="a8"></a><a class="code" href="classAutoAnalog.html#a257d95cf5a0b43deaef32b761fc25792">adcBuffer</a>,32,1);</div>
+<div class="line"><span class="preprocessor">      #endif</span></div>
 <div class="line"></div>
 <div class="line">    <span class="comment">/*Note: The data initially recieved can directly be sent via radio, but</span></div>
 <div class="line"><span class="comment">               this example is a test of all library peripherals               */</span></div>
@@ -218,7 +236,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 14 2016 19:37:07 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 20 2016 12:29:38 for Auto Analog Audio by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
