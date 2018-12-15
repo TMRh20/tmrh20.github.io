@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
-   &#160;<span id="projectnumber">v1.0.7</span>
    </div>
    <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
@@ -123,7 +122,7 @@ Auto-Retry Timing</h1>
 <h1><a class="anchor" id="AutoRetry"></a>
 Auto-Retry Count and Extended Timeouts</h1>
 <p>The core radio library also provides the ability to adjust the internal auto-retry count of the radio modules. The default setting is 15 automatic retries per payload, and can be extended by configuring the network.txTimeout variable. This default retry count should generally be left at 15, as per the example in the above section. An interval/retry setting of (15,15) will provide 15 retrys at intervals of 4ms, taking up to 60ms per payload. The library now provides staggered timeout periods by default, but they can also be adjusted on a per-node basis.</p>
-<p>The txTimeout variable is used to extend the retry count to a defined duration in milliseconds. See the network.txTimeout variable. Timeout periods of extended duration (500+) will generally not help when payloads are failing due to data collisions, it will only extend the duration of the errors. Extended duration timeouts should generally only be configured on leaf nodes that do not receive data, or on a dual-headed node.</p>
+<p>The txTimeout variable is used to extend the retry count to a defined duration in milliseconds. See the network.txTimeout variable. Timeout periods of extended duration (500+) will generally not help when payloads are failing due to data collisions, it will only extend the duration of the errors. Extended duration timeouts should generally only be configured on leaf nodes that do not receive data.</p>
 <h1><a class="anchor" id="Examples"></a>
 Examples</h1>
 <p><b>Example 1:</b> Network with master node and three leaf nodes that send data to the master node. None of the leaf nodes need to receive data.</p>
@@ -136,30 +135,11 @@ Examples</h1>
 <div class="line">network.txTimeout = 500;</div>
 </div><!-- fragment --><p> b: Second leaf node configured with a similar timeout period and retry delay: </p><div class="fragment"><div class="line">radio.setRetries(8,15);</div>
 <div class="line">network.txTimeout = 553;</div>
-</div><!-- fragment --><p> c: First and third leaf nodes configured with default timeout periods or slightly increased timout periods.</p>
-<h1><a class="anchor" id="DualHead"></a>
-Dual Headed Operation</h1>
-<p>The library now supports a dual radio configuration to further enhance network performance, while reducing errors on busy networks. Master nodes or relay nodes with a large number of child nodes can benefit somewhat from a dual headed configuration, since one radio is used for receiving, and the other entirely for transmission.</p>
-<p>To configure a dual headed node:</p><ol type="1">
-<li>Edit the <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a> file, and uncomment #define DUAL_HEAD_RADIO</li>
-<li>Connect another radio, using the same MOSI, MISO, and SCK lines.</li>
-<li>Choose another two pins to use for CE and CS on the second radio. Connect them.</li>
-<li>Setup the radio and network like so:</li>
-</ol>
-<div class="fragment"><div class="line">      RF24 radio(7,8);                        <span class="comment">// Using CE (7) and CS (8) for first radio</span></div>
-<div class="line">      RF24 radio1(4,5);                       <span class="comment">// Using CE (4) and CS (5) for second radio</span></div>
-<div class="line">      <a class="code" href="classRF24Network.html">RF24Network</a> network(radio,radio1);      <span class="comment">// Set up the network using both radios</span></div>
-<div class="line"></div>
-<div class="line">Then in setup(), call radio.begin(); and radio1.begin(); before network.begin();</div>
-</div><!-- fragment --><ol type="1">
-<li>Upload to MCU. The node will now use the first radio to receive data, and radio1 to transmit, preventing data loss on a busy network.</li>
-<li>Re-comment the #define in the config file as required if configuring other single-headed radios.</li>
-</ol>
-<p>Any node can be configured in dual-head mode. </p>
+</div><!-- fragment --><p> c: First and third leaf nodes configured with default timeout periods or slightly increased timout periods. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 20 2016 00:03:30 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

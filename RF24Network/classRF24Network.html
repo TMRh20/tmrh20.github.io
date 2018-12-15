@@ -25,7 +25,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
-   &#160;<span id="projectnumber">v1.0.7</span>
    </div>
    <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
@@ -119,6 +118,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abac371cf064c23d181c5dd56f528bd08"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#abac371cf064c23d181c5dd56f528bd08">peek</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header)</td></tr>
 <tr class="memdesc:abac371cf064c23d181c5dd56f528bd08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next available header.  <a href="#abac371cf064c23d181c5dd56f528bd08">More...</a><br /></td></tr>
 <tr class="separator:abac371cf064c23d181c5dd56f528bd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774fa1032ace9de23d1951915fa1a501"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a774fa1032ace9de23d1951915fa1a501">peek</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, void *message, uint16_t maxlen)</td></tr>
+<tr class="memdesc:a774fa1032ace9de23d1951915fa1a501"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next available payload.  <a href="#a774fa1032ace9de23d1951915fa1a501">More...</a><br /></td></tr>
+<tr class="separator:a774fa1032ace9de23d1951915fa1a501"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1369794c26042ebe9e3874adaec371a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#ac1369794c26042ebe9e3874adaec371a">read</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, void *message, uint16_t maxlen)</td></tr>
 <tr class="memdesc:ac1369794c26042ebe9e3874adaec371a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a message.  <a href="#ac1369794c26042ebe9e3874adaec371a">More...</a><br /></td></tr>
 <tr class="separator:ac1369794c26042ebe9e3874adaec371a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,9 +139,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d99643014071fef706c0320c8011648"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a3d99643014071fef706c0320c8011648">write</a> (<a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;header, const void *message, uint16_t len, uint16_t writeDirect)</td></tr>
 <tr class="memdesc:a3d99643014071fef706c0320c8011648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a direct (unicast) payload.  <a href="#a3d99643014071fef706c0320c8011648">More...</a><br /></td></tr>
 <tr class="separator:a3d99643014071fef706c0320c8011648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a488bfa788f40b51bd5110b4594cf2d9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a488bfa788f40b51bd5110b4594cf2d9a">sleepNode</a> (unsigned int cycles, int interruptPin)</td></tr>
-<tr class="memdesc:a488bfa788f40b51bd5110b4594cf2d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node - For AVR devices only.  <a href="#a488bfa788f40b51bd5110b4594cf2d9a">More...</a><br /></td></tr>
-<tr class="separator:a488bfa788f40b51bd5110b4594cf2d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc3e7809ffc7ff48579811d2e063142a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#acc3e7809ffc7ff48579811d2e063142a">sleepNode</a> (unsigned int cycles, int interruptPin, uint8_t INTERRUPT_MODE=0)</td></tr>
+<tr class="memdesc:acc3e7809ffc7ff48579811d2e063142a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep this node - For AVR devices only.  <a href="#acc3e7809ffc7ff48579811d2e063142a">More...</a><br /></td></tr>
+<tr class="separator:acc3e7809ffc7ff48579811d2e063142a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2274c0548e35b5182a2f6ced222d0699"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Network.html#a2274c0548e35b5182a2f6ced222d0699">parent</a> () const </td></tr>
 <tr class="memdesc:a2274c0548e35b5182a2f6ced222d0699"><td class="mdescLeft">&#160;</td><td class="mdescRight">This node's parent address.  <a href="#a2274c0548e35b5182a2f6ced222d0699">More...</a><br /></td></tr>
 <tr class="separator:a2274c0548e35b5182a2f6ced222d0699"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,6 +365,49 @@ External Applications/Systems</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">header</td><td>The header (envelope) of the next message </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a774fa1032ace9de23d1951915fa1a501"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Network::peek </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRF24NetworkHeader.html">RF24NetworkHeader</a> &amp;&#160;</td>
+          <td class="paramname"><em>header</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>maxlen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the next available payload. </p>
+<p>Reads the next available payload without advancing to the next incoming message. Useful for doing a transparent packet manipulation layer on top of <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">header</td><td>The header (envelope) of this message </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">message</td><td>Pointer to memory where the message should be placed </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">maxlen</td><td>Amount of bytes to copy to message. </td></tr>
   </table>
   </dd>
 </dl>
@@ -649,7 +694,7 @@ External Applications/Systems</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a488bfa788f40b51bd5110b4594cf2d9a"></a>
+<a class="anchor" id="acc3e7809ffc7ff48579811d2e063142a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -663,7 +708,13 @@ External Applications/Systems</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>interruptPin</em>&#160;</td>
+          <td class="paramname"><em>interruptPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>INTERRUPT_MODE</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -961,7 +1012,7 @@ This is used by external data systems (RF24Ethernet) to immediately copy the rec
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 20 2016 00:03:30 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
