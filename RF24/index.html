@@ -161,23 +161,23 @@ Platform Support Pages</h1>
 <p>The table below shows how to connect the the pins of the NRF24L01(+) to different boards. CE and CSN are configurable.</p>
 <table class="doxtable">
 <tr>
-<th>PIN </th><th>NRF24L01 </th><th>Arduino UNO </th><th>ATtiny25/45/85 [0] </th><th>ATtiny44/84 [1] </th><th>LittleWire [2] </th><th>RPI </th><th>RPi -P1 Connector  </th></tr>
+<th>PIN </th><th>NRF24L01 </th><th>Arduino UNO </th><th>ATtiny25/45/85 [0] </th><th>ATtiny44/84 [1] </th><th>LittleWire [2] </th><th>RPI </th><th>RPi -P1 Connector  </th><th>NodeMCU v1.0 (ESP8266)</th></tr>
 <tr>
-<td>1 </td><td>GND </td><td>GND </td><td>pin 4 </td><td>pin 14 </td><td>GND </td><td>rpi-gnd </td><td>(25) </td></tr>
+<td>1 </td><td>GND </td><td>GND </td><td>pin 4 </td><td>pin 14 </td><td>GND </td><td>rpi-gnd </td><td>(25) </td><td>GND</td></tr>
 <tr>
-<td>2 </td><td>VCC </td><td>3.3V </td><td>pin 8 </td><td>pin 1 </td><td>regulator 3.3V required </td><td>rpi-3v3 </td><td>(17) </td></tr>
+<td>2 </td><td>VCC </td><td>3.3V </td><td>pin 8 </td><td>pin 1 </td><td>regulator 3.3V required </td><td>rpi-3v3 </td><td>(17) </td><td>3.3V</td></tr>
 <tr>
-<td>3 </td><td>CE </td><td>digIO 7 </td><td>pin 2 </td><td>pin 12 </td><td>pin to 3.3V </td><td>rpi-gpio22 </td><td>(15) </td></tr>
+<td>3 </td><td>CE </td><td>digIO 7 </td><td>pin 2 </td><td>pin 12 </td><td>pin to 3.3V </td><td>rpi-gpio22 </td><td>(15) </td><td>GPIO 2</td></tr>
 <tr>
-<td>4 </td><td>CSN </td><td>digIO 8 </td><td>pin 3 </td><td>pin 11 </td><td>RESET </td><td>rpi-gpio8 </td><td>(24) </td></tr>
+<td>4 </td><td>CSN </td><td>digIO 8 </td><td>pin 3 </td><td>pin 11 </td><td>RESET </td><td>rpi-gpio8 </td><td>(24) </td><td>GPIO 15</td></tr>
 <tr>
-<td>5 </td><td>SCK </td><td>digIO 13 </td><td>pin 7 </td><td>pin 9 </td><td>SCK </td><td>rpi-sckl </td><td>(23) </td></tr>
+<td>5 </td><td>SCK </td><td>digIO 13 </td><td>pin 7 </td><td>pin 9 </td><td>SCK </td><td>rpi-sckl </td><td>(23) </td><td>GPIO 14</td></tr>
 <tr>
-<td>6 </td><td>MOSI </td><td>digIO 11 </td><td>pin 6 </td><td>pin 7 </td><td>MOSI </td><td>rpi-mosi </td><td>(19) </td></tr>
+<td>6 </td><td>MOSI </td><td>digIO 11 </td><td>pin 6 </td><td>pin 7 </td><td>MOSI </td><td>rpi-mosi </td><td>(19) </td><td>GPIO 13</td></tr>
 <tr>
-<td>7 </td><td>MISO </td><td>digIO 12 </td><td>pin 5 </td><td>pin 8 </td><td>MISO </td><td>rpi-miso </td><td>(21) </td></tr>
+<td>7 </td><td>MISO </td><td>digIO 12 </td><td>pin 5 </td><td>pin 8 </td><td>MISO </td><td>rpi-miso </td><td>(21) </td><td>GPIO 12</td></tr>
 <tr>
-<td>8 </td><td>IRQ </td><td>- </td><td>- </td><td>- </td><td>- </td><td>- </td><td>- </td></tr>
+<td>8 </td><td>IRQ </td><td>- </td><td>- </td><td>- </td><td>- </td><td>- </td><td>- </td><td>- </td></tr>
 </table>
 <ul>
 <li>[0] <a href="https://learn.sparkfun.com/tutorials/tiny-avr-programmer-hookup-guide/attiny85-use-hints">https://learn.sparkfun.com/tutorials/tiny-avr-programmer-hookup-guide/attiny85-use-hints</a> </li>
