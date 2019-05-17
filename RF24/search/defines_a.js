@@ -7,6 +7,7 @@ var searchData=
   ['reuse_5ftx_5fpl',['REUSE_TX_PL',['../nRF24L01_8h.html#a2f1d9bb858232e8b1494b60aa9a7d25a',1,'nRF24L01.h']]],
   ['rf24_5fmax',['rf24_max',['../RF24__config_8h.html#ae6d0cebac69956c23e8715f4f3bbbd0e',1,'RF24_config.h']]],
   ['rf24_5fmin',['rf24_min',['../RF24__config_8h.html#a803c01bff6ebb264fb8b4438eb65f098',1,'RF24_config.h']]],
+  ['rf24_5fnop',['RF24_NOP',['../nRF24L01_8h.html#a4924d732f99c6ec5f872a286852d0d94',1,'nRF24L01.h']]],
   ['rf_5fch',['RF_CH',['../nRF24L01_8h.html#a5c4da84e4a01531aa9f5c3e617848d66',1,'nRF24L01.h']]],
   ['rf_5fdr',['RF_DR',['../nRF24L01_8h.html#a1447bd35f38d6cc6d6841ca29c514675',1,'nRF24L01.h']]],
   ['rf_5fdr_5fhigh',['RF_DR_HIGH',['../nRF24L01_8h.html#ace5cdf603eecdfb4344114b589442407',1,'nRF24L01.h']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['failure_5fhandling',['FAILURE_HANDLING',['../RF24__config_8h.html#a80b7b445a2432fd652f91232b5558554',1,'RF24_config.h']]],
   ['feature',['FEATURE',['../nRF24L01_8h.html#adf81f7b30b6c08465ce704956b446a2d',1,'nRF24L01.h']]],
   ['fifo_5ffull',['FIFO_FULL',['../nRF24L01_8h.html#aff743182d3cc16bed60c67b0313cfeec',1,'nRF24L01.h']]],
   ['fifo_5fstatus',['FIFO_STATUS',['../nRF24L01_8h.html#a9e5c9878194f462bf7a46ca8a7b8f9d2',1,'nRF24L01.h']]],

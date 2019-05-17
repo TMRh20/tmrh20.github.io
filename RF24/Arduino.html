@@ -107,14 +107,17 @@ Alternate SPI Support</h1>
 </p><ol type="1">
 <li>Install the digitalIO library<br />
 </li>
-<li>Open <a class="el" href="RF24__config_8h.html">RF24_config.h</a> in a text editor. Uncomment the line #define SOFTSPI<br />
-</li>
-<li>In your sketch, add #include DigitalIO.h</li>
+<li>Open <a class="el" href="RF24__config_8h.html">RF24_config.h</a> in a text editor. Uncomment the line <div class="fragment"><div class="line"><span class="preprocessor">#define SOFTSPI</span></div>
+</div><!-- fragment --> or add the build flag/option <div class="fragment"><div class="line">-DSOFTSPI</div>
+</div><!-- fragment --></li>
+<li>In your sketch, add <div class="fragment"><div class="line"><span class="preprocessor">#include DigitalIO.h</span></div>
+</div><!-- fragment --></li>
 </ol>
 <dl class="section note"><dt>Note</dt><dd>Note: Pins are listed as follows and can be modified by editing the <a class="el" href="RF24__config_8h.html">RF24_config.h</a> file<br />
- <pre class="fragment">const uint8_t SOFT_SPI_MISO_PIN = 16;
-const uint8_t SOFT_SPI_MOSI_PIN = 15;
-const uint8_t SOFT_SPI_SCK_PIN = 14;
+ <pre class="fragment">#define SOFT_SPI_MISO_PIN 16
+#define SOFT_SPI_MOSI_PIN 15
+#define SOFT_SPI_SCK_PIN 14
+</pre> Or add the build flag/option <pre class="fragment">-DSOFT_SPI_MISO_PIN=16 -DSOFT_SPI_MOSI_PIN=15 -DSOFT_SPI_SCK_PIN=14
 </pre></dd></dl>
 <p><br />
  <b>Alternate Hardware (UART) Driven SPI</b></p>
@@ -145,7 +148,7 @@ See <a href="https://github.com/TMRh20/RF24/issues/24">https://github.com/TMRh20
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 5 2016 10:02:27 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 17 2019 14:04:41 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

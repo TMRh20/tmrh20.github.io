@@ -7,6 +7,7 @@ var searchData=
   ['direction_5fin',['DIRECTION_IN',['../group__Porting__GPIO.html#gafbf58b193d0f84db90a843e00f27367c',1,'gpio.h']]],
   ['direction_5fout',['DIRECTION_OUT',['../group__Porting__GPIO.html#gac39c2a3ce71b0df667c227292d4ab30c',1,'gpio.h']]],
   ['disablecrc',['disableCRC',['../classRF24.html#a5eacd9ecfbc19864801d714c292cf8be',1,'RF24']]],
+  ['disabledynamicpayloads',['disableDynamicPayloads',['../classRF24.html#a486c4c47a6973614ae595ae96f221165',1,'RF24']]],
   ['dpl_5fp0',['DPL_P0',['../nRF24L01_8h.html#acf457ec76fbdc9fe3a5d3eb3e9c5dca5',1,'nRF24L01.h']]],
   ['dpl_5fp1',['DPL_P1',['../nRF24L01_8h.html#aae58d2c6834305858a405abaffd95049',1,'nRF24L01.h']]],
   ['dpl_5fp2',['DPL_P2',['../nRF24L01_8h.html#a444b8f6d5091149c983f6fca29775a44',1,'nRF24L01.h']]],

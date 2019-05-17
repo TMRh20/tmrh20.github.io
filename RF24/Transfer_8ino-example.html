@@ -91,27 +91,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  with the serial monitor and sending a 'T'. The data transfer will begin, with the receiver displaying the payload count. (32Byte Payloads) <br />
 </p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment">TMRh20 2014</span></div>
+<div class="line"><span class="comment"> TMRh20 2014</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment"> This program is free software; you can redistribute it and/or</span></div>
 <div class="line"><span class="comment"> modify it under the terms of the GNU General Public License</span></div>
 <div class="line"><span class="comment"> version 2 as published by the Free Software Foundation.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> General Data Transfer Rate Test</span></div>
+<div class="line"><span class="comment"> </span></div>
+<div class="line"><span class="comment"> This example demonstrates basic data transfer functionality with the </span></div>
+<div class="line"><span class="comment"> updated library. This example will display the transfer rates acheived </span></div>
+<div class="line"><span class="comment"> using the slower form of high-speed transfer using blocking-writes.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"></div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">RF24.h</a>&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/*************  USER Configuration *****************************/</span></div>
-<div class="line">                                          <span class="comment">// Hardware configuration</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);                        <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
+<div class="line">                                           <span class="comment">// Hardware configuration</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7,8);                           <span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/***************************************************************/</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">const</span> uint64_t pipes[2] = { 0xABCDABCD71LL, 0x544d52687CLL };   <span class="comment">// Radio pipe addresses for the 2 nodes to communicate.</span></div>
 <div class="line"></div>
-<div class="line">byte data[32];                           <span class="comment">//Data buffer for testing data transfer speeds</span></div>
+<div class="line">byte data[32];                             <span class="comment">//Data buffer for testing data transfer speeds</span></div>
 <div class="line"></div>
-<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> counter, rxTimer;          <span class="comment">//Counter and timer for keeping track transfer info</span></div>
+<div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> counter, rxTimer;            <span class="comment">//Counter and timer for keeping track transfer info</span></div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> startTime, stopTime;  </div>
 <div class="line"><span class="keywordtype">bool</span> TX=1,RX=0,role=0;</div>
 <div class="line"></div>
@@ -121,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">  radio.begin();                           <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  radio.setChannel(1);</div>
-<div class="line">  radio.setPALevel(<a name="a1"></a><a class="code" href="RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aaceab0bfc94c4095e9495b2e49530b623d0d">RF24_PA_MAX</a>);</div>
+<div class="line">  radio.setPALevel(<a name="a1"></a><a class="code" href="RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aaceab0bfc94c4095e9495b2e49530b623d0d">RF24_PA_MAX</a>);           <span class="comment">// If you want to save power use &quot;RF24_PA_MIN&quot; but keep in mind that reduces the module&#39;s range</span></div>
 <div class="line">  radio.setDataRate(<a name="a2"></a><a class="code" href="RF24_8h.html#a82745de4aa1251b7561564b3ed1d6522afd01f3fd55247a67c0bcfd459fe17fdf">RF24_1MBPS</a>);</div>
 <div class="line">  radio.setAutoAck(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
 <div class="line">  radio.setRetries(2,15);                  <span class="comment">// Optionally, increase the delay between retries &amp; # of retries</span></div>
@@ -130,25 +139,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.openWritingPipe(pipes[0]);</div>
 <div class="line">  radio.openReadingPipe(1,pipes[1]);</div>
 <div class="line">  </div>
-<div class="line">  radio.startListening();                 <span class="comment">// Start listening</span></div>
-<div class="line">  radio.printDetails();                   <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
+<div class="line">  radio.startListening();                  <span class="comment">// Start listening</span></div>
+<div class="line">  radio.printDetails();                    <span class="comment">// Dump the configuration of the rf unit for debugging</span></div>
 <div class="line">  </div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;\n\rRF24/examples/Transfer/&quot;</span>));</div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node&quot;</span>));</div>
 <div class="line">  </div>
-<div class="line">  randomSeed(analogRead(0));              <span class="comment">//Seed for random number generation</span></div>
+<div class="line">  randomSeed(analogRead(0));               <span class="comment">//Seed for random number generation</span></div>
 <div class="line">  </div>
-<div class="line">  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;32; i++){</div>
-<div class="line">     data[i] = random(255);               <span class="comment">//Load the buffer with random data</span></div>
+<div class="line">  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 32; i++){</div>
+<div class="line">     data[i] = random(255);                <span class="comment">//Load the buffer with random data</span></div>
 <div class="line">  }</div>
-<div class="line">  radio.powerUp();                        <span class="comment">//Power up the radio</span></div>
+<div class="line">  radio.powerUp();                         <span class="comment">//Power up the radio</span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>){</div>
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span>(role == TX){</div>
-<div class="line">    </div>
 <div class="line">    <a name="a4"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(2000);</div>
 <div class="line">    </div>
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;Initiating Basic Data Transfer&quot;</span>));</div>
@@ -234,7 +242,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 5 2016 10:02:27 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 17 2019 14:04:40 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

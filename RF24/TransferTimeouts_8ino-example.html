@@ -122,15 +122,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordtype">void</span> setup(<span class="keywordtype">void</span>) {</div>
 <div class="line"></div>
 <div class="line">  Serial.begin(115200);</div>
-<div class="line">  printf_begin();</div>
+<div class="line">  <a name="a1"></a><a class="code" href="printf_8h.html#afc0d9ca32710dff550ebe56ab6b39d23">printf_begin</a>();</div>
 <div class="line"></div>
 <div class="line">  radio.begin();                           <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">  radio.setChannel(1);                     <span class="comment">// Set the channel</span></div>
-<div class="line">  radio.setPALevel(<a name="a1"></a><a class="code" href="RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aacea7d8d09f4a047b7c22655e56c98ca010c">RF24_PA_LOW</a>);           <span class="comment">// Set PA LOW for this demonstration. We want the radio to be as lossy as possible for this example.</span></div>
-<div class="line">  radio.setDataRate(<a name="a2"></a><a class="code" href="RF24_8h.html#a82745de4aa1251b7561564b3ed1d6522afd01f3fd55247a67c0bcfd459fe17fdf">RF24_1MBPS</a>);           <span class="comment">// Raise the data rate to reduce transmission distance and increase lossiness</span></div>
+<div class="line">  radio.setPALevel(<a name="a2"></a><a class="code" href="RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aacea7d8d09f4a047b7c22655e56c98ca010c">RF24_PA_LOW</a>);           <span class="comment">// Set PA LOW for this demonstration. We want the radio to be as lossy as possible for this example.</span></div>
+<div class="line">  radio.setDataRate(<a name="a3"></a><a class="code" href="RF24_8h.html#a82745de4aa1251b7561564b3ed1d6522afd01f3fd55247a67c0bcfd459fe17fdf">RF24_1MBPS</a>);           <span class="comment">// Raise the data rate to reduce transmission distance and increase lossiness</span></div>
 <div class="line">  radio.setAutoAck(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
 <div class="line">  radio.setRetries(2,15);                  <span class="comment">// Optionally, increase the delay between retries. Want the number of auto-retries as high as possible (15)</span></div>
-<div class="line">  radio.setCRCLength(<a name="a3"></a><a class="code" href="RF24_8h.html#adbe00719f3f835c82bd007081d040a7ea6eeb0379e23be63559106d96ada47a56">RF24_CRC_16</a>);         <span class="comment">// Set CRC length to 16-bit to ensure quality of data</span></div>
+<div class="line">  radio.setCRCLength(<a name="a4"></a><a class="code" href="RF24_8h.html#adbe00719f3f835c82bd007081d040a7ea6eeb0379e23be63559106d96ada47a56">RF24_CRC_16</a>);         <span class="comment">// Set CRC length to 16-bit to ensure quality of data</span></div>
 <div class="line">  radio.openWritingPipe(pipes[0]);         <span class="comment">// Open the default reading and writing pipe</span></div>
 <div class="line">  radio.openReadingPipe(1,pipes[1]);       </div>
 <div class="line">  </div>
@@ -155,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"></div>
 <div class="line">  <span class="keywordflow">if</span>(role == TX){    </div>
-<div class="line">    <a name="a4"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(2000);                                              <span class="comment">// Pause for a couple seconds between transfers    </span></div>
+<div class="line">    <a name="a5"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(2000);                                              <span class="comment">// Pause for a couple seconds between transfers    </span></div>
 <div class="line">    printf(<span class="stringliteral">&quot;Initiating Extended Timeout Data Transfer\n\r&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> cycles = 1000;                              <span class="comment">// Change this to a higher or lower number. This is the number of payloads that will be sent.   </span></div>
@@ -164,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.writeFast(&amp;transferCMD,12);                         <span class="comment">// Send the transfer command</span></div>
 <div class="line">    <span class="keywordflow">if</span>(radio.txStandBy(timeoutPeriod)){                       <span class="comment">// If transfer initiation was successful, do the following</span></div>
 <div class="line">   </div>
-<div class="line">        startTime = <a name="a5"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                                 <span class="comment">// For calculating transfer rate</span></div>
+<div class="line">        startTime = <a name="a6"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                                 <span class="comment">// For calculating transfer rate</span></div>
 <div class="line">        <span class="keywordtype">boolean</span> timedOut = 0;                                 <span class="comment">// Boolean for keeping track of failures</span></div>
 <div class="line">      </div>
 <div class="line">        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i=0; i&lt;cycles; i++){                          <span class="comment">// Loop through a number of cycles</span></div>
@@ -268,7 +268,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 5 2016 10:02:27 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 17 2019 14:04:40 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

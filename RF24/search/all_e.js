@@ -15,6 +15,7 @@ var searchData=
   ['prim_5frx',['PRIM_RX',['../nRF24L01_8h.html#a0b4d92f3ecccb150d4cb1cb5d0f9d4e6',1,'nRF24L01.h']]],
   ['printdetails',['printDetails',['../classRF24.html#adc95213ed4c8569a90eb33122e16cea6',1,'RF24']]],
   ['printf_2eh',['printf.h',['../printf_8h.html',1,'']]],
+  ['printf_5fbegin',['printf_begin',['../printf_8h.html#afc0d9ca32710dff550ebe56ab6b39d23',1,'printf.h']]],
   ['printf_5fp',['printf_P',['../group__Porting__General.html#ga758ad569cbda7c5ddfaa902e8eed3360',1,'RF24_arch_config.h']]],
   ['pripstr',['PRIPSTR',['../group__Porting__General.html#ga7642e6d60f41fc769b32962c8c513668',1,'RF24_arch_config.h']]],
   ['prog_5fuint16_5ft',['prog_uint16_t',['../group__Porting__General.html#ga05ca2f20b55933ad782917161d54287d',1,'RF24_arch_config.h']]],
