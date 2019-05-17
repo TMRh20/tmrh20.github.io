@@ -2075,8 +2075,13 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Enable error detection by un-commenting #define FAILURE_HANDLING in <a class="el" href="RF24__config_8h.html">RF24_config.h</a> If a failure has been detected, it usually indicates a hardware issue. By default the library will cease operation when a failure is detected. This should allow advanced users to detect and resolve intermittent hardware issues.</p>
+<p>If a failure has been detected, it usually indicates a hardware issue. By default the library will cease operation when a failure is detected. This should allow advanced users to detect and resolve intermittent hardware issues.</p>
 <p>In most cases, the radio must be re-enabled via radio.begin(); and the appropriate settings applied after a failure occurs, if wanting to re-enable the device immediately.</p>
+<p>The three main failure modes of the radio include:</p>
+<p>Writing to radio: Radio unresponsive - Fixed internally by adding a timeout to the internal write functions in <a class="el" href="classRF24.html">RF24</a> (failure handling)</p>
+<p>Reading from radio: Available returns true always - Fixed by adding a timeout to available functions by the user. This is implemented internally in RF24Network.</p>
+<p>Radio configuration settings are lost - Fixed by monitoring a value that is different from the default, and re-configuring the radio if this setting reverts to the default.</p>
+<p>See the included example, GettingStarted_HandlingFailures</p>
 <p>Usage: (Failure handling must be enabled per above) </p><div class="fragment"><div class="line"><span class="keywordflow">if</span>(radio.failureDetected){ </div>
 <div class="line">  radio.begin();                       <span class="comment">// Attempt to re-configure the radio with defaults</span></div>
 <div class="line">  radio.failureDetected = 0;           <span class="comment">// Reset the detection value</span></div>
@@ -2085,7 +2090,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">  report_failure();                    <span class="comment">// Blink leds, send a message, etc. to indicate failure</span></div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00678">678</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00688">688</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2106,7 +2111,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </ol>
 <dl class="section warning"><dt>Warning</dt><dd>If set to 0, ensure 130uS delay after <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> and before any sends </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00936">936</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00946">946</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2123,7 +2128,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>This is intended to minimise the speed of SPI polling due to radio commands</p>
 <p>If using interrupts or timed requests, this can be set to 0 Default:5 </p>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00947">947</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00957">957</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2134,7 +2139,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 17 2019 14:04:42 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri May 17 2019 14:16:09 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
