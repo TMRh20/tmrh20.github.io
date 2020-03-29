@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized high speed nRF24L01+ driver class documentaion: Class List</title>
+<title>Optimized high speed nRF24L01+ driver class documentaion: Here are the most common issues and their solutions.</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,9 +41,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
@@ -64,14 +64,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li class="current"><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
-    </ul>
-  </div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -86,20 +78,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Class List</div>  </div>
+<div class="title">Here are the most common issues and their solutions. </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRF24.html" target="_self">RF24</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><h3>I'm not receiving acks!</h3>
+<p>If you're not receiving acks correctly/reliably on data rates lower than 2MBPS, try adding a big capacitor close to the module/chip. Example issues: <a href="https://github.com/nRF24/RF24/issues/264">#264</a> <a href="https://github.com/nRF24/RF24/issues/211">#211</a>.</p>
+<p>For this application, please use Electrolytic or Tantalum capacitors. Ceramic capacitors will probably not be good enough. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2020 11:00:36 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 29 2020 11:00:35 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

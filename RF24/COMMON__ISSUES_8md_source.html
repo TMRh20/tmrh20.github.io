@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized high speed nRF24L01+ driver class documentaion: Class List</title>
+<title>Optimized high speed nRF24L01+ driver class documentaion: COMMON_ISSUES.md Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -43,8 +43,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -66,9 +66,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li class="current"><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -88,18 +87,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Class List</div>  </div>
+<div class="title">COMMON_ISSUES.md</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here are the classes, structs, unions and interfaces with brief descriptions:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="classRF24.html" target="_self">RF24</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<a href="COMMON__ISSUES_8md.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# Here are the most common issues and their solutions.</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;### I&#39;m not receiving acks!</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;If you&#39;re not receiving acks correctly/reliably on data rates lower than 2MBPS,</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;try adding a big capacitor close to the module/chip. Example issues: [#264](https://github.com/nRF24/RF24/issues/264) [#211](https://github.com/nRF24/RF24/issues/211).</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;For this application, please use Electrolytic or Tantalum capacitors. Ceramic capacitors will probably not be good enough.</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+</div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2020 11:00:36 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 29 2020 11:00:35 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

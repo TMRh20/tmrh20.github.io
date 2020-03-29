@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rf24_20portability',['RF24 Portability',['../Portability.html',1,'']]],
-  ['raspberry_20pi',['Raspberry Pi',['../RPi.html',1,'']]]
+  ['python_20wrapper_20_28by_20https_3a_2f_2fgithub_2ecom_2fmz_2dfuzzy_29',['Python Wrapper (by https://github.com/mz-fuzzy)',['../Python.html',1,'']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['linux_20cross_2dcompilation',['Linux cross-compilation',['../CrossCompile.html',1,'']]],
-  ['linux_20devices',['Linux devices',['../Linux.html',1,'']]]
+  ['here_20are_20the_20most_20common_20issues_20and_20their_20solutions_2e',['Here are the most common issues and their solutions.',['../md_COMMON_ISSUES.html',1,'']]]
 ];

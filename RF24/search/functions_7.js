@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['getarc',['getARC',['../classRF24.html#a54b26abd1846e5080a0439ee372f3b8b',1,'RF24']]],
   ['getchannel',['getChannel',['../classRF24.html#a6a66a94609309e17edaa1919e66cea0a',1,'RF24']]],
   ['getcrclength',['getCRCLength',['../classRF24.html#aba4ca91b829afcd94a4c11e0343e3796',1,'RF24']]],
   ['getdatarate',['getDataRate',['../classRF24.html#a72a7b11dafe8ffab6135f243decce0d7',1,'RF24']]],

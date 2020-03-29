@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized High Speed NRF24L01+ Driver Class Documenation: utility/Template/compatibility.h Source File</title>
+<title>Optimized high speed nRF24L01+ driver class documentaion: utility/Template/compatibility.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,10 +24,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Optimized High Speed NRF24L01+ Driver Class Documenation
-   &#160;<span id="projectnumber">V1.0</span>
+   <div id="projectname">Optimized high speed nRF24L01+ driver class documentaion
+   &#160;<span id="projectnumber">V1.3.4</span>
    </div>
-   <div id="projectbrief">TMRh20 2014 - Optimized Fork of NRF24L01+ Driver</div>
+   <div id="projectbrief">TMRh20 2020 - Optimized fork of the nRF24L01+ driver</div>
   </td>
  </tr>
  </tbody>
@@ -104,25 +104,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifndef COMPATIBLITY_H</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define COMPATIBLITY_H</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef  __cplusplus</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;time.h&gt;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;sys/time.h&gt;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Porting__Timing.html#ga4c2e4dffa20576f5b3d9c2f9bb052106">__msleep</a>(<span class="keywordtype">int</span> milisec);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Porting__Timing.html#gaec87320f2886551c012814de85713681">__usleep</a>(<span class="keywordtype">int</span> milisec);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Porting__Timing.html#ga6c8e606d2db30ac66d24b35056a8f819">__start_timer</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">long</span> <a class="code" href="group__Porting__Timing.html#gad13c7acd564917af4f86b655035a6424">__millis</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#ifdef  __cplusplus</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* COMPATIBLITY_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Porting__Timing.html#gaec87320f2886551c012814de85713681">__usleep</a>(<span class="keywordtype">int</span> milisec);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__Porting__Timing.html#ga6c8e606d2db30ac66d24b35056a8f819">__start_timer</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">long</span> <a class="code" href="group__Porting__Timing.html#gad13c7acd564917af4f86b655035a6424">__millis</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#ifdef    __cplusplus</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif    </span><span class="comment">/* COMPATIBLITY_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
 <div class="ttc" id="group__Porting__Timing_html_gad13c7acd564917af4f86b655035a6424"><div class="ttname"><a href="group__Porting__Timing.html#gad13c7acd564917af4f86b655035a6424">__millis</a></div><div class="ttdeci">long __millis()</div></div>
 <div class="ttc" id="group__Porting__Timing_html_ga6c8e606d2db30ac66d24b35056a8f819"><div class="ttname"><a href="group__Porting__Timing.html#ga6c8e606d2db30ac66d24b35056a8f819">__start_timer</a></div><div class="ttdeci">void __start_timer()</div></div>
 <div class="ttc" id="group__Porting__Timing_html_gaec87320f2886551c012814de85713681"><div class="ttname"><a href="group__Porting__Timing.html#gaec87320f2886551c012814de85713681">__usleep</a></div><div class="ttdeci">void __usleep(int milisec)</div></div>
@@ -130,7 +133,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri May 17 2019 14:49:07 for Optimized High Speed NRF24L01+ Driver Class Documenation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Mar 29 2020 11:00:35 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
