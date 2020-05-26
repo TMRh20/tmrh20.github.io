@@ -278,6 +278,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Arduino Constructor</p>
 <p>Creates a new instance of this driver. Before using, you create an instance and send in the unique pins that this chip is connected to.</p>
+<p>See <a href="http://tmrh20.github.io/RF24/pages.html">http://tmrh20.github.io/RF24/pages.html</a> for device specific information</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_cepin</td><td>The pin attached to Chip Enable on the RF module </td></tr>
@@ -321,6 +322,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Optional Linux Constructor</p>
 <p>Creates a new instance of this driver. Before using, you create an instance and send in the unique pins that this chip is connected to.</p>
+<p>See <a href="http://tmrh20.github.io/RF24/pages.html">http://tmrh20.github.io/RF24/pages.html</a> for device specific information</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_cepin</td><td>The pin attached to Chip Enable on the RF module </td></tr>
@@ -1395,7 +1397,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Test whether this is a real radio, or a mock shim for debugging. Setting either pin to 0xff is the way to indicate that this is not a real radio.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if this is a legitimate radio </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00661">661</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00665">665</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2113,7 +2115,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">  report_failure();                    <span class="comment">// Blink leds, send a message, etc. to indicate failure</span></div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00703">703</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00707">707</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2134,7 +2136,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </ol>
 <dl class="section warning"><dt>Warning</dt><dd>If set to 0, ensure 130uS delay after <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> and before any sends </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00970">970</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00974">974</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2151,7 +2153,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>This is intended to minimise the speed of SPI polling due to radio commands</p>
 <p>If using interrupts or timed requests, this can be set to 0 Default:5 </p>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00981">981</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00985">985</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2162,7 +2164,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 29 2020 12:07:55 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 26 2020 12:59:27 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
