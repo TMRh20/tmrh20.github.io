@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>RF24Gateway - TCP/IP over RF24Network: RF24Gateway_ncurses.cpp</title>
+<title>RF24Gateway - TCP/IP over RF24Network: RF24Gateway_ncursesInt.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,22 +79,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">RF24Gateway_ncurses.cpp</div>  </div>
+<div class="title">RF24Gateway_ncursesInt.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p><a class="el" href="classRF24Gateway.html">RF24Gateway</a> NCurses interface - TMRh20 2015 <br />
- This is a generic tool for nodes supporting or combining with RF24Ethernet and/or RF24Network.</p>
-<p>The tool provides a simple interface for monitoring information and activity regarding the <a class="el" href="classRF24Gateway.html">RF24Gateway</a>: <br />
- a: Interface statistics from /proc/net/dev <br />
- b: RF24Mesh address/id assignments <br />
- c: RF24Network/Radio information <br />
- d: Active IP connections (optional) <br />
-</p>
-<p><b>Requirements: NCurses</b> <br />
- Install NCurses: apt-get install libncurses5-dev Optional: Enable nf_conntrack:</p><div class="fragment"><div class="line">modprobe nf_conntrack_ipv4 </div>
-</div><!-- fragment --><div class="image">
-<img src="ncurses.JPG" alt="ncurses.JPG"/>
-</div>
+<p>A copy of the ncurses example using interrupts.</p>
 <div class="fragment"><div class="line"></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment">/**</span></div>
@@ -142,12 +130,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;time.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/******************************************************************/</span></div>
-<div class="line"></div>
+<div class="line"><span class="comment">//User Configuration</span></div>
 <div class="line">RF24 radio(22,0);</div>
 <div class="line">RF24Network network(radio);</div>
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24Gateway.html">RF24Gateway</a> gw(radio,network,mesh);</div>
 <div class="line"></div>
+<div class="line">uint8_t nodeID = 0;</div>
+<div class="line"><span class="keywordtype">int</span> interruptPin = 24;</div>
 <div class="line"><span class="comment">/******************************************************************/</span></div>
 <div class="line"></div>
 <div class="line">WINDOW * win;</div>
@@ -175,7 +165,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> updateRate = 1000;</div>
 <div class="line">  </div>
 <div class="line"> uint32_t meshInfoTimer = 0;</div>
+<div class="line"> uint32_t fifoTimer;</div>
+<div class="line"> uint32_t fifoClears;</div>
 <div class="line"> uint32_t mesh_timer = 0;</div>
+<div class="line"> <span class="keywordtype">size_t</span> networkPacketsRX = 0;</div>
 <div class="line"> std::string subIP;</div>
 <div class="line"> std::string tunStr (<span class="stringliteral">&quot;tun_nrf24&quot;</span>);</div>
 <div class="line"> <span class="keywordtype">bool</span> showConnPad;</div>
@@ -186,12 +179,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"> </div>
 <div class="line"><span class="comment">/******************************************************************/</span> </div>
 <div class="line"><span class="comment">/***********************MAIN***************************************/</span>    </div>
+<div class="line"><span class="keywordtype">void</span> intHandler(){</div>
+<div class="line">    gw.update(<span class="keyword">true</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">int</span> main() {    </div>
 <div class="line">  </div>
-<div class="line">  gw.begin();</div>
-<div class="line">  mesh.setStaticAddress(8,1);</div>
-<div class="line">  </div>
+<div class="line">  gw.begin(nodeID);</div>
+<div class="line">  <span class="comment">//mesh.setStaticAddress(8,1);</span></div>
+<div class="line"></div>
 <div class="line">  <span class="comment">//uint8_t nodeID = 22;</span></div>
 <div class="line">  <span class="comment">//gw.begin(nodeID,3,RF24_2MBPS);</span></div>
 <div class="line">  </div>
@@ -205,6 +202,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  noecho();</div>
 <div class="line">  getmaxyx(win,maxX,maxY);</div>
 <div class="line">  </div>
+<div class="line">  keypad(win, TRUE);</div>
 <div class="line">  start_color();</div>
 <div class="line">  curs_set(0);   </div>
 <div class="line">  init_pair(1, COLOR_GREEN, COLOR_BLACK);</div>
@@ -224,23 +222,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  scrollok(rf24Pad,<span class="keyword">true</span>);</div>
 <div class="line">  timeout(0);</div>
 <div class="line">  </div>
+<div class="line"></div>
+<div class="line">  <span class="comment">//MANUAL IP</span></div>
+<div class="line">  <span class="comment">//char ip[] = &quot;10.10.3.1&quot;;</span></div>
+<div class="line">  <span class="comment">//char subnet[] = &quot;255.255.255.0&quot;;</span></div>
+<div class="line">  <span class="comment">//gw.setIP(ip,subnet);</span></div>
+<div class="line"></div>
 <div class="line">  drawMain();</div>
-<div class="line"></div>
-<div class="line"></div>
+<div class="line">  </div>
+<div class="line">  radio.maskIRQ(1,1,0);</div>
+<div class="line">  attachInterrupt(interruptPin, INT_EDGE_FALLING, intHandler);</div>
 <div class="line">  </div>
 <div class="line"><span class="comment">/******************************************************************/</span> </div>
 <div class="line"><span class="comment">/***********************LOOP***************************************/</span>  </div>
 <div class="line"><span class="keywordtype">bool</span> ok = <span class="keyword">true</span>;</div>
 <div class="line"></div>
 <div class="line"> <span class="keywordflow">while</span>(1){</div>
-<div class="line">    <span class="comment"></span></div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">    * The gateway handles all IP traffic (marked as EXTERNAL_DATA_TYPE) and passes it to the associated network interface</span></div>
-<div class="line"><span class="comment">    * RF24Network user payloads are loaded into the user cache      </span></div>
-<div class="line"><span class="comment">    */</span></div>
-<div class="line"></div>
+<div class="line">    </div>
+<div class="line">  </div>
+<div class="line">    </div>
 <div class="line">  <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000 &amp;&amp; mesh.getNodeID()){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
-<div class="line">    mesh_timer = millis();</div>
 <div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
 <div class="line">        wclear(renewPad);</div>
 <div class="line">        mvwprintw(renewPad,0,0,<span class="stringliteral">&quot;*Renewing Address*&quot;</span>);</div>
@@ -248,42 +249,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        radio.maskIRQ(1,1,1); <span class="comment">//Use polling only for address renewal       </span></div>
 <div class="line">        <span class="keywordflow">if</span>( (ok = mesh.renewAddress()) ){</div>
 <div class="line">            wclear(renewPad);</div>
-<div class="line">            prefresh(renewPad,0,0, 3,26, 3, 55);</div>
+<div class="line">            prefresh(renewPad,0,0, 3,26, 4, 55);</div>
 <div class="line">        }</div>
 <div class="line">        radio.maskIRQ(1,1,0);</div>
 <div class="line">     }</div>
-<div class="line">  } </div>
-<div class="line">  <span class="keywordflow">if</span>(ok){</div>
-<div class="line">    gw.update();</div>
+<div class="line">     mesh_timer = millis();</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">    * The gateway handles all IP traffic (marked as EXTERNAL_DATA_TYPE) and passes it to the associated network interface</span></div>
+<div class="line"><span class="comment">    * RF24Network user payloads are loaded into the user cache      </span></div>
+<div class="line"><span class="comment">    */</span></div>
+<div class="line">    gw.poll(10);</div>
+<div class="line">    </div>
+<div class="line">  <span class="keywordflow">if</span>(ok){ <span class="comment">//Non-master nodes need an active connection to the mesh in order to handle data</span></div>
+<div class="line"></div>
 <div class="line">  <span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Read RF24Network Payloads (Do nothing with them currently) **/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span></div>
+<div class="line">    rfNoInterrupts();</div>
 <div class="line">    <span class="keywordflow">if</span>( network.available() ){</div>
+<div class="line">      ++networkPacketsRX;</div>
 <div class="line">      RF24NetworkHeader header;</div>
 <div class="line">      <span class="keywordtype">size_t</span> size = network.peek(header);</div>
 <div class="line">      uint8_t buf[size];</div>
 <div class="line"></div>
-<div class="line">         <span class="keywordflow">if</span>(header.type == 1){</div>
-<div class="line">      <span class="keyword">struct </span>timeStruct{</div>
-<div class="line">       uint8_t hr;</div>
-<div class="line">       uint8_t min;</div>
-<div class="line">      }myTime;</div>
+<div class="line">      <span class="keywordflow">if</span>(header.type == 1){</div>
+<div class="line">        <span class="keyword">struct </span>timeStruct{</div>
+<div class="line">         uint8_t hr;</div>
+<div class="line">         uint8_t min;</div>
+<div class="line">        }myTime;</div>
 <div class="line"></div>
-<div class="line">      time_t mTime;</div>
-<div class="line">      time(&amp;mTime);</div>
-<div class="line">      <span class="keyword">struct </span>tm* tm = localtime(&amp;mTime);</div>
+<div class="line">        time_t mTime;</div>
+<div class="line">        time(&amp;mTime);</div>
+<div class="line">        <span class="keyword">struct </span>tm* tm = localtime(&amp;mTime);</div>
 <div class="line"></div>
-<div class="line">          myTime.hr = tm-&gt;tm_hour;</div>
-<div class="line">          myTime.min = tm-&gt;tm_min;</div>
-<div class="line">         RF24NetworkHeader hdr(header.from_node,1); </div>
-<div class="line">         network.write(hdr,&amp;myTime,<span class="keyword">sizeof</span>(myTime));</div>
+<div class="line">        myTime.hr = tm-&gt;tm_hour;</div>
+<div class="line">        myTime.min = tm-&gt;tm_min;</div>
+<div class="line">        RF24NetworkHeader hdr(header.from_node,1); </div>
+<div class="line">        network.write(hdr,&amp;myTime,<span class="keyword">sizeof</span>(myTime));</div>
 <div class="line"></div>
+<div class="line">      }</div>
+<div class="line">      network.read(header,&amp;buf,size);</div>
 <div class="line">    }</div>
-<div class="line">          network.read(header,&amp;buf,size);</div>
-<div class="line">    }</div>
-<div class="line"></div>
-<div class="line">  }</div>
-<div class="line"><span class="comment"></span></div>
+<div class="line">    rfInterrupts();</div>
+<div class="line">  }<span class="keywordflow">else</span>{</div>
+<div class="line">      delay(100); <span class="comment">//Big delay if connection to RF24Mesh is failing</span></div>
+<div class="line">  }<span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Mesh address/id printout **/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span></div>
 <div class="line">    <span class="keywordflow">if</span>(millis() - meshInfoTimer &gt; updateRate){</div>
@@ -327,10 +338,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">        <span class="comment">// h: Display help menu</span></div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;h&#39;</span> : drawHelp(); <span class="keywordflow">break</span>;</div>
 <div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;x&#39;</span> : clear(); endwin(); <span class="keywordflow">return</span> 0; <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;A&#39;</span>: <span class="keywordflow">if</span>(padSelection == 0){meshScroll++;}<span class="keywordflow">else</span> <span class="keywordflow">if</span>(padSelection == 1){connScroll++;} <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;B&#39;</span>: <span class="keywordflow">if</span>(padSelection == 0){meshScroll--;}<span class="keywordflow">else</span> <span class="keywordflow">if</span>(padSelection == 1){connScroll--;} <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;C&#39;</span>: padSelection++; padSelection= std::min(padSelection,1); <span class="keywordflow">break</span>; <span class="comment">//right</span></div>
-<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;D&#39;</span>: padSelection--; padSelection= std::max(padSelection,0); <span class="keywordflow">break</span>; <span class="comment">//left</span></div>
+<div class="line">        <span class="keywordflow">case</span> KEY_UP: <span class="keywordflow">if</span>(padSelection == 0){meshScroll++;}<span class="keywordflow">else</span> <span class="keywordflow">if</span>(padSelection == 1){connScroll++;} <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> KEY_DOWN: <span class="keywordflow">if</span>(padSelection == 0){meshScroll--;}<span class="keywordflow">else</span> <span class="keywordflow">if</span>(padSelection == 1){connScroll--;} <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> KEY_RIGHT: padSelection++; padSelection= std::min(padSelection,1); <span class="keywordflow">break</span>; <span class="comment">//right</span></div>
+<div class="line">        <span class="keywordflow">case</span> KEY_LEFT: padSelection--; padSelection= std::max(padSelection,0); <span class="keywordflow">break</span>; <span class="comment">//left</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;Q&#39;</span>: clear(); endwin(); <span class="keywordflow">return</span> 0; <span class="keywordflow">break</span>;</div>
 <div class="line">        meshScroll = std::max(meshScroll,0);</div>
 <div class="line">        connScroll = std::max(connScroll,0);</div>
 <div class="line">        meshInfoTimer = 0;</div>
@@ -338,7 +350,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">    </div>
 <div class="line">    }</div>
-<div class="line">    delay(2);</div>
 <div class="line"> }<span class="comment">//while 1</span></div>
 <div class="line"></div>
 <div class="line"></div>
@@ -554,18 +565,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">   mvwprintw(rf24Pad,1,0,<span class="stringliteral">&quot;Address: 0%o\n&quot;</span>,mesh.mesh_address);</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;nodeID: %d\n&quot;</span>,mesh.getNodeID());</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;En Mesh: %s\n&quot;</span>, gw.meshEnabled() ? <span class="stringliteral">&quot;True&quot;</span> : <span class="stringliteral">&quot;False&quot;</span>);</div>
+<div class="line">   rfNoInterrupts();</div>
 <div class="line">   <span class="keywordtype">int</span> dr = radio.getDataRate();</div>
-<div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;Data-Rate: %s\n&quot;</span>, dr == 0 ? <span class="stringliteral">&quot;1MBPS&quot;</span> : dr == 1 ? <span class="stringliteral">&quot;2MBPS&quot;</span> : dr == 2 ? <span class="stringliteral">&quot;250KBPS&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> ); </div>
 <div class="line">   <span class="keywordtype">int</span> pa = radio.getPALevel();</div>
+<div class="line">   rfInterrupts();</div>
+<div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;Data-Rate: %s\n&quot;</span>, dr == 0 ? <span class="stringliteral">&quot;1MBPS&quot;</span> : dr == 1 ? <span class="stringliteral">&quot;2MBPS&quot;</span> : dr == 2 ? <span class="stringliteral">&quot;250KBPS&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> ); </div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;PA Level: %s\n&quot;</span>, pa == 0 ? <span class="stringliteral">&quot;MIN&quot;</span> : pa == 1 ? <span class="stringliteral">&quot;LOW&quot;</span> : pa == 2 ? <span class="stringliteral">&quot;HIGH&quot;</span> : pa == 3 ? <span class="stringliteral">&quot;MAX&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> );</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;IF Type: %s\n&quot;</span>, gw.config_TUN == 1 ? <span class="stringliteral">&quot;TUN&quot;</span> : <span class="stringliteral">&quot;TAP&quot;</span> );</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;IF Drops: %u\n&quot;</span>, gw.ifDropped() );</div>
 <div class="line"><span class="preprocessor">   #if defined (ENABLE_NETWORK_STATS)</span></div>
 <div class="line">     uint32_t ok,fail;</div>
 <div class="line">     network.failures(&amp;fail,&amp;ok);</div>
-<div class="line">     wprintw(rf24Pad,<span class="stringliteral">&quot;TX Packets: %u\n&quot;</span>, ok );</div>
+<div class="line">     wprintw(rf24Pad,<span class="stringliteral">&quot;TX Packets(sys): %u\n&quot;</span>, ok );</div>
 <div class="line">     wprintw(rf24Pad,<span class="stringliteral">&quot;TX Drops: %u\n&quot;</span>, fail );</div>
 <div class="line"><span class="preprocessor">   #endif</span></div>
+<div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;RX Packets(user): %u\n&quot;</span>,networkPacketsRX);</div>
+<div class="line">   <span class="keywordflow">if</span>(gw.fifoCleared){</div>
+<div class="line">      ++fifoClears;</div>
+<div class="line">      gw.fifoCleared=<span class="keyword">false</span>;</div>
+<div class="line">   }</div>
+<div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;Interrupt Errors: %u&quot;</span>,fifoClears);</div>
 <div class="line">   </div>
 <div class="line">   <span class="keywordflow">if</span>(padSelection == 1){</div>
 <div class="line">     wattron(rf24Pad,COLOR_PAIR(1));</div>

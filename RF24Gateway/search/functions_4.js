@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setip',['setIP',['../classRF24Gateway.html#a1dcb8921636e754ae4a7f21d59fcfb3e',1,'RF24Gateway']]]
+  ['rf24gateway',['RF24Gateway',['../classRF24Gateway.html#a939a9d63e37fb627847ebe70d4fb6043',1,'RF24Gateway']]]
 ];

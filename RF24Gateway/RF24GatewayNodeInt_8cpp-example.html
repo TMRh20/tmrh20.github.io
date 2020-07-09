@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>RF24Gateway - TCP/IP over RF24Network: RF24GatewayNode.cpp</title>
+<title>RF24Gateway - TCP/IP over RF24Network: RF24GatewayNodeInt.cpp</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,10 +79,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">RF24GatewayNode.cpp</div>  </div>
+<div class="title">RF24GatewayNodeInt.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>A simple example of using <a class="el" href="classRF24Gateway.html">RF24Gateway</a> node to forward IP traffic automatically to a network interface, while managing standard RF24Network user payloads independently.</p>
+<p>A copy of the RF24GatewayNode example using interrupts.</p>
 <div class="fragment"><div class="line"></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24/RF24.h&gt;</span></div>
@@ -96,6 +96,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24Gateway.html">RF24Gateway</a> gw(radio,network,mesh);</div>
 <div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> intHandler(){</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">//Handle RF24Network reads/routing and read/writes of the tun_nrf24 TUN/TAP interface via interrupt</span></div>
+<div class="line">    gw.update(<span class="keyword">true</span>);</div>
+<div class="line"></div>
+<div class="line">}</div>
+<div class="line"></div>
 <div class="line">uint32_t mesh_timer = 0;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>** argv) {</div>
@@ -105,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">   gw.begin();</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//Config for use with RF24Mesh as child Node</span></div>
-<div class="line">  <span class="comment">// uint8_t nodeID = 2;</span></div>
+<div class="line">  <span class="comment">// uint8_t nodeID = 1;</span></div>
 <div class="line">  <span class="comment">// gw.begin(nodeID);</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
@@ -118,33 +125,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="keywordtype">char</span> subnet[] = <span class="stringliteral">&quot;255.255.255.0&quot;</span>;</div>
 <div class="line">  </div>
 <div class="line">  gw.setIP(ip,subnet);</div>
+<div class="line">  radio.maskIRQ(1,1,0);</div>
+<div class="line">  attachInterrupt(23, INT_EDGE_FALLING, intHandler);</div>
+<div class="line">  </div>
 <div class="line">  </div>
 <div class="line"> <span class="keywordflow">while</span>(1){</div>
 <div class="line">    </div>
 <div class="line">    <span class="comment">// The gateway handles all IP traffic (marked as EXTERNAL_DATA_TYPE) and passes it to the associated network interface</span></div>
 <div class="line">    <span class="comment">// RF24Network user payloads are loaded into the user cache</span></div>
-<div class="line">    gw.update();</div>
 <div class="line">    <span class="keywordflow">if</span>( network.available() ){</div>
 <div class="line">      RF24NetworkHeader header;</div>
 <div class="line">        <span class="keywordtype">size_t</span> size = network.peek(header);</div>
 <div class="line">        uint8_t buf[size];</div>
 <div class="line">        network.read(header,&amp;buf,size);</div>
 <div class="line">      printf(<span class="stringliteral">&quot;Received Network Message, type: %d id %d from %d\n&quot;</span>,header.type,header.id,mesh.getNodeID(header.from_node));</div>
-<div class="line">      </div>
-<div class="line">      RF24NetworkFrame frame = RF24NetworkFrame(header,buf,size); </div>
-<div class="line">      gw.sendUDP(mesh.getNodeID(header.from_node),frame);</div>
-<div class="line">      </div>
 <div class="line">    }</div>
-<div class="line">    delay(2);</div>
-<div class="line">    </div>
-<div class="line">    <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000 &amp;&amp; mesh.getNodeID()){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
-<div class="line">      mesh_timer = millis();</div>
-<div class="line">      <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
+<div class="line">   </div>
+<div class="line">   <span class="comment">//When using interrupts, gw.poll(); needs to be called to handle incoming data from the network interface.</span></div>
+<div class="line">   <span class="comment">//The function will perform a delayed wait of max 3ms unless otherwise specified.</span></div>
+<div class="line">   gw.poll(3);</div>
+<div class="line">   </div>
+<div class="line">  <span class="keywordflow">if</span>(millis()-mesh_timer &gt; 30000 &amp;&amp; mesh.getNodeID()){ <span class="comment">//Every 30 seconds, test mesh connectivity</span></div>
+<div class="line">    mesh_timer = millis();</div>
+<div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
 <div class="line">        <span class="comment">//refresh the network address</span></div>
+<div class="line">        radio.maskIRQ(1,1,1); <span class="comment">//Use polling only for address renewal       </span></div>
 <div class="line">        mesh.renewAddress();</div>
-<div class="line">      }</div>
-<div class="line">    }</div>
-<div class="line">  </div>
+<div class="line">        radio.maskIRQ(1,1,0);</div>
+<div class="line">     }</div>
+<div class="line">  }    </div>
+<div class="line"></div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
