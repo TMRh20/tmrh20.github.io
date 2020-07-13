@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['s',['s',['../classRF24Gateway.html#a10d444c014e358285e4b940c18deceee',1,'RF24Gateway']]]
+  ['gw',['gw',['../structRF24Gateway_1_1routeStruct.html#ab026ce6c7ca06f9d299065b5ca36b245',1,'RF24Gateway::routeStruct']]]
 ];

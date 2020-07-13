@@ -266,7 +266,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment"></span></div>
 <div class="line"><span class="comment">  /** Read RF24Network Payloads (Do nothing with them currently) **/</span></div>
 <div class="line">  <span class="comment">/*******************************/</span></div>
-<div class="line">    rfNoInterrupts();</div>
+<div class="line">    radio.maskIRQ(1,1,1);</div>
 <div class="line">    <span class="keywordflow">if</span>( network.available() ){</div>
 <div class="line">      ++networkPacketsRX;</div>
 <div class="line">      RF24NetworkHeader header;</div>
@@ -291,7 +291,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      }</div>
 <div class="line">      network.read(header,&amp;buf,size);</div>
 <div class="line">    }</div>
-<div class="line">    rfInterrupts();</div>
+<div class="line">    radio.maskIRQ(1,1,0);</div>
 <div class="line">  }<span class="keywordflow">else</span>{</div>
 <div class="line">      delay(100); <span class="comment">//Big delay if connection to RF24Mesh is failing</span></div>
 <div class="line">  }<span class="comment"></span></div>
@@ -565,10 +565,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">   mvwprintw(rf24Pad,1,0,<span class="stringliteral">&quot;Address: 0%o\n&quot;</span>,mesh.mesh_address);</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;nodeID: %d\n&quot;</span>,mesh.getNodeID());</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;En Mesh: %s\n&quot;</span>, gw.meshEnabled() ? <span class="stringliteral">&quot;True&quot;</span> : <span class="stringliteral">&quot;False&quot;</span>);</div>
-<div class="line">   rfNoInterrupts();</div>
+<div class="line">   radio.maskIRQ(1,1,1);</div>
 <div class="line">   <span class="keywordtype">int</span> dr = radio.getDataRate();</div>
 <div class="line">   <span class="keywordtype">int</span> pa = radio.getPALevel();</div>
-<div class="line">   rfInterrupts();</div>
+<div class="line">   radio.maskIRQ(1,1,0);</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;Data-Rate: %s\n&quot;</span>, dr == 0 ? <span class="stringliteral">&quot;1MBPS&quot;</span> : dr == 1 ? <span class="stringliteral">&quot;2MBPS&quot;</span> : dr == 2 ? <span class="stringliteral">&quot;250KBPS&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> ); </div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;PA Level: %s\n&quot;</span>, pa == 0 ? <span class="stringliteral">&quot;MIN&quot;</span> : pa == 1 ? <span class="stringliteral">&quot;LOW&quot;</span> : pa == 2 ? <span class="stringliteral">&quot;HIGH&quot;</span> : pa == 3 ? <span class="stringliteral">&quot;MAX&quot;</span> : <span class="stringliteral">&quot;ERROR&quot;</span> );</div>
 <div class="line">   wprintw(rf24Pad,<span class="stringliteral">&quot;IF Type: %s\n&quot;</span>, gw.config_TUN == 1 ? <span class="stringliteral">&quot;TUN&quot;</span> : <span class="stringliteral">&quot;TAP&quot;</span> );</div>
@@ -653,7 +653,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jul 10 2020 06:08:44 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2020 04:35:45 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

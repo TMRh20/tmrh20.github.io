@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>RF24Gateway - TCP/IP over RF24Network: bClient.sh</title>
+<title>RF24Gateway - TCP/IP over RF24Network: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -42,7 +42,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -62,7 +62,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -77,48 +83,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="classRF24Gateway.html">RF24Gateway</a></li><li class="navelem"><a class="el" href="structRF24Gateway_1_1routeStruct.html">routeStruct</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">bClient.sh</div>  </div>
+<div class="title">RF24Gateway::routeStruct Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<p>Once <a class="el" href="classRF24Gateway.html">RF24Gateway</a> and RF24Ethernet are configured, standard tools can be used to interact with the sensor nodes. <br />
-Example of on demand LED/Lighting control using a Bash script.</p>
-<div class="fragment"><div class="line">#!/bin/bash</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line">if (( $# != 2 ))</div>
-<div class="line">then</div>
-<div class="line">  echo &quot;Usage: ... ./bClient.sh &lt;IP&gt; &lt;ON/OFF&gt;&quot;</div>
-<div class="line">  exit 1</div>
-<div class="line">fi</div>
-<div class="line"></div>
-<div class="line">IP=$1</div>
-<div class="line">PAGE=$2</div>
-<div class="line"></div>
-<div class="line">URL=&quot;:1000/&quot;</div>
-<div class="line">SUFFIX=&quot;&lt;/td*&quot;</div>
-<div class="line"></div>
-<div class="line">#Build a request ( http://10.10.2.4:1000/ON )</div>
-<div class="line">REQUEST=&quot;http://&quot;$IP$URL$PAGE</div>
-<div class="line"></div>
-<div class="line">#Make the request, with 1 retry and a timeout of 10 seconds per retry (max 20 seconds per request)</div>
-<div class="line">RESULT=$(wget -q --tries=1 --timeout=10 -O- $REQUEST | grep &#39;LED is&#39;)</div>
-<div class="line"></div>
-<div class="line">#Trim the HTML from the result</div>
-<div class="line">RESULT=${RESULT%$SUFFIX}</div>
-<div class="line"></div>
-<div class="line">#If succesful, print status, else indicate failure</div>
-<div class="line">if [ ${#RESULT} -ne 0 ]</div>
-<div class="line">then</div>
-<div class="line">  echo $RESULT</div>
-<div class="line">else</div>
-<div class="line">  echo &quot;Request Failed&quot;</div>
-<div class="line">fi</div>
-</div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="structRF24Gateway_1_1routeStruct.html">RF24Gateway::routeStruct</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html#ab026ce6c7ca06f9d299065b5ca36b245">gw</a></td><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html">RF24Gateway::routeStruct</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html#acc7b96511f6e94f2afef69a4c63679e0">ip</a></td><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html">RF24Gateway::routeStruct</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html#a7742cff2aabb92931ee8828cbee2d68c">mask</a></td><td class="entry"><a class="el" href="structRF24Gateway_1_1routeStruct.html">RF24Gateway::routeStruct</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jul 13 2020 04:35:45 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jul 13 2020 04:35:46 for RF24Gateway - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
