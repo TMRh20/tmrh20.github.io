@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized high speed nRF24L01+ driver class documentaion: GettingStarted_CallResponse.ino</title>
+<title>Optimized high speed nRF24L01+ driver class documentation: GettingStarted_CallResponse.ino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -24,8 +24,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Optimized high speed nRF24L01+ driver class documentaion
-   &#160;<span id="projectnumber">V1.3.4</span>
+   <div id="projectname">Optimized high speed nRF24L01+ driver class documentation
+   &#160;<span id="projectnumber">V1.3.6</span>
    </div>
    <div id="projectbrief">TMRh20 2020 - Optimized fork of the nRF24L01+ driver</div>
   </td>
@@ -97,6 +97,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">RF24.h</a>&quot;</span></div>
 <div class="line"></div>
+<div class="line"><span class="comment">// You must include printf and run printf_begin() if you wish to use radio.printDetails();</span></div>
+<div class="line"><span class="comment">//#include &quot;printf.h&quot;</span></div>
+<div class="line"></div>
 <div class="line"><span class="comment">/****************** User Config ***************************/</span></div>
 <div class="line"><span class="comment">/***      Set this radio as radio number 0 or 1         ***/</span></div>
 <div class="line"><span class="keywordtype">bool</span> radioNumber = 0;</div>
@@ -119,6 +122,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="keywordtype">void</span> setup(){</div>
 <div class="line"></div>
 <div class="line">  Serial.begin(115200);</div>
+<div class="line">  <span class="comment">// printf_begin(); // This is for initializing printf that is used by printDetails()</span></div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;RF24/examples/GettingStarted_CallResponse&quot;</span>));</div>
 <div class="line">  Serial.println(F(<span class="stringliteral">&quot;*** PRESS &#39;T&#39; to begin transmitting to the other node&quot;</span>));</div>
 <div class="line"> </div>
@@ -139,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  radio.startListening();                       <span class="comment">// Start listening  </span></div>
 <div class="line">  </div>
 <div class="line">  radio.writeAckPayload(1,&amp;counter,1);          <span class="comment">// Pre-load an ack-paylod into the FIFO buffer for pipe 1</span></div>
-<div class="line">  <span class="comment">//radio.printDetails();</span></div>
+<div class="line">  <span class="comment">//radio.printDetails(); </span></div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop(<span class="keywordtype">void</span>) {</div>
@@ -221,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 26 2020 12:59:26 for Optimized high speed nRF24L01+ driver class documentaion by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 09:03:49 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
