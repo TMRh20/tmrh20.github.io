@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.6b</span>
+   &#160;<span id="projectnumber">1.6.3</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -83,7 +83,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Version Info </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section version"><dt>Version</dt><dd><b>1.5RC1 - Apr15-16 2015</b><ul>
+<div class="textblock"><dl class="section version"><dt>Version</dt><dd><b>1.6.1 - Dec 2015</b><ul>
+<li>Use Arduino yield() function to keep IP stack updated during calls to delay() etc. (Not working with ESP8266)</li>
+<li>Fix mqtt example</li>
+<li>Fix (mostly) SLIP gateway example (RPi direct connection preferred)</li>
+<li>Fix client operator conversion</li>
+</ul>
+</dd>
+<dd>
+<b>1.6 - Aug-Dec 2015</b><ul>
+<li>Address problems with stream functions like client.parseInt() or find()</li>
+<li>Tested working with MQTT via <a href="https://github.com/knolleary/pubsubclient">PubSub library</a></li>
+<li>Fix: Connection state set before begin allocated</li>
+<li>Workaround for HTTP servers sending half TCP MSS</li>
+<li>Automatically assign mesh nodeID based on IP &amp; update examples</li>
+<li><a href="https://github.com/esp8266/Arduino">ESP8266 (Arduino)</a> support</li>
+</ul>
+</dd>
+<dd>
+<b>1.51RC1 - Apr15-16 2015</b><ul>
+<li>Seemingly stable release candidate</li>
+<li>Major change: <a href="http://tmrh20.github.io/RF24Gateway/">RF24Gateway</a> replaces RF24toTUN</li>
+<li>Now defaults to using RF24Mesh (TUN) interface</li>
+<li>Apr 16 - Use external buffer for uIP to save memory. Requires Updating RF24Network and RF24Mesh.</li>
+</ul>
+</dd>
+<dd>
+<b>1.5RC1 - Apr15-16 2015</b><ul>
 <li>Seemingly stable release candidate</li>
 <li>Major change: <a href="http://tmrh20.github.io/RF24Gateway/">RF24Gateway</a> replaces RF24toTUN</li>
 <li>Now defaults to using RF24Mesh (TUN) interface</li>
@@ -141,7 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 28 2015 23:31:49 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 08:29:38 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

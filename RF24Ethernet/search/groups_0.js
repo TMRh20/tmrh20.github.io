@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debugoptions',['DebugOptions',['../group__DebugOptions.html',1,'']]]
+  ['user_20configuration_20options',['User Configuration Options',['../group__UipConfiguration.html',1,'']]]
 ];

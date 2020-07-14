@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>RF24Ethernet - TCP/IP over RF24Network: UipConfiguration</title>
+<title>RF24Ethernet - TCP/IP over RF24Network: User Configuration Options</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.6b</span>
+   &#160;<span id="projectnumber">1.6.3</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -80,7 +80,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">UipConfiguration</div>  </div>
+<div class="title">User Configuration Options</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
@@ -119,7 +119,7 @@ Advanced Operation</h2></td></tr>
 <tr class="separator:ga6444c52673950d411a98eb59a229297f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>User Configuration Options /* </p>
+<p>/* </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="ga3f6f1f6f98431f2d33ed30a30d2ccc35"></a>
 <div class="memitem">
@@ -133,7 +133,7 @@ Advanced Operation</h2></td></tr>
 <p>Maximum number of TCP connections. </p>
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="InteractiveServer_Mesh_8ino-example.html#a1">InteractiveServer_Mesh.ino</a>, and <a class="el" href="SLIP_InteractiveServer_8ino-example.html#a1">SLIP_InteractiveServer.ino</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00058">58</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00056">56</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -148,7 +148,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum number of listening TCP ports. </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00061">61</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00059">59</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -171,7 +171,7 @@ Advanced Operation</h2></td></tr>
 <li>Max usable value is 512 </li>
 </ol>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00081">81</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00079">79</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +188,7 @@ Advanced Operation</h2></td></tr>
 <p>Adjust the length of time after which an open connection will be timed out.</p>
 <p>If uIP is polling the established connection, but an ack or data is not received for this duration in ms, kill the connection. </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00089">89</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00087">87</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +205,7 @@ Advanced Operation</h2></td></tr>
 <p>Ethernet headers add an additional 14 bytes to each payload.</p>
 <p>RF24Mesh generally needs to be used if setting this to 0 and using a TUN or SLIP interface </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00098">98</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00096">96</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +220,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 <p>UDP support on or off (required for DNS) </p><dl class="section note"><dt>Note</dt><dd>DNS support typically requires larger payload sizes (250-300). It seems that DNS servers will typically respond with a single address if requesting an address of www.google.com vs google.com, and this will work with the default payload size </dd></dl>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00106">106</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00104">104</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -236,7 +236,7 @@ Advanced Operation</h2></td></tr>
 <p>Adjust the rate at which the IP stack performs periodic processing. The periodic timer will be called at a rate of 1 second divided by this value</p>
 <p>Increase this value to reduce response times and increase throughput during user interactions. </p><dl class="section note"><dt>Note</dt><dd>: Increasing this value will increase throughput for individual nodes, but can impact other network traffic. </dd></dl>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00126">126</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00124">124</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -251,7 +251,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 <p>If operating solely as a server, disable the ability to open TCP connections as a client by setting to 0 Saves memory and program space. </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00133">133</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00131">131</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +266,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 <p>UDP checksums on or off </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00138">138</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00136">136</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -283,7 +283,7 @@ Advanced Operation</h2></td></tr>
 <p>The output buffer size determines the max length of strings that can be sent by the user, and depends on the uip buffer size</p>
 <p>Must be &lt;= UIP_BUFSIZE - UIP_LLH_LEN - UIP_TCPIP_HLEN </p><dl class="section note"><dt>Note</dt><dd>Must be an odd number or the TCP/IP sequence gets out of order with payloads larger than 511 bytes I think this might be a bug or missing feature of the uip stack </dd></dl>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00150">150</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00148">148</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -298,7 +298,7 @@ Advanced Operation</h2></td></tr>
 </div><div class="memdoc">
 <dl><dt><b>Examples: </b></dt><dd><a class="el" href="HTML_8h-example.html#a0">HTML.h</a>.</dd>
 </dl>
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00155">155</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00153">153</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
@@ -316,14 +316,14 @@ Advanced Operation</h2></td></tr>
 <p>Adjust the initial delay period before restarting a connection that has already been restarted</p>
 <p>For small payloads (96-120 bytes) with a fast connection, this value can be as low as ~750ms or so. When increasing the uip buffer size, this value should be increased, or the window may be reopened while the requested data is still being received, hindering traffic flow. </p>
 
-<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00169">169</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
+<p>Definition at line <a class="el" href="uip-conf_8h_source.html#l00167">167</a> of file <a class="el" href="uip-conf_8h_source.html">uip-conf.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 28 2015 23:31:49 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 08:29:38 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

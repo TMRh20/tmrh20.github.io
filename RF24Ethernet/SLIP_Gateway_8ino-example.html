@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.6b</span>
+   &#160;<span id="projectnumber">1.6.3</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -105,9 +105,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> * 4. Type &#39;ls&#39; and look for a new device ttyUSB&lt;X&gt; where &lt;X&gt; is a number</span></div>
 <div class="line"><span class="comment"> * 5. Run   sudo modprobe slip</span></div>
 <div class="line"><span class="comment"> * 6. Run   sudo slattach -L -s 115200 -p slip /dev/ttyUSB&lt;X&gt; &amp;</span></div>
+<div class="line"><span class="comment"> * 7. Note the &amp; at the end of the previous command. Without it, slattach will appear to hang and CTRL+C will exit.</span></div>
 <div class="line"><span class="comment"> * 7. Run ifconfig , note the sl&lt;X&gt; device</span></div>
 <div class="line"><span class="comment"> * 8. Run   sudo ifconfig sl&lt;X&gt; 10.10.3.1</span></div>
 <div class="line"><span class="comment"> * 9. Run   sudo route add -net 10.10.3.0/24 gw 10.10.3.1</span></div>
+<div class="line"><span class="comment"> * 10. The gateway is now up and running. Active RF24Ethernet nodes should be pingable.</span></div>
 <div class="line"><span class="comment"></span></div>
 <div class="line"><span class="comment"> Note: If using an ip of 192.168.3.1 for the gateway, the commands are very similar:</span></div>
 <div class="line"><span class="comment">        ie: sudo route add -net 192.168.3.0/24 gw 192.168.3.1</span></div>
@@ -119,12 +121,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> * The requested URL is used as input, to determine whether to turn the LED off or on</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
-<div class="line"></div>
-<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Mesh.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;EEPROM.h&quot;</span></div>
 <div class="line"></div>
 <div class="line">RF24 radio(7, 8);</div>
 <div class="line">RF24Network network(radio);</div>
@@ -138,9 +138,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">// NOTE: IMPORTANT this should be set to the same value as the UIP_BUFSIZE and</span></div>
 <div class="line"><span class="comment">// the MAX_PAYLOAD_SIZE in RF24Network. The default is 120 bytes</span></div>
-<div class="line"><span class="preprocessor">#define UIP_BUFFER_SIZE 120</span></div>
+<div class="line"><span class="preprocessor">#define UIP_BUFFER_SIZE MAX_PAYLOAD_SIZE</span></div>
 <div class="line"></div>
 <div class="line">uint8_t slip_buf[UIP_BUFFER_SIZE]; <span class="comment">// MSS + TCP Header Length</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">//Function to send incoming network data to the SLIP interface</span></div>
+<div class="line"><span class="keywordtype">void</span> networkToSLIP();</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line"></div>
@@ -163,31 +166,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"></div>
+<div class="line">uint32_t active_timer =0;</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line"></div>
-<div class="line">  <span class="comment">// Poll the network and mesh for incoming data or address requests</span></div>
-<div class="line">  uint8_t headerType = mesh.update();</div>
-<div class="line"></div>
 <div class="line">  <span class="comment">// Provide RF24Network addresses to connecting &amp; reconnecting nodes</span></div>
-<div class="line">  mesh.DHCP();</div>
+<div class="line">  <span class="keywordflow">if</span>(millis() &gt; 10000){</div>
+<div class="line">    mesh.DHCP();</div>
+<div class="line">  }</div>
 <div class="line"></div>
+<div class="line">  <span class="comment">//Ensure any incoming user payloads are read from the buffer</span></div>
+<div class="line">  <span class="keywordflow">while</span>(network.available()){</div>
+<div class="line">    RF24NetworkHeader header;</div>
+<div class="line">    network.read(header,0,0);    </div>
+<div class="line">  }</div>
+<div class="line">  </div>
 <div class="line">  <span class="comment">// Handle external (TCP) data</span></div>
 <div class="line">  <span class="comment">// Note: If not utilizing RF24Network payloads directly, users can edit the RF24Network_config.h file</span></div>
 <div class="line">  <span class="comment">// and uncomment #define DISABLE_USER_PAYLOADS. This can save a few hundred bytes of RAM.</span></div>
 <div class="line"></div>
-<div class="line">  <span class="keywordflow">if</span> (headerType == EXTERNAL_DATA_TYPE) {</div>
-<div class="line">    RF24NetworkFrame *frame = network.frag_ptr;</div>
-<div class="line">    <span class="keywordtype">size_t</span> size = frame-&gt;message_size;</div>
-<div class="line">    uint8_t *pointer = frame-&gt;message_buffer;</div>
-<div class="line">    slipdev_send(pointer, size);</div>
+<div class="line">  <span class="keywordflow">if</span>(mesh.update() == EXTERNAL_DATA_TYPE) {</div>
+<div class="line">    networkToSLIP();</div>
 <div class="line">  }</div>
 <div class="line"></div>
+<div class="line">  </div>
 <div class="line">  <span class="comment">// Poll the SLIP device for incoming data</span></div>
-<div class="line">  uint16_t len = slipdev_poll();</div>
-<div class="line"></div>
-<div class="line">  <span class="keywordflow">if</span> (len) {</div>
-<div class="line">   </div>
+<div class="line">  <span class="comment">//uint16_t len = slipdev_poll();</span></div>
+<div class="line">  uint16_t len;</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">if</span>( (len = slipdev_poll()) &gt; 0 ){</div>
+<div class="line">    <span class="keywordflow">if</span>(len &gt; MAX_PAYLOAD_SIZE){ <span class="keywordflow">return</span>; }</div>
 <div class="line">    RF24NetworkHeader header(01, EXTERNAL_DATA_TYPE);    </div>
 <div class="line">    uint8_t meshAddr;</div>
 <div class="line">    </div>
@@ -204,7 +212,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">      #endif</span></div>
 <div class="line">      </div>
 <div class="line">      network.write(header, &amp;slip_buf, len);</div>
-<div class="line">      </div>
+<div class="line"></div>
 <div class="line"><span class="preprocessor">      #if defined (LED_TXRX)</span></div>
 <div class="line">        digitalWrite(DEBUG_LED_PIN, LOW);</div>
 <div class="line"><span class="preprocessor">      #endif</span></div>
@@ -219,6 +227,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> networkToSLIP(){</div>
+<div class="line">  </div>
+<div class="line">    RF24NetworkFrame *frame = network.frag_ptr;</div>
+<div class="line">    <span class="keywordtype">size_t</span> size = frame-&gt;message_size;</div>
+<div class="line">    uint8_t *pointer = frame-&gt;message_buffer;</div>
+<div class="line">    slipdev_send(pointer, size);</div>
+<div class="line">    <span class="comment">//digitalWrite(DEBUG_LED_PIN, !digitalRead(DEBUG_LED_PIN));</span></div>
+<div class="line">    </div>
+<div class="line">}</div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">void</span> flashLED() {</div>
 <div class="line"><span class="preprocessor">#if defined (SLIP_DEBUG)</span></div>
@@ -240,7 +257,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 28 2015 23:31:49 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 08:29:38 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

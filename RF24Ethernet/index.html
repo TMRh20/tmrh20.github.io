@@ -25,7 +25,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">RF24Ethernet - TCP/IP over RF24Network
-   &#160;<span id="projectnumber">1.6b</span>
+   &#160;<span id="projectnumber">1.6.3</span>
    </div>
    <div id="projectbrief">TMRh20 - Pushing the practical limits of RF24 modules</div>
   </td>
@@ -98,23 +98,13 @@ Goals:</h1>
 </ul>
 <h1><a class="anchor" id="News"></a>
 Update News</h1>
-<dl class="section version"><dt>Version</dt><dd><b>1.6 - Aug-Dec 2015</b><ul>
-<li>Address problems with stream functions like client.parseInt() or find()</li>
-<li>Tested working with MQTT via <a href="https://github.com/knolleary/pubsubclient">PubSub library</a></li>
-<li>Fix: Connection state set before begin allocated</li>
-<li>Workaround for HTTP servers sending half TCP MSS</li>
-<li>Automatically assign mesh nodeID based on IP &amp; update examples</li>
-<li><a href="https://github.com/esp8266/Arduino">ESP8266 (Arduino)</a> support</li>
+<dl class="section version"><dt>Version</dt><dd><b>1.6.3 - April 2020 </b><ul>
+<li>Update &amp; fix MQTT example</li>
+<li>Add dependencies for RF24, RF24Network &amp; RF24Mesh</li>
 </ul>
 </dd>
 <dd>
-<b>1.51RC1 - Apr15-16 2015</b><ul>
-<li>Seemingly stable release candidate</li>
-<li>Major change: <a href="http://tmrh20.github.io/RF24Gateway/">RF24Gateway</a> replaces RF24toTUN</li>
-<li>Now defaults to using RF24Mesh (TUN) interface</li>
-<li>Apr 16 - Use external buffer for uIP to save memory. Requires Updating RF24Network and RF24Mesh.</li>
-</ul>
-</dd></dl>
+<b>1.6.2 - May 2019 </b></dd></dl>
 <p>See <a href="VersionInfo.html">version history </a> for more info</p>
 <h1><a class="anchor" id="Config"></a>
 Configuration and Setup</h1>
@@ -134,8 +124,8 @@ Building a Network - Customizing your RF24 TCP/IP network</h1>
 <p>See the <a href="CustomNetworks.html">Building a network</a> page <br />
  <br />
  </p>
-<h1><a class="anchor" id="Troubleshooting"></a>
-Troubleshooting</h1>
+<h1><a class="anchor" id="StandardTroubleshooting"></a>
+Standard Troubleshooting</h1>
 <p>The RF24 libraries are divided into layers, generally according to the OSI model, which allows specialized testing and troubleshooting of individual layers. <br />
 See the <a href="Troubleshooting.html">Troubleshooting</a> section for general troubleshooting steps. <br />
  <br />
@@ -145,7 +135,7 @@ Additional Information</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 28 2015 23:31:50 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 08:29:38 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
