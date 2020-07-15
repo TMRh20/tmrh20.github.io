@@ -100,44 +100,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// Hardware configuration</span></div>
 <div class="line"><span class="comment">// Configure the appropriate pins for your connections</span></div>
 <div class="line"></div>
-<div class="line"><span class="comment">/****************** Raspberry Pi ***********************/</span></div>
-<div class="line"></div>
+<div class="line"><span class="comment">/****************** Linux ***********************/</span></div>
 <div class="line"><span class="comment">// Radio CE Pin, CSN Pin, SPI Speed</span></div>
-<div class="line"><span class="comment">// See http://www.airspayce.com/mikem/bcm2835/group__constants.html#ga63c029bd6500167152db4e57736d0939 and the related enumerations for pin information.</span></div>
+<div class="line"><span class="comment">// CE Pin uses GPIO number with BCM and SPIDEV drivers, other platforms use their own pin numbering</span></div>
+<div class="line"><span class="comment">// CS Pin addresses the SPI bus number at /dev/spidev&lt;a&gt;.&lt;b&gt;</span></div>
+<div class="line"><span class="comment">// ie: RF24 radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); spidev1.0 is 10, spidev1.1 is 11 etc..</span></div>
 <div class="line"></div>
-<div class="line"><span class="comment">// Setup for GPIO 22 CE and CE0 CSN with SPI Speed @ 4Mhz</span></div>
-<div class="line"><span class="comment">//RF24 radio(RPI_V2_GPIO_P1_22, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_4MHZ);</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// NEW: Setup for RPi B+</span></div>
-<div class="line"><span class="comment">//RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ);</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Setup for GPIO 15 CE and CE0 CSN with SPI Speed @ 8Mhz</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(RPI_V2_GPIO_P1_15, RPI_V2_GPIO_P1_24, BCM2835_SPI_SPEED_8MHZ);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/*** RPi Alternate ***/</span></div>
-<div class="line"><span class="comment">//Note: Specify SPI BUS 0 or 1 instead of CS pin number.</span></div>
-<div class="line"><span class="comment">// See http://tmrh20.github.io/RF24/RPi.html for more information on usage</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">//RPi Alternate, with MRAA</span></div>
-<div class="line"><span class="comment">//RF24 radio(15,0);</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">//RPi Alternate, with SPIDEV - Note: Edit RF24/arch/BBB/spi.cpp and  set &#39;this-&gt;device = &quot;/dev/spidev0.0&quot;;;&#39; or as listed in /dev</span></div>
-<div class="line"><span class="comment">//RF24 radio(22,0);</span></div>
-<div class="line"></div>
+<div class="line"><span class="comment">// Generic:</span></div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(22,0);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/****************** Linux (BBB,x86,etc) ***********************/</span></div>
-<div class="line"></div>
 <div class="line"><span class="comment">// See http://tmrh20.github.io/RF24/pages.html for more information on usage</span></div>
 <div class="line"><span class="comment">// See http://iotdk.intel.com/docs/master/mraa/ for more information on MRAA</span></div>
 <div class="line"><span class="comment">// See https://www.kernel.org/doc/Documentation/spi/spidev for more information on SPIDEV</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">// Setup for ARM(Linux) devices like BBB using spidev (default is &quot;/dev/spidev1.0&quot; )</span></div>
-<div class="line"><span class="comment">//RF24 radio(115,0);</span></div>
-<div class="line"></div>
-<div class="line"><span class="comment">//BBB Alternate, with mraa</span></div>
-<div class="line"><span class="comment">// CE pin = (Header P9, Pin 13) = 59 = 13 + 46 </span></div>
-<div class="line"><span class="comment">//Note: Specify SPI BUS 0 or 1 instead of CS pin number. </span></div>
-<div class="line"><span class="comment">//RF24 radio(59,0);</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">/**************************************************************/</span></div>
 <div class="line"></div>
@@ -286,7 +261,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 09:03:50 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

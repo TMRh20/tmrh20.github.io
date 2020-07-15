@@ -102,134 +102,127 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">########### USER CONFIGURATION ###########</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"># See https://github.com/TMRh20/RF24/blob/master/pyRF24/readme.md</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"># CE Pin, CSN Pin, SPI Speed</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># Setup for GPIO 22 CE and CE0 CSN with SPI Speed @ 8Mhz</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"># radio = RF24(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ)</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"># RPi B</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"># Setup for GPIO 15 CE and CE1 CSN with SPI Speed @ 8Mhz</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"># radio = RF24(RPI_V2_GPIO_P1_15, BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ)</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"># RPi B+</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"># Setup for GPIO 22 CE and CE0 CSN for RPi B+ with SPI Speed @ 8Mhz</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># radio = RF24(RPI_BPLUS_GPIO_J8_15, RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ)</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment"># RPi Alternate, with SPIDEV - Note: Edit RF24/arch/BBB/spi.cpp and  set &#39;this-&gt;device = &quot;/dev/spidev0.0&quot;;;&#39; or as listed in /dev</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;radio = <a class="code" href="classRF24.html">RF24</a>(22, 0);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment"># Setup for connected IRQ pin, GPIO 24 on RPi B+; uncomment to activate</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment"># irq_gpio_pin = RPI_BPLUS_GPIO_J8_18</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"># irq_gpio_pin = 24</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">##########################################</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">def </span>try_read_data(channel=0):</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span> radio.available():</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">while</span> radio.available():</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            len = radio.getDynamicPayloadSize()</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            receive_payload = radio.read(len)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            print(<span class="stringliteral">&#39;Got payload size={} value=&quot;{}&quot;&#39;</span>.format(len, receive_payload.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)))</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment"># First, stop listening so we can talk</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            radio.stopListening()</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"># Radio CE Pin, CSN Pin, SPI Speed</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"># CE Pin uses GPIO number with BCM and SPIDEV drivers, other platforms use their own pin numbering</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"># CS Pin addresses the SPI bus number at /dev/spidev&lt;a&gt;.&lt;b&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"># ie: RF24 radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); spidev1.0 is 10, spidev1.1 is 11 etc..</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"># Generic:</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;RF24 radio(22,0);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"># RPi Alternate, with SPIDEV - Note: Edit RF24/arch/BBB/spi.cpp and  set &#39;this-&gt;device = &quot;/dev/spidev0.0&quot;;;&#39; or as listed in /dev</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">#radio = RF24(22, 0);</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"># Setup for connected IRQ pin, GPIO 24 on RPi B+; uncomment to activate</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"># irq_gpio_pin = 24</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">##########################################</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">def </span>try_read_data(channel=0):</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordflow">if</span> radio.available():</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">while</span> radio.available():</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            len = radio.getDynamicPayloadSize()</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            receive_payload = radio.read(len)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            print(<span class="stringliteral">&#39;Got payload size={} value=&quot;{}&quot;&#39;</span>.format(len, receive_payload.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)))</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="comment"># First, stop listening so we can talk</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            radio.stopListening()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="comment"># Send the final one back.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            radio.write(receive_payload)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            print(<span class="stringliteral">&#39;Sent response.&#39;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="comment"># Now, resume listening so we catch the next packets.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            radio.startListening()</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="comment"># Send the final one back.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            radio.write(receive_payload)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            print(<span class="stringliteral">&#39;Sent response.&#39;</span>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment"># Now, resume listening so we catch the next packets.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            radio.startListening()</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;pipes = [0xF0F0F0F0E1, 0xF0F0F0F0D2]</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;min_payload_size = 4</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;max_payload_size = 32</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;payload_size_increments_by = 1</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;next_payload_size = min_payload_size</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;inp_role = <span class="stringliteral">&#39;none&#39;</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;send_payload = b<span class="stringliteral">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ789012&#39;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;millis = <span class="keyword">lambda</span>: int(round(time.time() * 1000))</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;print(<span class="stringliteral">&#39;pyRF24/examples/pingpair_dyn/&#39;</span>)</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;radio.begin()</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;radio.enableDynamicPayloads()</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;radio.setRetries(5, 15)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;radio.printDetails()</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;print(<span class="stringliteral">&#39; ************ Role Setup *********** &#39;</span>)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordflow">while</span> (inp_role != <span class="stringliteral">&#39;0&#39;</span>) <span class="keywordflow">and</span> (inp_role != <span class="stringliteral">&#39;1&#39;</span>):</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    inp_role = str(input(<span class="stringliteral">&#39;Choose a role: Enter 0 for receiver, 1 for transmitter (CTRL+C to exit) &#39;</span>))</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordflow">if</span> inp_role == <span class="stringliteral">&#39;0&#39;</span>:</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    print(<span class="stringliteral">&#39;Role: Pong Back, awaiting transmission&#39;</span>)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> irq_gpio_pin <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment"># set up callback for irq pin</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        GPIO.setmode(GPIO.BCM)</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        GPIO.setup(irq_gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        GPIO.add_event_detect(irq_gpio_pin, GPIO.FALLING, callback=try_read_data)</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    radio.openWritingPipe(pipes[1])</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    radio.openReadingPipe(1, pipes[0])</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    radio.startListening()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    print(<span class="stringliteral">&#39;Role: Ping Out, starting transmission&#39;</span>)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    radio.openWritingPipe(pipes[0])</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    radio.openReadingPipe(1, pipes[1])</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"># forever loop</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordflow">while</span> 1:</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span> inp_role == <span class="stringliteral">&#39;1&#39;</span>:  <span class="comment"># ping out</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="comment"># The payload will always be the same, what will change is how much of it we send.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;pipes = [0xF0F0F0F0E1, 0xF0F0F0F0D2]</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;min_payload_size = 4</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;max_payload_size = 32</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;payload_size_increments_by = 1</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;next_payload_size = min_payload_size</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;inp_role = <span class="stringliteral">&#39;none&#39;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;send_payload = b<span class="stringliteral">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ789012&#39;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;millis = <span class="keyword">lambda</span>: int(round(time.time() * 1000))</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;print(<span class="stringliteral">&#39;pyRF24/examples/pingpair_dyn/&#39;</span>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;radio.begin()</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;radio.enableDynamicPayloads()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;radio.setRetries(5, 15)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;radio.printDetails()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;print(<span class="stringliteral">&#39; ************ Role Setup *********** &#39;</span>)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordflow">while</span> (inp_role != <span class="stringliteral">&#39;0&#39;</span>) <span class="keywordflow">and</span> (inp_role != <span class="stringliteral">&#39;1&#39;</span>):</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    inp_role = str(input(<span class="stringliteral">&#39;Choose a role: Enter 0 for receiver, 1 for transmitter (CTRL+C to exit) &#39;</span>))</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordflow">if</span> inp_role == <span class="stringliteral">&#39;0&#39;</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    print(<span class="stringliteral">&#39;Role: Pong Back, awaiting transmission&#39;</span>)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">if</span> irq_gpio_pin <span class="keywordflow">is</span> <span class="keywordflow">not</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment"># set up callback for irq pin</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        GPIO.setmode(GPIO.BCM)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        GPIO.setup(irq_gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        GPIO.add_event_detect(irq_gpio_pin, GPIO.FALLING, callback=try_read_data)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    radio.openWritingPipe(pipes[1])</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    radio.openReadingPipe(1, pipes[0])</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    radio.startListening()</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    print(<span class="stringliteral">&#39;Role: Ping Out, starting transmission&#39;</span>)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    radio.openWritingPipe(pipes[0])</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    radio.openReadingPipe(1, pipes[1])</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"># forever loop</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordflow">while</span> 1:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> inp_role == <span class="stringliteral">&#39;1&#39;</span>:  <span class="comment"># ping out</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment"># The payload will always be the same, what will change is how much of it we send.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment"># First, stop listening so we can talk.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        radio.stopListening()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="comment"># Take the time, and send it.  This will block until complete</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        print(<span class="stringliteral">&#39;Now sending length {} ... &#39;</span>.format(next_payload_size), end=<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        radio.write(send_payload[:next_payload_size])</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment"># First, stop listening so we can talk.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        radio.stopListening()</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment"># Now, continue listening</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        radio.startListening()</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment"># Take the time, and send it.  This will block until complete</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        print(<span class="stringliteral">&#39;Now sending length {} ... &#39;</span>.format(next_payload_size), end=<span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        radio.write(send_payload[:next_payload_size])</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment"># Now, continue listening</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        radio.startListening()</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment"># Wait here until we get a response, or timeout</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        started_waiting_at = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        timeout = <span class="keyword">False</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">while</span> (<span class="keywordflow">not</span> radio.available()) <span class="keywordflow">and</span> (<span class="keywordflow">not</span> timeout):</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at) &gt; 500:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                timeout = <span class="keyword">True</span></div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment"># Wait here until we get a response, or timeout</span></div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        started_waiting_at = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>()</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        timeout = <span class="keyword">False</span></div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">while</span> (<span class="keywordflow">not</span> radio.available()) <span class="keywordflow">and</span> (<span class="keywordflow">not</span> timeout):</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at) &gt; 500:</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                timeout = <span class="keyword">True</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="comment"># Describe the results</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">if</span> timeout:</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            print(<span class="stringliteral">&#39;failed, response timed out.&#39;</span>)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="comment"># Grab the response, compare, and send to debugging spew</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            len = radio.getDynamicPayloadSize()</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            receive_payload = radio.read(len)</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <span class="comment"># Spew it</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            print(<span class="stringliteral">&#39;got response size={} value=&quot;{}&quot;&#39;</span>.format(len, receive_payload.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)))</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="comment"># Update size for next time.</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        next_payload_size += payload_size_increments_by</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> next_payload_size &gt; max_payload_size:</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            next_payload_size = min_payload_size</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        time.sleep(0.1)</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="comment"># Pong back role.  Receive each packet, dump it out, and send it back</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment"># if there is data ready</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keywordflow">if</span> irq_gpio_pin <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="comment"># no irq pin is set up -&gt; poll it</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            try_read_data()</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">else</span>:</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="comment"># callback routine set for irq pin takes care for reading -</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="comment"># do nothing, just sleeps in order not to burn cpu by looping</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;            time.sleep(1000)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="comment"># Describe the results</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span> timeout:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            print(<span class="stringliteral">&#39;failed, response timed out.&#39;</span>)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="comment"># Grab the response, compare, and send to debugging spew</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            len = radio.getDynamicPayloadSize()</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            receive_payload = radio.read(len)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="comment"># Spew it</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            print(<span class="stringliteral">&#39;got response size={} value=&quot;{}&quot;&#39;</span>.format(len, receive_payload.decode(<span class="stringliteral">&#39;utf-8&#39;</span>)))</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="comment"># Update size for next time.</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        next_payload_size += payload_size_increments_by</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keywordflow">if</span> next_payload_size &gt; max_payload_size:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            next_payload_size = min_payload_size</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        time.sleep(0.1)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="comment"># Pong back role.  Receive each packet, dump it out, and send it back</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment"># if there is data ready</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">if</span> irq_gpio_pin <span class="keywordflow">is</span> <span class="keywordtype">None</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="comment"># no irq pin is set up -&gt; poll it</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            try_read_data()</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">else</span>:</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="comment"># callback routine set for irq pin takes care for reading -</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="comment"># do nothing, just sleeps in order not to burn cpu by looping</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            time.sleep(1000)</div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 09:03:50 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

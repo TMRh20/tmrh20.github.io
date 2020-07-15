@@ -102,10 +102,8 @@ Public Member Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Primary public interface</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>These are the main methods you need to operate the chip </p>
 </div></td></tr>
-<tr class="memitem:af564e19261afb56005d2411d0c7b05de"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#af564e19261afb56005d2411d0c7b05de">RF24</a> (uint16_t _cepin, uint16_t _cspin)</td></tr>
-<tr class="separator:af564e19261afb56005d2411d0c7b05de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a085d99c986effa19b01c030e2b1439ce"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a085d99c986effa19b01c030e2b1439ce">RF24</a> (uint16_t _cepin, uint16_t _cspin, uint32_t spispeed)</td></tr>
-<tr class="separator:a085d99c986effa19b01c030e2b1439ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe8f878e238644252ccf5ec27fba611d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#abe8f878e238644252ccf5ec27fba611d">RF24</a> (uint16_t _cepin, uint16_t _cspin, uint32_t _spispeed=<a class="el" href="RF24__config_8h.html#a63ef6fd21b0b83db10e95c0da126d1e2">RF24_SPI_SPEED</a>)</td></tr>
+<tr class="separator:abe8f878e238644252ccf5ec27fba611d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a048a20c73c7d9b2e02dcbae6fb9c4ba8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#a048a20c73c7d9b2e02dcbae6fb9c4ba8">begin</a> (void)</td></tr>
 <tr class="separator:a048a20c73c7d9b2e02dcbae6fb9c4ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac224c55270d26dbe7b4f3492ea3056b5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24.html#ac224c55270d26dbe7b4f3492ea3056b5">isChipConnected</a> ()</td></tr>
@@ -253,49 +251,7 @@ Optional Configurators</h2></td></tr>
 </dl>
 <p>Definition at line <a class="el" href="RF24_8h_source.html#l00065">65</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af564e19261afb56005d2411d0c7b05de"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">RF24::RF24 </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>_cepin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>_cspin</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Arduino Constructor</p>
-<p>Creates a new instance of this driver. Before using, you create an instance and send in the unique pins that this chip is connected to.</p>
-<p>See <a href="http://tmrh20.github.io/RF24/pages.html">http://tmrh20.github.io/RF24/pages.html</a> for device specific information <br />
-</p>
-<dl class="section note"><dt>Note</dt><dd>Users can specify default SPI speed by modifying #define RF24_SPI_SPEED in <a class="el" href="RF24__config_8h.html">RF24_config.h</a> <br />
- SPI speed will only be properly configured this way on devices supporting SPI TRANSACTIONS <br />
- Older/Unsupported devices will use a default clock divider &amp; settings configuration</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">_cepin</td><td>The pin attached to Chip Enable on the RF module </td></tr>
-    <tr><td class="paramname">_cspin</td><td>The pin attached to Chip Select </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00433">433</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a085d99c986effa19b01c030e2b1439ce"></a>
+<a class="anchor" id="abe8f878e238644252ccf5ec27fba611d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -315,7 +271,7 @@ Optional Configurators</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>spispeed</em>&#160;</td>
+          <td class="paramname"><em>_spispeed</em> = <code><a class="el" href="RF24__config_8h.html#a63ef6fd21b0b83db10e95c0da126d1e2">RF24_SPI_SPEED</a></code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -324,20 +280,25 @@ Optional Configurators</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Optional Linux Constructor</p>
+<p><a class="el" href="classRF24.html">RF24</a> Constructor</p>
 <p>Creates a new instance of this driver. Before using, you create an instance and send in the unique pins that this chip is connected to.</p>
-<p>See <a href="http://tmrh20.github.io/RF24/pages.html">http://tmrh20.github.io/RF24/pages.html</a> for device specific information</p>
-<p>Users can specify default SPI speed by modifying #define RF24_SPI_SPEED in <a class="el" href="RF24__config_8h.html">RF24_config.h</a></p>
-<dl class="section note"><dt>Note</dt><dd>The old way of setting SPI speeds using BCM2835 driver enums has been removed <br />
- Specify SPI speed in Hz per below:</dd></dl>
+<p>See <a href="http://tmrh20.github.io/RF24/pages.html">http://tmrh20.github.io/RF24/pages.html</a> for device specific information <br />
+</p>
+<dl class="section note"><dt>Note</dt><dd>Users can specify default SPI speed by modifying #define RF24_SPI_SPEED in <a class="el" href="RF24__config_8h.html">RF24_config.h</a> <br />
+ For Arduino, SPI speed will only be properly configured this way on devices supporting SPI TRANSACTIONS <br />
+ Older/Unsupported Arduino devices will use a default clock divider &amp; settings configuration <br />
+ Linux: The old way of setting SPI speeds using BCM2835 driver enums has been removed <br />
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_cepin</td><td>The pin attached to Chip Enable on the RF module </td></tr>
     <tr><td class="paramname">_cspin</td><td>The pin attached to Chip Select </td></tr>
-    <tr><td class="paramname">spispeed</td><td>For RPi, the SPI speed in Hz ie: 1000000 == 1Mhz </td></tr>
+    <tr><td class="paramname">spispeed</td><td>The SPI speed in Hz ie: 1000000 == 1Mhz </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00433">433</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -410,7 +371,7 @@ Optional Configurators</h2></td></tr>
 <p>Begin operation of the chip</p>
 <p>Call this in setup(), before calling any other methods. </p><div class="fragment"><div class="line">radio.begin() </div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00601">601</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00567">567</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -428,7 +389,7 @@ Optional Configurators</h2></td></tr>
 </div><div class="memdoc">
 <p>Checks if the chip is connected to the SPI bus </p>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00737">737</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00703">703</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -457,7 +418,7 @@ Optional Configurators</h2></td></tr>
 <div class="line">radio.openReadingPipe(1,address);</div>
 <div class="line">radio.startListening();</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00749">749</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00715">715</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -478,7 +439,7 @@ Optional Configurators</h2></td></tr>
 <p>Do this before calling <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. </p><div class="fragment"><div class="line">radio.stopListening();</div>
 <div class="line">radio.write(&amp;data,<span class="keyword">sizeof</span>(data));</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00778">778</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00744">744</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -500,7 +461,7 @@ Optional Configurators</h2></td></tr>
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01130">1130</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01096">1096</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -544,7 +505,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>No return value. Use <a class="el" href="classRF24.html#a127105eb7a3b351cfe777c1cec50627a">available()</a>. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01156">1156</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01122">1122</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -586,7 +547,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
 <div class="line">radio.write(&amp;data,<span class="keyword">sizeof</span>(data));</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully and an ACK was received, or upon successfull transmission if auto-ack is disabled. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00885">885</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00851">851</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -619,7 +580,7 @@ No longer boolean. Use available to determine if packets are available. Interrup
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01198">1198</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01164">1164</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -666,7 +627,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01258">1258</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01224">1224</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -692,7 +653,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">}</div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00533">533</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00521">521</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -724,7 +685,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>True if there is a payload available, false if none is </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01137">1137</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01103">1103</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -742,7 +703,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><div class="memdoc">
 <p>Check if the radio needs to be read. Can be used to prevent data loss </p><dl class="section return"><dt>Returns</dt><dd>True if all three 32-byte radio buffers are full </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01016">1016</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00982">982</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -766,7 +727,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">avr_enter_sleep_mode(); <span class="comment">// Custom function to sleep the device</span></div>
 <div class="line">radio.powerUp();</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00806">806</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00772">772</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -786,7 +747,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>Leave low-power mode - required for normal radio operation after calling <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a></p>
 <p>To return to low power mode, call <a class="el" href="classRF24.html#aa0a51923a09ba4f3478aba9be0f8a6a1">powerDown()</a>. </p><dl class="section note"><dt>Note</dt><dd>This will take up to 5ms for maximum compatibility </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00815">815</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00781">781</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -835,7 +796,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00849">849</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00815">815</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -884,7 +845,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00973">973</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00939">939</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -931,7 +892,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00939">939</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00905">905</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -986,7 +947,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was loaded into the buffer successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00892">892</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00858">858</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +976,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- fragment --> <dl class="section see"><dt>See also</dt><dd>txStandBy(unsigned long timeout) </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>True if transmission is successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01023">1023</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00989">989</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1058,7 +1019,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if transmission is successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01052">1052</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01018">1018</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1109,7 +1070,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01376">1376</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01342">1342</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1091,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Call <a class="el" href="classRF24.html#a8e2eacacfba96426c192066f04054c5b">read()</a> to retrieve the ack payload.</p>
 <dl class="section return"><dt>Returns</dt><dd>True if an ack payload is available. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01408">1408</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01374">1374</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1135,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01169">1169</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01135">1135</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1236,7 +1197,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the payload was delivered successfully false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00985">985</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00951">951</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1251,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01000">1000</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00966">966</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1310,7 +1271,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>The function will instruct the radio to re-use the data in the FIFO buffers, and instructs the radio to re-send once the timeout limit has been reached. Used by writeFast and writeBlocking to initiate retries when a TX failure occurs. Retries are automatically initiated except with the standard <a class="el" href="classRF24.html#a4cd4c198a47704db20b6b5cf0731cd58">write()</a>. This way, data is not flushed from the buffer until switching between modes.</p>
 <dl class="section note"><dt>Note</dt><dd>This is to be used AFTER auto-retry fails if wanting to resend using the built-in payload reuse features. After issuing <a class="el" href="classRF24.html#aeaf7fa54d3ab2a85ce215b4bf6ae933b">reUseTX()</a>, it will keep reending the same payload forever or until a payload is written to the FIFO, or a flush_tx command is given. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00929">929</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00895">895</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1351,7 +1312,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Useful to check for interference on the current channel.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if was carrier, false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01448">1448</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01414">1414</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1377,7 +1338,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <div class="line">}</div>
 </div><!-- fragment --> <dl class="section return"><dt>Returns</dt><dd>true if signal =&gt; -64dBm, false if not </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01455">1455</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01421">1421</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1404,7 +1365,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Test whether this is a real radio, or a mock shim for debugging. Setting either pin to 0xff is the way to indicate that this is not a real radio.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if this is a legitimate radio </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00675">675</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00654">654</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -1428,7 +1389,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01285">1285</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01251">1251</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1453,7 +1414,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01243">1243</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01209">1209</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1489,7 +1450,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01606">1606</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01572">1572</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1475,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00457">457</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00445">445</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1534,7 +1495,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Get RF communication channel</p>
 <dl class="section return"><dt>Returns</dt><dd>The currently configured RF Channel </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00463">463</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00451">451</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1560,7 +1521,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00471">471</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00459">459</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1581,7 +1542,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classRF24.html#a343e5d23477181011dea030fafb1954f">setPayloadSize()</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of bytes in the payload </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00478">478</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l00466">466</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1610,7 +1571,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 </div><!-- fragment --></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Payload length of last-received dynamic payload </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01102">1102</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01068">1068</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1592,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Ack payloads are a handy way to return data back to senders without manually changing the radio modes on both units.</p>
 <dl class="section note"><dt>Note</dt><dd>Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. Call <a class="el" href="classRF24.html#a443888504975d7441d6452a09d09a8fa">enableDynamicPayloads()</a> to enable on all pipes. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01341">1341</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01307">1307</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1651,7 +1612,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Enable dynamically-sized payloads</p>
 <p>This way you don't always have to send large packets just to send them once in a while. This enables dynamic payloads on ALL pipes. </p>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01302">1302</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01268">1268</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1671,7 +1632,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Disable dynamically-sized payloads</p>
 <p>This disables dynamic payloads on ALL pipes. Since Ack Payloads requires Dynamic Payloads, Ack Payloads are also disabled. If dynamic payloads are later re-enabled and ack payloads are desired then <a class="el" href="classRF24.html#abf8efced2ee9edbcc6510878b20edc1b">enableAckPayload()</a> must be called again as well. </p>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01321">1321</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01287">1287</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1695,7 +1656,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <div class="line">radio.write(&amp;data,32,0);  <span class="comment">// Sends a payload using auto-retry/autoACK</span></div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01361">1361</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01327">1327</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1715,7 +1676,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Determine whether the hardware is an nRF24L01+ or not.</p>
 <dl class="section return"><dt>Returns</dt><dd>true if the hardware is nRF24L01+ (or compatible) and false if its not. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01415">1415</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01381">1381</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1741,7 +1702,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01422">1422</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01388">1388</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1778,7 +1739,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01433">1433</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01399">1399</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1805,7 +1766,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01462">1462</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01428">1428</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1826,7 +1787,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>NRF24L01: -18dBm, -12dBm, -6dBm and 0dBm SI24R1: -6dBm, 0dBm, 3dBm, 7dBm</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns values 0 to 3 representing the PA Level. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01478">1478</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01444">1444</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1847,7 +1808,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Value resets with each new transmission. Allows roughly estimating signal strength.</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns values from 0 to 15. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01486">1486</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01452">1452</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1874,7 +1835,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the change was successful </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01494">1494</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01460">1460</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1894,7 +1855,7 @@ Ack payloads are dynamic payloads. This only works on pipes 0&amp;1 by default. 
 <p>Fetches the transmission data rate</p>
 <dl class="section return"><dt>Returns</dt><dd>Returns the hardware's currently configured datarate. The value is one of 250kbs, RF24_1MBPS for 1Mbps, or RF24_2MBPS, as defined in the rf24_datarate_e enum. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01539">1539</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01505">1505</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1919,7 +1880,7 @@ CRC checking cannot be disabled if auto-ack is enabled </p><dl class="params"><d
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01561">1561</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01527">1527</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1939,7 +1900,7 @@ CRC checking cannot be disabled if auto-ack is enabled </p><dl class="params"><d
 <p>Get the CRC length <br />
 CRC checking cannot be disabled if auto-ack is enabled </p><dl class="section return"><dt>Returns</dt><dd>RF24_CRC_DISABLED if disabled or RF24_CRC_8 for 8-bit or RF24_CRC_16 for 16-bit </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01579">1579</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01545">1545</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -1959,7 +1920,7 @@ CRC checking cannot be disabled if auto-ack is enabled </p><dl class="section re
 <p>Disable CRC validation</p>
 <dl class="section warning"><dt>Warning</dt><dd>CRC cannot be disabled if auto-ack/ESB is enabled. </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01599">1599</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01565">1565</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -2005,7 +1966,7 @@ CRC checking cannot be disabled if auto-ack is enabled </p><dl class="section re
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01089">1089</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01055">1055</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -2046,7 +2007,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01216">1216</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01182">1182</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -2073,7 +2034,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01183">1183</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8cpp_source.html#l01149">1149</a> of file <a class="el" href="RF24_8cpp_source.html">RF24.cpp</a>.</p>
 
 </div>
 </div>
@@ -2122,7 +2083,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <div class="line">  report_failure();                    <span class="comment">// Blink leds, send a message, etc. to indicate failure</span></div>
 <div class="line">}</div>
 </div><!-- fragment --> 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00717">717</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00696">696</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2143,7 +2104,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </ol>
 <dl class="section warning"><dt>Warning</dt><dd>If set to 0, ensure 130uS delay after <a class="el" href="classRF24.html#a6f144d73fc447c8ac2d1a4166210fd88">stopListening()</a> and before any sends </dd></dl>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00984">984</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00963">963</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2160,7 +2121,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 <p>This is intended to minimise the speed of SPI polling due to radio commands</p>
 <p>If using interrupts or timed requests, this can be set to 0 Default:5 </p>
 
-<p>Definition at line <a class="el" href="RF24_8h_source.html#l00995">995</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
+<p>Definition at line <a class="el" href="RF24_8h_source.html#l00974">974</a> of file <a class="el" href="RF24_8h_source.html">RF24.h</a>.</p>
 
 </div>
 </div>
@@ -2171,7 +2132,7 @@ Pipe 0 is also used by the writing pipe. So if you open pipe 0 for reading, and 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 09:03:50 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.10"/>
-<title>Optimized high speed nRF24L01+ driver class documentation: Raspberry Pi</title>
+<title>Optimized high speed nRF24L01+ driver class documentation: Linux General/Raspberry Pi</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,12 +81,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Raspberry Pi </div>  </div>
+<div class="title">Linux General/Raspberry Pi </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="el" href="classRF24.html">RF24</a> supports a variety of Linux based devices via various drivers. Some boards like RPi can utilize multiple methods to drive the GPIO and SPI functionality.</p>
-<p><br />
- </p>
 <h1><a class="anchor" id="PreConfig"></a>
 Potential PreConfiguration</h1>
 <p>If SPI is not already enabled, load it on boot: </p><div class="fragment"><div class="line">sudo raspi-config  </div>
@@ -95,7 +93,6 @@ Potential PreConfiguration</h1>
  C. Update other software and libraries </p><div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> update </div>
 </div><!-- fragment --> <div class="fragment"><div class="line">sudo apt-<span class="keyword">get</span> upgrade </div>
 </div><!-- fragment --><p> <br />
-<br />
 </p>
 <h1><a class="anchor" id="Build"></a>
 Build Options</h1>
@@ -135,33 +132,18 @@ Build Options</h1>
 <h1><a class="anchor" id="Pins"></a>
 Connections and Pin Configuration</h1>
 <p>Using pin 15/GPIO 22 for CE, pin 24/GPIO8 (CE0) for CSN</p>
-<p>Can use either RPi CE0 or CE1 pins for radio CSN.<br />
- Choose any RPi output pin for radio CE pin.</p>
-<p><b>BCM2835 Constructor:</b> </p><div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(RPI_V2_GPIO_P1_15,BCM2835_SPI_CS0, BCM2835_SPI_SPEED_8MHZ);</div>
-<div class="line"> or</div>
-<div class="line"><a class="code" href="classRF24.html">RF24</a> radio(RPI_V2_GPIO_P1_15,BCM2835_SPI_CS1, BCM2835_SPI_SPEED_8MHZ);</div>
-<div class="line">  </div>
-<div class="line">RPi B+:</div>
-<div class="line"><a class="code" href="classRF24.html">RF24</a> radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ);</div>
-<div class="line">or</div>
-<div class="line"><a class="code" href="classRF24.html">RF24</a> radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_26, BCM2835_SPI_SPEED_8MHZ);</div>
-<div class="line"></div>
-<div class="line">General:</div>
-<div class="line"><a class="code" href="classRF24.html">RF24</a> radio(22,0);</div>
-<div class="line">or</div>
-<div class="line"><a class="code" href="classRF24.html">RF24</a> radio(22,1);</div>
-</div><!-- fragment --><p> See the gettingstarted example for an example of pin configuration</p>
-<p>See <a href="http://www.airspayce.com/mikem/bcm2835/index.html">http://www.airspayce.com/mikem/bcm2835/index.html</a> for BCM2835 class documentation. <br />
-<br />
- <b>MRAA Constructor:</b></p>
+<p>Can use any available SPI BUS for CSN.<br />
+ In general, use</p><div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); </div>
+</div><!-- fragment --><p> for proper constructor to address correct spi device at /dev/spidev&lt;a&gt;.&lt;b&gt; <br />
+ Choose any GPIO output pin for radio CE pin.</p>
+<p><b>General:</b> </p><div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(22,0); </div>
+</div><!-- fragment --><p><b>MRAA Constructor:</b></p>
 <div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(15,0); </div>
 </div><!-- fragment --><p>See <a href="http://iotdk.intel.com/docs/master/mraa/rasppi.html">http://iotdk.intel.com/docs/master/mraa/rasppi.html</a> <br />
 <br />
  <b>SPI_DEV Constructor</b></p>
 <div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(22,0); </div>
-</div><!-- fragment --><p> In general, use</p><div class="fragment"><div class="line"><a class="code" href="classRF24.html">RF24</a> radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); </div>
-</div><!-- fragment --><p> for proper SPIDEV constructor to address correct spi device at /dev/spidev&lt;a&gt;.&lt;b&gt;</p>
-<p>See <a href="http://pi.gadgetoid.com/pinout">http://pi.gadgetoid.com/pinout</a></p>
+</div><!-- fragment --><p><a href="https://www.raspberrypi.org/documentation/usage/gpio/">https://www.raspberrypi.org/documentation/usage/gpio/</a></p>
 <p><b>Pins:</b></p>
 <table class="doxtable">
 <tr>
@@ -197,7 +179,7 @@ Connections and Pin Configuration</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 09:03:50 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
