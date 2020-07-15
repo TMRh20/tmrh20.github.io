@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><b>For Linux</b><br />
  This example demonstrates half-rate transfer using the FIFO buffers<br />
 </p>
-<p>It is an example of how to use the <a class="el" href="class_r_f24.html">RF24</a> class. Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting <br />
+<p>It is an example of how to use the <a class="el" href="classRF24.html">RF24</a> class. Write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting <br />
  with the serial monitor and sending a 'T'. The data transfer will begin, with the receiver displaying the payload count. (32Byte Payloads) <br />
 </p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_r_f24_8h.html">RF24/RF24.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24_8h.html">RF24/RF24.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
@@ -117,7 +117,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// ie: RF24 radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); spidev1.0 is 10, spidev1.1 is 11 etc..</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Generic:</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_r_f24.html">RF24</a> radio(22,0);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(22,0);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/****************** Linux (BBB,x86,etc) ***********************/</span></div>
 <div class="line"><span class="comment">// See http://tmrh20.github.io/RF24/pages.html for more information on usage</span></div>
@@ -144,11 +144,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">    radio.begin();                           <span class="comment">// Setup and configure rf radio</span></div>
 <div class="line">    radio.setChannel(1);</div>
-<div class="line">    radio.setPALevel(<a name="a1"></a><a class="code" href="_r_f24_8h.html#a1e4cd0bea93e6b43422855fb0120aaceab0bfc94c4095e9495b2e49530b623d0d">RF24_PA_MAX</a>);</div>
-<div class="line">    radio.setDataRate(<a name="a2"></a><a class="code" href="_r_f24_8h.html#a82745de4aa1251b7561564b3ed1d6522afd01f3fd55247a67c0bcfd459fe17fdf">RF24_1MBPS</a>);</div>
+<div class="line">    radio.setPALevel(<a name="a1"></a><a class="code" href="RF24_8h.html#a1e4cd0bea93e6b43422855fb0120aaceab0bfc94c4095e9495b2e49530b623d0d">RF24_PA_MAX</a>);</div>
+<div class="line">    radio.setDataRate(<a name="a2"></a><a class="code" href="RF24_8h.html#a82745de4aa1251b7561564b3ed1d6522afd01f3fd55247a67c0bcfd459fe17fdf">RF24_1MBPS</a>);</div>
 <div class="line">    radio.setAutoAck(1);                     <span class="comment">// Ensure autoACK is enabled</span></div>
 <div class="line">    radio.setRetries(2, 15);                  <span class="comment">// Optionally, increase the delay between retries &amp; # of retries</span></div>
-<div class="line">    radio.setCRCLength(<a name="a3"></a><a class="code" href="_r_f24_8h.html#adbe00719f3f835c82bd007081d040a7eade0b6b3a0dd8729e2a17c49896e0a468">RF24_CRC_8</a>);          <span class="comment">// Use 8-bit CRC for performance</span></div>
+<div class="line">    radio.setCRCLength(<a name="a3"></a><a class="code" href="RF24_8h.html#adbe00719f3f835c82bd007081d040a7eade0b6b3a0dd8729e2a17c49896e0a468">RF24_CRC_8</a>);          <span class="comment">// Use 8-bit CRC for performance</span></div>
 <div class="line">    radio.printDetails();</div>
 <div class="line">    <span class="comment">/********* Role chooser ***********/</span></div>
 <div class="line"></div>
@@ -193,7 +193,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">            <span class="keywordtype">long</span> <span class="keywordtype">int</span> cycles = 10000;                    <span class="comment">//Change this to a higher or lower number.</span></div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// unsigned long pauseTime = millis();      //Uncomment if autoAck == 1 ( NOACK )</span></div>
-<div class="line">            startTime = <a name="a4"></a><a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">            startTime = <a name="a4"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; cycles; i++) {                <span class="comment">//Loop through a number of cycles</span></div>
 <div class="line">                data[0] = i;                        <span class="comment">//Change the first byte of the payload for identification</span></div>
@@ -209,7 +209,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">                        }</span></div>
 <div class="line"><span class="comment">                */</span></div>
 <div class="line">            }</div>
-<div class="line">            stopTime = <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">            stopTime = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (!radio.txStandBy()) {</div>
 <div class="line">                counter += 3;</div>
@@ -229,8 +229,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">                radio.read(&amp;data, 32);</div>
 <div class="line">                counter++;</div>
 <div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - rxTimer &gt; 1000) {</div>
-<div class="line">                rxTimer = <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">            <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - rxTimer &gt; 1000) {</div>
+<div class="line">                rxTimer = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line">                printf(<span class="stringliteral">&quot;Rate: &quot;</span>);</div>
 <div class="line">                <span class="keywordtype">float</span> numBytes = counter * 32;</div>
 <div class="line">                printf(<span class="stringliteral">&quot;%.2f KB/s \n\r&quot;</span>, numBytes / 1000);</div>
@@ -250,7 +250,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 20:58:54 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 21:26:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

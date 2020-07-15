@@ -100,7 +100,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_r_f24_8h.html">RF24/RF24.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24_8h.html">RF24/RF24.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"></div>
@@ -115,7 +115,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// ie: RF24 radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); spidev1.0 is 10, spidev1.1 is 11 etc..</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Generic:</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="class_r_f24.html">RF24</a> radio(22,0);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(22,0);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/****************** Linux (BBB,x86,etc) ***********************/</span></div>
 <div class="line"><span class="comment">// See http://tmrh20.github.io/RF24/pages.html for more information on usage</span></div>
@@ -188,15 +188,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line">            radio.stopListening();                                  <span class="comment">// First, stop listening so we can talk.</span></div>
 <div class="line">            printf(<span class="stringliteral">&quot;Now sending %d as payload. &quot;</span>, counter);          <span class="comment">// Use a simple byte counter as payload</span></div>
-<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a1"></a><a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                          <span class="comment">// Record the current microsecond count</span></div>
+<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a1"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();                          <span class="comment">// Record the current microsecond count</span></div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (radio.write(&amp;counter, 1)) {                         <span class="comment">// Send the counter variable to the other radio</span></div>
 <div class="line">                <span class="keywordflow">if</span> (!radio.available()) {                             <span class="comment">// If nothing in the buffer, we got an ack but it is blank</span></div>
-<div class="line">                    printf(<span class="stringliteral">&quot;Got blank response. round-trip delay: %lu ms\n\r&quot;</span>, <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - time);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;Got blank response. round-trip delay: %lu ms\n\r&quot;</span>, <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - time);</div>
 <div class="line">                } <span class="keywordflow">else</span> {</div>
 <div class="line">                    <span class="keywordflow">while</span> (radio.available()) {                      <span class="comment">// If an ack with payload was received</span></div>
 <div class="line">                        radio.read(&amp;gotByte, 1);                  <span class="comment">// Read it, and display the response time</span></div>
-<div class="line">                        printf(<span class="stringliteral">&quot;Got response %d, round-trip delay: %lu ms\n\r&quot;</span>, gotByte, <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - time);</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;Got response %d, round-trip delay: %lu ms\n\r&quot;</span>, gotByte, <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - time);</div>
 <div class="line">                        counter++;                                  <span class="comment">// Increment the counter variable</span></div>
 <div class="line">                    }</div>
 <div class="line">                }</div>
@@ -218,7 +218,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">                gotByte += 1;                                <span class="comment">// Ack payloads are much more efficient than switching to transmit mode to respond to a call</span></div>
 <div class="line">                radio.writeAckPayload(pipeNo, &amp;gotByte, 1);   <span class="comment">// This can be commented out to send empty payloads.</span></div>
 <div class="line">                printf(<span class="stringliteral">&quot;Loaded next response %d \n\r&quot;</span>, gotByte);</div>
-<div class="line">                <a name="a2"></a><a class="code" href="group___porting___general.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(900); <span class="comment">//Delay after a response to minimize CPU usage on RPi</span></div>
+<div class="line">                <a name="a2"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(900); <span class="comment">//Delay after a response to minimize CPU usage on RPi</span></div>
 <div class="line">                <span class="comment">//Expects a payload every second</span></div>
 <div class="line">            }</div>
 <div class="line">        }</div>
@@ -230,7 +230,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 20:58:54 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 21:26:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
