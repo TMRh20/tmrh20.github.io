@@ -94,8 +94,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="spi_8h.html">SPI.h</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="nRF24L01_8h.html">nRF24L01.h</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="RF24_8h.html">RF24.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="n_r_f24_l01_8h.html">nRF24L01.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_r_f24_8h.html">RF24.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="printf_8h.html">printf.h</a>&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">//</span></div>
@@ -104,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"></div>
 <div class="line"><span class="comment">// Set up nRF24L01 radio on SPI bus plus pins 7 &amp; 8</span></div>
 <div class="line"></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(7, 8);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_r_f24.html">RF24</a> radio(7, 8);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">// sets the role of this unit in hardware.  Connect to GND to be the &#39;pong&#39; receiver</span></div>
 <div class="line"><span class="comment">// Leave open to be the &#39;ping&#39; transmitter</span></div>
@@ -154,9 +154,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">  <span class="comment">//</span></div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// set up the role pin</span></div>
-<div class="line">  <a name="a1"></a><a class="code" href="group__Porting__General.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(role_pin, <a name="a2"></a><a class="code" href="group__Porting__General.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);</div>
-<div class="line">  <a name="a3"></a><a class="code" href="group__Porting__General.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(role_pin,<a name="a4"></a><a class="code" href="group__Porting__General.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
-<div class="line">  <a name="a5"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20); <span class="comment">// Just to get a solid reading on the role pin</span></div>
+<div class="line">  <a name="a1"></a><a class="code" href="group___porting___general.html#ga361649efb4f1e2fa3c870ca203497d5e">pinMode</a>(role_pin, <a name="a2"></a><a class="code" href="group___porting___general.html#ga1bb283bd7893b9855e2f23013891fc82">INPUT</a>);</div>
+<div class="line">  <a name="a3"></a><a class="code" href="group___porting___general.html#gabda89b115581947337690b2f85bfab6e">digitalWrite</a>(role_pin,<a name="a4"></a><a class="code" href="group___porting___general.html#ga5bb885982ff66a2e0a0a45a8ee9c35e2">HIGH</a>);</div>
+<div class="line">  <a name="a5"></a><a class="code" href="group___porting___general.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20); <span class="comment">// Just to get a solid reading on the role pin</span></div>
 <div class="line"></div>
 <div class="line">  <span class="comment">// read the address pin, establish our role</span></div>
 <div class="line">  <span class="keywordflow">if</span> (digitalRead(role_pin)) {</div>
@@ -235,10 +235,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    radio.startListening();</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Wait here until we get a response, or timeout</span></div>
-<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a name="a7"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">    <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a name="a7"></a><a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line">    <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
 <div class="line">    <span class="keywordflow">while</span> (!radio.available() &amp;&amp; !timeout) {</div>
-<div class="line">      <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 500 ) {</div>
+<div class="line">      <span class="keywordflow">if</span> (<a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 500 ) {</div>
 <div class="line">        timeout = <span class="keyword">true</span>;</div>
 <div class="line">      }</div>
 <div class="line">    }</div>
@@ -274,7 +274,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    }</div>
 <div class="line"></div>
 <div class="line">    <span class="comment">// Try again 1s later</span></div>
-<div class="line">    <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
+<div class="line">    <a class="code" href="group___porting___general.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(100);</div>
 <div class="line">  }</div>
 <div class="line"></div>
 <div class="line">  <span class="comment">//</span></div>
@@ -312,7 +312,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      <span class="comment">//</span></div>
 <div class="line">      <span class="comment">// You might have a bit better luck delivering your message</span></div>
 <div class="line">      <span class="comment">// if you wait for the other side to start listening first</span></div>
-<div class="line">      <a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20); </div>
+<div class="line">      <a class="code" href="group___porting___general.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(20); </div>
 <div class="line">      radio.write(receive_payload, len);</div>
 <div class="line">      Serial.println(F(<span class="stringliteral">&quot;Sent response.&quot;</span>));</div>
 <div class="line"></div>
@@ -325,7 +325,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:50:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

@@ -87,7 +87,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p><b>For Linux</b><br />
  <b>Updated: TMRh20 2014 </b><br />
 </p>
-<p>This is an example of how to use the <a class="el" href="classRF24.html">RF24</a> class to communicate on a basic level. Configure and write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and <br />
+<p>This is an example of how to use the <a class="el" href="class_r_f24.html">RF24</a> class to communicate on a basic level. Configure and write this sketch to two different nodes. Put one of the nodes into 'transmit' mode by connecting with the serial monitor and <br />
  sending a 'T'. The ping node sends the current time to the pong node, which responds by sending the value back. The ping node can then see how long the whole cycle took. <br />
  </p><dl class="section note"><dt>Note</dt><dd>For a more efficient call-response scenario see the GettingStarted_CallResponse.ino example.</dd></dl>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
@@ -109,7 +109,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="RF24_8h.html">RF24/RF24.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="_r_f24_8h.html">RF24/RF24.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><span class="comment">//</span></div>
@@ -123,7 +123,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment">// ie: RF24 radio(&lt;ce_pin&gt;, &lt;a&gt;*10+&lt;b&gt;); spidev1.0 is 10, spidev1.1 is 11 etc..</span></div>
 <div class="line"></div>
 <div class="line"><span class="comment">// Generic:</span></div>
-<div class="line"><a name="_a0"></a><a class="code" href="classRF24.html">RF24</a> radio(22,0);</div>
+<div class="line"><a name="_a0"></a><a class="code" href="class_r_f24.html">RF24</a> radio(22,0);</div>
 <div class="line"></div>
 <div class="line"><span class="comment">/****************** Linux (BBB,x86,etc) ***********************/</span></div>
 <div class="line"><span class="comment">// See http://tmrh20.github.io/RF24/pages.html for more information on usage</span></div>
@@ -197,7 +197,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">            <span class="comment">// Take the time, and send it.  This will block until complete</span></div>
 <div class="line"></div>
 <div class="line">            printf(<span class="stringliteral">&quot;Now sending...\n&quot;</span>);</div>
-<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a1"></a><a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> time = <a name="a1"></a><a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordtype">bool</span> ok = radio.write(&amp;time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>));</div>
 <div class="line"></div>
@@ -208,10 +208,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">            radio.startListening();</div>
 <div class="line"></div>
 <div class="line">            <span class="comment">// Wait here until we get a response, or timeout (250ms)</span></div>
-<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
+<div class="line">            <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> started_waiting_at = <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>();</div>
 <div class="line">            <span class="keywordtype">bool</span> timeout = <span class="keyword">false</span>;</div>
 <div class="line">            <span class="keywordflow">while</span> (!radio.available() &amp;&amp; !timeout) {</div>
-<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 200) {</div>
+<div class="line">                <span class="keywordflow">if</span> (<a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - started_waiting_at &gt; 200) {</div>
 <div class="line">                    timeout = <span class="keyword">true</span>;</div>
 <div class="line">                }</div>
 <div class="line">            }</div>
@@ -226,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">                radio.read(&amp;got_time, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>));</div>
 <div class="line"></div>
 <div class="line">                <span class="comment">// Spew it</span></div>
-<div class="line">                printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\n&quot;</span>, got_time, <a class="code" href="group__Porting__General.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - got_time);</div>
+<div class="line">                printf(<span class="stringliteral">&quot;Got response %lu, round-trip delay: %lu\n&quot;</span>, got_time, <a class="code" href="group___porting___general.html#gad5b3ec1ce839fa1c4337a7d0312e9749">millis</a>() - got_time);</div>
 <div class="line">            }</div>
 <div class="line">            sleep(1);</div>
 <div class="line">        }</div>
@@ -256,7 +256,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">                <span class="comment">// Spew it</span></div>
 <div class="line">                printf(<span class="stringliteral">&quot;Got payload(%d) %lu...\n&quot;</span>, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span>), got_time);</div>
 <div class="line"></div>
-<div class="line">                <a name="a2"></a><a class="code" href="group__Porting__General.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(925); <span class="comment">//Delay after payload responded to, minimize RPi CPU time</span></div>
+<div class="line">                <a name="a2"></a><a class="code" href="group___porting___general.html#ga70a331e8ddf9acf9d33c47b71cda4c5f">delay</a>(925); <span class="comment">//Delay after payload responded to, minimize RPi CPU time</span></div>
 <div class="line"></div>
 <div class="line">            }</div>
 <div class="line"></div>
@@ -270,7 +270,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 14 2020 20:31:45 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Jul 14 2020 20:50:44 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
