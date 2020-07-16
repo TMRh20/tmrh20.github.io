@@ -26,7 +26,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2020 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -100,9 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// Framework headers</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Library headers</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#if defined(XMEGA_D3)</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">        #include &quot;RF24Network_config.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    #include &quot;RF24Network_config.h&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">        #include &lt;RF24Network_config.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    #include &lt;RF24Network_config.h&gt;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">// Project headers</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
@@ -145,17 +145,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif // __SYNC_H__</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// vim:cin:ai:sts=2 sw=2 ft=cpp</span></div>
-<div class="ttc" id="classSync_html_acae494c0b068716c27e18d590f7a56fa"><div class="ttname"><a href="classSync.html#acae494c0b068716c27e18d590f7a56fa">Sync::begin</a></div><div class="ttdeci">void begin(uint16_t _to_node)</div><div class="ttdoc">Begin the object. </div><div class="ttdef"><b>Definition:</b> Sync.h:56</div></div>
-<div class="ttc" id="classSync_html_afda273968c32f23f02631501101ddf03"><div class="ttname"><a href="classSync.html#afda273968c32f23f02631501101ddf03">Sync::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdoc">Reset the internal copy of the shared data set. </div><div class="ttdef"><b>Definition:</b> Sync.h:77</div></div>
-<div class="ttc" id="classSync_html"><div class="ttname"><a href="classSync.html">Sync</a></div><div class="ttdoc">Synchronizes a shared set of variables between multiple nodes. </div><div class="ttdef"><b>Definition:</b> Sync.h:31</div></div>
-<div class="ttc" id="classSync_html_a97b1bbb0e0116096ad2fbf25500c7d60"><div class="ttname"><a href="classSync.html#a97b1bbb0e0116096ad2fbf25500c7d60">Sync::update</a></div><div class="ttdeci">void update(void)</div><div class="ttdoc">Update the network and the shared data set. </div><div class="ttdef"><b>Definition:</b> Sync.cpp:28</div></div>
-<div class="ttc" id="classRF24Network_html"><div class="ttname"><a href="classRF24Network.html">RF24Network</a></div><div class="ttdoc">2014-2015 - Optimized Network Layer for RF24 Radios </div><div class="ttdef"><b>Definition:</b> RF24Network.h:354</div></div>
-<div class="ttc" id="classSync_html_ae3af1c419dd07d4d75a7681bb922ea40"><div class="ttname"><a href="classSync.html#ae3af1c419dd07d4d75a7681bb922ea40">Sync::register_me</a></div><div class="ttdeci">void register_me(T &amp;_data)</div><div class="ttdoc">Declare the shared data set. </div><div class="ttdef"><b>Definition:</b> Sync.h:66</div></div>
-<div class="ttc" id="classSync_html_a25ef5713f388ddc4dc294e1ce8776872"><div class="ttname"><a href="classSync.html#a25ef5713f388ddc4dc294e1ce8776872">Sync::Sync</a></div><div class="ttdeci">Sync(RF24Network &amp;_network)</div><div class="ttdoc">Constructor. </div><div class="ttdef"><b>Definition:</b> Sync.h:47</div></div>
+<div class="ttc" id="classSync_html_acae494c0b068716c27e18d590f7a56fa"><div class="ttname"><a href="classSync.html#acae494c0b068716c27e18d590f7a56fa">Sync::begin</a></div><div class="ttdeci">void begin(uint16_t _to_node)</div><div class="ttdef"><b>Definition:</b> Sync.h:56</div></div>
+<div class="ttc" id="classSync_html_afda273968c32f23f02631501101ddf03"><div class="ttname"><a href="classSync.html#afda273968c32f23f02631501101ddf03">Sync::reset</a></div><div class="ttdeci">void reset(void)</div><div class="ttdef"><b>Definition:</b> Sync.h:77</div></div>
+<div class="ttc" id="classSync_html"><div class="ttname"><a href="classSync.html">Sync</a></div><div class="ttdef"><b>Definition:</b> Sync.h:31</div></div>
+<div class="ttc" id="classSync_html_a97b1bbb0e0116096ad2fbf25500c7d60"><div class="ttname"><a href="classSync.html#a97b1bbb0e0116096ad2fbf25500c7d60">Sync::update</a></div><div class="ttdeci">void update(void)</div><div class="ttdef"><b>Definition:</b> Sync.cpp:28</div></div>
+<div class="ttc" id="classRF24Network_html"><div class="ttname"><a href="classRF24Network.html">RF24Network</a></div><div class="ttdef"><b>Definition:</b> RF24Network.h:354</div></div>
+<div class="ttc" id="classSync_html_ae3af1c419dd07d4d75a7681bb922ea40"><div class="ttname"><a href="classSync.html#ae3af1c419dd07d4d75a7681bb922ea40">Sync::register_me</a></div><div class="ttdeci">void register_me(T &amp;_data)</div><div class="ttdef"><b>Definition:</b> Sync.h:66</div></div>
+<div class="ttc" id="classSync_html_a25ef5713f388ddc4dc294e1ce8776872"><div class="ttname"><a href="classSync.html#a25ef5713f388ddc4dc294e1ce8776872">Sync::Sync</a></div><div class="ttdeci">Sync(RF24Network &amp;_network)</div><div class="ttdef"><b>Definition:</b> Sync.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 16 2020 16:47:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

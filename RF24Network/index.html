@@ -26,7 +26,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2020 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -88,31 +88,23 @@ Purpose/Goal</h1>
 <p>Original: Create an alternative to ZigBee radios for Arduino communication.</p>
 <p>New: Enhance the current functionality for maximum efficiency, reliability, and speed</p>
 <p>Xbees are excellent little radios, backed up by a mature and robust standard protocol stack. They are also expensive.</p>
-<p>For many Arduino uses, they seem like overkill. So I am working to improve the current standard for nRF24L01 radios. The best RF24 modules are available for less than $6 from many sources. With the <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> layer, I hope to cover many common communication scenarios.</p>
-<p>Please see the <a class="el" href="Zigbee.html">Comparison to ZigBee</a> page for a comparison against the ZigBee protocols</p>
+<p>For many Arduino uses, they seem like overkill. So I am working to improve the current standard for nRF24L01 radios. The best RF24 modules are available for less than $6 from many sources. With the <a class="el" href="classRF24Network.html">RF24Network</a> layer, I hope to cover many common communication scenarios.</p>
+<p>Please see <a href="https://tmrh20.blogspot.com/2019/05/comparative-performance-analysis.html">https://tmrh20.blogspot.com/2019/05/comparative-performance-analysis.html</a> for a comparison against the ZigBee protocols</p>
 <h1><a class="anchor" id="Features"></a>
 Features</h1>
-<p><b>Whats new? </b><br />
- </p><ul>
-<li>New: (Dec 8) Merge of RPi and Arduino code. Finally moving closer to a stable release. Report issues at <a href="https://github.com/TMRh20/RF24Network/issues">https://github.com/TMRh20/RF24Network/issues</a> </li>
-<li>New functionality: (Dec 8) Support for fragmented multicast payloads on both RPi and Arduino </li>
-<li>New functionality: (Nov 24) Fragmentation &amp; reassembly supported on both RPi and Arduino </li>
-<li>Note: structure of network frames is changed, these are only used by external applications like RF24Ethernet and RF24toTUN, and for fragmentation </li>
-<li>New functionality: User message types 1 through 64 will not receive a network ack</li>
-</ul>
 <p>The layer provides: </p><ul>
-<li><b>New</b> (2014): Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
-<li><b>New</b> (2014): Updated addressing standard for optimal radio transmission. </li>
-<li><b>New</b> (2014): Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
-<li><b>New</b> (2014): Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
-<li><b>New</b> (2014): Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a>)) </li>
+<li>Network ACKs: Efficient acknowledgement of network-wide transmissions, via dynamic radio acks and network protocol acks. </li>
+<li>Updated addressing standard for optimal radio transmission. </li>
+<li>Extended timeouts and staggered timeout intervals. The new txTimeout variable allows fully automated extended timeout periods via auto-retry/auto-reUse of payloads. </li>
+<li>Optimization to the core library provides improvements to reliability, speed and efficiency. See <a href="https://tmrh20.github.io/RF24">https://tmrh20.github.io/RF24</a> for more info. </li>
+<li>Built in sleep mode using interrupts. (Still under development. (Enable via <a class="el" href="RF24Network__config_8h_source.html">RF24Network_config.h</a>)) </li>
 <li>Host Addressing. Each node has a logical address on the local network. </li>
 <li>Message Forwarding. Messages can be sent from one node to any other, and this layer will get them there no matter how many hops it takes. </li>
 <li>Ad-hoc Joining. A node can join a network without any changes to any existing nodes.</li>
 </ul>
 <p>The layer does not provide: </p><ul>
 <li>Dynamic address assignment. (See RF24Mesh) </li>
-<li>Layer 4 protocols (TCP/IP - See RF24Ethernet and RF24toTUN)</li>
+<li>Layer 4 protocols (TCP/IP - See RF24Ethernet and RF24Gateway)</li>
 </ul>
 <h1><a class="anchor" id="More"></a>
 How to learn more</h1>
@@ -158,8 +150,8 @@ Octal Addressing and Topology</h1>
 </table>
 <h1><a class="anchor" id="Routing"></a>
 How routing is handled</h1>
-<p>When sending a message using <a class="el" href="classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541" title="Send a message. ">RF24Network::write()</a>, you fill in the header with the logical node address. The network layer figures out the right path to find that node, and sends it through the system until it gets to the right place. This works even if the two nodes are far separated, as it will send the message down to the base node, and then back out to the final destination.</p>
-<p>All of this work is handled by the <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c" title="Main layer loop. ">RF24Network::update()</a> method, so be sure to call it regularly or your network will miss packets.</p>
+<p>When sending a message using <a class="el" href="classRF24Network.html#ac8e9571bb3d2c20d00955b8f5c15b541">RF24Network::write()</a>, you fill in the header with the logical node address. The network layer figures out the right path to find that node, and sends it through the system until it gets to the right place. This works even if the two nodes are far separated, as it will send the message down to the base node, and then back out to the final destination.</p>
+<p>All of this work is handled by the <a class="el" href="classRF24Network.html#ad59983f89b09d17d7d9b0581f658a41c">RF24Network::update()</a> method, so be sure to call it regularly or your network will miss packets.</p>
 <h1><a class="anchor" id="Startup"></a>
 Starting up a node</h1>
 <p>When a node starts up, it only has to contact its parent to establish communication. No direct connection to the Base node is needed. This is useful in situations where relay nodes are being used to bridge the distance to the base, so leaf nodes are out of range of the base.</p>
@@ -170,7 +162,7 @@ Directionality</h1>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 16 2020 16:47:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

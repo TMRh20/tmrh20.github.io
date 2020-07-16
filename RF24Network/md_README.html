@@ -26,7 +26,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2020 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -89,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </pre><p>A. Update the tool via the menu as required B. Select Advanced and enable the SPI kernel module C. Update other software and libraries: </p><pre class="fragment"> sudo apt-get update  
  sudo apt-get upgrade  
 </pre><h1>RPi - RF24 Quick-Start</h1>
-<p>A. Make a directory to contain the RF24 and possibly <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> lib and enter it: </p><pre class="fragment">mkdir ~/rf24libs  
+<p>A. Make a directory to contain the RF24 and possibly <a class="el" href="classRF24Network.html">RF24Network</a> lib and enter it: </p><pre class="fragment">mkdir ~/rf24libs  
 cd ~/rf24libs  
 </pre><p>B. Clone the RF24 Repo </p><pre class="fragment">git clone https://github.com/tmrh20/RF24.git RF24  
 </pre><p>C. Change to the new RF24 directory </p><pre class="fragment">cd RF24  
@@ -97,10 +97,10 @@ cd ~/rf24libs
 cd examples_RPi  
 make  
 sudo ./gettingstarted  
-</pre><h1>RPi - <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> Quick-Start</h1>
+</pre><h1>RPi - <a class="el" href="classRF24Network.html">RF24Network</a> Quick-Start</h1>
 <p>A. Enter the same directory that contains the RF24 library folder </p><pre class="fragment">cd ~/rf24libs  
-</pre><p>B. Clone the <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> Repo </p><pre class="fragment">git clone https://github.com/tmrh20/RF24Network.git RF24Network  
-</pre><p>C. Copy the <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> folder to the current directory, and delete the rest </p><pre class="fragment">cd RF24Network  
+</pre><p>B. Clone the <a class="el" href="classRF24Network.html">RF24Network</a> Repo </p><pre class="fragment">git clone https://github.com/tmrh20/RF24Network.git RF24Network  
+</pre><p>C. Copy the <a class="el" href="classRF24Network.html">RF24Network</a> folder to the current directory, and delete the rest </p><pre class="fragment">cd RF24Network  
 </pre><p>D. Build the library </p><pre class="fragment">sudo make install
 cd examples_RPi  
 make  
@@ -112,10 +112,10 @@ sudo ./helloworld_rx   OR   sudo ./helloworld_tx
 or
 RF24 radio(RPI_V2_GPIO_P1_15,BCM2835_SPI_CS1, BCM2835_SPI_SPEED_8MHZ);
 
-    RPi B+:
-    RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ);
-    or
-    RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_26, BCM2835_SPI_SPEED_8MHZ);
+RPi B+:
+RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_24, BCM2835_SPI_SPEED_8MHZ);
+or
+RF24 radio(RPI_BPLUS_GPIO_J8_15,RPI_BPLUS_GPIO_J8_26, BCM2835_SPI_SPEED_8MHZ);
 </pre><p><b>Pins:</b></p>
 <table class="doxtable">
 <tr>
@@ -144,7 +144,7 @@ RF24 radio(RPI_V2_GPIO_P1_15,BCM2835_SPI_CS1, BCM2835_SPI_SPEED_8MHZ);
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 16 2020 16:47:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

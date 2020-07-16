@@ -26,7 +26,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2020 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -93,32 +93,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Synchronizes a shared set of variables between multiple nodes.  
- <a href="classSync.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="Sync_8h_source.html">Sync.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a25ef5713f388ddc4dc294e1ce8776872"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSync.html#a25ef5713f388ddc4dc294e1ce8776872">Sync</a> (<a class="el" href="classRF24Network.html">RF24Network</a> &amp;_network)</td></tr>
-<tr class="memdesc:a25ef5713f388ddc4dc294e1ce8776872"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a25ef5713f388ddc4dc294e1ce8776872">More...</a><br /></td></tr>
 <tr class="separator:a25ef5713f388ddc4dc294e1ce8776872"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acae494c0b068716c27e18d590f7a56fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSync.html#acae494c0b068716c27e18d590f7a56fa">begin</a> (uint16_t _to_node)</td></tr>
-<tr class="memdesc:acae494c0b068716c27e18d590f7a56fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin the object.  <a href="#acae494c0b068716c27e18d590f7a56fa">More...</a><br /></td></tr>
 <tr class="separator:acae494c0b068716c27e18d590f7a56fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3af1c419dd07d4d75a7681bb922ea40"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ae3af1c419dd07d4d75a7681bb922ea40"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classSync.html#ae3af1c419dd07d4d75a7681bb922ea40">register_me</a> (T &amp;_data)</td></tr>
-<tr class="memdesc:ae3af1c419dd07d4d75a7681bb922ea40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declare the shared data set.  <a href="#ae3af1c419dd07d4d75a7681bb922ea40">More...</a><br /></td></tr>
 <tr class="separator:ae3af1c419dd07d4d75a7681bb922ea40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afda273968c32f23f02631501101ddf03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSync.html#afda273968c32f23f02631501101ddf03">reset</a> (void)</td></tr>
-<tr class="memdesc:afda273968c32f23f02631501101ddf03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the internal copy of the shared data set.  <a href="#afda273968c32f23f02631501101ddf03">More...</a><br /></td></tr>
 <tr class="separator:afda273968c32f23f02631501101ddf03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97b1bbb0e0116096ad2fbf25500c7d60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSync.html#a97b1bbb0e0116096ad2fbf25500c7d60">update</a> (void)</td></tr>
-<tr class="memdesc:a97b1bbb0e0116096ad2fbf25500c7d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the network and the shared data set.  <a href="#a97b1bbb0e0116096ad2fbf25500c7d60">More...</a><br /></td></tr>
 <tr class="separator:a97b1bbb0e0116096ad2fbf25500c7d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Synchronizes a shared set of variables between multiple nodes. </p>
+<div class="textblock"><p>Synchronizes a shared set of variables between multiple nodes </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a25ef5713f388ddc4dc294e1ce8776872"></a>
 <div class="memitem">
@@ -141,8 +133,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Constructor. </p>
+<p>Constructor</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_network</td><td>Which network to syncrhonize over </td></tr>
@@ -174,8 +165,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Begin the object. </p>
+<p>Begin the object</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_to_node</td><td>Which node we are syncing with </td></tr>
@@ -208,8 +198,7 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Declare the shared data set. </p>
+<p>Declare the shared data set</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">_data</td><td>Location of shared data to be syncrhonized </td></tr>
@@ -240,8 +229,7 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reset the internal copy of the shared data set. </p>
+<p>Reset the internal copy of the shared data set </p>
 
 </div>
 </div>
@@ -258,15 +246,14 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Update the network and the shared data set. </p>
+<p>Update the network and the shared data set </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 16 2020 16:47:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>

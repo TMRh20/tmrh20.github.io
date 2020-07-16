@@ -26,7 +26,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Newly Optimized RF24Network Layer
    </div>
-   <div id="projectbrief">2014-2015 - Optimized RF24 Network Layer for NRF24L01 radios</div>
+   <div id="projectbrief">2020 - Optimized RF24 Network Layer for NRF24L01 radios</div>
   </td>
  </tr>
  </tbody>
@@ -84,42 +84,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Reserved System Message Types</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><b>Reserved network message types</b>  
-<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga25ad7c77b5ffa6acd7a5d9002a25a71b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#ga25ad7c77b5ffa6acd7a5d9002a25a71b">NETWORK_ADDR_RESPONSE</a>&#160;&#160;&#160;128</td></tr>
-<tr class="memdesc:ga25ad7c77b5ffa6acd7a5d9002a25a71b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A NETWORK_ADDR_RESPONSE type is utilized to manually route custom messages containing a single <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address.  <a href="#ga25ad7c77b5ffa6acd7a5d9002a25a71b">More...</a><br /></td></tr>
 <tr class="separator:ga25ad7c77b5ffa6acd7a5d9002a25a71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae678555396e5ea61506a0484cb2e0260"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#gae678555396e5ea61506a0484cb2e0260">NETWORK_PING</a>&#160;&#160;&#160;130</td></tr>
-<tr class="memdesc:gae678555396e5ea61506a0484cb2e0260"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages of type NETWORK_PING will be dropped automatically by the recipient.  <a href="#gae678555396e5ea61506a0484cb2e0260">More...</a><br /></td></tr>
 <tr class="separator:gae678555396e5ea61506a0484cb2e0260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac6bbd2772e776d10ca7c5f3c7eddf982"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#gac6bbd2772e776d10ca7c5f3c7eddf982">EXTERNAL_DATA_TYPE</a>&#160;&#160;&#160;131</td></tr>
-<tr class="memdesc:gac6bbd2772e776d10ca7c5f3c7eddf982"><td class="mdescLeft">&#160;</td><td class="mdescRight">External data types are used to define messages that will be passed to an external data system.  <a href="#gac6bbd2772e776d10ca7c5f3c7eddf982">More...</a><br /></td></tr>
 <tr class="separator:gac6bbd2772e776d10ca7c5f3c7eddf982"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaf9101b6aa5fd99550576e17cb10dbc4f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#gaf9101b6aa5fd99550576e17cb10dbc4f">NETWORK_FIRST_FRAGMENT</a>&#160;&#160;&#160;148</td></tr>
-<tr class="memdesc:gaf9101b6aa5fd99550576e17cb10dbc4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages of this type designate the first of two or more message fragments, and will be re-assembled automatically.  <a href="#gaf9101b6aa5fd99550576e17cb10dbc4f">More...</a><br /></td></tr>
 <tr class="separator:gaf9101b6aa5fd99550576e17cb10dbc4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga93ad5d5d56e908110f0769eb96679633"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#ga93ad5d5d56e908110f0769eb96679633">NETWORK_MORE_FRAGMENTS</a>&#160;&#160;&#160;149</td></tr>
-<tr class="memdesc:ga93ad5d5d56e908110f0769eb96679633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages of this type indicate a fragmented payload with two or more message fragments.  <a href="#ga93ad5d5d56e908110f0769eb96679633">More...</a><br /></td></tr>
 <tr class="separator:ga93ad5d5d56e908110f0769eb96679633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4df95ef2c4f33361e28e47219c5f07fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#ga4df95ef2c4f33361e28e47219c5f07fa">NETWORK_LAST_FRAGMENT</a>&#160;&#160;&#160;150</td></tr>
-<tr class="memdesc:ga4df95ef2c4f33361e28e47219c5f07fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages of this type indicate the last fragment in a sequence of message fragments.  <a href="#ga4df95ef2c4f33361e28e47219c5f07fa">More...</a><br /></td></tr>
 <tr class="separator:ga4df95ef2c4f33361e28e47219c5f07fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac60baa80629bef34c13bd6a171f278c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#gac60baa80629bef34c13bd6a171f278c7">NETWORK_ACK</a>&#160;&#160;&#160;193</td></tr>
-<tr class="memdesc:gac60baa80629bef34c13bd6a171f278c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Messages of this type are used internally, to signal the sender that a transmission has been completed.  <a href="#gac60baa80629bef34c13bd6a171f278c7">More...</a><br /></td></tr>
 <tr class="separator:gac60baa80629bef34c13bd6a171f278c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8cbda56553334074392866d4b8359388"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#ga8cbda56553334074392866d4b8359388">NETWORK_POLL</a>&#160;&#160;&#160;194</td></tr>
-<tr class="memdesc:ga8cbda56553334074392866d4b8359388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by RF24Mesh.  <a href="#ga8cbda56553334074392866d4b8359388">More...</a><br /></td></tr>
 <tr class="separator:ga8cbda56553334074392866d4b8359388"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gadb43d169421055bc8a3e7da428da1c30"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__DEFINED__TYPES.html#gadb43d169421055bc8a3e7da428da1c30">NETWORK_REQ_ADDRESS</a>&#160;&#160;&#160;195</td></tr>
-<tr class="memdesc:gadb43d169421055bc8a3e7da428da1c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used by RF24Mesh.  <a href="#gadb43d169421055bc8a3e7da428da1c30">More...</a><br /></td></tr>
 <tr class="separator:gadb43d169421055bc8a3e7da428da1c30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p><b>Reserved network message types</b> </p>
+<p><b>Reserved network message types</b></p>
 <p>The network will determine whether to automatically acknowledge payloads based on their general type <br />
 </p>
 <p><b>User types</b> (1-127) 1-64 will NOT be acknowledged <br />
@@ -136,8 +124,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>A NETWORK_ADDR_RESPONSE type is utilized to manually route custom messages containing a single <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> address. </p>
+<p>A NETWORK_ADDR_RESPONSE type is utilized to manually route custom messages containing a single <a class="el" href="classRF24Network.html">RF24Network</a> address</p>
 <p>Used by RF24Mesh</p>
 <p>If a node receives a message of this type that is directly addressed to it, it will read the included message, and forward the payload on to the proper recipient. <br />
  This allows nodes to forward multicast messages to the master node, receive a response, and forward it back to the requester. </p>
@@ -153,9 +140,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Messages of type NETWORK_PING will be dropped automatically by the recipient. </p>
-<p>A NETWORK_ACK or automatic radio-ack will indicate to the sender whether the payload was successful. The time it takes to successfully send a NETWORK_PING is the round-trip-time. </p>
+<p>Messages of type NETWORK_PING will be dropped automatically by the recipient. A NETWORK_ACK or automatic radio-ack will indicate to the sender whether the payload was successful. The time it takes to successfully send a NETWORK_PING is the round-trip-time. </p>
 
 </div>
 </div>
@@ -168,17 +153,16 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>External data types are used to define messages that will be passed to an external data system. </p>
-<p>This allows <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> to route and pass any type of data, such as TCP/IP frames, while still being able to utilize standard <a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> messages etc.</p>
+<p>External data types are used to define messages that will be passed to an external data system. This allows <a class="el" href="classRF24Network.html">RF24Network</a> to route and pass any type of data, such as TCP/IP frames, while still being able to utilize standard <a class="el" href="classRF24Network.html">RF24Network</a> messages etc.</p>
 <p><b>Linux</b> Linux devices (defined RF24_LINUX) will buffer all data types in the user cache.</p>
 <p><b>Arduino/AVR/Etc:</b> Data transmitted with the type set to EXTERNAL_DATA_TYPE will not be loaded into the user cache. <br />
  External systems can extract external data using the following process, while internal data types are cached in the user buffer, and accessed using network.read() : </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;uint8_t return_type = network.update();</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;if(return_type == EXTERNAL_DATA_TYPE){</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    uint16_t size = network.frag_ptr-&gt;message_size;     </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;    uint16_t size = network.frag_ptr-&gt;message_size; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    memcpy(&amp;myDataBuffer,network.frag_ptr-&gt;message_buffer,network.frag_ptr-&gt;message_size);</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}               </div>
-</div><!-- fragment --> 
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}       </div>
+</div><!-- fragment --> <dl><dt><b>Examples: </b></dt><dd><a class="el" href="Network_Priority_RX_8ino-example.html#a1">Network_Priority_RX.ino</a>, and <a class="el" href="Network_Priority_TX_8ino-example.html#a2">Network_Priority_TX.ino</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="gaf9101b6aa5fd99550576e17cb10dbc4f"></a>
@@ -190,7 +174,6 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
 <p>Messages of this type designate the first of two or more message fragments, and will be re-assembled automatically. </p>
 
 </div>
@@ -204,7 +187,6 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
 <p>Messages of this type indicate a fragmented payload with two or more message fragments. </p>
 
 </div>
@@ -218,9 +200,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Messages of this type indicate the last fragment in a sequence of message fragments. </p>
-<p>Messages of this type do not receive a NETWORK_ACK </p>
+<p>Messages of this type indicate the last fragment in a sequence of message fragments. Messages of this type do not receive a NETWORK_ACK </p>
 
 </div>
 </div>
@@ -233,9 +213,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Messages of this type are used internally, to signal the sender that a transmission has been completed. </p>
-<p><a class="el" href="classRF24Network.html" title="2014-2015 - Optimized Network Layer for RF24 Radios ">RF24Network</a> does not directly have a built-in transport layer protocol, so message delivery is not 100% guaranteed.<br />
+<p>Messages of this type are used internally, to signal the sender that a transmission has been completed. <a class="el" href="classRF24Network.html">RF24Network</a> does not directly have a built-in transport layer protocol, so message delivery is not 100% guaranteed.<br />
  Messages can be lost via corrupted dynamic payloads, or a NETWORK_ACK can fail, while the message was actually successful.</p>
 <p>NETWORK_ACK messages can be utilized as a traffic/flow control mechanism, since transmitting nodes will be forced to wait until the payload is transmitted across the network and acknowledged, before sending additional data.</p>
 <p>In the event that the transmitting device will be waiting for a direct response, manually sent by the recipient, a NETWORK_ACK is not required. <br />
@@ -252,8 +230,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Used by RF24Mesh. </p>
+<p>Used by RF24Mesh</p>
 <p>Messages of this type are used with multi-casting , to find active/available nodes. Any node receiving a NETWORK_POLL sent to a multicast address will respond directly to the sender with a blank message, indicating the address of the available node via the header. </p>
 
 </div>
@@ -267,8 +244,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Used by RF24Mesh. </p>
+<p>Used by RF24Mesh</p>
 <p>Messages of this type are used to request information from the master node, generally via a unicast (direct) write. Any (non-master) node receiving a message of this type will manually forward it to the master node using an normal network write. </p>
 
 </div>
@@ -276,7 +252,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Dec 15 2018 06:25:59 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 16 2020 16:47:11 for Newly Optimized RF24Network Layer by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.10
 </small></address>
