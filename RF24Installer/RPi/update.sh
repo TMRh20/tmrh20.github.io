@@ -74,31 +74,31 @@ case ${ANSWER^^} in
 esac
 
 
-read -p "Do you want to install the RF24 core library [Y/n]?" ANSWER
+read -p "Do you want to install the RF24 core library [y/N]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24=1;;
 esac
 
-read -p "Do you want to install the RF24Network library [Y/n]?" ANSWER
+read -p "Do you want to install the RF24Network library [y/N]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Network=1;;
 esac
 
-read -p "Do you want to install the RF24Mesh library [Y/n]?" ANSWER
+read -p "Do you want to install the RF24Mesh library [y/N]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Mesh=1;;
 esac
 
-read -p "Do you want to install the RF24Gateway library [Y/n]?" ANSWER
+read -p "Do you want to install the RF24Gateway library [y/N]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
     Y ) DORF24Gateway=1;;
 esac
 
-read -p "Do you want to build an RF24Gateway example [Y/n]?" ANSWER
+read -p "Do you want to build an RF24Gateway example [y/N]?" ANSWER
 ANSWER=${ANSWER:-Y}
 case ${ANSWER^^} in
 	Y ) DORF24GatewayMake=1;;
@@ -113,7 +113,7 @@ then
 		echo "No ncurses library."
 		echo "Recommended for RF24Gateway"
 		echo "If you select yes it will install ncurses library"
-		read -p "Install ncurses library -Recommended for RF24Gateway [Y/n]?" ANSWER
+		read -p "Install ncurses library -Recommended for RF24Gateway [y/N]?" ANSWER
 		ANSWER=${ANSWER:-Y}
 		case ${ANSWER^^} in
 			Y ) sudo apt-get install libncurses5-dev
@@ -130,7 +130,8 @@ then
 	echo ""
 	git clone https://github.com/${GITHUB_ROOT}/RF24.git ${ROOT_PATH}/RF24
 	echo ""
-	sudo make install -B -C ${ROOT_PATH}/RF24
+    make -B -C ${ROOT_PATH}/RF24
+	sudo make install -C ${ROOT_PATH}/RF24
 	echo ""
 fi
 
@@ -140,7 +141,8 @@ then
 	echo ""
 	git clone https://github.com/${GITHUB_ROOT}/RF24Network.git ${ROOT_PATH}/RF24Network
 	echo ""
-	sudo make install -B -C ${ROOT_PATH}/RF24Network
+    make -B -C ${ROOT_PATH}/RF24Network
+	sudo make install -C ${ROOT_PATH}/RF24Network
 	echo ""
 fi
 
@@ -150,7 +152,8 @@ then
 	echo ""
 	git clone https://github.com/${GITHUB_ROOT}/RF24Mesh.git ${ROOT_PATH}/RF24Mesh
 	echo ""
-	sudo make install -B -C ${ROOT_PATH}/RF24Mesh
+    make -B -C ${ROOT_PATH}/RF24Mesh
+	sudo make install -C ${ROOT_PATH}/RF24Mesh
 	echo ""
 fi
 
@@ -160,7 +163,8 @@ then
 	echo ""
 	git clone https://github.com/${GITHUB_ROOT}/RF24Gateway.git ${ROOT_PATH}/RF24Gateway
 	echo ""
-	sudo make install -B -C ${ROOT_PATH}/RF24Gateway
+    make -B -C ${ROOT_PATH}/RF24Gateway
+	sudo make install -C ${ROOT_PATH}/RF24Gateway
 	
     echo ""
 	if [[ $DORF24GatewayMake > 0 ]]
