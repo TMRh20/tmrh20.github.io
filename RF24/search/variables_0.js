@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bits',['bits',['../group__Porting__SPI.html#ga46a6da6b1936191571fd30b2a749f38c',1,'spi.h']]]
+  ['csdelay_320',['csDelay',['../classRF24.html#ad08121bf844f08dbe53f51576b7c4066',1,'RF24']]]
 ];

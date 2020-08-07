@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7egpio',['~GPIO',['../group__Porting__GPIO.html#gaef320e8e437ed827b571a212fc242a28',1,'gpio.h']]],
-  ['_7espi',['~SPI',['../group__Porting__SPI.html#ga224a368f34373695f2a7e631d0742029',1,'spi.h']]]
+  ['_7e_20gpio_235',['~ GPIO',['../group__Porting__GPIO.html#gac0a26a7a5b7f5cac1f44b231a8811afc',1,'gpio.h']]],
+  ['_7e_20spi_236',['~ SPI',['../group__Porting__SPI.html#ga7ebf01580f0e9ff57379341e2f9330d0',1,'spi.h']]]
 ];

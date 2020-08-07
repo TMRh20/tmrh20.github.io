@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['failuredetected',['failureDetected',['../classRF24.html#a2e40fe66d1231a333aa2534e8491f828',1,'RF24']]],
-  ['fd',['fd',['../group__Porting__SPI.html#ga6f8059414f0228f0256115e024eeed4b',1,'spi.h']]]
+  ['output_5fhigh_324',['OUTPUT_HIGH',['../group__Porting__GPIO.html#ga18fd76f29528fc97aadcdb78495ff6bf',1,'gpio.h']]],
+  ['output_5flow_325',['OUTPUT_LOW',['../group__Porting__GPIO.html#gaa29a50f0f8fc0a62076c7f4bc7dc70db',1,'gpio.h']]]
 ];
