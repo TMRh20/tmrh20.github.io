@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../RF24Mesh__Ncurses__Master_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;RF24Mesh_Ncurses_Master.cpp'],['../RF24Mesh__Example_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;RF24Mesh_Example.cpp'],['../RF24Mesh__Example__Master_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;RF24Mesh_Example_Master.cpp']]]
+  ['releaseaddress_55',['releaseAddress',['../classRF24Mesh.html#a70e5a2a2a393bc13d63c97a62bf311b1',1,'RF24Mesh']]],
+  ['renewaddress_56',['renewAddress',['../classRF24Mesh.html#a01e3844c6f04bf81bac6e45c3d75116e',1,'RF24Mesh']]],
+  ['rf24mesh_57',['RF24Mesh',['../classRF24Mesh.html#a8b2bde3730c955d28a269f35b610a562',1,'RF24Mesh']]]
 ];
