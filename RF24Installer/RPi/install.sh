@@ -70,18 +70,33 @@ fi
 
 if [[ $DORF24 > 0 ]]
 then
+    echo ""
 	echo "Installing RF24 Repo..."
 	echo ""
 	git clone https://github.com/tmrh20/RF24.git ${ROOT_PATH}/RF24
 	echo ""
-    make -B -C ${ROOT_PATH}/RF24
+    echo "*** Install RF24 core using? ***"
+    echo "1.BCM2835 Driver(Performance) 2.SPIDEV(Compatibility, Default)"
+    echo "3.WiringPi(Its WiringPi!) 4.MRAA(Intel Devices) 5.LittleWire"
+    read answer
+    cd ${ROOT_PATH}/RF24
+    case ${answer^^} in
+        1) ./configure --driver=RPi;;
+        2) ./configure --driver=SPIDEV;;
+        3) ./configure --driver=wiringPi;;
+        4) ./configure --driver=MRAA;;
+        5) ./configure --driver=LittleWire;;
+        *) ./configure --driver=SPIDEV;;
+    esac
+    cd ../..    
+    make -C ${ROOT_PATH}/RF24
 	sudo make install -C ${ROOT_PATH}/RF24
 	echo ""
 fi
 
 if [[ $DORF24Network > 0 ]]
 then
-	echo "Installing RF24Network_DEV Repo..."
+	echo "Installing RF24Network Repo..."
 	echo ""
 	git clone https://github.com/tmrh20/RF24Network.git ${ROOT_PATH}/RF24Network
 	echo ""
@@ -124,7 +139,7 @@ echo "*** Installer Complete ***"
 echo "See http://tmrh20.github.io for documentation"
 echo "See http://tmrh20.blogspot.com for info "
 echo ""
-echo "Listing files in install directory:"
+echo "Listing files in install directory rf24libs/"
 ls ${ROOT_PATH}
 
 

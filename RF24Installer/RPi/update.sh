@@ -130,7 +130,21 @@ then
 	echo ""
 	git clone https://github.com/${GITHUB_ROOT}/RF24.git ${ROOT_PATH}/RF24
 	echo ""
-    make -B -C ${ROOT_PATH}/RF24
+    echo "*** Install RF24 core using? ***"
+    echo "1.BCM2835 Driver(Performance) 2.SPIDEV(Compatibility, Default)"
+    echo "3.WiringPi(Its WiringPi!) 4.MRAA(Intel Devices) 5.LittleWire"
+    read answer
+    cd ${ROOT_PATH}/RF24
+    case ${answer^^} in
+        1) ./configure --driver=RPi;;
+        2) ./configure --driver=SPIDEV;;
+        3) ./configure --driver=wiringPi;;
+        4) ./configure --driver=MRAA;;
+        5) ./configure --driver=LittleWire;;
+        *) ./configure --driver=SPIDEV;;
+    esac
+    cd ../..
+    make -C ${ROOT_PATH}/RF24
 	sudo make install -C ${ROOT_PATH}/RF24
 	echo ""
 fi
