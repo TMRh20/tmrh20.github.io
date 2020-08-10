@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Optimized high speed nRF24L01+ driver class documentation: Linux devices</title>
+<title>Optimized high speed nRF24L01+ driver class documentation: Linux Installation</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Linux devices </div>  </div>
+<div class="title">Linux Installation </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Generic Linux devices are supported via SPIDEV, MRAA, RPi native via BCM2835, or using LittleWire.</p>
@@ -136,15 +136,22 @@ Manual Install</h1>
 <div class="line">sudo ./gettingstarted</div>
 </div><!-- fragment --></li>
 </ol>
-<p><br  />
+<p>Build using <b>SPIDEV</b></p>
+<ol type="1">
+<li>Make sure that spi device support is enabled and /dev/spidev&lt;a&gt;.&lt;b&gt; is present</li>
+<li>Manual Install using SPIDEV: <div class="fragment"><div class="line">./configure --driver=SPIDEV</div>
+<div class="line">make; sudo make install</div>
+</div><!-- fragment --></li>
+<li>See the gettingstarted example for an example of pin configuration <br  />
 <br  />
- </p>
+ </li>
+</ol>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <div class="ttc" id="aclassRF24_html"><div class="ttname"><a href="classRF24.html">RF24</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00065">RF24.h:65</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 6 2020 23:54:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 10 2020 11:39:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

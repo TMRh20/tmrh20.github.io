@@ -102,35 +102,10 @@ Potential PreConfiguration</h1>
 <h1><a class="anchor" id="Build"></a>
 Build Options</h1>
 <p>The default build on Raspberry Pi utilizes the included <b>BCM2835</b> driver from <a href="http://www.airspayce.com/mikem/bcm2835">http://www.airspayce.com/mikem/bcm2835</a></p><ol type="1">
-<li><div class="fragment"><div class="line">make; sudo make install </div>
+<li>See <a href="Linux.html">the Linux section for automated installation </a></li>
+<li>Manual install: <br  />
+ <div class="fragment"><div class="line">make; sudo make install </div>
 </div><!-- fragment --></li>
-</ol>
-<p>Build using the <b>MRAA</b> library from <a href="http://iotdk.intel.com/docs/master/mraa/index.html">http://iotdk.intel.com/docs/master/mraa/index.html</a> <br  />
- MRAA is not included. See the <a href="MRAA.html">MRAA</a> platform page for more information.</p>
-<ol type="1">
-<li>Install, and build MRAA <div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/intel-iot-devkit/mraa.git</span></div>
-<div class="line">cd mraa</div>
-<div class="line">mkdir build</div>
-<div class="line">cd build</div>
-<div class="line">cmake .. -DBUILDSWIGNODE=OFF</div>
-<div class="line">sudo make install</div>
-</div><!-- fragment --></li>
-<li>Complete the install <br  />
- <div class="fragment"><div class="line">nano /etc/ld.so.conf </div>
-</div><!-- fragment --> Add the line<div class="fragment"><div class="line">/usr/local/lib/arm-linux-gnueabihf </div>
-</div><!-- fragment --> Run<div class="fragment"><div class="line">sudo ldconfig </div>
-</div><!-- fragment --></li>
-<li>Install <a class="el" href="classRF24.html">RF24</a>, using MRAA <div class="fragment"><div class="line">./configure --driver=MRAA</div>
-<div class="line">make; sudo make install</div>
-</div><!-- fragment --> See the gettingstarted example for an example of pin configuration</li>
-</ol>
-<p>Build using <b>SPIDEV</b></p>
-<ol type="1">
-<li>Make sure that spi device support is enabled and /dev/spidev&lt;a&gt;.&lt;b&gt; is present</li>
-<li>Install <a class="el" href="classRF24.html">RF24</a>, using SPIDEV <div class="fragment"><div class="line">./configure --driver=SPIDEV</div>
-<div class="line">make; sudo make install</div>
-</div><!-- fragment --></li>
-<li>See the gettingstarted example for an example of pin configuration</li>
 </ol>
 <p><br  />
  </p>
@@ -188,7 +163,7 @@ Connections and Pin Configuration</h1>
 <div class="ttc" id="aclassRF24_html"><div class="ttname"><a href="classRF24.html">RF24</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24_8h_source.html#l00065">RF24.h:65</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 6 2020 23:54:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 10 2020 11:39:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

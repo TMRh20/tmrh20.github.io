@@ -95,10 +95,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="https://github.com/TMRh20/RF24/issues">Report an RF24 bug or issue </a></p>
 <h1><a class="anchor" id="Setup"></a>
 Setup and installation</h1>
+<p>Build using the <b>MRAA</b> library from <a href="http://iotdk.intel.com/docs/master/mraa/index.html">http://iotdk.intel.com/docs/master/mraa/index.html</a> <br  />
+ MRAA is not included.</p>
 <ol type="1">
-<li>Install the MRAA lib</li>
-<li>As per your device, SPI may need to be enabled</li>
-<li>Follow <a href="Linux.html">Linux installation steps</a> to install <a class="el" href="classRF24.html">RF24</a> libraries</li>
+<li>Install, and build MRAA <div class="fragment"><div class="line">git clone https:<span class="comment">//github.com/intel-iot-devkit/mraa.git</span></div>
+<div class="line">cd mraa</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake .. -DBUILDSWIGNODE=OFF</div>
+<div class="line">sudo make install</div>
+</div><!-- fragment --></li>
+<li>Complete the install <br  />
+ <div class="fragment"><div class="line">nano /etc/ld.so.conf </div>
+</div><!-- fragment --> Add the line<div class="fragment"><div class="line">/usr/local/lib/arm-linux-gnueabihf </div>
+</div><!-- fragment --> Run<div class="fragment"><div class="line">sudo ldconfig </div>
+</div><!-- fragment --></li>
+<li>Install <a class="el" href="classRF24.html">RF24</a>, using MRAA See <a href="http://tmrh20.github.io/RF24/Linux.html">http://tmrh20.github.io/RF24/Linux.html</a></li>
 </ol>
 <p><br  />
 <br  />
@@ -108,7 +120,7 @@ Setup and installation</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 6 2020 23:54:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 10 2020 11:39:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>
