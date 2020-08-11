@@ -89,19 +89,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Python Wrapper (by <a href="https://github.com/mz-fuzzy">https://github.com/mz-fuzzy</a>) </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><dl class="section note"><dt>Note</dt><dd>Both python2 and python3 are supported.</dd></dl>
+<div class="textblock"><h1><a class="anchor" id="Prerequisites"></a>
+Prerequisites</h1>
+<p><b>Python2:</b></p>
+<div class="fragment"><div class="line">sudo apt-get install python-dev libboost-python-dev python-setuptools python-rpi.gpio </div>
+</div><!-- fragment --><p><b>Python3:</b></p>
+<div class="fragment"><div class="line">sudo apt-get install python3-dev libboost-python-dev python3-setuptools python3-rpi.gpio </div>
+</div><!-- fragment --><p><a class="el" href="classRF24.html">RF24</a>:</p>
+<p>The <a class="el" href="classRF24.html">RF24</a> lib needs to be built in C++ &amp; installed for the python wrapper to wrap it <br  />
+ See <a href="Linux.html">Linux Installation</a> and <a href="RPi.html">Linux/RPi General</a> <br  />
+<br  />
+ </p>
 <h1><a class="anchor" id="Install"></a>
 Installation:</h1>
-<p><br  />
-</p>
 <ol type="1">
-<li>Install the python-dev (or python3-dev) and boost libraries <div class="fragment"><div class="line">sudo apt-get install python-dev libboost-python-dev </div>
-</div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>For python3 in Raspbian, it's needed to manually link python boost library, like this: <div class="fragment"><div class="line">sudo ln -s $(ls /usr/lib/arm-linux-gnueabihf/libboost_python-py3*.so | tail -1) /usr/lib/arm-linux-gnueabihf/libboost_python3.so </div>
-</div><!-- fragment --></dd></dl>
-</li>
-<li>Install python-setuptools (or python3-setuptools) <div class="fragment"><div class="line">sudo apt-get install python-setuptools </div>
+<li>For python3 in Raspbian, it's needed to manually link python boost library, like this: <div class="fragment"><div class="line">sudo ln -s $(ls /usr/lib/arm-linux-gnueabihf/libboost_python3-py3*.so | tail -1) /usr/lib/arm-linux-gnueabihf/libboost_python3.so </div>
 </div><!-- fragment --></li>
-<li>Build the library <div class="fragment"><div class="line">./setup.py build   </div>
+<li>Build the library. From the rf24libs/RF24/pyRF24 directory: <div class="fragment"><div class="line">./setup.py build   </div>
 </div><!-- fragment --> or<div class="fragment"><div class="line">python3 setup.py build </div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Build takes several minutes on arm-based machines. Machines with RAM &lt;1GB may need to increase amount of swap for build.</dd></dl>
 </li>
@@ -110,7 +114,8 @@ Installation:</h1>
 </div><!-- fragment --> See the additional <a href="pages.html">Platform Support</a> pages for information on connecting your hardware <br  />
  See the included <a href="pingpair_dyn_8py-example.html">example </a> for usage information. <br  />
 </li>
-<li>Running the Example Edit the pingpair_dyn.py example to configure the appropriate pins per the above documentation: <br  />
+<li>Running the Example: <br  />
+ Edit the pingpair_dyn.py example to configure the appropriate pins per the above documentation: <br  />
  <div class="fragment"><div class="line">nano pingpair_dyn.py   </div>
 </div><!-- fragment --> Configure another device, Arduino or RPi with the <a href="pingpair_dyn_8py-example.html">pingpair_dyn</a> example <br  />
  Run the example <br  />
@@ -126,7 +131,7 @@ Installation:</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 10 2020 11:39:59 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 10 2020 18:04:29 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>
