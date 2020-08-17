@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a34535daf39ead14698f3718037358394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3e662216ffd890e019537a95297ed4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a> (uint8_t nodeID)</td></tr>
 <tr class="separator:a9d3e662216ffd890e019537a95297ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01e3844c6f04bf81bac6e45c3d75116e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a01e3844c6f04bf81bac6e45c3d75116e">renewAddress</a> (uint32_t timeout=<a class="el" href="RF24Mesh__config_8h.html#ab7aba6d7a94d3c79a7ed4f61ee19af21">MESH_RENEWAL_TIMEOUT</a>)</td></tr>
+<tr class="separator:a01e3844c6f04bf81bac6e45c3d75116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#af2be39ae1e725063df72ca1f4c73a4eb">DHCP</a> ()</td></tr>
 <tr class="separator:af2be39ae1e725063df72ca1f4c73a4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Deprecated</div></td></tr>
@@ -149,8 +151,6 @@ Advanced Operation</h2></td></tr>
 <tr class="separator:a38be0ba49fea6986dedd976f18865912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6330a2502e680f13e6ded3ff07d71087"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a6330a2502e680f13e6ded3ff07d71087">checkConnection</a> ()</td></tr>
 <tr class="separator:a6330a2502e680f13e6ded3ff07d71087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01e3844c6f04bf81bac6e45c3d75116e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a01e3844c6f04bf81bac6e45c3d75116e">renewAddress</a> (uint32_t timeout=<a class="el" href="RF24Mesh__config_8h.html#ab7aba6d7a94d3c79a7ed4f61ee19af21">MESH_RENEWAL_TIMEOUT</a>)</td></tr>
-<tr class="separator:a01e3844c6f04bf81bac6e45c3d75116e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70e5a2a2a393bc13d63c97a62bf311b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a70e5a2a2a393bc13d63c97a62bf311b1">releaseAddress</a> ()</td></tr>
 <tr class="separator:a70e5a2a2a393bc13d63c97a62bf311b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a895f444dcc0cb175faf845c5bdd7a7d0"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a895f444dcc0cb175faf845c5bdd7a7d0">getAddress</a> (uint8_t nodeID)</td></tr>
@@ -161,8 +161,10 @@ Advanced Operation</h2></td></tr>
 <tr class="separator:ab4d6a0a2146215b0e54dff4e1dcb08d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae183c358915a1b7fbf1b19db8ba66a16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#ae183c358915a1b7fbf1b19db8ba66a16">setChild</a> (bool allow)</td></tr>
 <tr class="separator:ae183c358915a1b7fbf1b19db8ba66a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44f16e3ca96090bf86698bf418e59b91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a44f16e3ca96090bf86698bf418e59b91">setAddress</a> (uint8_t nodeID, uint16_t address)</td></tr>
-<tr class="separator:a44f16e3ca96090bf86698bf418e59b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2d6861a17301e6f0010ca99ea9279df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#ab2d6861a17301e6f0010ca99ea9279df">setCallback</a> (void(*meshCallback)(void))</td></tr>
+<tr class="separator:ab2d6861a17301e6f0010ca99ea9279df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4208f157ec8a7dae4bc716236185597"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#af4208f157ec8a7dae4bc716236185597">setAddress</a> (uint8_t nodeID, uint16_t address, bool searchBy=false)</td></tr>
+<tr class="separator:af4208f157ec8a7dae4bc716236185597"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9448ca15e501d0bae687c5428c7cc12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#aa9448ca15e501d0bae687c5428c7cc12">saveDHCP</a> ()</td></tr>
 <tr class="separator:aa9448ca15e501d0bae687c5428c7cc12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a764ba5fe2faecc77dd5f4b87dd0ceaa1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRF24Mesh.html#a764ba5fe2faecc77dd5f4b87dd0ceaa1">loadDHCP</a> ()</td></tr>
@@ -337,7 +339,7 @@ Message types 1-64 (decimal) will NOT be acknowledged by the network, types 65-1
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if success, False if failed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00097">97</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00100">100</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -367,75 +369,7 @@ Message types 1-64 (decimal) will NOT be acknowledged by the network, types 65-1
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00413">413</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
-
-</div>
-</div>
-<a id="af2be39ae1e725063df72ca1f4c73a4eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2be39ae1e725063df72ca1f4c73a4eb">&#9670;&nbsp;</a></span>DHCP()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RF24Mesh::DHCP </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Only to be used on the master node. Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
-
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00490">490</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a38be0ba49fea6986dedd976f18865912"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38be0ba49fea6986dedd976f18865912">&#9670;&nbsp;</a></span>getNodeID()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t RF24Mesh::getNodeID </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>address</em> = <code><a class="el" href="RF24Mesh_8h.html#ac9eca43efb96d3214debce1d098f3b5b">MESH_BLANK_ID</a></code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Convert an RF24Network address into a nodeId. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>If no address is provided, returns the local nodeID, otherwise a lookup request is sent to the master node </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Returns the unique identifier (1-255) or -1 if not found. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00181">181</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a6330a2502e680f13e6ded3ff07d71087"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6330a2502e680f13e6ded3ff07d71087">&#9670;&nbsp;</a></span>checkConnection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RF24Mesh::checkConnection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Tests connectivity of this node to the mesh. </p><dl class="section note"><dt>Note</dt><dd>If this function fails, address renewal should typically be done. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Return 1 if connected, 0 if mesh not responding </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00135">135</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00434">434</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -465,7 +399,75 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the newly assigned RF24Network address </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00237">237</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00253">253</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af2be39ae1e725063df72ca1f4c73a4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2be39ae1e725063df72ca1f4c73a4eb">&#9670;&nbsp;</a></span>DHCP()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Mesh::DHCP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Only to be used on the master node. Provides automatic configuration for sensor nodes, similar to DHCP. Call immediately after calling network.update() to ensure address requests are handled appropriately </p>
+
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00521">521</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a38be0ba49fea6986dedd976f18865912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38be0ba49fea6986dedd976f18865912">&#9670;&nbsp;</a></span>getNodeID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t RF24Mesh::getNodeID </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>address</em> = <code><a class="el" href="RF24Mesh_8h.html#ac9eca43efb96d3214debce1d098f3b5b">MESH_BLANK_ID</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convert an RF24Network address into a nodeId. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>If no address is provided, returns the local nodeID, otherwise a lookup request is sent to the master node </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the unique identifier (1-255) or -1 if not found. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00184">184</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6330a2502e680f13e6ded3ff07d71087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6330a2502e680f13e6ded3ff07d71087">&#9670;&nbsp;</a></span>checkConnection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RF24Mesh::checkConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tests connectivity of this node to the mesh. </p><dl class="section note"><dt>Note</dt><dd>If this function fails, address renewal should typically be done. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Return 1 if connected, 0 if mesh not responding </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00138">138</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -486,7 +488,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 <p>Releases the currently assigned address lease. Useful for nodes that will be sleeping etc. </p><dl class="section note"><dt>Note</dt><dd>Nodes should ensure that addresses are released successfully prior to going offline. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns 1 if successfully released, 0 if not </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00223">223</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00239">239</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -514,7 +516,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the RF24Network address of the node, -2 if successful but not in list, -1 if failed </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00147">147</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00150">150</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +559,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </div><div class="memdoc">
 <p>Write to a specific node by RF24Network address. </p>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00089">89</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00092">92</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -578,7 +580,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </div><div class="memdoc">
 <p>Change the active radio channel after the mesh has been started. </p>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00119">119</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00122">122</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -604,12 +606,43 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00128">128</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00131">131</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a44f16e3ca96090bf86698bf418e59b91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44f16e3ca96090bf86698bf418e59b91">&#9670;&nbsp;</a></span>setAddress()</h2>
+<a id="ab2d6861a17301e6f0010ca99ea9279df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d6861a17301e6f0010ca99ea9279df">&#9670;&nbsp;</a></span>setCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RF24Mesh::setCallback </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramname"><em>meshCallback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><a class="el" href="classRF24Mesh.html">RF24Mesh</a> ID and Address lookups as well as address renewal can take some time. Set a callback function to enable additional processing while the mesh is working</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> myCallbackFunction(){</div>
+<div class="line">  someValue = someOtherValue;</div>
+<div class="line">}</div>
+<div class="line">mesh.setCallback(myCallbackFunction);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">meshCallback</td><td>The name of a function to call </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00625">625</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af4208f157ec8a7dae4bc716236185597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4208f157ec8a7dae4bc716236185597">&#9670;&nbsp;</a></span>setAddress()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -624,7 +657,13 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>address</em>&#160;</td>
+          <td class="paramname"><em>address</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>searchBy</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -637,17 +676,22 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 <div class="fragment"><div class="line">Set a <span class="keyword">static</span> address <span class="keywordflow">for</span> node 02, with nodeID 23, since it will just be a <span class="keyword">static</span> routing node <span class="keywordflow">for</span> example</div>
 <div class="line">running on an ATTiny chip.</div>
 <div class="line"> </div>
-<div class="line">mesh.setStaticAddress(23,02);</div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
+<div class="line">mesh.setAddress(23,02);</div>
+</div><!-- fragment --><div class="fragment"><div class="line">Change/set the nodeID <span class="keywordflow">for</span> an existing address</div>
+<div class="line"> </div>
+<div class="line">uint16_t address = 012;</div>
+<div class="line">mesh.setAddress(3,address,<span class="keyword">true</span>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nodeID</td><td>The nodeID to assign </td></tr>
     <tr><td class="paramname">address</td><td>The octal RF24Network address to assign </td></tr>
+    <tr><td class="paramname">searchBy</td><td>Optional parameter. Default is search by nodeID and set the address. True allows searching by address and setting nodeID. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>If the nodeID exists in the list, </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00426">426</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00447">447</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -666,7 +710,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00474">474</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00505">505</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +729,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00452">452</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00483">483</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -714,9 +758,9 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calls <a class="el" href="classRF24Mesh.html#a44f16e3ca96090bf86698bf418e59b91">setAddress()</a> </p>
+<p>Calls <a class="el" href="classRF24Mesh.html#af4208f157ec8a7dae4bc716236185597">setAddress()</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00420">420</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8cpp_source.html#l00441">441</a> of file <a class="el" href="RF24Mesh_8cpp_source.html">RF24Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -734,7 +778,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </div><div class="memdoc">
 <p>The assigned RF24Network (Octal) address of this node </p><dl class="section return"><dt>Returns</dt><dd>Returns an unsigned 16-bit integer containing the RF24Network address in octal format </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00186">186</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00187">187</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
 
 </div>
 </div>
@@ -750,7 +794,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00258">258</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00285">285</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
 
 </div>
 </div>
@@ -767,7 +811,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </div><div class="memdoc">
 <p>See the <a class="el" href="structRF24Mesh_1_1addrListStruct.html">addrListStruct</a> class reference </p>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00268">268</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00294">294</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
 
 </div>
 </div>
@@ -784,7 +828,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 </div><div class="memdoc">
 <p>The number of entries in the assigned address list </p>
 
-<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00269">269</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="RF24Mesh_8h_source.html#l00295">295</a> of file <a class="el" href="RF24Mesh_8h_source.html">RF24Mesh.h</a>.</p>
 
 </div>
 </div>
@@ -796,7 +840,7 @@ If all nodes are set to verify connectivity/reconnect at a specified period, res
 <div class="ttc" id="aclassRF24Mesh_html"><div class="ttname"><a href="classRF24Mesh.html">RF24Mesh</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Mesh_8h_source.html#l00061">RF24Mesh.h:62</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 8 2020 13:22:15 for RF24Mesh - Automated Networking for nrf24L01 radios by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 16 2020 22:16:47 for RF24Mesh - Automated Networking for nrf24L01 radios by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

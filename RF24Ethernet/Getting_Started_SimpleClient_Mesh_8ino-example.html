@@ -122,19 +122,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> * Remote networks can be easily interconnected using SSH tunnelling, VPNs etc., and </span></div>
 <div class="line"><span class="comment"> * sensor nodes can be configured to communicate without the need for an intermediary or additional programming.</span></div>
 <div class="line"><span class="comment"> * </span></div>
-<div class="line"><span class="comment"> * Main Features:</span></div>
-<div class="line"><span class="comment"> * </span></div>
-<div class="line"><span class="comment"> * 1. Same basic feature set as any Arduino Ethernet adapter, only wireless...</span></div>
-<div class="line"><span class="comment"> * 2. Uses RPi OR Arduino+Linux OR Arduino + any SLIP capable device as the wireless gateway/router.</span></div>
-<div class="line"><span class="comment"> * 3. Easy Arduino configuration: Just assign a unique IP address to each node, ending in 2-255 (ie: 192.168.1.32)</span></div>
-<div class="line"><span class="comment"> *    *Linux devices use standard TCP/IP networking (IPTABLES,NAT,etc) and tools (wget, ftp, curl, python...)</span></div>
-<div class="line"><span class="comment"> * 4. Automated (mesh) networking creates and maintains network connectivity as nodes join the network or move around</span></div>
-<div class="line"><span class="comment"> * 5. Automated, multi-hop routing allows users to greatly extend the range of RF24 devices</span></div>
-<div class="line"><span class="comment"> * 6. API based on the official Arduino Ethernet library. ( https://www.arduino.cc/en/Reference/Ethernet )</span></div>
-<div class="line"><span class="comment"> * 7. RF24Gateway (companion program for RPi) provides a user interface that automatically handles TCP/IP</span></div>
-<div class="line"><span class="comment"> *    data, and is easily modified to handle custom RF24Network/RF24Mesh data.</span></div>
-<div class="line"><span class="comment"> * 8. Reduce/Remove the need for custom applications. Any device with a browser can connect directly to the sensors!</span></div>
-<div class="line"><span class="comment"> * 9. Handle (relatively) large volumes of data and file transfers automatically.</span></div>
 <div class="line"><span class="comment"> * </span></div>
 <div class="line"><span class="comment"> * *************************************************************************</span></div>
 <div class="line"><span class="comment"> * Example Network:</span></div>
@@ -171,21 +158,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><span class="comment"> * 1. Open the RF24Network library folder</span></div>
 <div class="line"><span class="comment"> * 2. Edit the RF24Networl_config.h file</span></div>
 <div class="line"><span class="comment"> * 3. Un-comment #define DISABLE_USER_PAYLOADS</span></div>
+<div class="line"><span class="comment"> * 4. Remember to set it back for normal operation</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This example connects to google and downloads the index page</span></div>
+<div class="line"><span class="comment"> * This example will get you some pizza and a book to read</span></div>
+<div class="line"><span class="comment"> * </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;RF24.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;SPI.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;RF24Mesh.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Network.h&gt;</span></div>
-<div class="line"><span class="comment">//#include &lt;printf.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RF24Mesh.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;RF24Ethernet.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#if !defined __arm__ &amp;&amp; !defined __ARDUINO_X86__</span></div>
-<div class="line"><span class="preprocessor">  #include &lt;EEPROM.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="comment">//#include &lt;printf.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*** Configure the radio CE &amp; CS pins ***/</span></div>
 <div class="line">RF24 radio(7,8);</div>
@@ -193,14 +178,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">RF24Mesh mesh(radio,network);</div>
 <div class="line"><a name="_a0"></a><a class="code" href="classRF24EthernetClass.html">RF24EthernetClass</a> RF24Ethernet(radio,network,mesh);</div>
 <div class="line"> </div>
-<div class="line"> </div>
 <div class="line">EthernetClient client;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// The hosts we will be connecting to</span></div>
+<div class="line"><span class="comment">// Note: The gateway will need to be able to forward traffic for internet hosts, see the documentation</span></div>
+<div class="line">IPAddress guten(152,19,134,47); <span class="comment">//http://www.gutenberg.org/files/2591/2591-0.txt</span></div>
+<div class="line">IPAddress pizza(94,199,58,243); <span class="comment">//http://fiikus.net/asciiart/pizza.txt</span></div>
+<div class="line">IPAddress host(pizza);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
 <div class="line">  </div>
 <div class="line">  Serial.begin(115200);</div>
-<div class="line"> <span class="comment">// printf_begin();</span></div>
-<div class="line">  Serial.println(<span class="stringliteral">&quot;Start&quot;</span>);</div>
+<div class="line">  <span class="comment">//printf_begin();</span></div>
+<div class="line">  Serial.println(F(<span class="stringliteral">&quot;Start&quot;</span>));</div>
 <div class="line">  </div>
 <div class="line">  <span class="comment">// Set the IP address we&#39;ll be using. The last octet mast match the nodeID (9)</span></div>
 <div class="line">  IPAddress myIP(10,10,2,4);</div>
@@ -215,10 +205,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"> </div>
 <div class="line">uint32_t counter = 0;</div>
 <div class="line">uint32_t reqTimer = 0;</div>
-<div class="line"> </div>
 <div class="line">uint32_t mesh_timer = 0;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Send a p or g character over serial to switch between hosts</span></div>
+<div class="line">  <span class="keywordflow">if</span>(Serial.available()){</div>
+<div class="line">    <span class="keywordtype">char</span> c = Serial.read();</div>
+<div class="line">    <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;p&#39;</span>){</div>
+<div class="line">      host = pizza;</div>
+<div class="line">    }<span class="keywordflow">else</span></div>
+<div class="line">    <span class="keywordflow">if</span>(c == <span class="charliteral">&#39;g&#39;</span>){</div>
+<div class="line">      host = guten;</div>
+<div class="line">    }</div>
+<div class="line">  }  </div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// Optional: If the node needs to move around physically, or using failover nodes etc.,</span></div>
 <div class="line">  <span class="comment">// enable address renewal</span></div>
@@ -226,19 +226,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    mesh_timer = millis();</div>
 <div class="line">    <span class="keywordflow">if</span>( ! mesh.checkConnection() ){</div>
 <div class="line">        <span class="comment">//refresh the network address        </span></div>
-<div class="line">        mesh.renewAddress();</div>
+<div class="line">        <span class="keywordflow">if</span>(!mesh.renewAddress()){</div>
+<div class="line">          mesh.begin();</div>
+<div class="line">        }</div>
 <div class="line">     }</div>
 <div class="line">  }</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">size_t</span> size;</div>
+<div class="line">  <span class="keywordtype">size_t</span> size;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">if</span>(size = client.available() &gt; 0){</div>
+<div class="line">  <span class="keywordflow">if</span>(size = client.available() &gt; 0){</div>
 <div class="line">    <span class="keywordtype">char</span> c = client.read();</div>
 <div class="line">    Serial.print(c);</div>
-<div class="line">    <span class="comment">// Sends a line-break every 150 characters, comment out if not connecting to google</span></div>
-<div class="line">    <span class="comment">//if(counter &gt; 150){ Serial.println(&quot;&quot;); counter=0;}</span></div>
 <div class="line">    counter++;</div>
-<div class="line">}</div>
+<div class="line">  }</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// if the server&#39;s disconnected, stop the client:</span></div>
 <div class="line">  <span class="keywordflow">if</span> (!client.connected()) {</div>
@@ -247,6 +247,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    client.stop();</div>
 <div class="line">  </div>
 <div class="line">    <span class="comment">// Wait 5 seconds between requests</span></div>
+<div class="line">    <span class="comment">// Calling client.available(); or Ethernet.update(); is required during delays</span></div>
+<div class="line">    <span class="comment">// to keep the stack updated</span></div>
 <div class="line">    reqTimer = millis();</div>
 <div class="line">    <span class="keywordflow">while</span>(millis() - reqTimer &lt; 5000 &amp;&amp; !client.available() ){ }    </div>
 <div class="line">    connect();</div>
@@ -258,17 +260,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> connect(){</div>
 <div class="line">    Serial.println(F(<span class="stringliteral">&quot;connecting&quot;</span>));</div>
-<div class="line">    IPAddress goog(74,125,224,87);</div>
-<div class="line">    IPAddress pizza(94,199,58,243);</div>
-<div class="line">    <span class="keywordflow">if</span> (client.connect(pizza, 80)) {</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (client.connect(host, 80)) {</div>
 <div class="line">      Serial.println(F(<span class="stringliteral">&quot;connected&quot;</span>));</div>
 <div class="line">      </div>
 <div class="line">      <span class="comment">// Make an HTTP request:</span></div>
-<div class="line">      client.write(<span class="stringliteral">&quot;GET /asciiart/pizza.txt HTTP/1.1\n&quot;</span>);</div>
-<div class="line">      <span class="comment">//client.write(&quot;GET / HTTP/1.1\n&quot;);</span></div>
-<div class="line">      </div>
-<div class="line">      client.write(<span class="stringliteral">&quot;Host: fiikus.net\n&quot;</span>);</div>
-<div class="line">      <span class="comment">//client.write(&quot;Host: www.google.ca\n&quot;);</span></div>
+<div class="line">      <span class="keywordflow">if</span>(host == pizza){</div>
+<div class="line">        client.write(<span class="stringliteral">&quot;GET /asciiart/pizza.txt HTTP/1.1\nHost: fiikus.net\n&quot;</span>);</div>
+<div class="line">      }<span class="keywordflow">else</span>{</div>
+<div class="line">        client.write(<span class="stringliteral">&quot;GET /files/2591/2591-0.txt HTTP/1.1\nHost: gutenberg.org\n&quot;</span>);</div>
+<div class="line">      }</div>
 <div class="line">      </div>
 <div class="line">      client.write(<span class="stringliteral">&quot;Connection: close\n\n&quot;</span>);   </div>
 <div class="line">    </div>
@@ -277,12 +278,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">      Serial.println(F(<span class="stringliteral">&quot;connection failed&quot;</span>));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="line"> </div>
 </div><!-- fragment --> </div><!-- contents -->
 <div class="ttc" id="aclassRF24EthernetClass_html"><div class="ttname"><a href="classRF24EthernetClass.html">RF24EthernetClass</a></div><div class="ttdef"><b>Definition:</b> <a href="RF24Ethernet_8h_source.html#l00105">RF24Ethernet.h:105</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 7 2020 00:34:06 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 16 2020 22:19:26 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

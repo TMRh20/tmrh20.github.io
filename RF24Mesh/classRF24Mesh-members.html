@@ -112,18 +112,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr><td class="entry"><a class="el" href="classRF24Mesh.html#a01e3844c6f04bf81bac6e45c3d75116e">renewAddress</a>(uint32_t timeout=MESH_RENEWAL_TIMEOUT)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#a8b2bde3730c955d28a269f35b610a562">RF24Mesh</a>(RF24 &amp;_radio, RF24Network &amp;_network)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="classRF24Mesh.html#aa9448ca15e501d0bae687c5428c7cc12">saveDHCP</a>()</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#a44f16e3ca96090bf86698bf418e59b91">setAddress</a>(uint8_t nodeID, uint16_t address)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#ab4d6a0a2146215b0e54dff4e1dcb08d1">setChannel</a>(uint8_t _channel)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#ae183c358915a1b7fbf1b19db8ba66a16">setChild</a>(bool allow)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a>(uint8_t nodeID)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#aaa74fedf955eca2504b7c8715daba271">setStaticAddress</a>(uint8_t nodeID, uint16_t address)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#a7a07df36e2d69a9cdaa9519e32854130">update</a>()</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#a34535daf39ead14698f3718037358394">write</a>(const void *data, uint8_t msg_type, size_t size, uint8_t nodeID=0)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#ad294234c41f303881aa24c74782eecd7">write</a>(uint16_t to_node, const void *data, uint8_t msg_type, size_t size)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#af4208f157ec8a7dae4bc716236185597">setAddress</a>(uint8_t nodeID, uint16_t address, bool searchBy=false)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#ab2d6861a17301e6f0010ca99ea9279df">setCallback</a>(void(*meshCallback)(void))</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#ab4d6a0a2146215b0e54dff4e1dcb08d1">setChannel</a>(uint8_t _channel)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#ae183c358915a1b7fbf1b19db8ba66a16">setChild</a>(bool allow)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#a9d3e662216ffd890e019537a95297ed4">setNodeID</a>(uint8_t nodeID)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#aaa74fedf955eca2504b7c8715daba271">setStaticAddress</a>(uint8_t nodeID, uint16_t address)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#a7a07df36e2d69a9cdaa9519e32854130">update</a>()</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classRF24Mesh.html#a34535daf39ead14698f3718037358394">write</a>(const void *data, uint8_t msg_type, size_t size, uint8_t nodeID=0)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classRF24Mesh.html#ad294234c41f303881aa24c74782eecd7">write</a>(uint16_t to_node, const void *data, uint8_t msg_type, size_t size)</td><td class="entry"><a class="el" href="classRF24Mesh.html">RF24Mesh</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Aug 8 2020 13:22:15 for RF24Mesh - Automated Networking for nrf24L01 radios by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 16 2020 22:16:47 for RF24Mesh - Automated Networking for nrf24L01 radios by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

@@ -100,7 +100,14 @@ Design Goals</h1>
 </ul>
 <h1><a class="anchor" id="News"></a>
 News</h1>
-<p><b>Aug 2020</b></p><ul>
+<p><b>Aug 2020</b> <br  />
+ v1.3.8</p><ul>
+<li>Introduces change that mainly reduces the time required to call startListening(), powerUp(), and powerDown()</li>
+<li>Affects speed of switching from TX-&gt;RX. Users might consider starting updates of slower devices with this<br  />
+ release to prevent missed packets when similar changes are introduced, affecting switching from RX-&gt;TX</li>
+<li>Clean up <a class="el" href="group__Porting__SPI.html#gaf79095574842d60a6297aa5b01b6185f">begin()</a> function (reduce program size)</li>
+</ul>
+<p>v1.3.7</p><ul>
 <li>Bug fix for startWrite() function affecting <a class="el" href="classRF24.html">RF24</a> stack (all <a class="el" href="classRF24.html">RF24</a> libraries)</li>
 <li>Unify Arduino &amp; Linux constructor. Accept SPI speed in Hz as optional parameter</li>
 <li>Removal of BCM2835 SPI speed constants due to removal from BCM library</li>
@@ -190,7 +197,7 @@ Platform Support Pages</h1>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 10 2020 18:04:29 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 16 2020 22:14:28 for Optimized high speed nRF24L01+ driver class documentation by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>

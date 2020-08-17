@@ -143,8 +143,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (conn){</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    #if UIP_CONNECT_TIMEOUT &gt; 0</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    int32_t timeout = millis() + 1000 * UIP_CONNECT_TIMEOUT;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">    #if UIP_CONNECTION_TIMEOUT &gt; 0</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    uint32_t timeout = millis();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">while</span>((conn-&gt;tcpstateflags &amp; UIP_TS_MASK) != UIP_CLOSED) {</div>
@@ -156,13 +156,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> 1;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }   </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">    #if UIP_CONNECT_TIMEOUT &gt; 0</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">if</span> (((int32_t)(millis() - timeout)) &gt; 0) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">    #if UIP_CONNECTION_TIMEOUT &gt; 0</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keywordflow">if</span>( (millis()- timeout) &gt; UIP_CONNECTION_TIMEOUT) {</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        conn-&gt;tcpstateflags = UIP_CLOSED;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">    #endif</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">//delay(25);</span></div>
@@ -599,7 +599,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="aclassRF24Client_html_a08cfb995b3f10b89115e93544c843b1a"><div class="ttname"><a href="classRF24Client.html#a08cfb995b3f10b89115e93544c843b1a">RF24Client::connect</a></div><div class="ttdeci">int connect(IPAddress ip, uint16_t port)</div><div class="ttdef"><b>Definition:</b> <a href="RF24Client_8cpp_source.html#l00042">RF24Client.cpp:42</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Aug 7 2020 00:34:06 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 16 2020 22:19:26 for RF24Ethernet - TCP/IP over RF24Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.18
 </small></address>
