@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['autoanalog',['AutoAnalog',['../classAutoAnalog.html',1,'']]]
+  ['autoanalog_98',['AutoAnalog',['../classAutoAnalog.html',1,'']]]
 ];

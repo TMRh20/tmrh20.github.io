@@ -1,4 +1,19 @@
 var searchData=
 [
-  ['enableadcchannel',['enableAdcChannel',['../classAutoAnalog.html#ab0f3ceccd76b77c0a6e407ba92f42346',1,'AutoAnalog']]]
+  ['dac0_5fpin_33',['DAC0_PIN',['../AutoAnalog__config_8h.html#a431ff7ca78dcb48da953b539d76b67e9',1,'AutoAnalog_config.h']]],
+  ['dac1_5fpin_34',['DAC1_PIN',['../AutoAnalog__config_8h.html#aadce927c4d67b0d0e59b1c134ff3eb3d',1,'AutoAnalog_config.h']]],
+  ['dacbitspersample_35',['dacBitsPerSample',['../classAutoAnalog.html#a122737d7a251d9da00ecf02be72c2e18',1,'AutoAnalog']]],
+  ['dacbuffer_36',['dacBuffer',['../classAutoAnalog.html#a4b5f46afb8f50e9bc28431cd467ee8bf',1,'AutoAnalog']]],
+  ['dacbuffer16_37',['dacBuffer16',['../classAutoAnalog.html#a85377e5dc495fdbd129db30c6c88ca71',1,'AutoAnalog']]],
+  ['dacc_5fhandler_38',['DACC_Handler',['../ESP32_2ESP32__AudioTest_2myWAV_8h.html#a4e5ace3081c1889b911e460ec4a1dbd2',1,'DACC_Handler(void):&#160;myWAV.h'],['../SDAudio_2SdAudioRecording_2myWAV_8h.html#a4e5ace3081c1889b911e460ec4a1dbd2',1,'DACC_Handler(void):&#160;myWAV.h'],['../SDAudio_2SdAudioWavPlayer_2myWAV_8h.html#a4e5ace3081c1889b911e460ec4a1dbd2',1,'DACC_Handler(void):&#160;myWAV.h'],['../avr_2AutoAnalogAudio_8cpp.html#a996109f04d8687e0c608c1a52cb3fec3',1,'DACC_Handler():&#160;myWAV.h']]],
+  ['dacchan_39',['dacChan',['../avr_2AutoAnalogAudio_8cpp.html#a6c44db3497063c7f81a10e23e75959c3',1,'AutoAnalogAudio.cpp']]],
+  ['dachandler_40',['dacHandler',['../classAutoAnalog.html#a0bf0cb2ddbf79748887551f09a7932ec',1,'AutoAnalog']]],
+  ['dacinterrupts_41',['dacInterrupts',['../classAutoAnalog.html#aa689bffc34485c3fc6cddfdd01ca399b',1,'AutoAnalog']]],
+  ['dacnumsamples_42',['dacNumSamples',['../avr_2AutoAnalogAudio_8cpp.html#a3eaa7f52e18eb95471b9c0c78f030cb7',1,'AutoAnalogAudio.cpp']]],
+  ['dacsamplecounter_43',['dacSampleCounter',['../avr_2AutoAnalogAudio_8cpp.html#ae2a4c99202368a958cbb5c1feb7556ae',1,'AutoAnalogAudio.cpp']]],
+  ['dataready_44',['dataReady',['../avr_2AutoAnalogAudio_8cpp.html#a8256fde38311789daa88b23b5614a93f',1,'AutoAnalogAudio.cpp']]],
+  ['default_5ffrequency_45',['DEFAULT_FREQUENCY',['../AutoAnalog__config_8h.html#a052b63090cda80236391c5fc0c1fe30c',1,'AutoAnalog_config.h']]],
+  ['defaultshift_46',['defaultShift',['../avr_2AutoAnalogAudio_8cpp.html#a9ee1d40318cd3a17bd16624fd1ce59d5',1,'AutoAnalogAudio.cpp']]],
+  ['disableadcchannel_47',['disableAdcChannel',['../classAutoAnalog.html#af23ab64cf3d4881f55ba1d5c0b1d607b',1,'AutoAnalog']]],
+  ['disabledac_48',['disableDAC',['../classAutoAnalog.html#a7936ca7efd99bb3a66ece6115893af94',1,'AutoAnalog']]]
 ];
