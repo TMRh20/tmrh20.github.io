@@ -1,11 +1,16 @@
-Documentation hosted in this repository is generated using [doxygen](https://www.doxygen.nl).
+Documentation hosted in this repository is *mostly* generated using [doxygen](https://www.doxygen.nl).
 
-The only changes that should be made directly to this repository would be anything in the [index.html](https://github.com/TMRh20/tmrh20.github.io/blob/master/index.html) or the [RF24Installer/RPi](https://github.com/TMRh20/tmrh20.github.io/tree/master/RF24Installer/RPi) folder.
+The only changes that should be made directly to this repository would be anything in the
+[index.html](https://github.com/TMRh20/tmrh20.github.io/blob/master/index.html) or the
+[RF24Installer/RPi](https://github.com/TMRh20/tmrh20.github.io/tree/master/RF24Installer/RPi) folder.
 
 If you wish to contribute documentation changes, you must
-1. be familiar with [doxygen](https://www.doxygen.nl/manual/index.html) (especially [doxygen's special commands](https://www.doxygen.nl/manual/commands.html)).
-It also helps to know [Markdown syntax](https://guides.github.com/features/mastering-markdown/) because that is (mostly) the syntax that doxygen uses.
-2. make your changes to the appropriate header file in the reository related to the library documentation you wish to change.
+1. be familiar with [doxygen](https://www.doxygen.nl/manual/index.html) (especially
+[doxygen's special commands](https://www.doxygen.nl/manual/commands.html)).
+It also helps to know [Markdown syntax](https://guides.github.com/features/mastering-markdown/)
+because that is (mostly) the syntax that doxygen uses.
+2. make your changes to the appropriate header file in the reository related to the library
+documentation you wish to change.
 
     | Library | Repository |
     |:-------:|:----------:|
@@ -14,8 +19,13 @@ It also helps to know [Markdown syntax](https://guides.github.com/features/maste
     | RF24Mesh | [nRF24/RF24Mesh](https://github.com/nRF24/RF24Mesh) |
     | RF24Ethernet | [nRF24/RF24Ethernet](https://github.com/nRF24/RF24Ethernet) |
     | AutoAnalogAudio | [TMRh20/AutoAnalogAudio](https://github.com/TMRh20/AutoAnalogAudio) |
-    | TMRpcm | [TMRh20/TMRpcm](https://github.com/TMRh20/TMRpcm) |
     | RF24Audio | [nRF24/RF24Audio](https://github.com/nRF24/RF24Audio) |
 3. submit a Pull Request in the repository for which you changed.
-    - If your changes are related to AutoAnalogAudio or TMRpcm libraries, then a second Pull Request needs to be submitted to this repository.
+    - If your changes are related to AutoAnalogAudio or TMRpcm libraries, then a second Pull Request
+    needs to be submitted to this repository.
     This second Pull Request should only contain the doxygen output of the new documentation.
+
+### Non-doxygen documentation
+The [TMRh20/TMRpcm](https://github.com/TMRh20/TMRpcm) library uses Wiki
+pages for its documentation. Again, please submit your changes for that
+documentation to [TMRh20's TMRpcm repository](https://github.com/TMRh20/TMRpcm).
